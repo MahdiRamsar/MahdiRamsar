@@ -131,23 +131,16 @@
             z-index: 2;
         }
         
-        ..profile-img {
-    width: 180px;
-    height: 180px;
-    border-radius: 50%;
-    border: 5px solid rgba(255,255,255,0.3);
-    margin: 0 auto 30px;
-    background-image: url('profile.jpg');
-    background-size: cover;
-    background-position: center;
-    /* حذف gradient و animation */
-}
-        }
-        
-        @keyframes gradientShift {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
+        .profile-img {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            border: 5px solid rgba(255,255,255,0.3);
+            margin: 0 auto 30px;
+            background-image: url('profile.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
         }
         
         .hero h2 {
@@ -330,7 +323,7 @@
             box-shadow: 0 10px 25px rgba(0,0,0,0.2);
         }
         
-        /* فرم تماس */
+        /* فرم تماس -->
         .contact-form {
             display: grid;
             gap: 20px;
@@ -680,6 +673,17 @@
                 this.style.transform = 'translateY(0) scale(1)';
             });
         });
+
+        // اضافه کردن تاریخ شمسی پویا
+        function updatePersianDate() {
+            const now = new Date();
+            const options = { year: 'numeric', month: 'long', day: 'numeric' };
+            const persianDate = now.toLocaleDateString('fa-IR', options);
+            document.getElementById('current-date').textContent = persianDate;
+        }
+        
+        // اجرای تابع هنگام لود صفحه
+        document.addEventListener('DOMContentLoaded', updatePersianDate);
     </script>
 </body>
 </html>
