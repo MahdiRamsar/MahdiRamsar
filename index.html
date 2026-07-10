@@ -3,142 +3,193 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    
-    <!-- SEO -->
-    <title>مهدی رحیمیان | سایت شخصی | آثار صوتی و تصویری</title>
-    <meta name="description" content="سایت شخصی مهدی رحیمیان - آثار صوتی و تصویری، دلنوشته‌ها، دکلمه‌ها و کانال تلگرام" />
-    <meta name="keywords" content="مهدی رحیمیان, وبلاگ شخصی, دکلمه, دلنوشته, پادکست, اینستاگرام, تلگرام" />
+
+    <!-- ========== SEO ========== -->
+    <title>مهدی رحیمیان | نویسنده، گوینده، تولیدکننده محتوا</title>
+    <meta name="description" content="سایت رسمی مهدی رحیمیان - آثار صوتی و تصویری، دلنوشته‌ها، دکلمه‌ها و کانال تلگرام" />
+    <meta name="keywords" content="مهدی رحیمیان, دکلمه, دلنوشته, پادکست, گویندگی, اینستاگرام, تلگرام" />
     <meta name="author" content="مهدی رحیمیان" />
     <meta name="robots" content="index, follow" />
-    
+    <link rel="canonical" href="https://mahdiramsar.github.io" />
+
     <!-- Open Graph -->
-    <meta property="og:title" content="مهدی رحیمیان | آثار صوتی و تصویری" />
-    <meta property="og:description" content="دکلمه‌ها، دلنوشته‌ها و کانال تلگرام مهدی رحیمیان" />
+    <meta property="og:title" content="مهدی رحیمیان | نویسنده، گوینده، تولیدکننده محتوا" />
+    <meta property="og:description" content="آثار صوتی و تصویری، دلنوشته‌ها و کانال تلگرام مهدی رحیمیان" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://mahdiramsar.github.io" />
-    
+    <meta property="og:image" content="https://mahdiramsar.github.io/og-image.jpg" />
+
     <!-- Schema.org -->
     <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "Person",
-        "name": "مهدی رحیمیان",
-        "url": "https://mahdiramsar.github.io",
-        "description": "نویسنده، گوینده و تولیدکننده محتوای صوتی و تصویری"
-    }
-    </script>
-    
-    <!-- فونت وزیر (نسخه متغیر) -->
-    <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet" />
-    <!-- Font Awesome 6 -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
-    
-    <style>
-        /* ============================================================
-                   متغیرهای CSS
-                   ============================================================ */
-        :root {
-            --bg-primary: #f6f9fc;
-            --bg-secondary: #ffffff;
-            --bg-card: rgba(255, 255, 255, 0.7);
-            --bg-glass: rgba(255, 255, 255, 0.25);
-            --text-primary: #0b1a33;
-            --text-secondary: #334155;
-            --text-muted: #64748b;
-            --shadow-sm: 0 8px 32px rgba(0, 0, 0, 0.06);
-            --shadow-md: 0 16px 48px rgba(0, 0, 0, 0.10);
-            --shadow-lg: 0 24px 64px rgba(0, 0, 0, 0.14);
-            --radius: 28px;
-            --radius-sm: 16px;
-            --transition: 0.5s cubic-bezier(0.23, 1, 0.32, 1);
-            --gradient-1: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            --gradient-2: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-            --gradient-hero: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
-            --glass-border: rgba(255, 255, 255, 0.3);
-            --blur: blur(20px);
+        {
+            "@context": "https://schema.org",
+            "@type": "Person",
+            "name": "مهدی رحیمیان",
+            "url": "https://mahdiramsar.github.io",
+            "description": "نویسنده، گوینده و تولیدکننده محتوای صوتی و تصویری",
+            "sameAs": [
+                "https://www.instagram.com/sayehaye.bi.neghab",
+                "https://t.me/sayehayebineghab",
+                "https://github.com/mahdiramsar"
+            ]
         }
-        
-        [data-theme="dark"] {
+    </script>
+
+    <!-- ========== Fonts & Icons ========== -->
+    <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
+
+    <!-- ========== AOS ========== -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
+    <style>
+        /* ================================================================
+                   CSS VARIABLES (Dark Mode Default)
+                   ================================================================ */
+        :root {
             --bg-primary: #0a0e1a;
-            --bg-secondary: #131b2e;
-            --bg-card: rgba(20, 30, 50, 0.75);
-            --bg-glass: rgba(10, 14, 26, 0.5);
-            --text-primary: #eef2ff;
+            --bg-secondary: #111827;
+            --bg-card: rgba(17, 24, 39, 0.65);
+            --bg-glass: rgba(255, 255, 255, 0.06);
+            --text-primary: #f1f5f9;
             --text-secondary: #cbd5e1;
             --text-muted: #94a3b8;
-            --shadow-sm: 0 8px 32px rgba(0, 0, 0, 0.5);
-            --shadow-md: 0 16px 48px rgba(0, 0, 0, 0.6);
-            --shadow-lg: 0 24px 64px rgba(0, 0, 0, 0.7);
-            --glass-border: rgba(255, 255, 255, 0.08);
+            --border-glass: rgba(255, 255, 255, 0.08);
+            --shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
+            --shadow-glow: 0 0 40px rgba(102, 126, 234, 0.15);
+            --radius: 24px;
+            --radius-sm: 14px;
+            --transition: 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+            --gradient-aurora: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+            --gradient-accent: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --neon-glow: 0 0 30px rgba(102, 126, 234, 0.3);
+            --font: 'Vazirmatn', 'Segoe UI', sans-serif;
         }
-        
-        /* ============================================================
-                   ریست و پایه
-                   ============================================================ */
+
+        /* ================================================================
+                   RESET & BASE
+                   ================================================================ */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
+
         html {
             scroll-behavior: smooth;
+            scroll-padding-top: 80px;
         }
-        
+
         body {
-            font-family: 'Vazirmatn', 'Segoe UI', sans-serif;
+            font-family: var(--font);
             background: var(--bg-primary);
             color: var(--text-primary);
             line-height: 1.8;
-            transition: background 0.6s ease, color 0.5s ease;
-            padding-top: 80px;
             overflow-x: hidden;
+            cursor: none;
+            position: relative;
         }
-        
+
         ::selection {
             background: #667eea;
             color: #fff;
         }
-        
+
         .container {
-            max-width: 1140px;
+            max-width: 1200px;
             margin: 0 auto;
             padding: 0 24px;
+            position: relative;
+            z-index: 2;
         }
-        
-        /* ============================================================
-                   نوار پیشرفت اسکرول
-                   ============================================================ */
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        /* ================================================================
+                   CUSTOM CURSOR GLOW
+                   ================================================================ */
+        #cursor-glow {
+            position: fixed;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(102, 126, 234, 0.4) 0%, transparent 70%);
+            pointer-events: none;
+            z-index: 9999;
+            transform: translate(-50%, -50%);
+            transition: width 0.3s, height 0.3s, opacity 0.3s;
+            mix-blend-mode: screen;
+            display: none;
+        }
+        #cursor-dot {
+            position: fixed;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: #667eea;
+            pointer-events: none;
+            z-index: 10000;
+            transform: translate(-50%, -50%);
+            transition: width 0.2s, height 0.2s;
+            box-shadow: 0 0 20px rgba(102, 126, 234, 0.6);
+            display: none;
+        }
+
+        @media (hover: hover) {
+            #cursor-glow,
+            #cursor-dot {
+                display: block;
+            }
+        }
+
+        /* ================================================================
+                   PARTICLE BACKGROUND
+                   ================================================================ */
+        #particles-js {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        /* ================================================================
+                   SCROLL PROGRESS
+                   ================================================================ */
         #scroll-progress {
             position: fixed;
             top: 0;
             left: 0;
             width: 0%;
-            height: 4px;
-            background: var(--gradient-1);
-            z-index: 9999;
+            height: 3px;
+            background: var(--gradient-accent);
+            z-index: 9998;
             transition: width 0.1s;
-            border-radius: 0 4px 4px 0;
-            box-shadow: 0 0 20px rgba(102, 126, 234, 0.4);
+            box-shadow: var(--neon-glow);
         }
-        
-        /* ============================================================
-                   هدر شیشه‌ای
-                   ============================================================ */
+
+        /* ================================================================
+                   HEADER – Glassmorphism
+                   ================================================================ */
         header {
             position: fixed;
             top: 0;
             left: 0;
             right: 0;
             z-index: 1000;
-            background: var(--bg-glass);
-            backdrop-filter: var(--blur);
-            -webkit-backdrop-filter: var(--blur);
-            border-bottom: 1px solid var(--glass-border);
+            background: rgba(10, 14, 26, 0.55);
+            backdrop-filter: blur(20px) saturate(180%);
+            -webkit-backdrop-filter: blur(20px) saturate(180%);
+            border-bottom: 1px solid var(--border-glass);
             padding: 12px 0;
-            transition: background 0.5s ease, border-color 0.4s ease;
+            transition: all var(--transition);
         }
-        
+
         .header-content {
             display: flex;
             justify-content: space-between;
@@ -146,22 +197,22 @@
             flex-wrap: wrap;
             gap: 12px;
         }
-        
+
         .logo h1 {
-            font-size: 1.7rem;
+            font-size: 1.6rem;
             font-weight: 900;
-            letter-spacing: -0.5px;
-            background: var(--gradient-1);
+            background: var(--gradient-accent);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+            letter-spacing: -0.5px;
         }
         .logo .subtitle {
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             color: var(--text-muted);
             -webkit-text-fill-color: var(--text-muted);
         }
-        
+
         nav ul {
             display: flex;
             gap: 4px;
@@ -169,12 +220,11 @@
             flex-wrap: wrap;
         }
         nav a {
-            color: var(--text-primary);
-            text-decoration: none;
+            color: var(--text-secondary);
             font-weight: 600;
             padding: 8px 18px;
             border-radius: 40px;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             transition: all var(--transition);
             position: relative;
         }
@@ -185,187 +235,251 @@
             right: 50%;
             width: 0;
             height: 2px;
-            background: var(--gradient-1);
+            background: var(--gradient-accent);
             transition: all var(--transition);
             transform: translateX(50%);
         }
         nav a:hover::after {
-            width: 60%;
+            width: 50%;
         }
         nav a:hover {
-            background: rgba(102, 126, 234, 0.12);
-            color: #667eea;
+            color: #fff;
+            background: rgba(102, 126, 234, 0.15);
         }
-        
+
         .header-actions {
             display: flex;
             align-items: center;
             gap: 12px;
         }
-        
+
         .theme-toggle {
-            background: var(--bg-secondary);
-            border: none;
+            background: var(--bg-card);
+            border: 1px solid var(--border-glass);
             border-radius: 50%;
             width: 44px;
             height: 44px;
             font-size: 1.2rem;
             cursor: pointer;
             color: var(--text-primary);
-            box-shadow: var(--shadow-sm);
+            box-shadow: var(--shadow);
             transition: all var(--transition);
             display: flex;
             align-items: center;
             justify-content: center;
+            backdrop-filter: blur(8px);
         }
         .theme-toggle:hover {
-            transform: rotate(45deg) scale(1.1);
-            box-shadow: var(--shadow-md);
+            transform: rotate(45deg) scale(1.08);
+            border-color: #667eea;
+            box-shadow: var(--neon-glow);
         }
-        
-        /* ============================================================
-                   بخش قهرمان با گرادیان متحرک و حباب‌ها
-                   ============================================================ */
+
+        /* ================================================================
+                   HERO – Aurora Background
+                   ================================================================ */
         .hero {
             position: relative;
-            background: var(--gradient-hero);
-            background-size: 300% 300%;
-            animation: gradientMove 10s ease-in-out infinite alternate;
-            color: #fff;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             text-align: center;
-            padding: 80px 20px 70px;
-            border-radius: var(--radius);
-            margin-bottom: 50px;
+            padding: 120px 20px 80px;
             overflow: hidden;
-            box-shadow: 0 30px 80px rgba(79, 172, 254, 0.3);
+            background: var(--gradient-aurora);
+            background-size: 400% 400%;
+            animation: auroraMove 15s ease-in-out infinite alternate;
+            border-radius: 0 0 var(--radius) var(--radius);
+            margin-bottom: 60px;
             isolation: isolate;
         }
-        
-        @keyframes gradientMove {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
+
+        @keyframes auroraMove {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
         }
-        
-        .hero .bubble {
+
+        /* Hero Glow Orbs */
+        .hero .orb {
             position: absolute;
             border-radius: 50%;
-            background: rgba(255, 255, 255, 0.12);
-            backdrop-filter: blur(4px);
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            animation: floatBubble 18s infinite ease-in-out alternate;
+            filter: blur(80px);
+            opacity: 0.5;
             pointer-events: none;
-            z-index: 1;
+            z-index: 0;
+            animation: orbFloat 20s infinite alternate ease-in-out;
         }
-        .hero .bubble:nth-child(1) { width: 180px; height: 180px; top: -40px; right: -30px; animation-delay: 0s; }
-        .hero .bubble:nth-child(2) { width: 260px; height: 260px; bottom: -80px; left: -60px; animation-delay: -6s; }
-        .hero .bubble:nth-child(3) { width: 120px; height: 120px; top: 20%; left: 15%; animation-delay: -12s; }
-        .hero .bubble:nth-child(4) { width: 80px; height: 80px; bottom: 30%; right: 10%; animation-delay: -4s; }
-        
-        @keyframes floatBubble {
-            0% { transform: translate(0, 0) scale(1); }
-            100% { transform: translate(40px, -30px) scale(1.1); }
+        .hero .orb:nth-child(1) {
+            width: 400px;
+            height: 400px;
+            background: #667eea;
+            top: -100px;
+            right: -100px;
+            animation-delay: 0s;
         }
-        
+        .hero .orb:nth-child(2) {
+            width: 500px;
+            height: 500px;
+            background: #764ba2;
+            bottom: -150px;
+            left: -150px;
+            animation-delay: -6s;
+        }
+        .hero .orb:nth-child(3) {
+            width: 300px;
+            height: 300px;
+            background: #f093fb;
+            top: 30%;
+            left: 20%;
+            animation-delay: -12s;
+            opacity: 0.3;
+        }
+
+        @keyframes orbFloat {
+            0% {
+                transform: translate(0, 0) scale(1);
+            }
+            100% {
+                transform: translate(60px, -40px) scale(1.2);
+            }
+        }
+
         .hero-content {
             position: relative;
             z-index: 2;
         }
-        
+
         .profile-avatar {
-            width: 150px;
-            height: 150px;
+            width: 180px;
+            height: 180px;
             border-radius: 50%;
-            margin: 0 auto 24px;
-            background: var(--gradient-2);
+            margin: 0 auto 28px;
+            background: var(--gradient-accent);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 4.5rem;
+            font-size: 5rem;
             color: #fff;
-            box-shadow: 0 0 0 8px rgba(255, 255, 255, 0.25), 0 24px 48px rgba(0, 0, 0, 0.2);
-            transition: transform var(--transition);
+            box-shadow: 0 0 0 6px rgba(255, 255, 255, 0.08), 0 30px 60px rgba(0, 0, 0, 0.4), var(--neon-glow);
+            transition: all var(--transition);
             animation: floatAvatar 6s ease-in-out infinite alternate;
         }
         @keyframes floatAvatar {
-            0% { transform: translateY(0); }
-            100% { transform: translateY(-12px); }
+            0% {
+                transform: translateY(0);
+            }
+            100% {
+                transform: translateY(-16px);
+            }
         }
         .profile-avatar:hover {
             transform: scale(1.06) rotate(-6deg);
+            box-shadow: 0 0 0 10px rgba(255, 255, 255, 0.12), 0 40px 80px rgba(0, 0, 0, 0.5), 0 0 60px rgba(102, 126, 234, 0.3);
         }
-        
+
         .hero h2 {
-            font-size: 3.2rem;
+            font-size: 3.8rem;
             font-weight: 900;
-            letter-spacing: -1px;
-            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+            letter-spacing: -1.5px;
+            text-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
             margin-bottom: 8px;
         }
+        .hero h2 span {
+            background: var(--gradient-accent);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
         .hero .tagline {
-            font-size: 1.3rem;
+            font-size: 1.4rem;
             font-weight: 300;
-            opacity: 0.92;
+            opacity: 0.85;
             margin-bottom: 6px;
+            color: var(--text-secondary);
         }
         .hero .typed-text {
-            font-size: 1.1rem;
-            opacity: 0.85;
-            min-height: 2.8rem;
+            font-size: 1.15rem;
+            opacity: 0.75;
+            min-height: 3rem;
             font-weight: 300;
             direction: ltr;
+            color: var(--text-muted);
         }
-        
+
         .social-links {
             display: flex;
             justify-content: center;
-            gap: 20px;
-            margin-top: 30px;
+            gap: 18px;
+            margin-top: 32px;
             flex-wrap: wrap;
         }
         .social-links a {
             color: #fff;
-            background: rgba(255, 255, 255, 0.15);
-            width: 60px;
-            height: 60px;
+            background: rgba(255, 255, 255, 0.06);
+            width: 58px;
+            height: 58px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.7rem;
+            font-size: 1.6rem;
             transition: all var(--transition);
             backdrop-filter: blur(8px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: var(--shadow);
         }
         .social-links a:hover {
             transform: translateY(-8px) scale(1.08);
-            background: rgba(255, 255, 255, 0.3);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+            background: rgba(255, 255, 255, 0.15);
+            box-shadow: var(--neon-glow);
         }
-        .social-links .instagram:hover { background: #E4405F; border-color: #E4405F; }
-        .social-links .telegram:hover { background: #0088cc; border-color: #0088cc; }
-        .social-links .email:hover { background: #fbbf24; border-color: #fbbf24; color: #1e293b; }
-        .social-links .github:hover { background: #171515; border-color: #171515; }
-        
-        /* ============================================================
-                   کارت‌های بخش‌ها
-                   ============================================================ */
+        .social-links .instagram:hover {
+            background: #E4405F;
+            border-color: #E4405F;
+        }
+        .social-links .telegram:hover {
+            background: #0088cc;
+            border-color: #0088cc;
+        }
+        .social-links .email:hover {
+            background: #fbbf24;
+            border-color: #fbbf24;
+            color: #1e293b;
+        }
+        .social-links .github:hover {
+            background: #171515;
+            border-color: #171515;
+        }
+
+        /* ================================================================
+                   SECTION CARDS – Glassmorphism
+                   ================================================================ */
         section {
             background: var(--bg-card);
-            backdrop-filter: var(--blur);
-            -webkit-backdrop-filter: var(--blur);
+            backdrop-filter: blur(16px) saturate(180%);
+            -webkit-backdrop-filter: blur(16px) saturate(180%);
             padding: 48px 40px;
             border-radius: var(--radius);
-            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border-glass);
+            box-shadow: var(--shadow), var(--shadow-glow);
             margin: 40px 0;
-            border: 1px solid var(--glass-border);
             transition: all var(--transition);
+            position: relative;
+            z-index: 2;
         }
         section:hover {
-            box-shadow: var(--shadow-md);
-            transform: translateY(-6px);
+            box-shadow: var(--shadow), 0 0 60px rgba(102, 126, 234, 0.06);
+            transform: translateY(-4px);
         }
-        
+
         h3 {
             font-size: 2rem;
             font-weight: 800;
@@ -374,104 +488,238 @@
             align-items: center;
             gap: 12px;
             padding-bottom: 12px;
-            border-bottom: 4px solid transparent;
-            border-image: var(--gradient-1);
+            border-bottom: 3px solid transparent;
+            border-image: var(--gradient-accent);
             border-image-slice: 1;
         }
         h3 i {
             color: #667eea;
+            filter: drop-shadow(0 0 12px rgba(102, 126, 234, 0.3));
         }
-        
-        /* ============================================================
-                   مهارت‌ها
-                   ============================================================ */
+
+        /* ================================================================
+                   SKILLS
+                   ================================================================ */
         .skills {
             display: flex;
             flex-wrap: wrap;
-            gap: 14px;
+            gap: 12px;
         }
         .skill-tag {
-            background: var(--bg-secondary);
+            background: rgba(102, 126, 234, 0.12);
             color: var(--text-primary);
             padding: 10px 24px;
             border-radius: 60px;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             font-weight: 600;
-            box-shadow: var(--shadow-sm);
-            border: 1px solid var(--glass-border);
+            border: 1px solid rgba(102, 126, 234, 0.15);
             transition: all var(--transition);
             cursor: default;
             display: inline-flex;
             align-items: center;
             gap: 8px;
+            backdrop-filter: blur(4px);
         }
         .skill-tag i {
             color: #667eea;
-            font-size: 1.1rem;
         }
         .skill-tag:hover {
             transform: translateY(-4px) scale(1.04);
-            box-shadow: var(--shadow-md);
-            border-color: #667eea;
-            background: var(--gradient-1);
+            background: var(--gradient-accent);
             color: #fff;
+            box-shadow: var(--neon-glow);
+            border-color: transparent;
         }
         .skill-tag:hover i {
             color: #fff;
         }
-        
-        /* ============================================================
-                   نوشته‌ها
-                   ============================================================ */
-        .post {
-            background: var(--bg-primary);
-            padding: 28px 32px;
+
+        /* ================================================================
+                   WORKS GRID – 3D Tilt on Hover
+                   ================================================================ */
+        .works-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+            gap: 24px;
+            margin-top: 20px;
+        }
+
+        .work-card {
+            background: var(--bg-secondary);
+            padding: 28px 20px 24px;
             border-radius: var(--radius-sm);
-            margin: 20px 0;
-            border-right: 6px solid #667eea;
+            text-align: center;
+            border: 1px solid var(--border-glass);
+            box-shadow: var(--shadow);
             transition: all var(--transition);
-            box-shadow: var(--shadow-sm);
             position: relative;
             overflow: hidden;
+            perspective: 800px;
+            transform-style: preserve-3d;
+            cursor: pointer;
         }
-        .post::before {
+        .work-card::before {
             content: '';
             position: absolute;
             inset: 0;
-            background: var(--gradient-1);
+            background: var(--gradient-accent);
             opacity: 0;
             transition: opacity var(--transition);
             border-radius: var(--radius-sm);
+            z-index: 0;
         }
-        .post:hover::before {
-            opacity: 0.04;
+        .work-card:hover::before {
+            opacity: 0.05;
         }
-        .post:hover {
-            transform: translateX(10px) scale(1.01);
-            box-shadow: var(--shadow-md);
+        .work-card:hover {
+            transform: translateY(-10px) rotateX(2deg) rotateY(-2deg);
+            box-shadow: var(--shadow), var(--neon-glow);
+            border-color: rgba(102, 126, 234, 0.3);
         }
-        .post h4 {
-            font-size: 1.5rem;
+
+        .work-card .work-thumb {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: var(--gradient-accent);
+            margin: 0 auto 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.4rem;
+            color: #fff;
+            box-shadow: 0 8px 32px rgba(102, 126, 234, 0.3);
+            transition: all var(--transition);
+            position: relative;
+            z-index: 1;
+        }
+        .work-card:hover .work-thumb {
+            transform: scale(1.08) rotate(-8deg);
+            box-shadow: 0 12px 48px rgba(102, 126, 234, 0.5);
+        }
+
+        .work-card h4 {
+            font-size: 1.05rem;
             font-weight: 700;
             margin-bottom: 4px;
+            position: relative;
+            z-index: 1;
+        }
+        .work-card .work-date {
+            color: var(--text-muted);
+            font-size: 0.8rem;
+            display: block;
+            margin-bottom: 10px;
+            position: relative;
+            z-index: 1;
+        }
+        .work-tags {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 6px;
+            margin-bottom: 14px;
+            position: relative;
+            z-index: 1;
+        }
+        .work-tags span {
+            background: rgba(102, 126, 234, 0.12);
+            color: #667eea;
+            font-size: 0.65rem;
+            padding: 2px 14px;
+            border-radius: 20px;
+            font-weight: 600;
+            border: 1px solid rgba(102, 126, 234, 0.1);
+        }
+        .work-link {
+            color: #667eea;
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all var(--transition);
+            padding: 8px 20px;
+            border-radius: 40px;
+            background: rgba(102, 126, 234, 0.08);
+            position: relative;
+            z-index: 1;
+            border: 1px solid transparent;
+        }
+        .work-link:hover {
+            gap: 16px;
+            background: var(--gradient-accent);
+            color: #fff;
+            border-color: transparent;
+            box-shadow: var(--neon-glow);
+        }
+
+        /* ================================================================
+                   FILTER BUTTONS
+                   ================================================================ */
+        .filter-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 24px;
+        }
+        .filter-btn {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid var(--border-glass);
+            color: var(--text-secondary);
+            padding: 8px 22px;
+            border-radius: 40px;
+            font-family: var(--font);
+            font-weight: 600;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: all var(--transition);
+        }
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: var(--gradient-accent);
+            color: #fff;
+            border-color: transparent;
+            box-shadow: var(--neon-glow);
+        }
+
+        /* ================================================================
+                   BLOG POSTS
+                   ================================================================ */
+        .post {
+            background: var(--bg-secondary);
+            padding: 24px 28px;
+            border-radius: var(--radius-sm);
+            margin: 16px 0;
+            border-right: 4px solid #667eea;
+            transition: all var(--transition);
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border-glass);
+            border-right-width: 4px;
+        }
+        .post:hover {
+            transform: translateX(8px) scale(1.01);
+            box-shadow: var(--shadow), var(--neon-glow);
+            border-color: rgba(102, 126, 234, 0.3);
+        }
+        .post h4 {
+            font-size: 1.3rem;
+            font-weight: 700;
             display: flex;
             align-items: center;
             gap: 10px;
         }
         .post h4 i {
             color: #667eea;
-            font-size: 1.2rem;
         }
-        .post-date {
+        .post .post-date {
             color: var(--text-muted);
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             display: block;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
         }
         .read-more {
             color: #667eea;
             font-weight: 700;
-            text-decoration: none;
             display: inline-flex;
             align-items: center;
             gap: 6px;
@@ -480,122 +728,136 @@
         }
         .read-more:hover {
             gap: 16px;
-            color: #764ba2;
+            filter: drop-shadow(0 0 12px rgba(102, 126, 234, 0.3));
         }
-        
-        /* ============================================================
-                   بخش آثار صوتی و تصویری (جدید)
-                   ============================================================ */
-        .works-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 24px;
-            margin-top: 20px;
+
+        /* ================================================================
+                   SEARCH
+                   ================================================================ */
+        .search-box {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 24px;
+            flex-wrap: wrap;
         }
-        
-        .work-card {
-            background: var(--bg-primary);
-            padding: 28px 20px 24px;
-            border-radius: var(--radius-sm);
-            text-align: center;
+        .search-box input {
+            flex: 1;
+            min-width: 200px;
+            padding: 14px 20px;
+            border-radius: 60px;
+            border: 1px solid var(--border-glass);
+            background: var(--bg-secondary);
+            color: var(--text-primary);
+            font-family: var(--font);
+            font-size: 0.95rem;
             transition: all var(--transition);
-            border: 1px solid var(--glass-border);
-            box-shadow: var(--shadow-sm);
-            position: relative;
-            overflow: hidden;
+            box-shadow: var(--shadow);
         }
-        .work-card::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: var(--gradient-1);
-            transform: scaleX(0);
-            transition: transform var(--transition);
+        .search-box input:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: var(--neon-glow), var(--shadow);
         }
-        .work-card:hover::after {
-            transform: scaleX(1);
+        .search-box input::placeholder {
+            color: var(--text-muted);
         }
-        .work-card:hover {
-            transform: translateY(-8px);
-            box-shadow: var(--shadow-md);
+
+        /* ================================================================
+                   AUDIO PLAYER
+                   ================================================================ */
+        .audio-player {
+            background: var(--bg-secondary);
+            border-radius: var(--radius-sm);
+            padding: 20px 24px;
+            border: 1px solid var(--border-glass);
+            box-shadow: var(--shadow);
+            margin: 16px 0;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
         }
-        
-        .work-thumb {
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            background: var(--gradient-1);
-            margin: 0 auto 16px;
+        .audio-player .audio-info {
+            flex: 1;
+            min-width: 120px;
+        }
+        .audio-player .audio-info h4 {
+            font-size: 1rem;
+            font-weight: 700;
+        }
+        .audio-player .audio-info span {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+        .audio-player audio {
+            flex: 2;
+            min-width: 200px;
+            width: 100%;
+            height: 40px;
+            border-radius: 40px;
+            background: var(--bg-primary);
+        }
+        .audio-player audio::-webkit-media-controls-panel {
+            background: var(--bg-primary);
+        }
+
+        /* ================================================================
+                   TELEGRAM CHANNEL
+                   ================================================================ */
+        .telegram-channel {
+            background: var(--gradient-accent);
+            border-radius: var(--radius-sm);
+            padding: 36px 28px;
+            margin-top: 30px;
+            text-align: center;
+            color: #fff;
+            box-shadow: 0 16px 48px rgba(102, 126, 234, 0.25);
+            transition: all var(--transition);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+        }
+        .telegram-channel:hover {
+            transform: scale(1.02);
+            box-shadow: 0 24px 64px rgba(102, 126, 234, 0.35);
+        }
+        .telegram-channel h4 {
+            font-size: 1.6rem;
+            font-weight: 800;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 2.5rem;
-            color: #fff;
-            box-shadow: 0 8px 24px rgba(102, 126, 234, 0.3);
-            transition: transform var(--transition);
+            gap: 12px;
         }
-        .work-card:hover .work-thumb {
-            transform: scale(1.08) rotate(-6deg);
+        .telegram-channel p {
+            opacity: 0.9;
+            margin-bottom: 18px;
         }
-        
-        .work-card h4 {
-            font-size: 1.05rem;
-            font-weight: 700;
-            margin-bottom: 4px;
-            color: var(--text-primary);
-        }
-        
-        .work-date {
-            color: var(--text-muted);
-            font-size: 0.85rem;
-            display: block;
-            margin-bottom: 12px;
-        }
-        
-        .work-tags {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 6px;
-            margin-bottom: 14px;
-        }
-        .work-tags span {
-            background: rgba(102, 126, 234, 0.12);
-            color: #667eea;
-            font-size: 0.7rem;
-            padding: 2px 12px;
-            border-radius: 20px;
-            font-weight: 600;
-        }
-        
-        .work-link {
-            color: #667eea;
-            text-decoration: none;
-            font-weight: 700;
+        .btn-channel {
             display: inline-flex;
             align-items: center;
-            gap: 8px;
-            transition: all var(--transition);
-            padding: 8px 16px;
-            border-radius: 40px;
-            background: rgba(102, 126, 234, 0.08);
-        }
-        .work-link:hover {
-            gap: 16px;
-            background: var(--gradient-1);
+            gap: 12px;
+            background: rgba(255, 255, 255, 0.15);
             color: #fff;
+            padding: 14px 36px;
+            border-radius: 60px;
+            font-weight: 700;
+            font-size: 1rem;
+            backdrop-filter: blur(4px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            transition: all var(--transition);
         }
-        
-        /* ============================================================
-                   فرم تماس
-                   ============================================================ */
+        .btn-channel:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        /* ================================================================
+                   CONTACT FORM
+                   ================================================================ */
         .contact-form {
             display: grid;
-            gap: 22px;
-            margin-top: 24px;
+            gap: 20px;
+            margin-top: 20px;
         }
         .form-group {
             display: flex;
@@ -605,72 +867,69 @@
         .form-group label {
             font-weight: 700;
             color: var(--text-secondary);
-            font-size: 0.95rem;
+            font-size: 0.9rem;
         }
         .form-group input,
         .form-group textarea {
             padding: 16px 20px;
-            border: 2px solid var(--glass-border);
+            border: 1px solid var(--border-glass);
             border-radius: var(--radius-sm);
-            font-family: inherit;
+            font-family: var(--font);
             font-size: 1rem;
-            background: var(--bg-primary);
+            background: var(--bg-secondary);
             color: var(--text-primary);
             transition: all var(--transition);
-            box-shadow: var(--shadow-sm);
+            box-shadow: var(--shadow);
         }
         .form-group input:focus,
         .form-group textarea:focus {
             outline: none;
             border-color: #667eea;
-            box-shadow: 0 0 0 6px rgba(102, 126, 234, 0.15);
-            transform: scale(1.01);
+            box-shadow: var(--neon-glow), var(--shadow);
         }
         .btn {
-            background: var(--gradient-1);
+            background: var(--gradient-accent);
             color: #fff;
             border: none;
             padding: 18px 36px;
             border-radius: 60px;
-            font-size: 1.1rem;
+            font-size: 1.05rem;
             font-weight: 800;
             cursor: pointer;
             transition: all var(--transition);
-            box-shadow: 0 12px 32px rgba(102, 126, 234, 0.3);
+            box-shadow: 0 12px 40px rgba(102, 126, 234, 0.25);
             display: inline-flex;
             align-items: center;
             justify-content: center;
             gap: 12px;
-            font-family: inherit;
-            letter-spacing: 0.5px;
+            font-family: var(--font);
         }
         .btn:hover {
             transform: translateY(-6px) scale(1.02);
-            box-shadow: 0 20px 48px rgba(102, 126, 234, 0.4);
+            box-shadow: 0 20px 56px rgba(102, 126, 234, 0.35);
         }
         .btn:active {
             transform: scale(0.96);
         }
-        
+
         .social-buttons {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            gap: 18px;
+            gap: 16px;
             margin-top: 24px;
         }
         .social-button {
             display: inline-flex;
             align-items: center;
-            gap: 14px;
+            gap: 12px;
             padding: 14px 32px;
             border-radius: 60px;
             color: #fff;
-            text-decoration: none;
             font-weight: 700;
             transition: all var(--transition);
-            box-shadow: var(--shadow-sm);
-            border: 1px solid rgba(255, 255, 255, 0.15);
+            box-shadow: var(--shadow);
+            border: 1px solid rgba(255, 255, 255, 0.06);
         }
         .social-button.instagram {
             background: linear-gradient(135deg, #E4405F, #C13584);
@@ -680,117 +939,107 @@
         }
         .social-button:hover {
             transform: translateY(-6px) scale(1.04);
-            box-shadow: var(--shadow-md);
+            box-shadow: var(--shadow), var(--neon-glow);
         }
-        
+
         #formStatus {
-            margin-top: 18px;
+            margin-top: 16px;
             font-weight: 700;
             text-align: center;
             padding: 12px;
             border-radius: var(--radius-sm);
-            background: var(--bg-primary);
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-glass);
         }
-        
-        /* ============================================================
-                   کانال تلگرام (بخش اختصاصی)
-                   ============================================================ */
-        .telegram-channel {
-            background: var(--gradient-1);
-            border-radius: var(--radius-sm);
-            padding: 32px 28px;
-            margin-top: 30px;
-            text-align: center;
-            color: #fff;
-            box-shadow: 0 12px 40px rgba(102, 126, 234, 0.25);
-            transition: all var(--transition);
-        }
-        .telegram-channel:hover {
-            transform: scale(1.02);
-            box-shadow: 0 20px 56px rgba(102, 126, 234, 0.35);
-        }
-        .telegram-channel h4 {
-            font-size: 1.6rem;
-            font-weight: 800;
-            margin-bottom: 6px;
+
+        /* ================================================================
+                   VISITOR COUNTER & CALENDAR
+                   ================================================================ */
+        .stats-bar {
             display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 20px;
+            padding: 20px;
+            background: var(--bg-secondary);
+            border-radius: var(--radius-sm);
+            border: 1px solid var(--border-glass);
+        }
+        .stat-item {
+            text-align: center;
+        }
+        .stat-item .number {
+            font-size: 2rem;
+            font-weight: 900;
+            background: var(--gradient-accent);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .stat-item .label {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        /* ================================================================
+                   VIDEO MODAL
+                   ================================================================ */
+        .video-modal {
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(20px);
+            display: none;
             align-items: center;
             justify-content: center;
-            gap: 12px;
+            padding: 40px;
+            opacity: 0;
+            transition: opacity 0.4s ease;
         }
-        .telegram-channel p {
-            opacity: 0.9;
-            margin-bottom: 18px;
-            font-size: 1rem;
+        .video-modal.active {
+            display: flex;
+            opacity: 1;
         }
-        .telegram-channel .btn-channel {
-            display: inline-flex;
-            align-items: center;
-            gap: 12px;
-            background: rgba(255, 255, 255, 0.2);
+        .video-modal .modal-content {
+            position: relative;
+            max-width: 800px;
+            width: 100%;
+            background: var(--bg-secondary);
+            border-radius: var(--radius);
+            padding: 20px;
+            border: 1px solid var(--border-glass);
+            box-shadow: var(--shadow), var(--neon-glow);
+        }
+        .video-modal .modal-content iframe {
+            width: 100%;
+            aspect-ratio: 16/9;
+            border-radius: var(--radius-sm);
+            border: none;
+        }
+        .video-modal .close-modal {
+            position: absolute;
+            top: -16px;
+            right: -16px;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: var(--gradient-accent);
             color: #fff;
-            padding: 14px 36px;
-            border-radius: 60px;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 1.1rem;
-            backdrop-filter: blur(4px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            border: none;
+            font-size: 1.4rem;
+            cursor: pointer;
             transition: all var(--transition);
+            box-shadow: var(--shadow);
         }
-        .telegram-channel .btn-channel:hover {
-            background: rgba(255, 255, 255, 0.35);
-            transform: translateY(-4px);
-            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
+        .video-modal .close-modal:hover {
+            transform: rotate(90deg) scale(1.08);
         }
-        
-        /* ============================================================
-                   فوتر
-                   ============================================================ */
-        footer {
-            background: var(--gradient-1);
-            color: #eef2ff;
-            padding: 48px 0 32px;
-            margin-top: 60px;
-            border-radius: var(--radius) var(--radius) 0 0;
-            text-align: center;
-            box-shadow: 0 -20px 60px rgba(0, 0, 0, 0.08);
-        }
-        .footer-social a {
-            color: rgba(255, 255, 255, 0.7);
-            margin: 0 18px;
-            font-size: 1.6rem;
-            transition: all var(--transition);
-            display: inline-block;
-        }
-        .footer-social a:hover {
-            color: #fff;
-            transform: translateY(-4px) scale(1.1);
-        }
-        footer .date {
-            display: block;
-            margin-top: 14px;
-            opacity: 0.8;
-            font-size: 0.95rem;
-            font-weight: 300;
-        }
-        footer .copyright {
-            margin-top: 8px;
-            opacity: 0.6;
-            font-size: 0.85rem;
-        }
-        footer .url {
-            color: rgba(255, 255, 255, 0.5);
-            text-decoration: none;
-            transition: color var(--transition);
-        }
-        footer .url:hover {
-            color: #fff;
-        }
-        
-        /* ============================================================
-                   دکمه بازگشت به بالا
-                   ============================================================ */
+
+        /* ================================================================
+                   BACK TO TOP
+                   ================================================================ */
         #backToTop {
             position: fixed;
             bottom: 32px;
@@ -798,12 +1047,12 @@
             width: 56px;
             height: 56px;
             border-radius: 50%;
-            background: var(--gradient-1);
+            background: var(--gradient-accent);
             color: #fff;
             border: none;
-            font-size: 1.6rem;
+            font-size: 1.5rem;
             cursor: pointer;
-            box-shadow: 0 12px 32px rgba(102, 126, 234, 0.3);
+            box-shadow: 0 12px 40px rgba(102, 126, 234, 0.3);
             transition: all var(--transition);
             opacity: 0;
             visibility: hidden;
@@ -817,468 +1066,904 @@
         }
         #backToTop:hover {
             transform: translateY(-6px) scale(1.08);
-            box-shadow: 0 20px 48px rgba(102, 126, 234, 0.5);
+            box-shadow: 0 20px 56px rgba(102, 126, 234, 0.5);
         }
-        
-        /* ============================================================
-                   ریسپانسیو
-                   ============================================================ */
+
+        /* ================================================================
+                   FOOTER
+                   ================================================================ */
+        footer {
+            background: var(--gradient-accent);
+            color: #eef2ff;
+            padding: 48px 0 32px;
+            margin-top: 60px;
+            border-radius: var(--radius) var(--radius) 0 0;
+            text-align: center;
+            box-shadow: 0 -20px 60px rgba(0, 0, 0, 0.15);
+            position: relative;
+            z-index: 2;
+        }
+        .footer-social a {
+            color: rgba(255, 255, 255, 0.7);
+            margin: 0 16px;
+            font-size: 1.5rem;
+            transition: all var(--transition);
+            display: inline-block;
+        }
+        .footer-social a:hover {
+            color: #fff;
+            transform: translateY(-4px) scale(1.08);
+        }
+        footer .date {
+            display: block;
+            margin-top: 14px;
+            opacity: 0.8;
+            font-size: 0.9rem;
+            font-weight: 300;
+        }
+        footer .copyright {
+            margin-top: 8px;
+            opacity: 0.6;
+            font-size: 0.85rem;
+        }
+
+        /* ================================================================
+                   RESPONSIVE
+                   ================================================================ */
+        @media (max-width: 992px) {
+            .hero h2 {
+                font-size: 2.8rem;
+            }
+            .works-grid {
+                grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            }
+        }
+
         @media (max-width: 768px) {
-            body { padding-top: 70px; }
             .header-content {
                 flex-direction: column;
                 align-items: stretch;
                 gap: 6px;
             }
-            .logo { text-align: center; }
-            nav ul { justify-content: center; }
-            .header-actions { align-self: center; }
-            
-            .hero { padding: 50px 16px 40px; }
-            .hero h2 { font-size: 2.2rem; }
-            .profile-avatar { width: 120px; height: 120px; font-size: 3.5rem; }
-            .hero .bubble { display: none; }
-            
-            section { padding: 28px 18px; }
-            h3 { font-size: 1.6rem; }
-            
-            .works-grid { grid-template-columns: 1fr; }
-            
-            .social-buttons { flex-direction: column; align-items: stretch; }
-            .social-button { justify-content: center; }
-            
-            #backToTop { width: 48px; height: 48px; font-size: 1.3rem; bottom: 20px; right: 20px; }
+            .logo {
+                text-align: center;
+            }
+            nav ul {
+                justify-content: center;
+            }
+            .header-actions {
+                align-self: center;
+            }
+
+            .hero {
+                min-height: 80vh;
+                padding: 100px 16px 60px;
+            }
+            .hero h2 {
+                font-size: 2.2rem;
+            }
+            .profile-avatar {
+                width: 140px;
+                height: 140px;
+                font-size: 4rem;
+            }
+            .hero .orb {
+                display: none;
+            }
+
+            section {
+                padding: 28px 18px;
+            }
+            h3 {
+                font-size: 1.5rem;
+            }
+
+            .works-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-bar {
+                gap: 16px;
+            }
+            .stat-item .number {
+                font-size: 1.5rem;
+            }
+
+            .audio-player {
+                flex-direction: column;
+                align-items: stretch;
+                gap: 12px;
+            }
+            .audio-player audio {
+                width: 100%;
+            }
+
+            .video-modal {
+                padding: 16px;
+            }
+
+            #backToTop {
+                width: 48px;
+                height: 48px;
+                font-size: 1.2rem;
+                bottom: 20px;
+                right: 20px;
+            }
+
+            #cursor-glow,
+            #cursor-dot {
+                display: none !important;
+            }
+            body {
+                cursor: auto;
+            }
         }
+
         @media (max-width: 480px) {
-            nav a { font-size: 0.8rem; padding: 6px 12px; }
-            .hero h2 { font-size: 1.8rem; }
-            .post { padding: 20px; }
-            .work-card { padding: 20px 16px; }
+            nav a {
+                font-size: 0.75rem;
+                padding: 6px 12px;
+            }
+            .hero h2 {
+                font-size: 1.8rem;
+            }
+            .hero .tagline {
+                font-size: 1rem;
+            }
+            .post {
+                padding: 16px 18px;
+            }
+            .social-links a {
+                width: 48px;
+                height: 48px;
+                font-size: 1.3rem;
+            }
+        }
+
+        /* ================================================================
+                   AOS OVERRIDE
+                   ================================================================ */
+        [data-aos] {
+            pointer-events: none;
+        }
+        [data-aos].aos-animate {
+            pointer-events: auto;
         }
     </style>
 </head>
 <body>
 
-<!-- نوار پیشرفت اسکرول -->
-<div id="scroll-progress"></div>
+    <!-- ========== CURSOR GLOW ========== -->
+    <div id="cursor-glow"></div>
+    <div id="cursor-dot"></div>
 
-<!-- ========== هدر ========== -->
-<header>
+    <!-- ========== PARTICLE BACKGROUND ========== -->
+    <div id="particles-js"></div>
+
+    <!-- ========== SCROLL PROGRESS ========== -->
+    <div id="scroll-progress"></div>
+
+    <!-- ========== HEADER ========== -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <h1>مهدی رحیمیان</h1>
+                    <div class="subtitle">سایت شخصی</div>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="#home">خانه</a></li>
+                        <li><a href="#about">درباره</a></li>
+                        <li><a href="#skills">مهارت‌ها</a></li>
+                        <li><a href="#works">آثار</a></li>
+                        <li><a href="#blog">نوشته‌ها</a></li>
+                        <li><a href="#contact">تماس</a></li>
+                    </ul>
+                </nav>
+                <div class="header-actions">
+                    <button class="theme-toggle" id="themeToggle" aria-label="تغییر تم">
+                        <i class="fas fa-sun"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- ========== HERO ========== -->
+    <section id="home" class="hero">
+        <div class="orb"></div>
+        <div class="orb"></div>
+        <div class="orb"></div>
+
+        <div class="container hero-content">
+            <div class="profile-avatar" data-aos="zoom-in" data-aos-duration="1000">
+                <i class="fas fa-user-astronaut"></i>
+            </div>
+            <h2 data-aos="fade-up" data-aos-delay="100">
+                <span>مهدی رحیمیان</span>
+            </h2>
+            <p class="tagline" data-aos="fade-up" data-aos-delay="200">نویسنده | گوینده | تولیدکننده محتوای صوتی و تصویری</p>
+            <div class="typed-text" id="typedText" data-aos="fade-up" data-aos-delay="300"></div>
+            <div class="social-links" data-aos="fade-up" data-aos-delay="400">
+                <a href="https://www.instagram.com/sayehaye.bi.neghab" class="instagram" target="_blank" title="اینستاگرام"><i class="fab fa-instagram"></i></a>
+                <a href="https://t.me/sayehayebineghab" class="telegram" target="_blank" title="تلگرام"><i class="fab fa-telegram"></i></a>
+                <a href="mailto:me@mahdirahimiyan.ir" class="email" title="ایمیل"><i class="fas fa-envelope"></i></a>
+                <a href="https://github.com/mahdiramsar" class="github" target="_blank" title="گیت‌هاب"><i class="fab fa-github"></i></a>
+            </div>
+        </div>
+    </section>
+
     <div class="container">
-        <div class="header-content">
-            <div class="logo">
-                <h1>مهدی رحیمیان</h1>
-                <div class="subtitle">سایت شخصی</div>
+
+        <!-- ========== ABOUT ========== -->
+        <section id="about" data-aos="fade-up">
+            <h3><i class="fas fa-user-circle"></i> درباره من</h3>
+            <p style="font-size:1.05rem;">
+                سلام! من <strong>مهدی رحیمیان</strong> هستم. اینجا فضای شخصی من برای به اشتراک‌گذاری افکار، تجربیات، دکلمه‌ها و نوشته‌هایم است.
+                عاشق یادگیری، مطالعه، و تولید محتوای صوتی و تصویری هستم و معتقدم کلمات و صدا می‌توانند جهان را تغییر دهند.
+            </p>
+            <p style="margin-top:14px;">
+                در این سایت می‌توانید مقالات، دلنوشته‌ها، دکلمه‌های صوتی و کانال تلگرام من را پیدا کنید.
+                از اینکه وقت می‌گذارید و مطالبم را می‌خوانید، بی‌نهایت سپاسگزارم.
+            </p>
+
+            <!-- Stats -->
+            <div class="stats-bar" data-aos="fade-up" data-aos-delay="100">
+                <div class="stat-item">
+                    <div class="number" id="visitorCount">0</div>
+                    <div class="label">بازدیدکننده</div>
+                </div>
+                <div class="stat-item">
+                    <div class="number" id="persianDateDisplay">—</div>
+                    <div class="label">امروز</div>
+                </div>
+                <div class="stat-item">
+                    <div class="number">۴</div>
+                    <div class="label">آثار صوتی</div>
+                </div>
+                <div class="stat-item">
+                    <div class="number">۳</div>
+                    <div class="label">نوشته‌ها</div>
+                </div>
             </div>
-            <nav>
-                <ul>
-                    <li><a href="#home">خانه</a></li>
-                    <li><a href="#about">درباره</a></li>
-                    <li><a href="#skills">مهارت‌ها</a></li>
-                    <li><a href="#works">آثار</a></li>
-                    <li><a href="#blog">نوشته‌ها</a></li>
-                    <li><a href="#contact">تماس</a></li>
-                </ul>
-            </nav>
-            <div class="header-actions">
-                <button class="theme-toggle" id="themeToggle" aria-label="تغییر تم">
-                    <i class="fas fa-moon"></i>
-                </button>
+
+            <div style="margin-top:28px; text-align:center;">
+                <div class="social-buttons">
+                    <a href="https://www.instagram.com/sayehaye.bi.neghab" class="social-button instagram" target="_blank">
+                        <i class="fab fa-instagram"></i> اینستاگرام
+                    </a>
+                    <a href="https://t.me/sayehayebineghab" class="social-button telegram" target="_blank">
+                        <i class="fab fa-telegram"></i> تلگرام
+                    </a>
+                </div>
             </div>
+        </section>
+
+        <!-- ========== SKILLS ========== -->
+        <section id="skills" data-aos="fade-up">
+            <h3><i class="fas fa-cogs"></i> مهارت‌ها و علایق</h3>
+            <div class="skills">
+                <span class="skill-tag"><i class="fas fa-microphone-alt"></i> گویندگی و دکلمه</span>
+                <span class="skill-tag"><i class="fas fa-feather-alt"></i> نویسندگی</span>
+                <span class="skill-tag"><i class="fas fa-search"></i> پژوهش</span>
+                <span class="skill-tag"><i class="fas fa-laptop-code"></i> تکنولوژی</span>
+                <span class="skill-tag"><i class="fas fa-code"></i> برنامه‌نویسی</span>
+                <span class="skill-tag"><i class="fas fa-book-open"></i> کتابخوانی</span>
+                <span class="skill-tag"><i class="fas fa-plane"></i> سفر</span>
+                <span class="skill-tag"><i class="fas fa-camera"></i> عکاسی</span>
+                <span class="skill-tag"><i class="fas fa-headphones"></i> موسیقی</span>
+            </div>
+        </section>
+
+        <!-- ========== WORKS ========== -->
+        <section id="works" data-aos="fade-up">
+            <h3><i class="fas fa-play-circle"></i> آثار صوتی و تصویری</h3>
+            <p style="margin-bottom:16px;">گزیده‌ای از دکلمه‌ها و دلنوشته‌های من با صدای خودم</p>
+
+            <!-- Filter -->
+            <div class="filter-buttons" id="filterButtons">
+                <button class="filter-btn active" data-filter="all">همه</button>
+                <button class="filter-btn" data-filter="دکلمه">دکلمه</button>
+                <button class="filter-btn" data-filter="دلنوشته">دلنوشته</button>
+                <button class="filter-btn" data-filter="عاشقانه">عاشقانه</button>
+            </div>
+
+            <!-- Audio Player (Sample) -->
+            <div class="audio-player" data-aos="fade-up" data-aos-delay="100">
+                <div class="audio-info">
+                    <h4>🎙️ نمونه دکلمه</h4>
+                    <span>صدای مهدی رحیمیان</span>
+                </div>
+                <audio controls>
+                    <source src="#" type="audio/mpeg" />
+                    مرورگر شما از پخش صدا پشتیبانی نمی‌کند.
+                </audio>
+            </div>
+
+            <!-- Works Grid -->
+            <div class="works-grid" id="worksGrid">
+                <!-- Card 1 -->
+                <div class="work-card" data-category="دکلمه" data-aos="flip-up" data-aos-delay="100">
+                    <div class="work-thumb"><i class="fas fa-play"></i></div>
+                    <h4>متن و صدا #مهدی_رحیمیان✌️</h4>
+                    <span class="work-date">۱۶ دسامبر ۲۰۲۵</span>
+                    <div class="work-tags">
+                        <span>#دکلمه</span>
+                        <span>#متن_صوتی</span>
+                    </div>
+                    <a href="#" class="work-link" data-video="https://www.instagram.com/reel/DSVt85bgpEi/embed">
+                        <i class="fab fa-instagram"></i> مشاهده
+                    </a>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="work-card" data-category="دلنوشته" data-aos="flip-up" data-aos-delay="200">
+                    <div class="work-thumb"><i class="fas fa-play"></i></div>
+                    <h4>مرا به حال خود بگذارید و رهایم کنید...</h4>
+                    <span class="work-date">دلنوشته</span>
+                    <div class="work-tags">
+                        <span>#دلنوشته</span>
+                        <span>#سایه_درون</span>
+                    </div>
+                    <a href="#" class="work-link" data-video="https://www.instagram.com/reel/DPrup05gl1L/embed">
+                        <i class="fab fa-instagram"></i> مشاهده
+                    </a>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="work-card" data-category="عاشقانه" data-aos="flip-up" data-aos-delay="300">
+                    <div class="work-thumb"><i class="fas fa-play"></i></div>
+                    <h4>صدایم کن…</h4>
+                    <span class="work-date">۱۶ اوت ۲۰۲۵</span>
+                    <div class="work-tags">
+                        <span>#دلتنگی</span>
+                        <span>#عاشقانه</span>
+                    </div>
+                    <a href="#" class="work-link" data-video="https://www.instagram.com/reel/DNafAsACM-G/embed">
+                        <i class="fab fa-instagram"></i> مشاهده
+                    </a>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="work-card" data-category="دلنوشته" data-aos="flip-up" data-aos-delay="400">
+                    <div class="work-thumb"><i class="fas fa-play"></i></div>
+                    <h4>متن زیبا و عمیق با خوانش گرم</h4>
+                    <span class="work-date">دلنوشته</span>
+                    <div class="work-tags">
+                        <span>#عمیق</span>
+                        <span>#خوانش</span>
+                    </div>
+                    <a href="#" class="work-link" data-video="https://www.instagram.com/reel/DNBSxyzCnJb/embed">
+                        <i class="fab fa-instagram"></i> مشاهده
+                    </a>
+                </div>
+            </div>
+
+            <!-- Telegram Channel -->
+            <div class="telegram-channel" data-aos="fade-up" data-aos-delay="200">
+                <h4><i class="fab fa-telegram"></i> کانال تلگرام من</h4>
+                <p>«بیان بی‌پرده احساسات و داستان‌ها» — با ۳۸ عضو</p>
+                <a href="https://t.me/sayehayebineghab" target="_blank" class="btn-channel">
+                    <i class="fab fa-telegram"></i> عضویت در کانال تلگرام
+                    <i class="fas fa-arrow-left"></i>
+                </a>
+            </div>
+        </section>
+
+        <!-- ========== BLOG ========== -->
+        <section id="blog" data-aos="fade-up">
+            <h3><i class="fas fa-pen-fancy"></i> آخرین نوشته‌ها</h3>
+
+            <!-- Search -->
+            <div class="search-box">
+                <input type="text" id="blogSearch" placeholder="جستجوی نوشته‌ها..." />
+            </div>
+
+            <div id="blogPosts">
+                <div class="post" data-title="شروع یک سفر جدید">
+                    <h4><i class="fas fa-rocket"></i> شروع یک سفر جدید</h4>
+                    <span class="post-date">۲۵ دی ۱۴۰۲</span>
+                    <p>اولین نوشته من در این سایت شخصی. اینجا فضایی است برای به اشتراک گذاری افکار، تجربیات و یادگیری‌هایم...</p>
+                    <a href="#" class="read-more">ادامه مطلب <i class="fas fa-arrow-left"></i></a>
+                </div>
+
+                <div class="post" data-title="نقش نوشتن در رشد شخصی">
+                    <h4><i class="fas fa-pencil-alt"></i> نقش نوشتن در رشد شخصی</h4>
+                    <span class="post-date">۲۰ دی ۱۴۰۲</span>
+                    <p>چگونه نوشتن می‌تواند به ما در درک بهتر خودمان و جهان اطرافمان کمک کند؟ در این مطلب به بررسی تأثیر نوشتن بر رشد فردی می‌پردازم...</p>
+                    <a href="#" class="read-more">ادامه مطلب <i class="fas fa-arrow-left"></i></a>
+                </div>
+
+                <div class="post" data-title="تکنولوژی و زندگی مدرن">
+                    <h4><i class="fas fa-microchip"></i> تکنولوژی و زندگی مدرن</h4>
+                    <span class="post-date">۱۵ دی ۱۴۰۲</span>
+                    <p>بررسی تأثیر تکنولوژی بر سبک زندگی و روابط انسانی در عصر حاضر. چگونه می‌توانیم از تکنولوژی به شکل هوشمندانه‌تری استفاده کنیم؟</p>
+                    <a href="#" class="read-more">ادامه مطلب <i class="fas fa-arrow-left"></i></a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== CONTACT ========== -->
+        <section id="contact" data-aos="fade-up">
+            <h3><i class="fas fa-envelope-open-text"></i> تماس با من</h3>
+            <p>خوشحال می‌شوم پیام شما را دریافت کنم. از طریق فرم زیر یا شبکه‌های اجتماعی با من در ارتباط باشید.</p>
+
+            <form class="contact-form" id="contactForm" action="https://formspree.io/f/xyzzyx" method="POST">
+                <div class="form-group">
+                    <label for="name"><i class="fas fa-user"></i> نام شما</label>
+                    <input type="text" id="name" name="name" required placeholder="مثلاً: مهدی" />
+                </div>
+                <div class="form-group">
+                    <label for="email"><i class="fas fa-envelope"></i> ایمیل شما</label>
+                    <input type="email" id="email" name="email" required placeholder="example@mail.com" />
+                </div>
+                <div class="form-group">
+                    <label for="message"><i class="fas fa-comment"></i> پیام شما</label>
+                    <textarea id="message" name="message" rows="5" required placeholder="متن پیام..."></textarea>
+                </div>
+                <button type="submit" class="btn"><i class="fas fa-paper-plane"></i> ارسال پیام</button>
+            </form>
+            <div id="formStatus"></div>
+
+            <div style="margin-top:44px; text-align:center;">
+                <p style="color:var(--text-muted); font-weight:600;">یا از طریق شبکه‌های اجتماعی پیام دهید:</p>
+                <div class="social-buttons">
+                    <a href="https://www.instagram.com/sayehaye.bi.neghab" class="social-button instagram" target="_blank">
+                        <i class="fab fa-instagram"></i> پیام در اینستاگرام
+                    </a>
+                    <a href="https://t.me/sayehayebineghab" class="social-button telegram" target="_blank">
+                        <i class="fab fa-telegram"></i> پیام در تلگرام
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- ========== VIDEO MODAL ========== -->
+    <div class="video-modal" id="videoModal">
+        <div class="modal-content">
+            <button class="close-modal" id="closeModal"><i class="fas fa-times"></i></button>
+            <iframe id="videoIframe" src="" frameborder="0" allowfullscreen></iframe>
         </div>
     </div>
-</header>
 
-<!-- ========== بخش قهرمان ========== -->
-<section id="home" class="hero">
-    <div class="bubble"></div>
-    <div class="bubble"></div>
-    <div class="bubble"></div>
-    <div class="bubble"></div>
-    
-    <div class="container hero-content">
-        <div class="profile-avatar">
-            <i class="fas fa-user-astronaut"></i>
-        </div>
-        <h2>مهدی رحیمیان</h2>
-        <p class="tagline">نویسنده | گوینده | تولیدکننده محتوای صوتی و تصویری</p>
-        <div class="typed-text" id="typedText"></div>
-        <div class="social-links">
-            <a href="https://www.instagram.com/sayehaye.bi.neghab" class="instagram" target="_blank" title="اینستاگرام"><i class="fab fa-instagram"></i></a>
-            <a href="https://t.me/sayehayebineghab" class="telegram" target="_blank" title="تلگرام"><i class="fab fa-telegram"></i></a>
-            <a href="mailto:me@mahdirahimiyan.ir" class="email" title="ایمیل"><i class="fas fa-envelope"></i></a>
-            <a href="https://github.com/mahdiramsar" class="github" target="_blank" title="گیت‌هاب"><i class="fab fa-github"></i></a>
-        </div>
-    </div>
-</section>
+    <!-- ========== BACK TO TOP ========== -->
+    <button id="backToTop" aria-label="بازگشت به بالا">
+        <i class="fas fa-chevron-up"></i>
+    </button>
 
-<div class="container">
-
-    <!-- ========== درباره ========== -->
-    <section id="about">
-        <h3><i class="fas fa-user-circle"></i> درباره من</h3>
-        <p style="font-size:1.05rem;">
-            سلام! من <strong>مهدی رحیمیان</strong> هستم. اینجا فضای شخصی من برای به اشتراک‌گذاری افکار، تجربیات، دکلمه‌ها و نوشته‌هایم است. 
-            عاشق یادگیری، مطالعه، و تولید محتوای صوتی و تصویری هستم و معتقدم کلمات و صدا می‌توانند جهان را تغییر دهند.
-        </p>
-        <p style="margin-top:14px;">
-            در این سایت می‌توانید مقالات، دلنوشته‌ها، دکلمه‌های صوتی و کانال تلگرام من را پیدا کنید. 
-            از اینکه وقت می‌گذارید و مطالبم را می‌خوانید، بی‌نهایت سپاسگزارم.
-        </p>
-        <div style="margin-top:28px; text-align:center;">
-            <div class="social-buttons">
-                <a href="https://www.instagram.com/sayehaye.bi.neghab" class="social-button instagram" target="_blank">
-                    <i class="fab fa-instagram"></i> اینستاگرام
-                </a>
-                <a href="https://t.me/sayehayebineghab" class="social-button telegram" target="_blank">
-                    <i class="fab fa-telegram"></i> تلگرام
-                </a>
+    <!-- ========== FOOTER ========== -->
+    <footer>
+        <div class="container">
+            <p class="copyright">تمامی حقوق محفوظ | طراحی و توسعه توسط مهدی رحیمیان</p>
+            <div class="footer-social">
+                <a href="https://www.instagram.com/sayehaye.bi.neghab" target="_blank" title="اینستاگرام"><i class="fab fa-instagram"></i></a>
+                <a href="https://t.me/sayehayebineghab" target="_blank" title="تلگرام"><i class="fab fa-telegram"></i></a>
+                <a href="mailto:me@mahdirahimiyan.ir" title="ایمیل"><i class="fas fa-envelope"></i></a>
+                <a href="https://github.com/mahdiramsar" target="_blank" title="گیت‌هاب"><i class="fab fa-github"></i></a>
             </div>
+            <span class="date" id="persianDateFooter"></span>
         </div>
-    </section>
+    </footer>
 
-    <!-- ========== مهارت‌ها ========== -->
-    <section id="skills">
-        <h3><i class="fas fa-cogs"></i> مهارت‌ها و علایق</h3>
-        <div class="skills">
-            <span class="skill-tag"><i class="fas fa-microphone-alt"></i> گویندگی و دکلمه</span>
-            <span class="skill-tag"><i class="fas fa-feather-alt"></i> نویسندگی</span>
-            <span class="skill-tag"><i class="fas fa-search"></i> پژوهش</span>
-            <span class="skill-tag"><i class="fas fa-laptop-code"></i> تکنولوژی</span>
-            <span class="skill-tag"><i class="fas fa-code"></i> برنامه‌نویسی</span>
-            <span class="skill-tag"><i class="fas fa-book-open"></i> کتابخوانی</span>
-            <span class="skill-tag"><i class="fas fa-plane"></i> سفر</span>
-            <span class="skill-tag"><i class="fas fa-camera"></i> عکاسی</span>
-            <span class="skill-tag"><i class="fas fa-headphones"></i> موسیقی</span>
-        </div>
-    </section>
+    <!-- ================================================================
+                   SCRIPTS
+                   ================================================================ -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js">
+    </script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js">
+    </script>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js">
+    </script>
 
-    <!-- ========== آثار صوتی و تصویری ========== -->
-    <section id="works">
-        <h3><i class="fas fa-play-circle"></i> آثار صوتی و تصویری</h3>
-        <p style="margin-bottom:20px;">گزیده‌ای از دکلمه‌ها و دلنوشته‌های من با صدای خودم</p>
-        
-        <div class="works-grid">
-            <!-- کارت ۱ -->
-            <div class="work-card">
-                <div class="work-thumb">
-                    <i class="fas fa-play"></i>
-                </div>
-                <h4>متن و صدا #مهدی_رحیمیان✌️</h4>
-                <span class="work-date">۱۶ دسامبر ۲۰۲۵</span>
-                <div class="work-tags">
-                    <span>#دکلمه</span>
-                    <span>#متن_صوتی</span>
-                </div>
-                <a href="https://www.instagram.com/reel/DSVt85bgpEi/" target="_blank" class="work-link">
-                    <i class="fab fa-instagram"></i> مشاهده در اینستاگرام
-                </a>
-            </div>
-            
-            <!-- کارت ۲ -->
-            <div class="work-card">
-                <div class="work-thumb">
-                    <i class="fas fa-play"></i>
-                </div>
-                <h4>مرا به حال خود بگذارید و رهایم کنید...</h4>
-                <span class="work-date">دلنوشته</span>
-                <div class="work-tags">
-                    <span>#دلنوشته</span>
-                    <span>#سایه_درون</span>
-                </div>
-                <a href="https://www.instagram.com/reel/DPrup05gl1L/" target="_blank" class="work-link">
-                    <i class="fab fa-instagram"></i> مشاهده در اینستاگرام
-                </a>
-            </div>
-            
-            <!-- کارت ۳ -->
-            <div class="work-card">
-                <div class="work-thumb">
-                    <i class="fas fa-play"></i>
-                </div>
-                <h4>صدایم کن…</h4>
-                <span class="work-date">۱۶ اوت ۲۰۲۵</span>
-                <div class="work-tags">
-                    <span>#دلتنگی</span>
-                    <span>#عاشقانه</span>
-                </div>
-                <a href="https://www.instagram.com/reel/DNafAsACM-G/" target="_blank" class="work-link">
-                    <i class="fab fa-instagram"></i> مشاهده در اینستاگرام
-                </a>
-            </div>
-            
-            <!-- کارت ۴ -->
-            <div class="work-card">
-                <div class="work-thumb">
-                    <i class="fas fa-play"></i>
-                </div>
-                <h4>متن زیبا و عمیق با خوانش گرم</h4>
-                <span class="work-date">دلنوشته</span>
-                <div class="work-tags">
-                    <span>#عمیق</span>
-                    <span>#خوانش</span>
-                </div>
-                <a href="https://www.instagram.com/reel/DNBSxyzCnJb/" target="_blank" class="work-link">
-                    <i class="fab fa-instagram"></i> مشاهده در اینستاگرام
-                </a>
-            </div>
-        </div>
-        
-        <!-- بخش کانال تلگرام -->
-        <div class="telegram-channel">
-            <h4><i class="fab fa-telegram"></i> کانال تلگرام من</h4>
-            <p>«بیان بی‌پرده احساسات و داستان‌ها» </p>
-            <a href="https://t.me/sayehayebineghab" target="_blank" class="btn-channel">
-                <i class="fab fa-telegram"></i> عضویت در کانال تلگرام
-                <i class="fas fa-arrow-left"></i>
-            </a>
-        </div>
-    </section>
+    <script>
+        (function() {
+            'use strict';
 
-    <!-- ========== نوشته‌ها ========== -->
-    <section id="blog">
-        <h3><i class="fas fa-pen-fancy"></i> آخرین نوشته‌ها</h3>
-        
-        <div class="post">
-            <h4><i class="fas fa-rocket"></i> شروع یک سفر جدید</h4>
-            <span class="post-date">۲۵ دی ۱۴۰۲</span>
-            <p>اولین نوشته من در این سایت شخصی. اینجا فضایی است برای به اشتراک گذاری افکار، تجربیات و یادگیری‌هایم...</p>
-            <a href="#" class="read-more">ادامه مطلب <i class="fas fa-arrow-left"></i></a>
-        </div>
-        
-        <div class="post">
-            <h4><i class="fas fa-pencil-alt"></i> نقش نوشتن در رشد شخصی</h4>
-            <span class="post-date">۲۰ دی ۱۴۰۲</span>
-            <p>چگونه نوشتن می‌تواند به ما در درک بهتر خودمان و جهان اطرافمان کمک کند؟ در این مطلب به بررسی تأثیر نوشتن بر رشد فردی می‌پردازم...</p>
-            <a href="#" class="read-more">ادامه مطلب <i class="fas fa-arrow-left"></i></a>
-        </div>
-        
-        <div class="post">
-            <h4><i class="fas fa-microchip"></i> تکنولوژی و زندگی مدرن</h4>
-            <span class="post-date">۱۵ دی ۱۴۰۲</span>
-            <p>بررسی تأثیر تکنولوژی بر سبک زندگی و روابط انسانی در عصر حاضر. چگونه می‌توانیم از تکنولوژی به شکل هوشمندانه‌تری استفاده کنیم؟</p>
-            <a href="#" class="read-more">ادامه مطلب <i class="fas fa-arrow-left"></i></a>
-        </div>
-    </section>
+            // ================================================================
+            // 1. GSAP + ScrollTrigger (animate on scroll)
+            // ================================================================
+            gsap.registerPlugin(ScrollTrigger);
 
-    <!-- ========== تماس ========== -->
-    <section id="contact">
-        <h3><i class="fas fa-envelope-open-text"></i> تماس با من</h3>
-        <p>خوشحال می‌شوم پیام شما را دریافت کنم. از طریق فرم زیر یا شبکه‌های اجتماعی با من در ارتباط باشید.</p>
-        
-        <form class="contact-form" id="contactForm" action="https://formspree.io/f/xyzzyx" method="POST">
-            <div class="form-group">
-                <label for="name"><i class="fas fa-user"></i> نام شما</label>
-                <input type="text" id="name" name="name" required placeholder="مثلاً: مهدی" />
-            </div>
-            <div class="form-group">
-                <label for="email"><i class="fas fa-envelope"></i> ایمیل شما</label>
-                <input type="email" id="email" name="email" required placeholder="example@mail.com" />
-            </div>
-            <div class="form-group">
-                <label for="message"><i class="fas fa-comment"></i> پیام شما</label>
-                <textarea id="message" name="message" rows="5" required placeholder="متن پیام..."></textarea>
-            </div>
-            <button type="submit" class="btn"><i class="fas fa-paper-plane"></i> ارسال پیام</button>
-        </form>
-        <div id="formStatus"></div>
-        
-        <div style="margin-top:44px; text-align:center;">
-            <p style="color:var(--text-muted); font-weight:600;">یا از طریق شبکه‌های اجتماعی پیام دهید:</p>
-            <div class="social-buttons">
-                <a href="https://www.instagram.com/sayehaye.bi.neghab" class="social-button instagram" target="_blank">
-                    <i class="fab fa-instagram"></i> پیام در اینستاگرام
-                </a>
-                <a href="https://t.me/sayehayebineghab" class="social-button telegram" target="_blank">
-                    <i class="fab fa-telegram"></i> پیام در تلگرام
-                </a>
-            </div>
-        </div>
-    </section>
-
-</div>
-
-<!-- ========== دکمه بازگشت به بالا ========== -->
-<button id="backToTop" aria-label="بازگشت به بالا">
-    <i class="fas fa-chevron-up"></i>
-</button>
-
-<!-- ========== فوتر ========== -->
-<footer>
-    <div class="container">
-        <p class="copyright">تمامی حقوق محفوظ | طراحی و توسعه توسط مهدی رحیمیان</p>
-        <div class="footer-social">
-            <a href="https://www.instagram.com/sayehaye.bi.neghab" target="_blank" title="اینستاگرام"><i class="fab fa-instagram"></i></a>
-            <a href="https://t.me/sayehayebineghab" target="_blank" title="تلگرام"><i class="fab fa-telegram"></i></a>
-            <a href="mailto:me@mahdirahimiyan.ir" title="ایمیل"><i class="fas fa-envelope"></i></a>
-            <a href="https://github.com/mahdiramsar" target="_blank" title="گیت‌هاب"><i class="fab fa-github"></i></a>
-        </div>
-        <span class="date" id="persianDate"></span>
-        <p style="margin-top:12px; opacity:0.5; font-size:0.9rem;">
-            <a href="https://mahdiramsar.github.io" class="url">MahdiRahimiyan.ir</a>
-        </p>
-    </div>
-</footer>
-
-<!-- ================================================================
-اسکریپت کامل
-================================================================ -->
-<script>
-    (function() {
-        "use strict";
-
-        // ---------- 1. نوار پیشرفت اسکرول ----------
-        const progressBar = document.getElementById('scroll-progress');
-        window.addEventListener('scroll', () => {
-            const scrollTop = window.scrollY;
-            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-            const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
-            progressBar.style.width = progress + '%';
-        });
-
-        // ---------- 2. دارک مود ----------
-        const toggle = document.getElementById('themeToggle');
-        const icon = toggle.querySelector('i');
-        const currentTheme = localStorage.getItem('theme') || 'light';
-        if (currentTheme === 'dark') {
-            document.documentElement.setAttribute('data-theme', 'dark');
-            icon.classList.replace('fa-moon', 'fa-sun');
-        }
-        toggle.addEventListener('click', () => {
-            const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
-            if (isDark) {
-                document.documentElement.removeAttribute('data-theme');
-                localStorage.setItem('theme', 'light');
-                icon.classList.replace('fa-sun', 'fa-moon');
-            } else {
-                document.documentElement.setAttribute('data-theme', 'dark');
-                localStorage.setItem('theme', 'dark');
-                icon.classList.replace('fa-moon', 'fa-sun');
-            }
-        });
-
-        // ---------- 3. تایپ‌رایتر ----------
-        const typedEl = document.getElementById('typedText');
-        const phrases = [
-            'دکلمه‌های مرا بشنوید 🎧',
-            'همراه من در سفر کلمات 🌱',
-            'اینجا صدا و معنا به هم می‌رسند 📖',
-            'تجربیاتم را با شما به اشتراک می‌گذارم 💫'
-        ];
-        let phraseIndex = 0, charIndex = 0, isDeleting = false;
-        function typeEffect() {
-            const current = phrases[phraseIndex];
-            if (!isDeleting) {
-                typedEl.textContent = current.substring(0, charIndex++);
-                if (charIndex > current.length) {
-                    isDeleting = true;
-                    setTimeout(typeEffect, 2200);
-                    return;
-                }
-            } else {
-                typedEl.textContent = current.substring(0, charIndex--);
-                if (charIndex < 0) {
-                    isDeleting = false;
-                    charIndex = 0;
-                    phraseIndex = (phraseIndex + 1) % phrases.length;
-                    setTimeout(typeEffect, 400);
-                    return;
-                }
-            }
-            setTimeout(typeEffect, isDeleting ? 50 : 100);
-        }
-        typeEffect();
-
-        // ---------- 4. اسکرول نرم ----------
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                const targetId = this.getAttribute('href');
-                if (targetId === '#') return;
-                e.preventDefault();
-                const target = document.querySelector(targetId);
-                if (target) {
-                    const headerHeight = document.querySelector('header').offsetHeight;
-                    const targetPosition = target.getBoundingClientRect().top + window.scrollY - headerHeight - 10;
-                    window.scrollTo({ top: targetPosition, behavior: 'smooth' });
-                }
+            // Hero animations
+            gsap.from('.hero .profile-avatar', {
+                scale: 0.6,
+                opacity: 0,
+                duration: 1.2,
+                ease: 'back.out(1.7)',
             });
-        });
-
-        // ---------- 5. انیمیشن ورود ----------
-        const sections = document.querySelectorAll('section:not(.hero)');
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach((entry, index) => {
-                if (entry.isIntersecting) {
-                    setTimeout(() => {
-                        entry.target.style.opacity = '1';
-                        entry.target.style.transform = 'translateY(0)';
-                    }, index * 80);
-                }
+            gsap.from('.hero h2', {
+                y: 60,
+                opacity: 0,
+                duration: 1,
+                delay: 0.2,
+                ease: 'power3.out',
             });
-        }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
-        sections.forEach((section, i) => {
-            section.style.opacity = '0';
-            section.style.transform = 'translateY(40px)';
-            section.style.transition = 'opacity 0.7s ease, transform 0.7s ease';
-            observer.observe(section);
-        });
+            gsap.from('.hero .tagline, .hero .typed-text, .hero .social-links', {
+                y: 40,
+                opacity: 0,
+                duration: 0.8,
+                stagger: 0.15,
+                delay: 0.4,
+                ease: 'power3.out',
+            });
 
-        // ---------- 6. فرم تماس ----------
-        const form = document.getElementById('contactForm');
-        const status = document.getElementById('formStatus');
-        form.addEventListener('submit', async (e) => {
-            e.preventDefault();
-            status.textContent = '⏳ در حال ارسال...';
-            status.style.color = '#667eea';
-            const data = new FormData(form);
-            try {
-                const response = await fetch(form.action, {
-                    method: 'POST',
-                    body: data,
-                    headers: { 'Accept': 'application/json' }
+            // Sections fade-up with GSAP
+            document.querySelectorAll('section:not(.hero)').forEach((section, i) => {
+                gsap.from(section, {
+                    scrollTrigger: {
+                        trigger: section,
+                        start: 'top 85%',
+                        toggleActions: 'play none none none',
+                    },
+                    y: 50,
+                    opacity: 0,
+                    duration: 0.9,
+                    delay: i * 0.08,
+                    ease: 'power3.out',
                 });
-                if (response.ok) {
-                    status.innerHTML = '✅ پیام شما با موفقیت ارسال شد! به زودی پاسخ می‌دهم.';
-                    status.style.color = '#22c55e';
-                    form.reset();
+            });
+
+            // ================================================================
+            // 2. AOS (fallback for simple animations)
+            // ================================================================
+            AOS.init({
+                duration: 800,
+                once: true,
+                offset: 40,
+            });
+
+            // ================================================================
+            // 3. Particle Background
+            // ================================================================
+            if (typeof particlesJS !== 'undefined') {
+                particlesJS('particles-js', {
+                    particles: {
+                        number: { value: 60, density: { enable: true, value_area: 800 } },
+                        color: { value: '#667eea' },
+                        shape: { type: 'circle' },
+                        opacity: {
+                            value: 0.3,
+                            random: true,
+                            anim: { enable: true, speed: 1, opacity_min: 0.1, sync: false }
+                        },
+                        size: {
+                            value: 3,
+                            random: true,
+                            anim: { enable: true, speed: 2, size_min: 0.5, sync: false }
+                        },
+                        line_linked: {
+                            enable: true,
+                            distance: 150,
+                            color: '#667eea',
+                            opacity: 0.15,
+                            width: 1
+                        },
+                        move: {
+                            enable: true,
+                            speed: 2,
+                            direction: 'none',
+                            random: true,
+                            straight: false,
+                            out_mode: 'out'
+                        }
+                    },
+                    interactivity: {
+                        detect_on: 'canvas',
+                        events: {
+                            onhover: { enable: true, mode: 'grab' },
+                            onclick: { enable: true, mode: 'push' },
+                            resize: true
+                        },
+                        modes: {
+                            grab: { distance: 140, line_linked: { opacity: 0.3 } },
+                            push: { particles_nb: 4 }
+                        }
+                    },
+                    retina_detect: true
+                });
+            }
+
+            // ================================================================
+            // 4. Cursor Glow
+            // ================================================================
+            const glow = document.getElementById('cursor-glow');
+            const dot = document.getElementById('cursor-dot');
+            let mouseX = 0,
+                mouseY = 0;
+
+            document.addEventListener('mousemove', (e) => {
+                mouseX = e.clientX;
+                mouseY = e.clientY;
+                glow.style.left = mouseX + 'px';
+                glow.style.top = mouseY + 'px';
+                dot.style.left = mouseX + 'px';
+                dot.style.top = mouseY + 'px';
+            });
+
+            // Hover effect on interactive elements
+            document.querySelectorAll('a, button, .work-card, .post, .skill-tag').forEach(el => {
+                el.addEventListener('mouseenter', () => {
+                    glow.style.width = '70px';
+                    glow.style.height = '70px';
+                    glow.style.opacity = '0.7';
+                    dot.style.width = '10px';
+                    dot.style.height = '10px';
+                });
+                el.addEventListener('mouseleave', () => {
+                    glow.style.width = '40px';
+                    glow.style.height = '40px';
+                    glow.style.opacity = '1';
+                    dot.style.width = '6px';
+                    dot.style.height = '6px';
+                });
+            });
+
+            // ================================================================
+            // 5. Scroll Progress
+            // ================================================================
+            const progressBar = document.getElementById('scroll-progress');
+            window.addEventListener('scroll', () => {
+                const scrollTop = window.scrollY;
+                const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+                const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+                progressBar.style.width = progress + '%';
+            });
+
+            // ================================================================
+            // 6. Back to Top
+            // ================================================================
+            const backBtn = document.getElementById('backToTop');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 400) {
+                    backBtn.classList.add('visible');
                 } else {
-                    throw new Error('خطا');
+                    backBtn.classList.remove('visible');
                 }
-            } catch (error) {
-                status.innerHTML = '❌ خطا در ارسال. لطفاً دوباره تلاش کنید یا از شبکه‌های اجتماعی پیام دهید.';
-                status.style.color = '#ef4444';
+            });
+            backBtn.addEventListener('click', () => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+
+            // ================================================================
+            // 7. Theme Toggle (Dark → Light)
+            // ================================================================
+            const toggle = document.getElementById('themeToggle');
+            const icon = toggle.querySelector('i');
+            let isLight = false;
+
+            toggle.addEventListener('click', () => {
+                isLight = !isLight;
+                if (isLight) {
+                    document.documentElement.style.setProperty('--bg-primary', '#f6f9fc');
+                    document.documentElement.style.setProperty('--bg-secondary', '#ffffff');
+                    document.documentElement.style.setProperty('--bg-card', 'rgba(255,255,255,0.7)');
+                    document.documentElement.style.setProperty('--text-primary', '#0b1a33');
+                    document.documentElement.style.setProperty('--text-secondary', '#334155');
+                    document.documentElement.style.setProperty('--text-muted', '#64748b');
+                    document.documentElement.style.setProperty('--border-glass', 'rgba(0,0,0,0.06)');
+                    document.documentElement.style.setProperty('--shadow', '0 8px 32px rgba(0,0,0,0.06)');
+                    document.documentElement.style.setProperty('--shadow-glow', '0 0 40px rgba(102,126,234,0.06)');
+                    icon.classList.replace('fa-sun', 'fa-moon');
+                } else {
+                    document.documentElement.style.setProperty('--bg-primary', '#0a0e1a');
+                    document.documentElement.style.setProperty('--bg-secondary', '#111827');
+                    document.documentElement.style.setProperty('--bg-card', 'rgba(17,24,39,0.65)');
+                    document.documentElement.style.setProperty('--text-primary', '#f1f5f9');
+                    document.documentElement.style.setProperty('--text-secondary', '#cbd5e1');
+                    document.documentElement.style.setProperty('--text-muted', '#94a3b8');
+                    document.documentElement.style.setProperty('--border-glass', 'rgba(255,255,255,0.08)');
+                    document.documentElement.style.setProperty('--shadow', '0 8px 32px rgba(0,0,0,0.6)');
+                    document.documentElement.style.setProperty('--shadow-glow', '0 0 40px rgba(102,126,234,0.15)');
+                    icon.classList.replace('fa-moon', 'fa-sun');
+                }
+            });
+
+            // ================================================================
+            // 8. Typewriter
+            // ================================================================
+            const typedEl = document.getElementById('typedText');
+            const phrases = [
+                'دکلمه‌های مرا بشنوید 🎧',
+                'همراه من در سفر کلمات 🌱',
+                'اینجا صدا و معنا به هم می‌رسند 📖',
+                'تجربیاتم را با شما به اشتراک می‌گذارم 💫'
+            ];
+            let phraseIdx = 0,
+                charIdx = 0,
+                isDeleting = false;
+
+            function typeEffect() {
+                const current = phrases[phraseIdx];
+                if (!isDeleting) {
+                    typedEl.textContent = current.substring(0, charIdx++);
+                    if (charIdx > current.length) {
+                        isDeleting = true;
+                        setTimeout(typeEffect, 2200);
+                        return;
+                    }
+                } else {
+                    typedEl.textContent = current.substring(0, charIdx--);
+                    if (charIdx < 0) {
+                        isDeleting = false;
+                        charIdx = 0;
+                        phraseIdx = (phraseIdx + 1) % phrases.length;
+                        setTimeout(typeEffect, 400);
+                        return;
+                    }
+                }
+                setTimeout(typeEffect, isDeleting ? 50 : 100);
             }
-            setTimeout(() => { status.innerHTML = ''; }, 8000);
-        });
+            typeEffect();
 
-        // ---------- 7. تاریخ شمسی ----------
-        function updatePersianDate() {
-            const now = new Date();
-            const options = { year: 'numeric', month: 'long', day: 'numeric', weekday: 'long' };
-            document.getElementById('persianDate').textContent = '📅 ' + now.toLocaleDateString('fa-IR', options);
-        }
-        updatePersianDate();
+            // ================================================================
+            // 9. Smooth Scroll for nav
+            // ================================================================
+            document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    e.preventDefault();
+                    const target = document.querySelector(targetId);
+                    if (target) {
+                        const headerHeight = document.querySelector('header').offsetHeight;
+                        const targetPosition = target.getBoundingClientRect().top + window.scrollY - headerHeight -
+                            10;
+                        window.scrollTo({ top: targetPosition, behavior: 'smooth' });
+                    }
+                });
+            });
 
-        // ---------- 8. دکمه بازگشت به بالا ----------
-        const backBtn = document.getElementById('backToTop');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 400) {
-                backBtn.classList.add('visible');
-            } else {
-                backBtn.classList.remove('visible');
+            // ================================================================
+            // 10. Work Filter
+            // ================================================================
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            const workCards = document.querySelectorAll('.work-card');
+
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    const filter = btn.dataset.filter;
+                    workCards.forEach(card => {
+                        if (filter === 'all' || card.dataset.category === filter) {
+                            card.style.display = 'block';
+                            card.style.animation = 'fadeIn 0.5s ease forwards';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+                });
+            });
+
+            // ================================================================
+            // 11. Blog Search
+            // ================================================================
+            const searchInput = document.getElementById('blogSearch');
+            const posts = document.querySelectorAll('#blogPosts .post');
+
+            searchInput.addEventListener('input', function() {
+                const query = this.value.trim().toLowerCase();
+                posts.forEach(post => {
+                    const title = post.dataset.title.toLowerCase();
+                    if (title.includes(query)) {
+                        post.style.display = 'block';
+                    } else {
+                        post.style.display = 'none';
+                    }
+                });
+            });
+
+            // ================================================================
+            // 12. Video Modal (Instagram Reels)
+            // ================================================================
+            const modal = document.getElementById('videoModal');
+            const iframe = document.getElementById('videoIframe');
+            const closeModal = document.getElementById('closeModal');
+
+            document.querySelectorAll('.work-link[data-video]').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const url = this.dataset.video;
+                    iframe.src = url + '?autoplay=1';
+                    modal.classList.add('active');
+                    modal.style.opacity = '1';
+                    document.body.style.overflow = 'hidden';
+                });
+            });
+
+            function closeVideoModal() {
+                modal.classList.remove('active');
+                modal.style.opacity = '0';
+                iframe.src = '';
+                document.body.style.overflow = '';
             }
-        });
-        backBtn.addEventListener('click', () => {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
 
-        // ---------- 9. به‌روزرسانی سال در فوتر ----------
-        const yearSpan = document.querySelector('footer .copyright');
-        if (yearSpan) {
-            yearSpan.innerHTML = `© ${new Date().getFullYear()} - تمامی حقوق محفوظ | طراحی و توسعه توسط مهدی رحیمیان`;
-        }
+            closeModal.addEventListener('click', closeVideoModal);
+            modal.addEventListener('click', function(e) {
+                if (e.target === this) closeVideoModal();
+            });
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') closeVideoModal();
+            });
 
-    })();
-</script>
+            // ================================================================
+            // 13. Visitor Counter (localStorage)
+            // ================================================================
+            const counterEl = document.getElementById('visitorCount');
+            let count = parseInt(localStorage.getItem('visitorCount') || '0');
+            count += 1;
+            localStorage.setItem('visitorCount', count);
+            counterEl.textContent = count;
+
+            // ================================================================
+            // 14. Persian Calendar
+            // ================================================================
+            function updatePersianDate() {
+                const now = new Date();
+                const options = { year: 'numeric', month: 'long', day: 'numeric', weekday: 'long' };
+                const persian = now.toLocaleDateString('fa-IR', options);
+                document.getElementById('persianDateDisplay').textContent = persian;
+                document.getElementById('persianDateFooter').textContent = '📅 ' + persian;
+            }
+            updatePersianDate();
+
+            // ================================================================
+            // 15. Contact Form
+            // ================================================================
+            const form = document.getElementById('contactForm');
+            const status = document.getElementById('formStatus');
+            form.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                status.textContent = '⏳ در حال ارسال...';
+                status.style.color = '#667eea';
+                const data = new FormData(form);
+                try {
+                    const response = await fetch(form.action, {
+                        method: 'POST',
+                        body: data,
+                        headers: { 'Accept': 'application/json' }
+                    });
+                    if (response.ok) {
+                        status.innerHTML = '✅ پیام شما با موفقیت ارسال شد! به زودی پاسخ می‌دهم.';
+                        status.style.color = '#22c55e';
+                        form.reset();
+                    } else {
+                        throw new Error('خطا');
+                    }
+                } catch (error) {
+                    status.innerHTML = '❌ خطا در ارسال. لطفاً دوباره تلاش کنید یا از شبکه‌های اجتماعی پیام دهید.';
+                    status.style.color = '#ef4444';
+                }
+                setTimeout(() => { status.innerHTML = ''; }, 8000);
+            });
+
+            // ================================================================
+            // 16. Update year in footer
+            // ================================================================
+            const yearSpan = document.querySelector('footer .copyright');
+            if (yearSpan) {
+                yearSpan.innerHTML =
+                    `© ${new Date().getFullYear()} - تمامی حقوق محفوظ | طراحی و توسعه توسط مهدی رحیمیان`;
+            }
+
+            // ================================================================
+            // 17. Keyboard accessibility for modal
+            // ================================================================
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') {
+                    closeVideoModal();
+                }
+            });
+
+            console.log('🚀 مهدی رحیمیان | سایت شخصی مدرن ۲۰۲۶');
+            console.log('✨ طراحی شده با عشق و کد');
+        })();
+    </script>
+
 </body>
 </html>
