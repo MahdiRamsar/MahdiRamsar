@@ -7,7 +7,7 @@
     <!-- ========== SEO ========== -->
     <title>مهدی رحیمیان | نویسنده، گوینده، تولیدکننده محتوا</title>
     <meta name="description" content="سایت رسمی مهدی رحیمیان - آثار صوتی و تصویری، دلنوشته‌ها، دکلمه‌ها و کانال تلگرام" />
-    <meta name="keywords" content="مهدی رحیمیان, دکلمه, دلنوشته, پادکست, گویندگی, اینستاگرام, تلگرام" />
+    <meta name="keywords" content="مهدی رحیمیان, دکلمه, دلنوشته, پادکست, گویندگی" />
     <meta name="author" content="مهدی رحیمیان" />
     <meta name="robots" content="index, follow" />
     <link rel="canonical" href="https://mahdiramsar.github.io" />
@@ -17,23 +17,6 @@
     <meta property="og:description" content="آثار صوتی و تصویری، دلنوشته‌ها و کانال تلگرام مهدی رحیمیان" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://mahdiramsar.github.io" />
-    <meta property="og:image" content="https://mahdiramsar.github.io/og-image.jpg" />
-
-    <!-- Schema.org -->
-    <script type="application/ld+json">
-        {
-            "@context": "https://schema.org",
-            "@type": "Person",
-            "name": "مهدی رحیمیان",
-            "url": "https://mahdiramsar.github.io",
-            "description": "نویسنده، گوینده و تولیدکننده محتوای صوتی و تصویری",
-            "sameAs": [
-                "https://www.instagram.com/sayehaye.bi.neghab",
-                "https://t.me/sayehayebineghab",
-                "https://github.com/mahdiramsar"
-            ]
-        }
-    </script>
 
     <!-- ========== Fonts & Icons ========== -->
     <link href="https://cdn.jsdelivr.net/gh/rastikerdar/estedad@v3.0.0/font-face.css" rel="stylesheet" />
@@ -50,20 +33,15 @@
             --bg-primary: #07080b;
             --bg-secondary: #0d0f14;
             --bg-card: rgba(255, 255, 255, 0.04);
-            --bg-glass: rgba(255, 255, 255, 0.02);
             --text-primary: #f0f2f5;
             --text-secondary: #a8b3cf;
             --text-muted: #6b7a9a;
             --border-glass: rgba(255, 255, 255, 0.06);
             --shadow: 0 20px 60px rgba(0, 0, 0, 0.7);
-            --shadow-glow: 0 0 80px rgba(102, 126, 234, 0.08);
             --radius: 28px;
             --radius-sm: 16px;
             --transition: 0.6s cubic-bezier(0.22, 1, 0.36, 1);
             --font: 'Estedad', 'Segoe UI', sans-serif;
-            --aurora-1: #1a0533;
-            --aurora-2: #0a1628;
-            --aurora-3: #1b0f2e;
         }
 
         /* ================================================================
@@ -79,7 +57,6 @@
             scroll-behavior: smooth;
             scroll-padding-top: 80px;
             -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
         }
 
         body {
@@ -88,7 +65,6 @@
             color: var(--text-primary);
             line-height: 1.7;
             overflow-x: hidden;
-            position: relative;
         }
 
         ::selection {
@@ -155,7 +131,7 @@
         }
 
         /* ================================================================
-                   HEADER – Ultra-minimal Glass
+                   HEADER
                    ================================================================ */
         header {
             position: fixed;
@@ -182,7 +158,6 @@
         .logo h1 {
             font-size: 1.5rem;
             font-weight: 800;
-            letter-spacing: -0.5px;
             background: linear-gradient(135deg, #667eea, #764ba2);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -207,7 +182,6 @@
             border-radius: 40px;
             font-size: 0.85rem;
             transition: all var(--transition);
-            letter-spacing: -0.3px;
         }
         nav a:hover {
             color: #fff;
@@ -233,7 +207,6 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            backdrop-filter: blur(4px);
         }
         .theme-toggle:hover {
             background: rgba(255, 255, 255, 0.08);
@@ -242,7 +215,7 @@
         }
 
         /* ================================================================
-                   HERO – Full‑screen with Aurora
+                   HERO
                    ================================================================ */
         .hero {
             position: relative;
@@ -253,7 +226,6 @@
             text-align: center;
             padding: 120px 20px 80px;
             z-index: 2;
-            isolation: isolate;
         }
 
         .hero-content {
@@ -269,9 +241,14 @@
             margin: 0 auto 32px;
             display: block;
             border: 2px solid rgba(255, 255, 255, 0.06);
-            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.03);
-            transition: all var(--transition);
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5);
             animation: floatAvatar 8s ease-in-out infinite alternate;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: #fff;
         }
         @keyframes floatAvatar {
             0% {
@@ -280,10 +257,6 @@
             100% {
                 transform: translateY(-18px);
             }
-        }
-        .profile-avatar:hover {
-            transform: scale(1.03) rotate(-2deg);
-            box-shadow: 0 40px 100px rgba(0, 0, 0, 0.6), 0 0 60px rgba(102, 126, 234, 0.08);
         }
 
         .hero h2 {
@@ -303,7 +276,6 @@
             font-weight: 400;
             color: var(--text-secondary);
             margin-bottom: 8px;
-            letter-spacing: -0.3px;
         }
 
         .hero .typed-text {
@@ -337,30 +309,9 @@
         .social-links a:hover {
             color: #fff;
             background: rgba(255, 255, 255, 0.08);
-            transform: translateY(-4px) scale(1.05);
-        }
-        .social-links .instagram:hover {
-            background: #E4405F;
-            border-color: #E4405F;
-            color: #fff;
-        }
-        .social-links .telegram:hover {
-            background: #0088cc;
-            border-color: #0088cc;
-            color: #fff;
-        }
-        .social-links .email:hover {
-            background: #fbbf24;
-            border-color: #fbbf24;
-            color: #0a0e1a;
-        }
-        .social-links .github:hover {
-            background: #fff;
-            border-color: #fff;
-            color: #0a0e1a;
+            transform: translateY(-4px);
         }
 
-        /* Scroll indicator */
         .scroll-indicator {
             position: absolute;
             bottom: 40px;
@@ -372,12 +323,8 @@
             gap: 8px;
             color: var(--text-muted);
             font-size: 0.75rem;
-            letter-spacing: 1px;
             opacity: 0.5;
             animation: scrollPulse 2.5s ease-in-out infinite;
-        }
-        .scroll-indicator i {
-            font-size: 1.2rem;
         }
         @keyframes scrollPulse {
             0%,
@@ -392,7 +339,7 @@
         }
 
         /* ================================================================
-                   SECTION CARDS – Modern Glass
+                   SECTION CARDS
                    ================================================================ */
         section {
             background: var(--bg-card);
@@ -405,10 +352,7 @@
             transition: all var(--transition);
             position: relative;
             z-index: 2;
-            box-shadow: var(--shadow), var(--shadow-glow);
-        }
-        section:hover {
-            border-color: rgba(255, 255, 255, 0.08);
+            box-shadow: var(--shadow);
         }
 
         h3 {
@@ -426,7 +370,6 @@
         }
         h3 i {
             -webkit-text-fill-color: #667eea;
-            filter: drop-shadow(0 0 20px rgba(102, 126, 234, 0.15));
         }
 
         /* ================================================================
@@ -450,21 +393,18 @@
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            letter-spacing: -0.2px;
         }
         .skill-tag i {
             color: #667eea;
-            font-size: 0.9rem;
         }
         .skill-tag:hover {
             background: rgba(102, 126, 234, 0.08);
             border-color: rgba(102, 126, 234, 0.15);
             color: #fff;
-            transform: translateY(-2px);
         }
 
         /* ================================================================
-                   WORKS GRID – 3D Cards
+                   WORKS GRID
                    ================================================================ */
         .works-grid {
             display: grid;
@@ -480,26 +420,10 @@
             text-align: center;
             border: 1px solid var(--border-glass);
             transition: all var(--transition);
-            position: relative;
-            transform-style: preserve-3d;
-            perspective: 800px;
-            cursor: pointer;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
         }
-        .work-card::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(135deg, rgba(102, 126, 234, 0.04), rgba(118, 75, 162, 0.04));
-            border-radius: var(--radius-sm);
-            opacity: 0;
-            transition: opacity var(--transition);
-        }
-        .work-card:hover::before {
-            opacity: 1;
-        }
         .work-card:hover {
-            transform: translateY(-12px) rotateX(2deg) rotateY(-2deg);
+            transform: translateY(-12px);
             border-color: rgba(102, 126, 234, 0.15);
             box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5);
         }
@@ -512,35 +436,29 @@
             overflow: hidden;
             border: 2px solid rgba(102, 126, 234, 0.1);
             transition: all var(--transition);
-            position: relative;
-            z-index: 1;
-        }
-        .work-card .work-thumb img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.2rem;
+            color: #fff;
         }
         .work-card:hover .work-thumb {
-            transform: scale(1.06) rotate(-4deg);
+            transform: scale(1.06);
             border-color: rgba(102, 126, 234, 0.3);
-            box-shadow: 0 8px 32px rgba(102, 126, 234, 0.15);
         }
 
         .work-card h4 {
             font-size: 1rem;
             font-weight: 600;
             margin-bottom: 4px;
-            position: relative;
-            z-index: 1;
-            letter-spacing: -0.3px;
+            color: var(--text-primary);
         }
         .work-card .work-date {
             color: var(--text-muted);
             font-size: 0.75rem;
             display: block;
             margin-bottom: 10px;
-            position: relative;
-            z-index: 1;
         }
         .work-tags {
             display: flex;
@@ -548,8 +466,6 @@
             justify-content: center;
             gap: 6px;
             margin-bottom: 14px;
-            position: relative;
-            z-index: 1;
         }
         .work-tags span {
             background: rgba(102, 126, 234, 0.06);
@@ -572,14 +488,11 @@
             border-radius: 40px;
             background: rgba(255, 255, 255, 0.02);
             border: 1px solid var(--border-glass);
-            position: relative;
-            z-index: 1;
         }
         .work-link:hover {
             background: rgba(102, 126, 234, 0.08);
             color: #fff;
             gap: 14px;
-            border-color: rgba(102, 126, 234, 0.15);
         }
 
         /* ================================================================
@@ -611,7 +524,7 @@
         }
 
         /* ================================================================
-                   AUDIO PLAYER – Custom
+                   AUDIO PLAYER
                    ================================================================ */
         .audio-player {
             background: var(--bg-secondary);
@@ -631,6 +544,7 @@
         .audio-player .audio-info h4 {
             font-size: 0.95rem;
             font-weight: 600;
+            color: var(--text-primary);
         }
         .audio-player .audio-info span {
             font-size: 0.75rem;
@@ -644,9 +558,6 @@
             border-radius: 40px;
             background: var(--bg-primary);
             filter: brightness(0.8);
-        }
-        .audio-player audio::-webkit-media-controls-panel {
-            background: var(--bg-primary);
         }
 
         /* ================================================================
@@ -695,7 +606,6 @@
         .btn-channel:hover {
             background: rgba(255, 255, 255, 0.08);
             transform: translateY(-3px);
-            border-color: rgba(102, 126, 234, 0.2);
         }
 
         /* ================================================================
@@ -719,7 +629,7 @@
             display: flex;
             align-items: center;
             gap: 10px;
-            letter-spacing: -0.3px;
+            color: var(--text-primary);
         }
         .post h4 i {
             color: #667eea;
@@ -729,6 +639,9 @@
             font-size: 0.75rem;
             display: block;
             margin-bottom: 6px;
+        }
+        .post p {
+            color: var(--text-secondary);
         }
         .read-more {
             color: var(--text-secondary);
@@ -830,9 +743,6 @@
             transform: translateY(-4px);
             box-shadow: 0 20px 60px rgba(102, 126, 234, 0.2);
         }
-        .btn:active {
-            transform: scale(0.97);
-        }
 
         .social-buttons {
             display: flex;
@@ -873,6 +783,7 @@
             background: var(--bg-secondary);
             border: 1px solid var(--border-glass);
             font-size: 0.9rem;
+            color: var(--text-primary);
         }
 
         /* ================================================================
@@ -1025,12 +936,12 @@
             margin-top: 14px;
             opacity: 0.5;
             font-size: 0.85rem;
-            font-weight: 300;
         }
         footer .copyright {
             margin-top: 8px;
             opacity: 0.4;
             font-size: 0.8rem;
+            color: var(--text-muted);
         }
 
         /* ================================================================
@@ -1071,6 +982,7 @@
             .profile-avatar {
                 width: 130px;
                 height: 130px;
+                font-size: 3.2rem;
             }
             .scroll-indicator {
                 display: none;
@@ -1189,18 +1101,20 @@
         </div>
     </header>
 
-    <!-- ========== HERO – Full‑screen ========== -->
+    <!-- ========== HERO ========== -->
     <section id="home" class="hero">
         <div class="container hero-content">
-            <img src="profile.jpg" alt="مهدی رحیمیان" class="profile-avatar" data-aos="zoom-in" data-aos-duration="1200" data-aos-offset="0" />
+            <div class="profile-avatar" data-aos="zoom-in" data-aos-duration="1200" data-aos-offset="0">
+                <i class="fas fa-user-astronaut"></i>
+            </div>
             <h2 data-aos="fade-up" data-aos-delay="100" data-aos-offset="0">مهدی رحیمیان</h2>
             <p class="tagline" data-aos="fade-up" data-aos-delay="200" data-aos-offset="0">نویسنده · گوینده · تولیدکننده محتوا</p>
             <div class="typed-text" id="typedText" data-aos="fade-up" data-aos-delay="300" data-aos-offset="0"></div>
             <div class="social-links" data-aos="fade-up" data-aos-delay="400" data-aos-offset="0">
-                <a href="https://www.instagram.com/sayehaye.bi.neghab" class="instagram" target="_blank" title="اینستاگرام"><i class="fab fa-instagram"></i></a>
-                <a href="https://t.me/sayehayebineghab" class="telegram" target="_blank" title="تلگرام"><i class="fab fa-telegram"></i></a>
-                <a href="mailto:me@mahdirahimiyan.ir" class="email" title="ایمیل"><i class="fas fa-envelope"></i></a>
-                <a href="https://github.com/mahdiramsar" class="github" target="_blank" title="گیت‌هاب"><i class="fab fa-github"></i></a>
+                <a href="https://www.instagram.com/sayehaye.bi.neghab" target="_blank" title="اینستاگرام"><i class="fab fa-instagram"></i></a>
+                <a href="https://t.me/sayehayebineghab" target="_blank" title="تلگرام"><i class="fab fa-telegram"></i></a>
+                <a href="mailto:me@mahdirahimiyan.ir" title="ایمیل"><i class="fas fa-envelope"></i></a>
+                <a href="https://github.com/mahdiramsar" target="_blank" title="گیت‌هاب"><i class="fab fa-github"></i></a>
             </div>
         </div>
         <div class="scroll-indicator">
@@ -1296,9 +1210,7 @@
             <div class="works-grid" id="worksGrid">
                 <!-- Card 1 -->
                 <div class="work-card" data-category="دکلمه" data-aos="flip-up" data-aos-delay="100">
-                    <div class="work-thumb">
-                        <img src="thumb1.jpg" alt="اثر ۱" />
-                    </div>
+                    <div class="work-thumb"><i class="fas fa-play"></i></div>
                     <h4>متن و صدا #مهدی_رحیمیان✌️</h4>
                     <span class="work-date">۱۶ دسامبر ۲۰۲۵</span>
                     <div class="work-tags">
@@ -1312,9 +1224,7 @@
 
                 <!-- Card 2 -->
                 <div class="work-card" data-category="دلنوشته" data-aos="flip-up" data-aos-delay="200">
-                    <div class="work-thumb">
-                        <img src="thumb2.jpg" alt="اثر ۲" />
-                    </div>
+                    <div class="work-thumb"><i class="fas fa-play"></i></div>
                     <h4>مرا به حال خود بگذارید و رهایم کنید...</h4>
                     <span class="work-date">دلنوشته</span>
                     <div class="work-tags">
@@ -1328,9 +1238,7 @@
 
                 <!-- Card 3 -->
                 <div class="work-card" data-category="عاشقانه" data-aos="flip-up" data-aos-delay="300">
-                    <div class="work-thumb">
-                        <img src="thumb3.jpg" alt="اثر ۳" />
-                    </div>
+                    <div class="work-thumb"><i class="fas fa-play"></i></div>
                     <h4>صدایم کن…</h4>
                     <span class="work-date">۱۶ اوت ۲۰۲۵</span>
                     <div class="work-tags">
@@ -1344,9 +1252,7 @@
 
                 <!-- Card 4 -->
                 <div class="work-card" data-category="دلنوشته" data-aos="flip-up" data-aos-delay="400">
-                    <div class="work-thumb">
-                        <img src="thumb4.jpg" alt="اثر ۴" />
-                    </div>
+                    <div class="work-thumb"><i class="fas fa-play"></i></div>
                     <h4>متن زیبا و عمیق با خوانش گرم</h4>
                     <span class="work-date">دلنوشته</span>
                     <div class="work-tags">
@@ -1381,21 +1287,21 @@
                 <div class="post" data-title="شروع یک سفر جدید">
                     <h4><i class="fas fa-rocket"></i> شروع یک سفر جدید</h4>
                     <span class="post-date">۲۵ دی ۱۴۰۲</span>
-                    <p style="color:var(--text-secondary);">اولین نوشته من در این سایت شخصی. اینجا فضایی است برای به اشتراک گذاری افکار، تجربیات و یادگیری‌هایم...</p>
+                    <p>اولین نوشته من در این سایت شخصی. اینجا فضایی است برای به اشتراک گذاری افکار، تجربیات و یادگیری‌هایم...</p>
                     <a href="#" class="read-more">ادامه مطلب <i class="fas fa-arrow-left"></i></a>
                 </div>
 
                 <div class="post" data-title="نقش نوشتن در رشد شخصی">
                     <h4><i class="fas fa-pencil-alt"></i> نقش نوشتن در رشد شخصی</h4>
                     <span class="post-date">۲۰ دی ۱۴۰۲</span>
-                    <p style="color:var(--text-secondary);">چگونه نوشتن می‌تواند به ما در درک بهتر خودمان و جهان اطرافمان کمک کند؟ در این مطلب به بررسی تأثیر نوشتن بر رشد فردی می‌پردازم...</p>
+                    <p>چگونه نوشتن می‌تواند به ما در درک بهتر خودمان و جهان اطرافمان کمک کند؟ در این مطلب به بررسی تأثیر نوشتن بر رشد فردی می‌پردازم...</p>
                     <a href="#" class="read-more">ادامه مطلب <i class="fas fa-arrow-left"></i></a>
                 </div>
 
                 <div class="post" data-title="تکنولوژی و زندگی مدرن">
                     <h4><i class="fas fa-microchip"></i> تکنولوژی و زندگی مدرن</h4>
                     <span class="post-date">۱۵ دی ۱۴۰۲</span>
-                    <p style="color:var(--text-secondary);">بررسی تأثیر تکنولوژی بر سبک زندگی و روابط انسانی در عصر حاضر. چگونه می‌توانیم از تکنولوژی به شکل هوشمندانه‌تری استفاده کنیم؟</p>
+                    <p>بررسی تأثیر تکنولوژی بر سبک زندگی و روابط انسانی در عصر حاضر. چگونه می‌توانیم از تکنولوژی به شکل هوشمندانه‌تری استفاده کنیم؟</p>
                     <a href="#" class="read-more">ادامه مطلب <i class="fas fa-arrow-left"></i></a>
                 </div>
             </div>
@@ -1482,11 +1388,10 @@
             'use strict';
 
             // ================================================================
-            // 1. GSAP + ScrollTrigger (smooth, Apple‑style)
+            // 1. GSAP + ScrollTrigger
             // ================================================================
             gsap.registerPlugin(ScrollTrigger);
 
-            // Hero entrance (staggered, organic)
             const tl = gsap.timeline({ defaults: { ease: 'power3.out', duration: 1.2 } });
             tl.from('.profile-avatar', { scale: 0.7, opacity: 0, duration: 1.4, ease: 'back.out(1.7)' })
                 .from('.hero h2', { y: 60, opacity: 0, duration: 1, delay: -0.4 })
@@ -1501,7 +1406,6 @@
                 })
                 .from('.scroll-indicator', { opacity: 0, y: 20, duration: 0.8, delay: -0.2 });
 
-            // Sections fade-up with stagger (Apple‑style)
             document.querySelectorAll('section:not(.hero)').forEach((section, i) => {
                 gsap.from(section, {
                     scrollTrigger: {
@@ -1518,7 +1422,7 @@
             });
 
             // ================================================================
-            // 2. AOS (enhancement)
+            // 2. AOS
             // ================================================================
             AOS.init({
                 duration: 900,
@@ -1605,7 +1509,7 @@
             });
 
             // ================================================================
-            // 6. Theme Toggle (Light / Dark)
+            // 6. Theme Toggle
             // ================================================================
             const toggle = document.getElementById('themeToggle');
             const icon = toggle.querySelector('i');
@@ -1623,7 +1527,6 @@
                     root.style.setProperty('--text-muted', '#64748b');
                     root.style.setProperty('--border-glass', 'rgba(0,0,0,0.06)');
                     root.style.setProperty('--shadow', '0 20px 60px rgba(0,0,0,0.06)');
-                    root.style.setProperty('--shadow-glow', '0 0 80px rgba(102,126,234,0.04)');
                     icon.classList.replace('fa-sun', 'fa-moon');
                 } else {
                     root.style.setProperty('--bg-primary', '#07080b');
@@ -1634,7 +1537,6 @@
                     root.style.setProperty('--text-muted', '#6b7a9a');
                     root.style.setProperty('--border-glass', 'rgba(255,255,255,0.06)');
                     root.style.setProperty('--shadow', '0 20px 60px rgba(0,0,0,0.7)');
-                    root.style.setProperty('--shadow-glow', '0 0 80px rgba(102,126,234,0.08)');
                     icon.classList.replace('fa-moon', 'fa-sun');
                 }
             });
@@ -1677,7 +1579,7 @@
             typeEffect();
 
             // ================================================================
-            // 8. Smooth Scroll (nav)
+            // 8. Smooth Scroll
             // ================================================================
             document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
                 anchor.addEventListener('click', function(e) {
@@ -1809,7 +1711,7 @@
                     }
                 } catch (error) {
                     status.innerHTML =
-                    '❌ خطا در ارسال. لطفاً دوباره تلاش کنید یا از شبکه‌های اجتماعی پیام دهید.';
+                        '❌ خطا در ارسال. لطفاً دوباره تلاش کنید یا از شبکه‌های اجتماعی پیام دهید.';
                     status.style.color = '#ef4444';
                 }
                 setTimeout(() => { status.innerHTML = ''; }, 8000);
@@ -1825,7 +1727,6 @@
             }
 
             console.log('🚀 مهدی رحیمیان | طراحی الهام‌گرفته از Apple, Linear, Vercel');
-            console.log('✨ Aurora · Glassmorphism · 3D Cards · Particle');
         })();
     </script>
 
