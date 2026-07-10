@@ -153,31 +153,9 @@
         }
 
         /* ============================================================
-                   AURORA BACKGROUND
+                   AURORA BACKGROUND (fallback, but we'll use hero background)
                    ============================================================ */
-        #aurora-bg {
-            position: fixed;
-            inset: 0;
-            z-index: 0;
-            background:
-                radial-gradient(ellipse at 20% 50%, oklch(0.6 0.2 270 / 0.15) 0%, transparent 60%),
-                radial-gradient(ellipse at 80% 20%, oklch(0.5 0.25 310 / 0.12) 0%, transparent 50%),
-                radial-gradient(ellipse at 50% 80%, oklch(0.7 0.2 180 / 0.08) 0%, transparent 50%),
-                linear-gradient(180deg, #07080b 0%, #0a0f1a 40%, #0d0a18 70%, #07080b 100%);
-            pointer-events: none;
-            animation: auroraPulse 12s ease-in-out infinite alternate;
-        }
-
-        @keyframes auroraPulse {
-            0% {
-                opacity: 0.6;
-                transform: scale(1);
-            }
-            100% {
-                opacity: 1;
-                transform: scale(1.02);
-            }
-        }
+        /* We'll remove the old aurora and use a hero with image */
 
         /* ============================================================
                    SCROLL PROGRESS
@@ -275,47 +253,66 @@
         }
 
         /* ============================================================
-                   HERO
+                   HERO – FULL SCREEN WITH BLUR BACKGROUND & PARALLAX
                    ============================================================ */
         .hero {
             position: relative;
-            background: var(--gradient-hero);
-            background-size: 300% 300%;
-            animation: gradientMove 12s ease-in-out infinite alternate;
-            color: #fff;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             text-align: center;
-            padding: 90px 20px 70px;
-            border-radius: var(--radius);
-            margin-bottom: 50px;
             overflow: hidden;
-            box-shadow: 0 30px 80px oklch(0.6 0.18 220 / 0.25);
+            margin-bottom: 0; /* remove default margin */
+            border-radius: 0; /* full width */
+            padding: 0;
+            background: #000; /* fallback */
             isolation: isolate;
             z-index: 2;
         }
 
-        @keyframes gradientMove {
-            0% {
-                background-position: 0% 50%;
-            }
-            100% {
-                background-position: 100% 50%;
-            }
+        /* Blurred background layer */
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+            background-image: url('1.jpg');
+            background-size: cover;
+            background-position: center;
+            filter: blur(20px) brightness(0.6);
+            transform: scale(1.1); /* to hide blur edges */
+            transition: transform 0.1s linear;
+            will-change: transform;
+            z-index: 0;
         }
 
+        /* Dark overlay for cinematic feel */
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.45);
+            z-index: 1;
+        }
+
+        /* Content container */
         .hero-content {
             position: relative;
             z-index: 2;
+            padding: 40px 20px;
+            max-width: 800px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
+        /* Main avatar – clear, no blur */
         .profile-avatar {
             width: 220px;
             height: 220px;
             border-radius: 50%;
-            margin: 0 auto 28px;
-            display: block;
             object-fit: cover;
-            border: 4px solid oklch(1 0 0 / 0.2);
-            box-shadow: 0 0 0 10px oklch(1 0 0 / 0.1), 0 30px 60px oklch(0 0 0 / 0.3);
+            border: 4px solid rgba(255, 255, 255, 0.25);
+            box-shadow: 0 0 0 12px rgba(255, 255, 255, 0.08), 0 30px 60px rgba(0, 0, 0, 0.5);
             transition: all var(--transition);
             animation: floatAvatar 6s ease-in-out infinite alternate;
             opacity: 0;
@@ -343,8 +340,9 @@
             font-size: 3.6rem;
             font-weight: 900;
             letter-spacing: -1px;
-            text-shadow: 0 4px 20px oklch(0 0 0 / 0.2);
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
             margin-bottom: 8px;
+            color: #fff;
             opacity: 0;
             animation: fadeInUp 0.8s ease forwards;
             animation-delay: 0.2s;
@@ -352,6 +350,7 @@
         .hero .tagline {
             font-size: 1.3rem;
             font-weight: 300;
+            color: rgba(255, 255, 255, 0.9);
             opacity: 0;
             animation: fadeInUp 0.8s ease forwards;
             animation-delay: 0.3s;
@@ -363,33 +362,39 @@
             min-height: 3rem;
             font-weight: 300;
             direction: ltr;
+            color: rgba(255, 255, 255, 0.8);
             opacity: 0;
             animation: fadeInUp 0.8s ease forwards;
             animation-delay: 0.4s;
         }
 
-        /* CTA Button */
+        /* Glassmorphism CTA */
         .hero-cta {
             display: inline-flex;
             align-items: center;
             gap: 12px;
             padding: 16px 40px;
-            background: #fff;
-            color: #0b1a33;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.18);
             border-radius: 60px;
+            color: #fff;
             font-weight: 800;
             font-size: 1.1rem;
             text-decoration: none;
             transition: all var(--transition);
             margin-top: 24px;
-            box-shadow: 0 12px 40px oklch(0 0 0 / 0.2);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
             opacity: 0;
             animation: fadeInUp 0.8s ease forwards;
             animation-delay: 0.5s;
         }
         .hero-cta:hover {
             transform: translateY(-4px) scale(1.03);
-            box-shadow: 0 20px 60px oklch(0 0 0 / 0.3);
+            background: rgba(255, 255, 255, 0.2);
+            border-color: rgba(255, 255, 255, 0.3);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
         }
 
         .social-links {
@@ -404,7 +409,9 @@
         }
         .social-links a {
             color: #fff;
-            background: oklch(1 0 0 / 0.12);
+            background: rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
             width: 60px;
             height: 60px;
             border-radius: 50%;
@@ -413,15 +420,15 @@
             justify-content: center;
             font-size: 1.7rem;
             transition: all var(--transition);
-            border: 1px solid oklch(1 0 0 / 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.15);
         }
         .social-links a:hover {
             transform: translateY(-8px) scale(1.08);
-            background: oklch(1 0 0 / 0.25);
+            background: rgba(255, 255, 255, 0.25);
         }
 
         /* ============================================================
-                   SECTIONS
+                   SECTIONS (rest unchanged)
                    ============================================================ */
         section {
             background: var(--bg-card);
@@ -614,7 +621,6 @@
             z-index: 1;
         }
 
-        /* Cover Image for each work */
         .work-cover {
             width: 100%;
             aspect-ratio: 16/9;
@@ -881,6 +887,7 @@
             }
 
             .hero {
+                min-height: 90vh;
                 padding: 60px 16px 40px;
             }
             .hero h2 {
@@ -937,8 +944,7 @@
 </head>
 <body>
 
-    <!-- ========== AURORA BACKGROUND ========== -->
-    <div id="aurora-bg"></div>
+    <!-- ========== AURORA BACKGROUND (removed) ========== -->
 
     <!-- ========== CURSOR GLOW ========== -->
     <div id="cursor-glow"></div>
@@ -972,15 +978,20 @@
         </div>
     </header>
 
-    <!-- ========== HERO ========== -->
+    <!-- ========== HERO – FULL SCREEN WITH BLUR & PARALLAX ========== -->
     <section id="home" class="hero">
-        <div class="container hero-content">
+        <!-- Blurred background with parallax -->
+        <div class="hero-bg" id="heroBg"></div>
+        <!-- Overlay -->
+        <div class="hero-overlay"></div>
+
+        <div class="hero-content">
             <img src="1.jpg" alt="مهدی رحیمیان" class="profile-avatar" loading="lazy" />
             <h2>مهدی رحیمیان</h2>
             <p class="tagline">نویسنده | گوینده | تولیدکننده محتوای صوتی و تصویری</p>
             <div class="typed-text" id="typedText"></div>
 
-            <!-- CTA Button -->
+            <!-- Glassmorphism CTA -->
             <a href="#works" class="hero-cta">
                 <i class="fas fa-headphones"></i>
                 شنیدن دکلمه‌ها
@@ -1085,7 +1096,7 @@
             <!-- Telegram Channel -->
             <div class="telegram-channel stagger-item">
                 <h4><i class="fab fa-telegram"></i> کانال تلگرام من</h4>
-                <p>«بیان بی‌پرده احساسات و داستان‌ها» — با ۳۸ عضو</p>
+                <p>«بیان بی‌پرده احساسات و داستان‌ها»</p>
                 <a href="https://t.me/sayehayebineghab" target="_blank" class="btn-channel">
                     <i class="fab fa-telegram"></i> عضویت در کانال تلگرام
                     <i class="fas fa-arrow-left"></i>
@@ -1167,7 +1178,6 @@
                     dot.style.top = y + 'px';
                 });
 
-                // Enlarge cursor on interactive elements
                 document.querySelectorAll('a, button, .work-card, .post, .skill-tag, .stat-item').forEach(el => {
                     el.addEventListener('mouseenter', () => {
                         glow.style.width = '80px';
@@ -1189,7 +1199,7 @@
             // ================================================================
             // 2. INTERACTIVE SPOTLIGHT on sections
             // ================================================================
-            document.querySelectorAll('section').forEach(section => {
+            document.querySelectorAll('section:not(.hero)').forEach(section => {
                 section.addEventListener('mousemove', (e) => {
                     const rect = section.getBoundingClientRect();
                     const x = ((e.clientX - rect.left) / rect.width) * 100;
@@ -1338,7 +1348,7 @@
             }
 
             // ================================================================
-            // 11. COUNTER ANIMATION (simple number increment)
+            // 11. COUNTER ANIMATION
             // ================================================================
             function animateCounter(element, target, suffix = '') {
                 let current = 0;
@@ -1353,7 +1363,6 @@
                 }, 30);
             }
 
-            // Start counters when stats come into view
             const statsObserver = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
@@ -1373,8 +1382,20 @@
                 statsObserver.observe(statsSection.closest('section'));
             }
 
-            console.log('🚀 سایت با تکنولوژی‌های ۲۰۲۶ بارگذاری شد!');
-            console.log('✨ Aurora Background · Cursor Glow · Interactive Spotlight · Staggered Animations · Stats');
+            // ================================================================
+            // 12. PARALLAX EFFECT ON HERO BACKGROUND
+            // ================================================================
+            const heroBg = document.getElementById('heroBg');
+            if (heroBg) {
+                window.addEventListener('scroll', () => {
+                    const scrollY = window.scrollY;
+                    // Move background slower than scroll (parallax)
+                    const translate = scrollY * 0.15;
+                    heroBg.style.transform = `scale(1.1) translateY(${translate}px)`;
+                });
+            }
+
+            console.log('🚀 Hero Full-Screen with Blur & Parallax activated!');
         })();
     </script>
 
