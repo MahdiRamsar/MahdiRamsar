@@ -684,7 +684,7 @@
         }
 
         /* ============================================================
-                   BLOG POSTS (با جلد ویژه برای نوشته جدید)
+                   BLOG POSTS (با قابلیت expand/collapse)
                    ============================================================ */
         .search-box {
             display: flex;
@@ -742,6 +742,22 @@
         .post p {
             color: var(--text-secondary);
         }
+
+        /* متن کامل مخفی (expandable) */
+        .full-content {
+            display: none;
+            margin-top: 16px;
+            padding-top: 16px;
+            border-top: 1px solid var(--glass-border);
+            color: var(--text-secondary);
+            line-height: 2;
+            white-space: pre-wrap;
+            font-size: 1rem;
+        }
+        .full-content.show {
+            display: block;
+        }
+
         .read-more {
             color: oklch(0.6 0.2 270);
             font-weight: 700;
@@ -751,12 +767,17 @@
             transition: all var(--transition);
             margin-top: 6px;
             text-decoration: none;
+            cursor: pointer;
+            border: none;
+            background: none;
+            font-family: var(--font);
+            font-size: 1rem;
         }
         .read-more:hover {
             gap: 14px;
         }
 
-        /* --- جلد ویژه برای نوشته جدید (تقاطع عشق و خشم) --- */
+        /* ===== پست ویژه با جلد ===== */
         .post-featured {
             background: var(--bg-secondary);
             border-radius: var(--radius);
@@ -823,11 +844,22 @@
             max-width: 700px;
             opacity: 0.9;
             text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-            /* نمایش بخشی از متن به‌عنوان تیزر */
             display: -webkit-box;
             -webkit-line-clamp: 4;
             -webkit-box-orient: vertical;
             overflow: hidden;
+        }
+
+        /* وقتی متن کامل نمایش داده می‌شود، محدودیت برداریم */
+        .post-featured .featured-overlay p.expanded {
+            display: block;
+            -webkit-line-clamp: unset;
+            overflow: visible;
+        }
+
+        .post-featured .featured-overlay .full-content {
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            color: rgba(255, 255, 255, 0.85);
         }
 
         .post-featured .featured-overlay .read-more {
@@ -845,6 +877,10 @@
             backdrop-filter: blur(4px);
             border: 1px solid rgba(255, 255, 255, 0.15);
             width: fit-content;
+            cursor: pointer;
+            border: none;
+            font-family: var(--font);
+            font-size: 1rem;
         }
 
         .post-featured .featured-overlay .read-more:hover {
@@ -1165,35 +1201,91 @@
                     <div class="featured-overlay">
                         <h4><i class="fas fa-heart-broken"></i> تقاطع عشق و خشم</h4>
                         <span class="post-date">۱۰ تیر ۱۴۰۴</span>
-                        <p>
+                        <p id="featuredTeaser">
                             گاهی کلمه‌ها چیزی بیشتر از صداهای بی‌جان نیستند، اما همین بی‌جان‌ها دقیق‌ترین ابزار شکنجه‌اند.
                             من سالها با واژه‌هایی زندگی کردم که ظاهراً برای عشق ساخته شده بودند، اما در بطنشان نفرتی رسوب کرده بود
                             که از هزار سیلی دردناک‌تر بود...
                         </p>
-                        <a href="#" class="read-more">مشاهده کامل نوشته <i class="fas fa-arrow-left"></i></a>
+                        <!-- متن کامل (مخفی در ابتدا) -->
+                        <div class="full-content" id="featuredFull">
+                            گاهی کلمه‌ها
+                            چیزی بیشتر از صداهای بی‌جان نیستند
+                            اما همین بی‌جان‌ها
+                            دقیق‌ترین ابزار شکنجه‌اند
+                            من سالها
+                            با واژه‌هایی زندگی کردم
+                            که ظاهراً برای عشق ساخته شده بودند
+                            اما در بطنشان
+                            نفرتی رسوب کرده بود
+                            که از هزار سیلی دردناک‌تر بود
+
+                            «تو را دوستت دارم»
+                            درست زمانی که داشت دلم از حضورت می‌سوخت
+                            من از تو متنفر بودم
+                            در همان لحظه‌ای که بی‌دفاع
+                            به چشم‌هایت زل زده بودم
+                            و دلم می‌خواست
+                            تمام زخم‌هایم را در آغوشت جا بذارم
+
+                            این است تناقض بشر
+                            که می‌داند چه چیزی آزارش می‌دهد
+                            اما باز هم به آن پناه می‌برد
+                            و من
+                            بزرگ‌ترین خطای منطقی‌ام را
+                            در دوست داشتن تو مرتکب شدم
+
+                            در من چیزی شکست
+                            نه یک‌بار
+                            نه دو بار
+                            بارها
+                            در تقاطع عشق و خشم
+                            در سطرهای نانوشته‌ای
+                            که بین واژه‌ی «دوستت دارم» و «دیگر هیچ‌وقت نباش»
+                            مدام در رفت‌ و آمد بودم
+                            و حالا فقط
+                            زخم مانده
+                            واژه مانده
+                            و من
+                            که نمی‌دانم
+                            از کدامشان باید بگریزم
+                        </div>
+                        <button class="read-more" data-target="featuredFull" data-teaser="featuredTeaser">
+                            مشاهده کامل نوشته <i class="fas fa-arrow-left"></i>
+                        </button>
                     </div>
                 </div>
 
-                <!-- سایر پست‌ها -->
+                <!-- ============================================= -->
+                <!-- سایر پست‌ها با قابلیت expand                   -->
+                <!-- ============================================= -->
                 <div class="post stagger-item" data-title="شروع یک سفر جدید">
                     <h4><i class="fas fa-rocket"></i> شروع یک سفر جدید</h4>
                     <span class="post-date">۲۵ دی ۱۴۰۲</span>
                     <p>اولین نوشته من در این سایت شخصی. اینجا فضایی است برای به اشتراک گذاری افکار، تجربیات و یادگیری‌هایم...</p>
-                    <a href="#" class="read-more">ادامه مطلب <i class="fas fa-arrow-left"></i></a>
+                    <div class="full-content">
+                        متن کامل نوشته «شروع یک سفر جدید» اینجاست. لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد.
+                    </div>
+                    <button class="read-more">ادامه مطلب <i class="fas fa-arrow-left"></i></button>
                 </div>
 
                 <div class="post stagger-item" data-title="نقش نوشتن در رشد شخصی">
                     <h4><i class="fas fa-pencil-alt"></i> نقش نوشتن در رشد شخصی</h4>
                     <span class="post-date">۲۰ دی ۱۴۰۲</span>
                     <p>چگونه نوشتن می‌تواند به ما در درک بهتر خودمان و جهان اطرافمان کمک کند؟ در این مطلب به بررسی تأثیر نوشتن بر رشد فردی می‌پردازم...</p>
-                    <a href="#" class="read-more">ادامه مطلب <i class="fas fa-arrow-left"></i></a>
+                    <div class="full-content">
+                        متن کامل درباره نقش نوشتن در رشد شخصی. نوشتن نه تنها به ما کمک می‌کند تا افکارمان را سامان دهیم، بلکه باعث می‌شود با لایه‌های پنهان شخصیت خود آشنا شویم. در این مقاله به تجربه شخصی و تحقیقات روانشناسی در این زمینه پرداخته‌ام.
+                    </div>
+                    <button class="read-more">ادامه مطلب <i class="fas fa-arrow-left"></i></button>
                 </div>
 
                 <div class="post stagger-item" data-title="تکنولوژی و زندگی مدرن">
                     <h4><i class="fas fa-microchip"></i> تکنولوژی و زندگی مدرن</h4>
                     <span class="post-date">۱۵ دی ۱۴۰۲</span>
                     <p>بررسی تأثیر تکنولوژی بر سبک زندگی و روابط انسانی در عصر حاضر. چگونه می‌توانیم از تکنولوژی به شکل هوشمندانه‌تری استفاده کنیم؟</p>
-                    <a href="#" class="read-more">ادامه مطلب <i class="fas fa-arrow-left"></i></a>
+                    <div class="full-content">
+                        متن کامل درباره تکنولوژی و زندگی مدرن. تکنولوژی امروز بخش جدایی‌ناپذیر زندگی ماست، اما آیا می‌دانیم چگونه از آن به بهترین شکل استفاده کنیم؟ در این نوشته به تأثیرات مثبت و منفی فناوری بر روابط انسانی و سلامت روان پرداخته‌ام.
+                    </div>
+                    <button class="read-more">ادامه مطلب <i class="fas fa-arrow-left"></i></button>
                 </div>
             </div>
         </section>
@@ -1316,7 +1408,7 @@
             }
             setTimeout(typeEffect, 700);
 
-            // Smooth scroll
+            // Smooth scroll for nav and hero CTA
             document.querySelectorAll('nav a[href^="#"], .hero-cta[href^="#"]').forEach(anchor => {
                 anchor.addEventListener('click', function(e) {
                     const targetId = this.getAttribute('href');
@@ -1395,7 +1487,54 @@
                 });
             }
 
-            console.log('✅ نوشته «تقاطع عشق و خشم» با جلد ویژه اضافه شد.');
+            // ============================================================
+            // 13. TOGGLE FULL CONTENT (expand/collapse) برای همه پست‌ها
+            // ============================================================
+            document.querySelectorAll('.read-more').forEach(btn => {
+                btn.addEventListener('click', function(e) {
+                    e.preventDefault(); // جلوگیری از هر گونه رفتار پیش‌فرض
+
+                    const parent = this.closest('.post') || this.closest('.post-featured');
+                    if (!parent) return;
+
+                    const fullContent = parent.querySelector('.full-content');
+                    if (!fullContent) return;
+
+                    // برای پست ویژه، همچنین teaser را مدیریت می‌کنیم
+                    const teaser = parent.querySelector('.post-featured .featured-overlay > p:not(.full-content)');
+
+                    // تغییر وضعیت نمایش
+                    const isShowing = fullContent.classList.contains('show');
+
+                    if (isShowing) {
+                        // مخفی کردن
+                        fullContent.classList.remove('show');
+                        this.innerHTML = this.innerHTML.replace('نمایش کمتر', 'مشاهده کامل نوشته').replace(
+                            'ادامه مطلب', 'ادامه مطلب');
+                        // اگر آیکن وجود دارد، مطمئن شویم که درست است
+                        if (this.querySelector('.fa-arrow-left')) {
+                            // قبلاً درست است
+                        }
+                        // برای پست ویژه، دوباره محدودیت نمایش را اعمال کنیم
+                        if (teaser) {
+                            teaser.style.display = '-webkit-box';
+                            teaser.style.webkitLineClamp = '4';
+                            teaser.style.overflow = 'hidden';
+                        }
+                    } else {
+                        // نمایش دادن
+                        fullContent.classList.add('show');
+                        this.innerHTML = this.innerHTML.replace('مشاهده کامل نوشته', 'نمایش کمتر').replace(
+                            'ادامه مطلب', 'نمایش کمتر');
+                        // برای پست ویژه، teaser را کاملاً مخفی کنیم تا متن کامل دیده شود
+                        if (teaser) {
+                            teaser.style.display = 'none';
+                        }
+                    }
+                });
+            });
+
+            console.log('✅ قابلیت نمایش/مخفی کردن متن کامل با موفقیت اضافه شد.');
         })();
     </script>
 
