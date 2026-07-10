@@ -4,21 +4,20 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- PWA Manifest -->
+    <!-- PWA -->
     <link rel="manifest" href="manifest.json" />
-
-    <!-- SEO -->
-    <title>مهدی رحیمیان | سایت شخصی ۲۰۲۶</title>
-    <meta name="description" content="سایت شخصی مهدی رحیمیان با آخرین تکنولوژی‌های وب ۲۰۲۶" />
     <meta name="theme-color" content="#000000" />
 
-    <!-- Open Graph -->
+    <!-- SEO / Dynamic OG -->
+    <title>مهدی رحیمیان | سایت شخصی ۲۰۲۶</title>
+    <meta name="description" content="سایت شخصی مهدی رحیمیان با آخرین تکنولوژی‌های وب ۲۰۲۶" />
     <meta property="og:title" content="مهدی رحیمیان | سایت شخصی ۲۰۲۶" />
     <meta property="og:description" content="آثار صوتی و تصویری، دلنوشته‌ها و کانال تلگرام" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://mahdiramsar.github.io" />
+    <meta property="og:image" content="https://mahdiramsar.github.io/og-image.jpg" />
 
-    <!-- Schema.org -->
+    <!-- Schema -->
     <script type="application/ld+json">
         {
             "@context": "https://schema.org",
@@ -28,13 +27,20 @@
         }
     </script>
 
-    <!-- Fonts -->
+    <!-- Fonts & Icons -->
     <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
 
+    <!-- GSAP + ScrollTrigger -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+
+    <!-- Three.js for WebGL Background -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" defer></script>
+
     <style>
         /* ============================================================
-                   CSS VARIABLES
+                   CSS VARIABLES (Dark default)
                    ============================================================ */
         :root {
             --bg-primary: #0a0a0a;
@@ -45,11 +51,34 @@
             --text-muted: #6b7a9a;
             --glass-border: rgba(255, 255, 255, 0.06);
             --shadow: 0 20px 60px rgba(0, 0, 0, 0.7);
-            --gradient-1: linear-gradient(135deg, #667eea, #764ba2);
+            --accent: #667eea;
+            --accent-secondary: #764ba2;
             --radius: 28px;
             --radius-sm: 16px;
             --transition: 0.5s cubic-bezier(0.23, 1, 0.32, 1);
             --font: 'Vazirmatn', 'Segoe UI', sans-serif;
+        }
+
+        /* Dynamic accent color via custom property */
+        [data-accent="blue"] {
+            --accent: #667eea;
+            --accent-secondary: #764ba2;
+        }
+        [data-accent="green"] {
+            --accent: #34d399;
+            --accent-secondary: #059669;
+        }
+        [data-accent="orange"] {
+            --accent: #fbbf24;
+            --accent-secondary: #f59e0b;
+        }
+        [data-accent="pink"] {
+            --accent: #f472b6;
+            --accent-secondary: #db2777;
+        }
+        [data-accent="purple"] {
+            --accent: #a78bfa;
+            --accent-secondary: #7c3aed;
         }
 
         [data-theme="light"] {
@@ -64,7 +93,7 @@
         }
 
         /* ============================================================
-                   RESET
+                   RESET & BASE
                    ============================================================ */
         * {
             margin: 0;
@@ -86,10 +115,17 @@
             min-height: 100svh;
             overflow-x: hidden;
             transition: background 0.5s, color 0.5s;
+            cursor: none;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                cursor: auto;
+            }
         }
 
         ::selection {
-            background: #667eea;
+            background: var(--accent);
             color: #fff;
         }
 
@@ -101,6 +137,67 @@
         }
 
         /* ============================================================
+                   REDUCED MOTION OVERRIDE
+                   ============================================================ */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+            .hero-bg {
+                animation: none !important;
+            }
+            .hero-light {
+                animation: none !important;
+            }
+        }
+
+        /* ============================================================
+                   CURSOR PHYSICS + MAGNETIC
+                   ============================================================ */
+        #cursor-glow {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: radial-gradient(circle, var(--accent) 0%, transparent 70%);
+            pointer-events: none;
+            z-index: 9999;
+            transform: translate(-50%, -50%);
+            mix-blend-mode: screen;
+            display: none;
+            transition: width 0.3s, height 0.3s, opacity 0.3s, background 0.3s;
+            will-change: transform;
+        }
+        #cursor-dot {
+            position: fixed;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--accent);
+            pointer-events: none;
+            z-index: 10000;
+            transform: translate(-50%, -50%);
+            transition: width 0.2s, height 0.2s, background 0.3s;
+            box-shadow: 0 0 20px var(--accent);
+            will-change: transform;
+        }
+
+        @media (hover: hover) {
+            #cursor-glow,
+            #cursor-dot {
+                display: block;
+            }
+        }
+
+        /* Magnetic buttons */
+        .magnetic {
+            transition: transform 0.15s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        /* ============================================================
                    SCROLL PROGRESS
                    ============================================================ */
         #scroll-progress {
@@ -109,13 +206,13 @@
             left: 0;
             width: 0%;
             height: 3px;
-            background: var(--gradient-1);
+            background: linear-gradient(90deg, var(--accent), var(--accent-secondary));
             z-index: 9998;
             transition: width 0.1s;
         }
 
         /* ============================================================
-                   HEADER – Transparent / Glass
+                   HEADER (Glass)
                    ============================================================ */
         header {
             position: fixed;
@@ -123,9 +220,9 @@
             left: 0;
             right: 0;
             z-index: 1000;
-            background: rgba(0, 0, 0, 0.4);
-            backdrop-filter: blur(20px) saturate(180%);
-            -webkit-backdrop-filter: blur(20px) saturate(180%);
+            background: rgba(0, 0, 0, 0.35);
+            backdrop-filter: blur(24px) saturate(180%);
+            -webkit-backdrop-filter: blur(24px) saturate(180%);
             border-bottom: 1px solid rgba(255, 255, 255, 0.04);
             padding: 12px 0;
             transition: all var(--transition);
@@ -142,14 +239,14 @@
         .logo h1 {
             font-size: 1.7rem;
             font-weight: 900;
-            background: var(--gradient-1);
+            background: linear-gradient(135deg, var(--accent), var(--accent-secondary));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
         .logo .subtitle {
             font-size: 0.75rem;
-            color: var(--text-muted);
+            color: rgba(255, 255, 255, 0.5);
         }
 
         nav ul {
@@ -166,7 +263,8 @@
             font-size: 0.9rem;
             transition: all var(--transition);
         }
-        nav a:hover {
+        nav a:hover,
+        nav a:focus-visible {
             color: #fff;
             background: rgba(255, 255, 255, 0.08);
         }
@@ -175,6 +273,42 @@
             display: flex;
             align-items: center;
             gap: 12px;
+        }
+
+        /* Accent Picker */
+        .accent-picker {
+            display: flex;
+            gap: 6px;
+            align-items: center;
+        }
+        .accent-picker button {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            border: 2px solid transparent;
+            cursor: pointer;
+            transition: all 0.3s;
+            padding: 0;
+        }
+        .accent-picker button:hover,
+        .accent-picker button.active {
+            border-color: #fff;
+            transform: scale(1.15);
+        }
+        .accent-picker .blue {
+            background: #667eea;
+        }
+        .accent-picker .green {
+            background: #34d399;
+        }
+        .accent-picker .orange {
+            background: #fbbf24;
+        }
+        .accent-picker .pink {
+            background: #f472b6;
+        }
+        .accent-picker .purple {
+            background: #a78bfa;
         }
 
         .theme-toggle {
@@ -193,12 +327,101 @@
         }
         .theme-toggle:hover {
             transform: rotate(45deg) scale(1.1);
-            border-color: #667eea;
+            border-color: var(--accent);
             background: rgba(255, 255, 255, 0.1);
         }
 
         /* ============================================================
-                   HERO – Full Screen with Image
+                   COMMAND PALETTE (Ctrl+K)
+                   ============================================================ */
+        #command-palette {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0.95);
+            z-index: 9999;
+            width: 90%;
+            max-width: 540px;
+            background: var(--bg-secondary);
+            border-radius: var(--radius);
+            border: 1px solid var(--glass-border);
+            box-shadow: var(--shadow), 0 0 80px rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+            backdrop-filter: blur(24px);
+        }
+        #command-palette.active {
+            opacity: 1;
+            visibility: visible;
+            transform: translate(-50%, -50%) scale(1);
+        }
+        #command-palette input {
+            width: 100%;
+            padding: 14px 20px;
+            border-radius: var(--radius-sm);
+            border: 1px solid var(--glass-border);
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            font-family: var(--font);
+            font-size: 1.1rem;
+            outline: none;
+        }
+        #command-palette input:focus {
+            border-color: var(--accent);
+        }
+        #command-palette .results {
+            margin-top: 16px;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+        #command-palette .results button {
+            background: none;
+            border: none;
+            padding: 10px 16px;
+            text-align: right;
+            font-family: var(--font);
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            border-radius: var(--radius-sm);
+            cursor: pointer;
+            transition: background 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        #command-palette .results button:hover,
+        #command-palette .results button:focus-visible {
+            background: rgba(255, 255, 255, 0.04);
+            color: #fff;
+        }
+        #command-palette .results button i {
+            width: 20px;
+            color: var(--accent);
+        }
+
+        /* Backdrop overlay */
+        #palette-overlay {
+            position: fixed;
+            inset: 0;
+            z-index: 9998;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(8px);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+        }
+        #palette-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* ============================================================
+                   HERO (Cinematic)
                    ============================================================ */
         .hero {
             position: relative;
@@ -214,7 +437,15 @@
             background: #000;
         }
 
-        /* Hero Background Image – Full Screen */
+        /* Three.js WebGL Background */
+        #webgl-container {
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        /* Ken Burns Effect on image (if no WebGL) */
         .hero-bg {
             position: absolute;
             inset: 0;
@@ -223,23 +454,68 @@
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
-            transform: scale(1.05);
-            transition: transform 0.1s ease-out;
+            transform: scale(1.12);
             will-change: transform;
+            animation: kenBurns 20s ease-in-out infinite alternate;
+        }
+        @keyframes kenBurns {
+            0% {
+                transform: scale(1.12) translateX(-2%) translateY(-2%);
+            }
+            100% {
+                transform: scale(1.25) translateX(2%) translateY(2%);
+            }
         }
 
-        /* Dark Overlay with cinematic blur */
+        .hero-vignette {
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+            background: radial-gradient(ellipse at center, transparent 40%, rgba(0, 0, 0, 0.7) 100%);
+            pointer-events: none;
+        }
         .hero-overlay {
             position: absolute;
             inset: 0;
             z-index: 1;
-            background:
-                linear-gradient(180deg, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.5) 40%, rgba(0, 0, 0, 0.6) 70%, rgba(0, 0, 0, 0.8) 100%);
-            backdrop-filter: blur(2px);
-            -webkit-backdrop-filter: blur(2px);
+            background: linear-gradient(180deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.3) 40%, rgba(0, 0, 0, 0.5) 70%, rgba(0, 0, 0, 0.7) 100%);
+            backdrop-filter: blur(1.5px);
+            -webkit-backdrop-filter: blur(1.5px);
+            pointer-events: none;
+        }
+        .hero-light {
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+            pointer-events: none;
+            background: radial-gradient(ellipse at var(--light-x, 30%) var(--light-y, 40%), rgba(255, 255, 255, 0.06) 0%, transparent 60%);
+            animation: lightMove 12s ease-in-out infinite alternate;
+        }
+        @keyframes lightMove {
+            0% {
+                --light-x: 20%;
+                --light-y: 30%;
+            }
+            50% {
+                --light-x: 80%;
+                --light-y: 60%;
+            }
+            100% {
+                --light-x: 30%;
+                --light-y: 80%;
+            }
+        }
+        .hero-noise {
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+            pointer-events: none;
+            opacity: 0.035;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+            background-repeat: repeat;
+            background-size: 256px 256px;
         }
 
-        /* Hero Content – on top of image */
         .hero-content {
             position: relative;
             z-index: 2;
@@ -247,30 +523,26 @@
             margin: 0 auto;
         }
 
-        /* Profile image removed – image is background now */
-
         .hero h2 {
-            font-size: 4rem;
+            font-size: 4.2rem;
             font-weight: 900;
-            letter-spacing: -1px;
+            letter-spacing: -1.5px;
             margin-bottom: 8px;
             color: #fff;
-            text-shadow: 0 4px 30px rgba(0, 0, 0, 0.4);
+            text-shadow: 0 4px 40px rgba(0, 0, 0, 0.5);
             opacity: 0;
-            animation: fadeInUp 1s ease forwards;
+            animation: fadeInUp 1.2s ease forwards;
             animation-delay: 0.2s;
         }
-
         .hero .tagline {
-            font-size: 1.3rem;
+            font-size: 1.4rem;
             font-weight: 300;
             color: rgba(255, 255, 255, 0.85);
             margin-bottom: 6px;
             opacity: 0;
-            animation: fadeInUp 1s ease forwards;
+            animation: fadeInUp 1.2s ease forwards;
             animation-delay: 0.4s;
         }
-
         .hero .typed-text {
             font-size: 1.15rem;
             color: rgba(255, 255, 255, 0.7);
@@ -278,20 +550,19 @@
             font-weight: 300;
             direction: ltr;
             opacity: 0;
-            animation: fadeInUp 1s ease forwards;
+            animation: fadeInUp 1.2s ease forwards;
             animation-delay: 0.6s;
         }
 
-        /* CTA Button – Glassmorphism */
         .hero-cta {
             display: inline-flex;
             align-items: center;
             gap: 12px;
-            padding: 16px 40px;
+            padding: 16px 42px;
             background: rgba(255, 255, 255, 0.06);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.12);
+            border: 1px solid rgba(255, 255, 255, 0.1);
             color: #fff;
             border-radius: 60px;
             font-weight: 800;
@@ -301,8 +572,9 @@
             margin-top: 24px;
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
             opacity: 0;
-            animation: fadeInUp 1s ease forwards;
+            animation: fadeInUp 1.2s ease forwards;
             animation-delay: 0.8s;
+            will-change: transform;
         }
         .hero-cta:hover {
             transform: translateY(-4px) scale(1.03);
@@ -325,7 +597,7 @@
             margin-top: 30px;
             flex-wrap: wrap;
             opacity: 0;
-            animation: fadeInUp 1s ease forwards;
+            animation: fadeInUp 1.2s ease forwards;
             animation-delay: 1s;
         }
         .social-links a {
@@ -349,7 +621,6 @@
             border-color: rgba(255, 255, 255, 0.2);
         }
 
-        /* Scroll indicator */
         .scroll-indicator {
             position: absolute;
             bottom: 40px;
@@ -360,7 +631,7 @@
             flex-direction: column;
             align-items: center;
             gap: 8px;
-            color: rgba(255, 255, 255, 0.4);
+            color: rgba(255, 255, 255, 0.3);
             font-size: 0.75rem;
             letter-spacing: 1px;
             animation: scrollPulse 2.5s ease-in-out infinite;
@@ -373,7 +644,7 @@
             }
             50% {
                 transform: translateX(-50%) translateY(8px);
-                opacity: 0.2;
+                opacity: 0.15;
             }
         }
 
@@ -391,10 +662,17 @@
             transition: all var(--transition);
             position: relative;
             z-index: 2;
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s ease, transform 0.8s ease, box-shadow 0.3s ease;
         }
-
+        section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
         section:hover {
             transform: translateY(-4px);
+            box-shadow: var(--shadow), 0 0 60px rgba(102, 126, 234, 0.04);
         }
 
         h3 {
@@ -410,7 +688,7 @@
             background-clip: text;
         }
         h3 i {
-            -webkit-text-fill-color: #667eea;
+            -webkit-text-fill-color: var(--accent);
         }
 
         /* ============================================================
@@ -432,12 +710,12 @@
         }
         .stat-item:hover {
             transform: translateY(-6px);
-            border-color: rgba(102, 126, 234, 0.2);
+            border-color: var(--accent);
         }
         .stat-item .number {
             font-size: 2.4rem;
             font-weight: 900;
-            background: var(--gradient-1);
+            background: linear-gradient(135deg, var(--accent), var(--accent-secondary));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -471,10 +749,10 @@
             gap: 8px;
         }
         .skill-tag i {
-            color: #667eea;
+            color: var(--accent);
         }
         .skill-tag:hover {
-            background: var(--gradient-1);
+            background: linear-gradient(135deg, var(--accent), var(--accent-secondary));
             color: #fff;
             transform: translateY(-4px);
         }
@@ -507,14 +785,14 @@
             content: '';
             position: absolute;
             inset: 0;
-            background: var(--gradient-1);
+            background: linear-gradient(135deg, var(--accent), var(--accent-secondary));
             opacity: 0;
             transition: opacity var(--transition);
             border-radius: var(--radius-sm);
         }
         .work-card:hover {
             transform: translateY(-10px);
-            border-color: rgba(102, 126, 234, 0.2);
+            border-color: var(--accent);
         }
         .work-card:hover::after {
             opacity: 0.04;
@@ -530,7 +808,7 @@
             border-radius: var(--radius-sm);
             margin-bottom: 16px;
             overflow: hidden;
-            background: var(--gradient-1);
+            background: linear-gradient(135deg, var(--accent), var(--accent-secondary));
             display: flex;
             align-items: center;
             justify-content: center;
@@ -541,11 +819,6 @@
         }
         .work-card:hover .work-cover {
             transform: scale(1.04);
-        }
-        .work-cover img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
         }
 
         .work-card h4 {
@@ -561,7 +834,7 @@
             margin-bottom: 12px;
         }
         .work-link {
-            color: #667eea;
+            color: var(--accent);
             font-weight: 700;
             text-decoration: none;
             display: inline-flex;
@@ -574,7 +847,7 @@
         }
         .work-link:hover {
             gap: 16px;
-            background: var(--gradient-1);
+            background: linear-gradient(135deg, var(--accent), var(--accent-secondary));
             color: #fff;
         }
 
@@ -582,7 +855,7 @@
                    TELEGRAM CHANNEL
                    ============================================================ */
         .telegram-channel {
-            background: var(--gradient-1);
+            background: linear-gradient(135deg, var(--accent), var(--accent-secondary));
             border-radius: var(--radius-sm);
             padding: 36px 28px;
             margin-top: 30px;
@@ -632,7 +905,7 @@
         }
 
         /* ============================================================
-                   BLOG POSTS
+                   BLOG POSTS (with skeleton loading)
                    ============================================================ */
         .search-box {
             display: flex;
@@ -654,7 +927,7 @@
         }
         .search-box input:focus {
             outline: none;
-            border-color: #667eea;
+            border-color: var(--accent);
         }
 
         .post {
@@ -663,12 +936,12 @@
             border-radius: var(--radius-sm);
             margin: 16px 0;
             border: 1px solid var(--glass-border);
-            border-right: 6px solid #667eea;
+            border-right: 6px solid var(--accent);
             transition: all var(--transition);
         }
         .post:hover {
             transform: translateX(8px);
-            border-color: rgba(102, 126, 234, 0.3);
+            border-color: var(--accent);
         }
         .post h4 {
             font-size: 1.2rem;
@@ -679,7 +952,7 @@
             color: var(--text-primary);
         }
         .post h4 i {
-            color: #667eea;
+            color: var(--accent);
         }
         .post .post-date {
             color: var(--text-muted);
@@ -691,7 +964,7 @@
             color: var(--text-secondary);
         }
         .read-more {
-            color: #667eea;
+            color: var(--accent);
             font-weight: 700;
             display: inline-flex;
             align-items: center;
@@ -702,6 +975,93 @@
         }
         .read-more:hover {
             gap: 14px;
+        }
+
+        /* Skeleton */
+        .skeleton {
+            background: var(--bg-secondary);
+            border-radius: var(--radius-sm);
+            padding: 24px 28px;
+            margin: 16px 0;
+            border: 1px solid var(--glass-border);
+            animation: skeletonPulse 1.5s infinite;
+        }
+        .skeleton .line {
+            height: 20px;
+            background: var(--bg-primary);
+            border-radius: 4px;
+            margin: 6px 0;
+        }
+        .skeleton .line.short {
+            width: 60%;
+        }
+        .skeleton .line.medium {
+            width: 80%;
+        }
+        @keyframes skeletonPulse {
+            0%,
+            100% {
+                opacity: 0.4;
+            }
+            50% {
+                opacity: 0.8;
+            }
+        }
+
+        /* Infinite blog load more */
+        #load-more-btn {
+            display: block;
+            margin: 20px auto;
+            padding: 12px 36px;
+            border-radius: 60px;
+            background: linear-gradient(135deg, var(--accent), var(--accent-secondary));
+            color: #fff;
+            border: none;
+            font-family: var(--font);
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all var(--transition);
+        }
+        #load-more-btn:hover {
+            transform: scale(1.04);
+            box-shadow: 0 12px 32px rgba(102, 126, 234, 0.3);
+        }
+
+        /* ============================================================
+                   CUSTOM AUDIO PLAYER
+                   ============================================================ */
+        .custom-audio {
+            background: var(--bg-secondary);
+            border-radius: var(--radius-sm);
+            padding: 16px 24px;
+            border: 1px solid var(--glass-border);
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            flex-wrap: wrap;
+            margin: 16px 0;
+        }
+        .custom-audio .info {
+            flex: 1;
+            min-width: 120px;
+        }
+        .custom-audio .info h4 {
+            font-size: 1rem;
+            font-weight: 700;
+        }
+        .custom-audio .info span {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+        .custom-audio audio {
+            flex: 2;
+            min-width: 200px;
+            width: 100%;
+            height: 40px;
+            border-radius: 40px;
+            background: var(--bg-primary);
+            filter: brightness(0.8);
         }
 
         /* ============================================================
@@ -786,7 +1146,11 @@
                 justify-content: center;
             }
             .header-actions {
-                align-self: center;
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+            .accent-picker {
+                order: 2;
             }
 
             .hero {
@@ -820,6 +1184,19 @@
             .stats-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
+
+            #cursor-glow,
+            #cursor-dot {
+                display: none !important;
+            }
+            body {
+                cursor: auto;
+            }
+
+            #command-palette {
+                width: 95%;
+                padding: 16px;
+            }
         }
 
         @media (max-width: 480px) {
@@ -846,12 +1223,73 @@
                 font-size: 1.3rem;
             }
         }
+
+        /* ============================================================
+                   VIEW TRANSITIONS
+                   ============================================================ */
+        @view-transition {
+            navigation: auto;
+        }
+
+        /* ============================================================
+                   SCROLL TIMELINE (experimental)
+                   ============================================================ */
+        @keyframes reveal {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* This will be applied via JS for scroll-driven animations if supported */
+        .scroll-timeline-demo {
+            animation: reveal linear;
+            animation-timeline: view();
+            animation-range: entry 0% entry 20%;
+        }
+
+        /* ============================================================
+                   SKIP LINK (accessibility)
+                   ============================================================ */
+        .skip-link {
+            position: fixed;
+            top: -100%;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 10001;
+            background: var(--accent);
+            color: #fff;
+            padding: 12px 24px;
+            border-radius: 0 0 8px 8px;
+            transition: top 0.3s;
+        }
+        .skip-link:focus {
+            top: 0;
+        }
     </style>
 </head>
 <body>
 
+    <!-- Skip link -->
+    <a href="#main" class="skip-link">رفتن به محتوای اصلی</a>
+
+    <!-- ========== CURSOR ========== -->
+    <div id="cursor-glow"></div>
+    <div id="cursor-dot"></div>
+
     <!-- ========== SCROLL PROGRESS ========== -->
     <div id="scroll-progress"></div>
+
+    <!-- ========== COMMAND PALETTE ========== -->
+    <div id="palette-overlay"></div>
+    <div id="command-palette">
+        <input type="text" id="palette-input" placeholder="جستجو و ناوبری..." />
+        <div class="results" id="palette-results"></div>
+    </div>
 
     <!-- ========== HEADER ========== -->
     <header>
@@ -870,6 +1308,14 @@
                     </ul>
                 </nav>
                 <div class="header-actions">
+                    <!-- Accent Picker -->
+                    <div class="accent-picker" id="accentPicker">
+                        <button class="blue active" data-accent="blue" aria-label="آبی"></button>
+                        <button class="green" data-accent="green" aria-label="سبز"></button>
+                        <button class="orange" data-accent="orange" aria-label="نارنجی"></button>
+                        <button class="pink" data-accent="pink" aria-label="صورتی"></button>
+                        <button class="purple" data-accent="purple" aria-label="بنفش"></button>
+                    </div>
                     <button class="theme-toggle" id="themeToggle" aria-label="تغییر تم">
                         <i class="fas fa-sun"></i>
                     </button>
@@ -878,20 +1324,25 @@
         </div>
     </header>
 
-    <!-- ========== HERO – Full Screen ========== -->
+    <!-- ========== HERO ========== -->
     <section id="home" class="hero">
-        <!-- Background Image -->
+        <!-- WebGL Container (Three.js) -->
+        <div id="webgl-container"></div>
+
+        <!-- Fallback Ken Burns (if WebGL fails) -->
         <div class="hero-bg" id="heroBg"></div>
 
-        <!-- Dark Overlay with cinematic blur -->
+        <div class="hero-vignette"></div>
         <div class="hero-overlay"></div>
+        <div class="hero-light"></div>
+        <div class="hero-noise"></div>
 
-        <div class="container hero-content">
+        <div class="container hero-content" id="main">
             <h2>مهدی رحیمیان</h2>
             <p class="tagline">نویسنده | گوینده | تولیدکننده محتوای صوتی و تصویری</p>
             <div class="typed-text" id="typedText"></div>
 
-            <a href="#works" class="hero-cta">
+            <a href="#works" class="hero-cta magnetic">
                 <i class="fas fa-headphones"></i>
                 شنیدن دکلمه‌ها
                 <i class="fas fa-arrow-left"></i>
@@ -901,7 +1352,6 @@
                 <a href="https://www.instagram.com/sayehaye.bi.neghab" target="_blank"><i class="fab fa-instagram"></i></a>
                 <a href="https://t.me/sayehayebineghab" target="_blank"><i class="fab fa-telegram"></i></a>
                 <a href="mailto:me@mahdirahimiyan.ir"><i class="fas fa-envelope"></i></a>
-                <a href="https://github.com/mahdiramsar" target="_blank"><i class="fab fa-github"></i></a>
             </div>
         </div>
 
@@ -984,6 +1434,18 @@
                 </div>
             </div>
 
+            <!-- Custom Audio Player -->
+            <div class="custom-audio">
+                <div class="info">
+                    <h4>🎙️ نمونه دکلمه</h4>
+                    <span>صدای مهدی رحیمیان</span>
+                </div>
+                <audio controls>
+                    <source src="#" type="audio/mpeg" />
+                    مرورگر شما از پخش صدا پشتیبانی نمی‌کند.
+                </audio>
+            </div>
+
             <div class="telegram-channel">
                 <h4><i class="fab fa-telegram"></i> کانال تلگرام من</h4>
                 <p>«بیان بی‌پرده احساسات و داستان‌ها» — با ۳۸ عضو</p>
@@ -1003,27 +1465,9 @@
             </div>
 
             <div id="blogPosts">
-                <div class="post" data-title="شروع یک سفر جدید">
-                    <h4><i class="fas fa-rocket"></i> شروع یک سفر جدید</h4>
-                    <span class="post-date">۲۵ دی ۱۴۰۲</span>
-                    <p>اولین نوشته من در این سایت شخصی. اینجا فضایی است برای به اشتراک گذاری افکار، تجربیات و یادگیری‌هایم...</p>
-                    <a href="#" class="read-more">ادامه مطلب <i class="fas fa-arrow-left"></i></a>
-                </div>
-
-                <div class="post" data-title="نقش نوشتن در رشد شخصی">
-                    <h4><i class="fas fa-pencil-alt"></i> نقش نوشتن در رشد شخصی</h4>
-                    <span class="post-date">۲۰ دی ۱۴۰۲</span>
-                    <p>چگونه نوشتن می‌تواند به ما در درک بهتر خودمان و جهان اطرافمان کمک کند؟ در این مطلب به بررسی تأثیر نوشتن بر رشد فردی می‌پردازم...</p>
-                    <a href="#" class="read-more">ادامه مطلب <i class="fas fa-arrow-left"></i></a>
-                </div>
-
-                <div class="post" data-title="تکنولوژی و زندگی مدرن">
-                    <h4><i class="fas fa-microchip"></i> تکنولوژی و زندگی مدرن</h4>
-                    <span class="post-date">۱۵ دی ۱۴۰۲</span>
-                    <p>بررسی تأثیر تکنولوژی بر سبک زندگی و روابط انسانی در عصر حاضر. چگونه می‌توانیم از تکنولوژی به شکل هوشمندانه‌تری استفاده کنیم؟</p>
-                    <a href="#" class="read-more">ادامه مطلب <i class="fas fa-arrow-left"></i></a>
-                </div>
+                <!-- Posts will be rendered by JS with skeleton -->
             </div>
+            <button id="load-more-btn">بارگذاری بیشتر</button>
         </section>
 
     </div>
@@ -1039,21 +1483,279 @@
                 <a href="https://www.instagram.com/sayehaye.bi.neghab" target="_blank"><i class="fab fa-instagram"></i></a>
                 <a href="https://t.me/sayehayebineghab" target="_blank"><i class="fab fa-telegram"></i></a>
                 <a href="mailto:me@mahdirahimiyan.ir"><i class="fas fa-envelope"></i></a>
-                <a href="https://github.com/mahdiramsar" target="_blank"><i class="fab fa-github"></i></a>
             </div>
             <span class="date" id="persianDate"></span>
         </div>
     </footer>
 
     <!-- ============================================================
-    SCRIPTS
+    SCRIPTS (all features)
     ============================================================ -->
     <script>
         (function() {
-            "use strict";
+            'use strict';
 
             // ================================================================
-            // 1. SCROLL PROGRESS
+            // 1. THREE.JS WebGL Background
+            // ================================================================
+            (function initThree() {
+                if (typeof THREE === 'undefined') return;
+                const container = document.getElementById('webgl-container');
+                if (!container) return;
+
+                const scene = new THREE.Scene();
+                const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+                camera.position.z = 30;
+
+                const renderer = new THREE.WebGLRenderer({ alpha: true });
+                renderer.setSize(window.innerWidth, window.innerHeight);
+                renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+                container.appendChild(renderer.domElement);
+
+                // Particles
+                const geometry = new THREE.BufferGeometry();
+                const count = 3000;
+                const positions = new Float32Array(count * 3);
+                const colors = new Float32Array(count * 3);
+                const color = new THREE.Color();
+
+                for (let i = 0; i < count; i++) {
+                    positions[i * 3] = (Math.random() - 0.5) * 80;
+                    positions[i * 3 + 1] = (Math.random() - 0.5) * 80;
+                    positions[i * 3 + 2] = (Math.random() - 0.5) * 80;
+                    color.setHSL(0.6 + Math.random() * 0.2, 0.5, 0.5 + Math.random() * 0.3);
+                    colors[i * 3] = color.r;
+                    colors[i * 3 + 1] = color.g;
+                    colors[i * 3 + 2] = color.b;
+                }
+
+                geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+                geometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
+
+                const material = new THREE.PointsMaterial({
+                    size: 0.15,
+                    vertexColors: true,
+                    transparent: true,
+                    opacity: 0.8,
+                    blending: THREE.AdditiveBlending,
+                    depthWrite: false,
+                });
+
+                const particles = new THREE.Points(geometry, material);
+                scene.add(particles);
+
+                // Resize
+                window.addEventListener('resize', () => {
+                    const w = window.innerWidth;
+                    const h = window.innerHeight;
+                    camera.aspect = w / h;
+                    camera.updateProjectionMatrix();
+                    renderer.setSize(w, h);
+                });
+
+                // Animate
+                let mouseX = 0,
+                    mouseY = 0;
+                document.addEventListener('mousemove', (e) => {
+                    mouseX = (e.clientX / window.innerWidth - 0.5) * 2;
+                    mouseY = (e.clientY / window.innerHeight - 0.5) * 2;
+                });
+
+                function animate() {
+                    requestAnimationFrame(animate);
+                    particles.rotation.y += 0.0003;
+                    particles.rotation.x += 0.0001;
+                    // Follow mouse slightly
+                    particles.rotation.x += (mouseY * 0.02 - particles.rotation.x) * 0.01;
+                    particles.rotation.y += (mouseX * 0.02 - particles.rotation.y) * 0.01;
+                    renderer.render(scene, camera);
+                }
+                animate();
+            })();
+
+            // ================================================================
+            // 2. CURSOR PHYSICS & MAGNETIC
+            // ================================================================
+            const glow = document.getElementById('cursor-glow');
+            const dot = document.getElementById('cursor-dot');
+            let mouseX = 0,
+                mouseY = 0;
+            let glowX = 0,
+                glowY = 0;
+
+            if (window.matchMedia('(hover: hover)').matches) {
+                document.addEventListener('mousemove', (e) => {
+                    mouseX = e.clientX;
+                    mouseY = e.clientY;
+                });
+
+                function updateCursor() {
+                    glowX += (mouseX - glowX) * 0.08;
+                    glowY += (mouseY - glowY) * 0.08;
+                    glow.style.left = glowX + 'px';
+                    glow.style.top = glowY + 'px';
+                    dot.style.left = mouseX + 'px';
+                    dot.style.top = mouseY + 'px';
+                    requestAnimationFrame(updateCursor);
+                }
+                updateCursor();
+
+                // Magnetic effect
+                document.querySelectorAll('.magnetic, .hero-cta, .btn-channel, .work-link, .read-more, nav a, .theme-toggle')
+                    .forEach(el => {
+                        el.addEventListener('mouseenter', () => {
+                            glow.style.width = '80px';
+                            glow.style.height = '80px';
+                            glow.style.opacity = '0.8';
+                            dot.style.width = '10px';
+                            dot.style.height = '10px';
+                            // Magnetic pull
+                            el.addEventListener('mousemove', magnetPull);
+                        });
+                        el.addEventListener('mouseleave', () => {
+                            glow.style.width = '60px';
+                            glow.style.height = '60px';
+                            glow.style.opacity = '1';
+                            dot.style.width = '8px';
+                            dot.style.height = '8px';
+                            el.removeEventListener('mousemove', magnetPull);
+                            el.style.transform = 'translate(0, 0)';
+                        });
+                    });
+
+                function magnetPull(e) {
+                    const rect = this.getBoundingClientRect();
+                    const x = e.clientX - rect.left - rect.width / 2;
+                    const y = e.clientY - rect.top - rect.height / 2;
+                    const strength = 0.15;
+                    const maxDist = 30;
+                    const dx = Math.min(Math.max(x * strength, -maxDist), maxDist);
+                    const dy = Math.min(Math.max(y * strength, -maxDist), maxDist);
+                    this.style.transform = `translate(${dx}px, ${dy}px)`;
+                }
+            }
+
+            // ================================================================
+            // 3. GSAP + ScrollTrigger (advanced animations)
+            // ================================================================
+            function initGSAP() {
+                if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
+                gsap.registerPlugin(ScrollTrigger);
+
+                // Hero title
+                gsap.from('.hero h2', {
+                    y: 60,
+                    opacity: 0,
+                    duration: 1.2,
+                    delay: 0.2,
+                    ease: 'power3.out'
+                });
+                gsap.from('.hero .tagline', {
+                    y: 40,
+                    opacity: 0,
+                    duration: 1,
+                    delay: 0.4,
+                    ease: 'power3.out'
+                });
+                gsap.from('.hero .typed-text', {
+                    y: 30,
+                    opacity: 0,
+                    duration: 0.8,
+                    delay: 0.6,
+                    ease: 'power3.out'
+                });
+                gsap.from('.hero-cta', {
+                    y: 30,
+                    opacity: 0,
+                    duration: 0.8,
+                    delay: 0.8,
+                    ease: 'power3.out'
+                });
+                gsap.from('.social-links a', {
+                    y: 30,
+                    opacity: 0,
+                    duration: 0.6,
+                    stagger: 0.08,
+                    delay: 1,
+                    ease: 'power3.out'
+                });
+
+                // Sections reveal with stagger
+                document.querySelectorAll('section').forEach((section, i) => {
+                    gsap.from(section, {
+                        scrollTrigger: {
+                            trigger: section,
+                            start: 'top 85%',
+                            toggleActions: 'play none none none',
+                        },
+                        y: 50,
+                        opacity: 0,
+                        duration: 0.9,
+                        delay: i * 0.08,
+                        ease: 'power3.out',
+                    });
+                });
+
+                // Stats counters (GSAP)
+                document.querySelectorAll('.stat-item .number').forEach((el, i) => {
+                    const target = parseInt(el.textContent);
+                    if (isNaN(target)) return;
+                    ScrollTrigger.create({
+                        trigger: el.closest('.stats-grid'),
+                        start: 'top 80%',
+                        onEnter: () => {
+                            gsap.fromTo(el, { textContent: 0 }, {
+                                textContent: target,
+                                duration: 1.8,
+                                ease: 'power1.out',
+                                snap: { textContent: 1 },
+                                onUpdate: () => {
+                                    const suffix = (i === 0 || i === 1 || i === 2) ? '+' : '';
+                                    el.textContent = Math.floor(el.textContent) + suffix;
+                                }
+                            });
+                        },
+                        once: true,
+                    });
+                });
+
+                // Work cards stagger
+                gsap.from('.work-card', {
+                    scrollTrigger: {
+                        trigger: '.works-grid',
+                        start: 'top 85%',
+                        toggleActions: 'play none none none',
+                    },
+                    y: 40,
+                    opacity: 0,
+                    duration: 0.7,
+                    stagger: 0.1,
+                    ease: 'power3.out',
+                });
+
+                // Blog posts stagger
+                gsap.from('.post', {
+                    scrollTrigger: {
+                        trigger: '#blogPosts',
+                        start: 'top 85%',
+                        toggleActions: 'play none none none',
+                    },
+                    y: 30,
+                    opacity: 0,
+                    duration: 0.6,
+                    stagger: 0.08,
+                    ease: 'power3.out',
+                });
+            }
+            // Wait for GSAP to load
+            if (document.readyState === 'complete') {
+                initGSAP();
+            } else {
+                window.addEventListener('load', initGSAP);
+            }
+
+            // ================================================================
+            // 4. SCROLL PROGRESS
             // ================================================================
             const progressBar = document.getElementById('scroll-progress');
             window.addEventListener('scroll', () => {
@@ -1064,19 +1766,23 @@
             });
 
             // ================================================================
-            // 2. PARALLAX EFFECT on Hero Background
+            // 5. PARALLAX (with requestAnimationFrame)
             // ================================================================
             const heroBg = document.getElementById('heroBg');
-            window.addEventListener('scroll', () => {
+            let lastScroll = 0;
+
+            function updateParallax() {
                 const scrollY = window.scrollY;
-                const heroHeight = document.querySelector('.hero').offsetHeight;
-                const parallaxSpeed = 0.3;
-                const translateY = scrollY * parallaxSpeed;
-                heroBg.style.transform = `scale(1.05) translateY(${translateY}px)`;
-            });
+                if (heroBg) {
+                    heroBg.style.transform = `scale(1.12) translateY(${scrollY * 0.15}px)`;
+                }
+                lastScroll = scrollY;
+                requestAnimationFrame(updateParallax);
+            }
+            requestAnimationFrame(updateParallax);
 
             // ================================================================
-            // 3. DARK/LIGHT MODE
+            // 6. DARK/LIGHT MODE
             // ================================================================
             const toggle = document.getElementById('themeToggle');
             const icon = toggle.querySelector('i');
@@ -1100,7 +1806,28 @@
             });
 
             // ================================================================
-            // 4. TYPEWRITER
+            // 7. ACCENT PICKER
+            // ================================================================
+            const accentButtons = document.querySelectorAll('#accentPicker button');
+            accentButtons.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    accentButtons.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    const accent = btn.dataset.accent;
+                    document.documentElement.setAttribute('data-accent', accent);
+                    localStorage.setItem('accent', accent);
+                });
+            });
+            const savedAccent = localStorage.getItem('accent');
+            if (savedAccent) {
+                document.documentElement.setAttribute('data-accent', savedAccent);
+                accentButtons.forEach(b => {
+                    b.classList.toggle('active', b.dataset.accent === savedAccent);
+                });
+            }
+
+            // ================================================================
+            // 8. TYPEWRITER
             // ================================================================
             const typedEl = document.getElementById('typedText');
             const phrases = [
@@ -1137,7 +1864,7 @@
             setTimeout(typeEffect, 900);
 
             // ================================================================
-            // 5. SMOOTH SCROLL
+            // 9. SMOOTH SCROLL
             // ================================================================
             document.querySelectorAll('nav a[href^="#"], .hero-cta[href^="#"]').forEach(anchor => {
                 anchor.addEventListener('click', function(e) {
@@ -1155,21 +1882,116 @@
             });
 
             // ================================================================
-            // 6. BLOG SEARCH
+            // 10. BLOG POSTS (with skeleton loading & infinite scroll)
             // ================================================================
-            const searchInput = document.getElementById('blogSearch');
-            const posts = document.querySelectorAll('#blogPosts .post');
+            const blogData = [{
+                title: 'شروع یک سفر جدید',
+                date: '۲۵ دی ۱۴۰۲',
+                content: 'اولین نوشته من در این سایت شخصی. اینجا فضایی است برای به اشتراک گذاری افکار، تجربیات و یادگیری‌هایم...',
+                icon: 'fa-rocket'
+            }, {
+                title: 'نقش نوشتن در رشد شخصی',
+                date: '۲۰ دی ۱۴۰۲',
+                content: 'چگونه نوشتن می‌تواند به ما در درک بهتر خودمان و جهان اطرافمان کمک کند؟ در این مطلب به بررسی تأثیر نوشتن بر رشد فردی می‌پردازم...',
+                icon: 'fa-pencil-alt'
+            }, {
+                title: 'تکنولوژی و زندگی مدرن',
+                date: '۱۵ دی ۱۴۰۲',
+                content: 'بررسی تأثیر تکنولوژی بر سبک زندگی و روابط انسانی در عصر حاضر. چگونه می‌توانیم از تکنولوژی به شکل هوشمندانه‌تری استفاده کنیم؟',
+                icon: 'fa-microchip'
+            }, {
+                title: 'هنر گوش دادن',
+                date: '۱۰ دی ۱۴۰۲',
+                content: 'در دنیای پرهیاهوی امروز، گوش دادن واقعی به یک هنر تبدیل شده است. چگونه می‌توانیم شنونده‌های بهتری باشیم؟',
+                icon: 'fa-headphones'
+            }, {
+                title: 'سفر و کشف خود',
+                date: '۵ دی ۱۴۰۲',
+                content: 'سفر نه فقط تغییر مکان، بلکه سفری به درون خودمان است. تجربیات سفر چگونه ما را تغییر می‌دهند؟',
+                icon: 'fa-plane'
+            }, ];
 
-            searchInput.addEventListener('input', function() {
-                const query = this.value.trim().toLowerCase();
-                posts.forEach(post => {
-                    const title = post.dataset.title.toLowerCase();
-                    post.style.display = title.includes(query) ? 'block' : 'none';
+            const postsContainer = document.getElementById('blogPosts');
+            let visibleCount = 2;
+            let allPosts = [];
+
+            function renderSkeletons(count) {
+                let html = '';
+                for (let i = 0; i < count; i++) {
+                    html += `
+                                <div class="skeleton">
+                                    <div class="line short"></div>
+                                    <div class="line medium"></div>
+                                    <div class="line"></div>
+                                </div>
+                            `;
+                }
+                postsContainer.innerHTML = html;
+            }
+
+            function renderPosts(count) {
+                const postsToShow = blogData.slice(0, count);
+                let html = '';
+                postsToShow.forEach(post => {
+                    html += `
+                                <div class="post" data-title="${post.title}">
+                                    <h4><i class="fas ${post.icon}"></i> ${post.title}</h4>
+                                    <span class="post-date">${post.date}</span>
+                                    <p>${post.content}</p>
+                                    <a href="#" class="read-more">ادامه مطلب <i class="fas fa-arrow-left"></i></a>
+                                </div>
+                            `;
                 });
+                postsContainer.innerHTML = html;
+                allPosts = postsToShow;
+                // Re-run GSAP animations for new posts
+                if (typeof gsap !== 'undefined') {
+                    gsap.from('.post', {
+                        y: 30,
+                        opacity: 0,
+                        duration: 0.6,
+                        stagger: 0.08,
+                        ease: 'power3.out',
+                        scrollTrigger: {
+                            trigger: '#blogPosts',
+                            start: 'top 85%',
+                            toggleActions: 'play none none none',
+                        }
+                    });
+                }
+                // Search functionality
+                attachSearch();
+            }
+
+            function attachSearch() {
+                const searchInput = document.getElementById('blogSearch');
+                const posts = document.querySelectorAll('#blogPosts .post');
+                searchInput.addEventListener('input', function() {
+                    const query = this.value.trim().toLowerCase();
+                    posts.forEach(post => {
+                        const title = post.dataset.title.toLowerCase();
+                        post.style.display = title.includes(query) ? 'block' : 'none';
+                    });
+                });
+            }
+
+            // Initial load with skeleton
+            renderSkeletons(2);
+            setTimeout(() => {
+                renderPosts(visibleCount);
+            }, 800);
+
+            // Load more
+            document.getElementById('load-more-btn').addEventListener('click', () => {
+                visibleCount = Math.min(visibleCount + 2, blogData.length);
+                renderPosts(visibleCount);
+                if (visibleCount >= blogData.length) {
+                    document.getElementById('load-more-btn').style.display = 'none';
+                }
             });
 
             // ================================================================
-            // 7. BACK TO TOP
+            // 11. BACK TO TOP
             // ================================================================
             const backBtn = document.getElementById('backToTop');
             window.addEventListener('scroll', () => {
@@ -1184,7 +2006,7 @@
             });
 
             // ================================================================
-            // 8. PERSIAN DATE
+            // 12. PERSIAN DATE
             // ================================================================
             function updatePersianDate() {
                 const now = new Date();
@@ -1194,7 +2016,7 @@
             updatePersianDate();
 
             // ================================================================
-            // 9. UPDATE YEAR
+            // 13. UPDATE YEAR
             // ================================================================
             const yearSpan = document.querySelector('footer .copyright');
             if (yearSpan) {
@@ -1202,15 +2024,152 @@
                     `© ${new Date().getFullYear()} · تمامی حقوق محفوظ · طراحی با تکنولوژی‌های ۲۰۲۶`;
             }
 
-            console.log('🚀 سایت با هیروی تمام‌صفحه، پارالاکس و دارک اوورلی سینمایی بارگذاری شد!');
-        })();
-    </script>
+            // ================================================================
+            // 14. COMMAND PALETTE (Ctrl+K)
+            // ================================================================
+            const palette = document.getElementById('command-palette');
+            const overlay = document.getElementById('palette-overlay');
+            const paletteInput = document.getElementById('palette-input');
+            const paletteResults = document.getElementById('palette-results');
 
-    <!-- Service Worker (PWA) -->
-    <script>
-        if ('serviceWorker' in navigator) {
-            navigator.serviceWorker.register('sw.js').catch(() => {});
-        }
+            const commands = [
+                { label: 'خانه', action: '#home', icon: 'fa-home' },
+                { label: 'درباره', action: '#about', icon: 'fa-user' },
+                { label: 'آثار', action: '#works', icon: 'fa-play' },
+                { label: 'نوشته‌ها', action: '#blog', icon: 'fa-pen' },
+                { label: 'تغییر تم', action: 'theme', icon: 'fa-moon' },
+            ];
+
+            function openPalette() {
+                palette.classList.add('active');
+                overlay.classList.add('active');
+                paletteInput.value = '';
+                paletteResults.innerHTML = '';
+                paletteInput.focus();
+                renderCommands('');
+            }
+
+            function closePalette() {
+                palette.classList.remove('active');
+                overlay.classList.remove('active');
+            }
+
+            function renderCommands(query) {
+                const filtered = commands.filter(c => c.label.includes(query) || query === '');
+                paletteResults.innerHTML = filtered.map(c => `
+                            <button data-action="${c.action}">
+                                <i class="fas ${c.icon}"></i> ${c.label}
+                            </button>
+                        `).join('');
+                paletteResults.querySelectorAll('button').forEach(btn => {
+                    btn.addEventListener('click', () => {
+                        const action = btn.dataset.action;
+                        if (action === 'theme') {
+                            document.getElementById('themeToggle').click();
+                            closePalette();
+                        } else {
+                            closePalette();
+                            document.querySelector(action)?.scrollIntoView({ behavior: 'smooth' });
+                        }
+                    });
+                });
+            }
+
+            paletteInput.addEventListener('input', (e) => {
+                renderCommands(e.target.value.trim());
+            });
+
+            document.addEventListener('keydown', (e) => {
+                if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
+                    e.preventDefault();
+                    if (palette.classList.contains('active')) {
+                        closePalette();
+                    } else {
+                        openPalette();
+                    }
+                }
+                if (e.key === 'Escape') {
+                    closePalette();
+                }
+            });
+
+            overlay.addEventListener('click', closePalette);
+
+            // ================================================================
+            // 15. PUSH NOTIFICATIONS (demo)
+            // ================================================================
+            if ('Notification' in window && 'serviceWorker' in navigator) {
+                // Request permission on click (optional)
+                document.addEventListener('click', function requestNotif() {
+                    if (Notification.permission === 'default') {
+                        Notification.requestPermission();
+                    }
+                    document.removeEventListener('click', requestNotif);
+                });
+                // Simulate push after 10s (just for demo)
+                setTimeout(() => {
+                    if (Notification.permission === 'granted') {
+                        new Notification('🚀 مهدی رحیمیان', {
+                            body: 'به سایت شخصی من خوش آمدید!',
+                            icon: 'icon-192.png'
+                        });
+                    }
+                }, 10000);
+            }
+
+            // ================================================================
+            // 16. INTERSECTION OBSERVER for lazy loading images (if any)
+            // ================================================================
+            // Since we don't have many images, we'll just set up for future
+            const imgObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        if (img.dataset.src) {
+                            img.src = img.dataset.src;
+                            img.removeAttribute('data-src');
+                        }
+                        imgObserver.unobserve(img);
+                    }
+                });
+            }, { rootMargin: '50px' });
+
+            document.querySelectorAll('img[data-src]').forEach(img => {
+                imgObserver.observe(img);
+            });
+
+            // ================================================================
+            // 17. SCROLL-DRIVEN ANIMATIONS (CSS Scroll Timeline)
+            // ================================================================
+            // We add the class to sections via JS if supported
+            if ('animation-timeline' in document.body.style) {
+                document.querySelectorAll('section').forEach(s => {
+                    s.classList.add('scroll-timeline-demo');
+                });
+            }
+
+            // ================================================================
+            // 18. VIEW TRANSITIONS (smooth page transitions)
+            // ================================================================
+            // Already enabled via <style> @view-transition
+
+            // ================================================================
+            // 19. KEYBOARD NAVIGATION (skip link, focus visible)
+            // ================================================================
+            // Skip link is already in HTML
+
+            // ================================================================
+            // 20. SERVICE WORKER (PWA offline)
+            // ================================================================
+            if ('serviceWorker' in navigator) {
+                navigator.serviceWorker.register('sw.js')
+                    .then(() => console.log('SW registered'))
+                    .catch(() => {});
+            }
+
+            console.log('🎬 تمام ویژگی‌های مدرن ۲۰۲۶ فعال شدند!');
+            console.log('✨ Three.js · GSAP · View Transitions · Command Palette · PWA · و بسیاری دیگر');
+        })();
     </script>
 
 </body>
