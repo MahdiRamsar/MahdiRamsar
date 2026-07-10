@@ -357,20 +357,18 @@
             z-index: 2;
         }
 
+        /* تصویر پروفایل – استایل جدید با عکس واقعی */
         .profile-avatar {
             width: 180px;
             height: 180px;
             border-radius: 50%;
-            margin: 0 auto 28px;
-            background: var(--gradient-accent);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 5rem;
-            color: #fff;
-            box-shadow: 0 0 0 6px rgba(255, 255, 255, 0.08), 0 30px 60px rgba(0, 0, 0, 0.4), var(--neon-glow);
+            object-fit: cover;
+            border: 6px solid rgba(255, 255, 255, 0.15);
+            box-shadow: 0 0 0 8px rgba(255, 255, 255, 0.08), 0 30px 60px rgba(0, 0, 0, 0.4), var(--neon-glow);
             transition: all var(--transition);
             animation: floatAvatar 6s ease-in-out infinite alternate;
+            display: block;
+            margin: 0 auto 28px;
         }
         @keyframes floatAvatar {
             0% {
@@ -381,8 +379,8 @@
             }
         }
         .profile-avatar:hover {
-            transform: scale(1.06) rotate(-6deg);
-            box-shadow: 0 0 0 10px rgba(255, 255, 255, 0.12), 0 40px 80px rgba(0, 0, 0, 0.5), 0 0 60px rgba(102, 126, 234, 0.3);
+            transform: scale(1.06) rotate(-4deg);
+            box-shadow: 0 0 0 12px rgba(255, 255, 255, 0.12), 0 40px 80px rgba(0, 0, 0, 0.5), 0 0 60px rgba(102, 126, 234, 0.3);
         }
 
         .hero h2 {
@@ -581,21 +579,24 @@
             width: 80px;
             height: 80px;
             border-radius: 50%;
-            background: var(--gradient-accent);
             margin: 0 auto 16px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2.4rem;
-            color: #fff;
-            box-shadow: 0 8px 32px rgba(102, 126, 234, 0.3);
+            overflow: hidden;
+            border: 3px solid rgba(102, 126, 234, 0.3);
+            box-shadow: 0 8px 32px rgba(102, 126, 234, 0.2);
             transition: all var(--transition);
             position: relative;
             z-index: 1;
         }
+        .work-card .work-thumb img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
         .work-card:hover .work-thumb {
-            transform: scale(1.08) rotate(-8deg);
-            box-shadow: 0 12px 48px rgba(102, 126, 234, 0.5);
+            transform: scale(1.08) rotate(-6deg);
+            border-color: #667eea;
+            box-shadow: 0 12px 48px rgba(102, 126, 234, 0.4);
         }
 
         .work-card h4 {
@@ -1145,7 +1146,6 @@
             .profile-avatar {
                 width: 140px;
                 height: 140px;
-                font-size: 4rem;
             }
             .hero .orb {
                 display: none;
@@ -1277,9 +1277,9 @@
         <div class="orb"></div>
 
         <div class="container hero-content">
-            <div class="profile-avatar" data-aos="zoom-in" data-aos-duration="1000">
-                <i class="fas fa-user-astronaut"></i>
-            </div>
+            <!-- تصویر پروفایل – عکس واقعی -->
+            <img src="profile.jpg" alt="مهدی رحیمیان" class="profile-avatar" data-aos="zoom-in" data-aos-duration="1000" />
+
             <h2 data-aos="fade-up" data-aos-delay="100">
                 <span>مهدی رحیمیان</span>
             </h2>
@@ -1385,7 +1385,9 @@
             <div class="works-grid" id="worksGrid">
                 <!-- Card 1 -->
                 <div class="work-card" data-category="دکلمه" data-aos="flip-up" data-aos-delay="100">
-                    <div class="work-thumb"><i class="fas fa-play"></i></div>
+                    <div class="work-thumb">
+                        <img src="thumb1.jpg" alt="اثر ۱" />
+                    </div>
                     <h4>متن و صدا #مهدی_رحیمیان✌️</h4>
                     <span class="work-date">۱۶ دسامبر ۲۰۲۵</span>
                     <div class="work-tags">
@@ -1399,7 +1401,9 @@
 
                 <!-- Card 2 -->
                 <div class="work-card" data-category="دلنوشته" data-aos="flip-up" data-aos-delay="200">
-                    <div class="work-thumb"><i class="fas fa-play"></i></div>
+                    <div class="work-thumb">
+                        <img src="thumb2.jpg" alt="اثر ۲" />
+                    </div>
                     <h4>مرا به حال خود بگذارید و رهایم کنید...</h4>
                     <span class="work-date">دلنوشته</span>
                     <div class="work-tags">
@@ -1413,7 +1417,9 @@
 
                 <!-- Card 3 -->
                 <div class="work-card" data-category="عاشقانه" data-aos="flip-up" data-aos-delay="300">
-                    <div class="work-thumb"><i class="fas fa-play"></i></div>
+                    <div class="work-thumb">
+                        <img src="thumb3.jpg" alt="اثر ۳" />
+                    </div>
                     <h4>صدایم کن…</h4>
                     <span class="work-date">۱۶ اوت ۲۰۲۵</span>
                     <div class="work-tags">
@@ -1427,7 +1433,9 @@
 
                 <!-- Card 4 -->
                 <div class="work-card" data-category="دلنوشته" data-aos="flip-up" data-aos-delay="400">
-                    <div class="work-thumb"><i class="fas fa-play"></i></div>
+                    <div class="work-thumb">
+                        <img src="thumb4.jpg" alt="اثر ۴" />
+                    </div>
                     <h4>متن زیبا و عمیق با خوانش گرم</h4>
                     <span class="work-date">دلنوشته</span>
                     <div class="work-tags">
@@ -1565,11 +1573,10 @@
             'use strict';
 
             // ================================================================
-            // 1. GSAP + ScrollTrigger (animate on scroll)
+            // 1. GSAP + ScrollTrigger
             // ================================================================
             gsap.registerPlugin(ScrollTrigger);
 
-            // Hero animations
             gsap.from('.hero .profile-avatar', {
                 scale: 0.6,
                 opacity: 0,
@@ -1592,7 +1599,6 @@
                 ease: 'power3.out',
             });
 
-            // Sections fade-up with GSAP
             document.querySelectorAll('section:not(.hero)').forEach((section, i) => {
                 gsap.from(section, {
                     scrollTrigger: {
@@ -1609,7 +1615,7 @@
             });
 
             // ================================================================
-            // 2. AOS (fallback for simple animations)
+            // 2. AOS
             // ================================================================
             AOS.init({
                 duration: 800,
@@ -1618,7 +1624,7 @@
             });
 
             // ================================================================
-            // 3. Particle Background
+            // 3. Particles
             // ================================================================
             if (typeof particlesJS !== 'undefined') {
                 particlesJS('particles-js', {
@@ -1685,7 +1691,6 @@
                 dot.style.top = mouseY + 'px';
             });
 
-            // Hover effect on interactive elements
             document.querySelectorAll('a, button, .work-card, .post, .skill-tag').forEach(el => {
                 el.addEventListener('mouseenter', () => {
                     glow.style.width = '70px';
@@ -1730,7 +1735,7 @@
             });
 
             // ================================================================
-            // 7. Theme Toggle (Dark → Light)
+            // 7. Theme Toggle
             // ================================================================
             const toggle = document.getElementById('themeToggle');
             const icon = toggle.querySelector('i');
@@ -1801,7 +1806,7 @@
             typeEffect();
 
             // ================================================================
-            // 9. Smooth Scroll for nav
+            // 9. Smooth Scroll
             // ================================================================
             document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
                 anchor.addEventListener('click', function(e) {
@@ -1859,7 +1864,7 @@
             });
 
             // ================================================================
-            // 12. Video Modal (Instagram Reels)
+            // 12. Video Modal
             // ================================================================
             const modal = document.getElementById('videoModal');
             const iframe = document.getElementById('videoIframe');
@@ -1892,7 +1897,7 @@
             });
 
             // ================================================================
-            // 13. Visitor Counter (localStorage)
+            // 13. Visitor Counter
             // ================================================================
             const counterEl = document.getElementById('visitorCount');
             let count = parseInt(localStorage.getItem('visitorCount') || '0');
@@ -1943,7 +1948,7 @@
             });
 
             // ================================================================
-            // 16. Update year in footer
+            // 16. Update year
             // ================================================================
             const yearSpan = document.querySelector('footer .copyright');
             if (yearSpan) {
@@ -1951,16 +1956,7 @@
                     `© ${new Date().getFullYear()} - تمامی حقوق محفوظ | طراحی و توسعه توسط مهدی رحیمیان`;
             }
 
-            // ================================================================
-            // 17. Keyboard accessibility for modal
-            // ================================================================
-            document.addEventListener('keydown', (e) => {
-                if (e.key === 'Escape') {
-                    closeVideoModal();
-                }
-            });
-
-            console.log('🚀 مهدی رحیمیان | سایت شخصی مدرن ۲۰۲۶');
+            console.log('🚀 مهدی رحیمیان | سایت شخصی مدرن ۲۰۲۶ با تصاویر واقعی');
             console.log('✨ طراحی شده با عشق و کد');
         })();
     </script>
