@@ -5,15 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     
     <!-- SEO -->
-    <title>مهدی رحیمیان | سایت شخصی مدرن</title>
-    <meta name="description" content="سایت شخصی مهدی رحیمیان - نوشته‌ها، مقالات و تجربیات" />
-    <meta name="keywords" content="مهدی رحیمیان, وبلاگ شخصی, نویسندگی, تکنولوژی" />
+    <title>مهدی رحیمیان | سایت شخصی | آثار صوتی و تصویری</title>
+    <meta name="description" content="سایت شخصی مهدی رحیمیان - آثار صوتی و تصویری، دلنوشته‌ها، دکلمه‌ها و کانال تلگرام" />
+    <meta name="keywords" content="مهدی رحیمیان, وبلاگ شخصی, دکلمه, دلنوشته, پادکست, اینستاگرام, تلگرام" />
     <meta name="author" content="مهدی رحیمیان" />
     <meta name="robots" content="index, follow" />
     
     <!-- Open Graph -->
-    <meta property="og:title" content="مهدی رحیمیان - سایت شخصی مدرن" />
-    <meta property="og:description" content="فضایی برای نوشته‌ها، افکار و تجربیات شخصی" />
+    <meta property="og:title" content="مهدی رحیمیان | آثار صوتی و تصویری" />
+    <meta property="og:description" content="دکلمه‌ها، دلنوشته‌ها و کانال تلگرام مهدی رحیمیان" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://mahdiramsar.github.io" />
     
@@ -23,18 +23,19 @@
         "@context": "https://schema.org",
         "@type": "Person",
         "name": "مهدی رحیمیان",
-        "url": "https://mahdiramsar.github.io"
+        "url": "https://mahdiramsar.github.io",
+        "description": "نویسنده، گوینده و تولیدکننده محتوای صوتی و تصویری"
     }
     </script>
     
     <!-- فونت وزیر (نسخه متغیر) -->
     <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet" />
-    <!-- Font Awesome 6 (آیکون‌ها) -->
+    <!-- Font Awesome 6 -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
     
     <style>
         /* ============================================================
-                   متغیرهای CSS (تم لایت و دارک)
+                   متغیرهای CSS
                    ============================================================ */
         :root {
             --bg-primary: #f6f9fc;
@@ -122,7 +123,7 @@
         }
         
         /* ============================================================
-                   هدر شیشه‌ای (Glassmorphism)
+                   هدر شیشه‌ای
                    ============================================================ */
         header {
             position: fixed;
@@ -246,7 +247,6 @@
             100% { background-position: 0% 50%; }
         }
         
-        /* حباب‌های شناور */
         .hero .bubble {
             position: absolute;
             border-radius: 50%;
@@ -348,7 +348,7 @@
         .social-links .github:hover { background: #171515; border-color: #171515; }
         
         /* ============================================================
-                   کارت‌های بخش‌ها با افکت شیشه‌ای
+                   کارت‌های بخش‌ها
                    ============================================================ */
         section {
             background: var(--bg-card);
@@ -383,7 +383,7 @@
         }
         
         /* ============================================================
-                   مهارت‌ها با آیکون و جلوه نئومورفیک
+                   مهارت‌ها
                    ============================================================ */
         .skills {
             display: flex;
@@ -421,7 +421,7 @@
         }
         
         /* ============================================================
-                   نوشته‌ها با کارت‌های براق
+                   نوشته‌ها
                    ============================================================ */
         .post {
             background: var(--bg-primary);
@@ -484,7 +484,113 @@
         }
         
         /* ============================================================
-                   فرم تماس مدرن
+                   بخش آثار صوتی و تصویری (جدید)
+                   ============================================================ */
+        .works-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 24px;
+            margin-top: 20px;
+        }
+        
+        .work-card {
+            background: var(--bg-primary);
+            padding: 28px 20px 24px;
+            border-radius: var(--radius-sm);
+            text-align: center;
+            transition: all var(--transition);
+            border: 1px solid var(--glass-border);
+            box-shadow: var(--shadow-sm);
+            position: relative;
+            overflow: hidden;
+        }
+        .work-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gradient-1);
+            transform: scaleX(0);
+            transition: transform var(--transition);
+        }
+        .work-card:hover::after {
+            transform: scaleX(1);
+        }
+        .work-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .work-thumb {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: var(--gradient-1);
+            margin: 0 auto 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            color: #fff;
+            box-shadow: 0 8px 24px rgba(102, 126, 234, 0.3);
+            transition: transform var(--transition);
+        }
+        .work-card:hover .work-thumb {
+            transform: scale(1.08) rotate(-6deg);
+        }
+        
+        .work-card h4 {
+            font-size: 1.05rem;
+            font-weight: 700;
+            margin-bottom: 4px;
+            color: var(--text-primary);
+        }
+        
+        .work-date {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            display: block;
+            margin-bottom: 12px;
+        }
+        
+        .work-tags {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 6px;
+            margin-bottom: 14px;
+        }
+        .work-tags span {
+            background: rgba(102, 126, 234, 0.12);
+            color: #667eea;
+            font-size: 0.7rem;
+            padding: 2px 12px;
+            border-radius: 20px;
+            font-weight: 600;
+        }
+        
+        .work-link {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all var(--transition);
+            padding: 8px 16px;
+            border-radius: 40px;
+            background: rgba(102, 126, 234, 0.08);
+        }
+        .work-link:hover {
+            gap: 16px;
+            background: var(--gradient-1);
+            color: #fff;
+        }
+        
+        /* ============================================================
+                   فرم تماس
                    ============================================================ */
         .contact-form {
             display: grid;
@@ -587,7 +693,59 @@
         }
         
         /* ============================================================
-                   فوتر با گرادیان تاریک
+                   کانال تلگرام (بخش اختصاصی)
+                   ============================================================ */
+        .telegram-channel {
+            background: var(--gradient-1);
+            border-radius: var(--radius-sm);
+            padding: 32px 28px;
+            margin-top: 30px;
+            text-align: center;
+            color: #fff;
+            box-shadow: 0 12px 40px rgba(102, 126, 234, 0.25);
+            transition: all var(--transition);
+        }
+        .telegram-channel:hover {
+            transform: scale(1.02);
+            box-shadow: 0 20px 56px rgba(102, 126, 234, 0.35);
+        }
+        .telegram-channel h4 {
+            font-size: 1.6rem;
+            font-weight: 800;
+            margin-bottom: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+        }
+        .telegram-channel p {
+            opacity: 0.9;
+            margin-bottom: 18px;
+            font-size: 1rem;
+        }
+        .telegram-channel .btn-channel {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: rgba(255, 255, 255, 0.2);
+            color: #fff;
+            padding: 14px 36px;
+            border-radius: 60px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            backdrop-filter: blur(4px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all var(--transition);
+        }
+        .telegram-channel .btn-channel:hover {
+            background: rgba(255, 255, 255, 0.35);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
+        }
+        
+        /* ============================================================
+                   فوتر
                    ============================================================ */
         footer {
             background: var(--gradient-1);
@@ -684,6 +842,8 @@
             section { padding: 28px 18px; }
             h3 { font-size: 1.6rem; }
             
+            .works-grid { grid-template-columns: 1fr; }
+            
             .social-buttons { flex-direction: column; align-items: stretch; }
             .social-button { justify-content: center; }
             
@@ -693,6 +853,7 @@
             nav a { font-size: 0.8rem; padding: 6px 12px; }
             .hero h2 { font-size: 1.8rem; }
             .post { padding: 20px; }
+            .work-card { padding: 20px 16px; }
         }
     </style>
 </head>
@@ -714,6 +875,7 @@
                     <li><a href="#home">خانه</a></li>
                     <li><a href="#about">درباره</a></li>
                     <li><a href="#skills">مهارت‌ها</a></li>
+                    <li><a href="#works">آثار</a></li>
                     <li><a href="#blog">نوشته‌ها</a></li>
                     <li><a href="#contact">تماس</a></li>
                 </ul>
@@ -739,7 +901,7 @@
             <i class="fas fa-user-astronaut"></i>
         </div>
         <h2>مهدی رحیمیان</h2>
-        <p class="tagline">نویسنده | پژوهشگر | عاشق تکنولوژی</p>
+        <p class="tagline">نویسنده | گوینده | تولیدکننده محتوای صوتی و تصویری</p>
         <div class="typed-text" id="typedText"></div>
         <div class="social-links">
             <a href="https://www.instagram.com/sayehaye.bi.neghab" class="instagram" target="_blank" title="اینستاگرام"><i class="fab fa-instagram"></i></a>
@@ -756,11 +918,11 @@
     <section id="about">
         <h3><i class="fas fa-user-circle"></i> درباره من</h3>
         <p style="font-size:1.05rem;">
-            سلام! من <strong>مهدی رحیمیان</strong> هستم. اینجا فضای شخصی من برای به اشتراک‌گذاری افکار، تجربیات و نوشته‌هایم است. 
-            عاشق یادگیری، مطالعه، و نوشتن هستم و معتقدم کلمات می‌توانند جهان را تغییر دهند.
+            سلام! من <strong>مهدی رحیمیان</strong> هستم. اینجا فضای شخصی من برای به اشتراک‌گذاری افکار، تجربیات، دکلمه‌ها و نوشته‌هایم است. 
+            عاشق یادگیری، مطالعه، و تولید محتوای صوتی و تصویری هستم و معتقدم کلمات و صدا می‌توانند جهان را تغییر دهند.
         </p>
         <p style="margin-top:14px;">
-            در این سایت می‌توانید مقالات، خاطرات، و دیدگاه‌های مرا در زمینه‌های مختلف بخوانید. 
+            در این سایت می‌توانید مقالات، دلنوشته‌ها، دکلمه‌های صوتی و کانال تلگرام من را پیدا کنید. 
             از اینکه وقت می‌گذارید و مطالبم را می‌خوانید، بی‌نهایت سپاسگزارم.
         </p>
         <div style="margin-top:28px; text-align:center;">
@@ -779,6 +941,7 @@
     <section id="skills">
         <h3><i class="fas fa-cogs"></i> مهارت‌ها و علایق</h3>
         <div class="skills">
+            <span class="skill-tag"><i class="fas fa-microphone-alt"></i> گویندگی و دکلمه</span>
             <span class="skill-tag"><i class="fas fa-feather-alt"></i> نویسندگی</span>
             <span class="skill-tag"><i class="fas fa-search"></i> پژوهش</span>
             <span class="skill-tag"><i class="fas fa-laptop-code"></i> تکنولوژی</span>
@@ -787,6 +950,88 @@
             <span class="skill-tag"><i class="fas fa-plane"></i> سفر</span>
             <span class="skill-tag"><i class="fas fa-camera"></i> عکاسی</span>
             <span class="skill-tag"><i class="fas fa-headphones"></i> موسیقی</span>
+        </div>
+    </section>
+
+    <!-- ========== آثار صوتی و تصویری ========== -->
+    <section id="works">
+        <h3><i class="fas fa-play-circle"></i> آثار صوتی و تصویری</h3>
+        <p style="margin-bottom:20px;">گزیده‌ای از دکلمه‌ها و دلنوشته‌های من با صدای خودم</p>
+        
+        <div class="works-grid">
+            <!-- کارت ۱ -->
+            <div class="work-card">
+                <div class="work-thumb">
+                    <i class="fas fa-play"></i>
+                </div>
+                <h4>متن و صدا #مهدی_رحیمیان✌️</h4>
+                <span class="work-date">۱۶ دسامبر ۲۰۲۵</span>
+                <div class="work-tags">
+                    <span>#دکلمه</span>
+                    <span>#متن_صوتی</span>
+                </div>
+                <a href="https://www.instagram.com/reel/DSVt85bgpEi/" target="_blank" class="work-link">
+                    <i class="fab fa-instagram"></i> مشاهده در اینستاگرام
+                </a>
+            </div>
+            
+            <!-- کارت ۲ -->
+            <div class="work-card">
+                <div class="work-thumb">
+                    <i class="fas fa-play"></i>
+                </div>
+                <h4>مرا به حال خود بگذارید و رهایم کنید...</h4>
+                <span class="work-date">دلنوشته</span>
+                <div class="work-tags">
+                    <span>#دلنوشته</span>
+                    <span>#سایه_درون</span>
+                </div>
+                <a href="https://www.instagram.com/reel/DPrup05gl1L/" target="_blank" class="work-link">
+                    <i class="fab fa-instagram"></i> مشاهده در اینستاگرام
+                </a>
+            </div>
+            
+            <!-- کارت ۳ -->
+            <div class="work-card">
+                <div class="work-thumb">
+                    <i class="fas fa-play"></i>
+                </div>
+                <h4>صدایم کن…</h4>
+                <span class="work-date">۱۶ اوت ۲۰۲۵</span>
+                <div class="work-tags">
+                    <span>#دلتنگی</span>
+                    <span>#عاشقانه</span>
+                </div>
+                <a href="https://www.instagram.com/reel/DNafAsACM-G/" target="_blank" class="work-link">
+                    <i class="fab fa-instagram"></i> مشاهده در اینستاگرام
+                </a>
+            </div>
+            
+            <!-- کارت ۴ -->
+            <div class="work-card">
+                <div class="work-thumb">
+                    <i class="fas fa-play"></i>
+                </div>
+                <h4>متن زیبا و عمیق با خوانش گرم</h4>
+                <span class="work-date">دلنوشته</span>
+                <div class="work-tags">
+                    <span>#عمیق</span>
+                    <span>#خوانش</span>
+                </div>
+                <a href="https://www.instagram.com/reel/DNBSxyzCnJb/" target="_blank" class="work-link">
+                    <i class="fab fa-instagram"></i> مشاهده در اینستاگرام
+                </a>
+            </div>
+        </div>
+        
+        <!-- بخش کانال تلگرام -->
+        <div class="telegram-channel">
+            <h4><i class="fab fa-telegram"></i> کانال تلگرام من</h4>
+            <p>«بیان بی‌پرده احساسات و داستان‌ها» — با ۳۸ عضو</p>
+            <a href="https://t.me/sayehayebineghab" target="_blank" class="btn-channel">
+                <i class="fab fa-telegram"></i> عضویت در کانال تلگرام
+                <i class="fas fa-arrow-left"></i>
+            </a>
         </div>
     </section>
 
@@ -876,7 +1121,7 @@
 </footer>
 
 <!-- ================================================================
-اسکریپت کامل (بدون وابستگی خارجی)
+اسکریپت کامل
 ================================================================ -->
 <script>
     (function() {
@@ -912,12 +1157,12 @@
             }
         });
 
-        // ---------- 3. تایپ‌رایتر (Typewriter) ----------
+        // ---------- 3. تایپ‌رایتر ----------
         const typedEl = document.getElementById('typedText');
         const phrases = [
-            'نوشته‌های من را بخوانید ✍️',
-            'همراه من در سفر یادگیری 🌱',
-            'اینجا دنیای کلمات است 📖',
+            'دکلمه‌های مرا بشنوید 🎧',
+            'همراه من در سفر کلمات 🌱',
+            'اینجا صدا و معنا به هم می‌رسند 📖',
             'تجربیاتم را با شما به اشتراک می‌گذارم 💫'
         ];
         let phraseIndex = 0, charIndex = 0, isDeleting = false;
@@ -944,7 +1189,7 @@
         }
         typeEffect();
 
-        // ---------- 4. اسکرول نرم با آفست هدر ----------
+        // ---------- 4. اسکرول نرم ----------
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 const targetId = this.getAttribute('href');
@@ -959,7 +1204,7 @@
             });
         });
 
-        // ---------- 5. انیمیشن ورود پلکانی بخش‌ها ----------
+        // ---------- 5. انیمیشن ورود ----------
         const sections = document.querySelectorAll('section:not(.hero)');
         const observer = new IntersectionObserver((entries) => {
             entries.forEach((entry, index) => {
@@ -978,7 +1223,7 @@
             observer.observe(section);
         });
 
-        // ---------- 6. فرم تماس (Formspree) ----------
+        // ---------- 6. فرم تماس ----------
         const form = document.getElementById('contactForm');
         const status = document.getElementById('formStatus');
         form.addEventListener('submit', async (e) => {
@@ -1027,12 +1272,7 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
 
-        // ---------- 9. افکت 3D Tilt روی کارت‌ها (اختیاری، با استفاده از CSS) ----------
-        // برای عملکرد بهتر، از CSS perspective استفاده شده است.
-        // این بخش به‌صورت پیش‌فرض غیرفعال است تا سنگین نشود.
-        // در صورت تمایل می‌توانید فعالش کنید.
-
-        // ---------- 10. به‌روزرسانی سال در فوتر ----------
+        // ---------- 9. به‌روزرسانی سال در فوتر ----------
         const yearSpan = document.querySelector('footer .copyright');
         if (yearSpan) {
             yearSpan.innerHTML = `© ${new Date().getFullYear()} - تمامی حقوق محفوظ | طراحی و توسعه توسط مهدی رحیمیان`;
