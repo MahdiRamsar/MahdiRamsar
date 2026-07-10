@@ -3,75 +3,76 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    
+
     <!-- SEO -->
     <title>مهدی رحیمیان | سایت شخصی | آثار صوتی و تصویری</title>
     <meta name="description" content="سایت شخصی مهدی رحیمیان - آثار صوتی و تصویری، دلنوشته‌ها، دکلمه‌ها و کانال تلگرام" />
     <meta name="keywords" content="مهدی رحیمیان, وبلاگ شخصی, دکلمه, دلنوشته, پادکست, اینستاگرام, تلگرام" />
     <meta name="author" content="مهدی رحیمیان" />
     <meta name="robots" content="index, follow" />
-    
+
     <!-- Open Graph -->
     <meta property="og:title" content="مهدی رحیمیان | آثار صوتی و تصویری" />
     <meta property="og:description" content="دکلمه‌ها، دلنوشته‌ها و کانال تلگرام مهدی رحیمیان" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://mahdiramsar.github.io" />
-    
+
     <!-- Schema.org -->
     <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "Person",
-        "name": "مهدی رحیمیان",
-        "url": "https://mahdiramsar.github.io",
-        "description": "نویسنده، گوینده و تولیدکننده محتوای صوتی و تصویری"
-    }
+        {
+            "@context": "https://schema.org",
+            "@type": "Person",
+            "name": "مهدی رحیمیان",
+            "url": "https://mahdiramsar.github.io",
+            "description": "نویسنده، گوینده و تولیدکننده محتوای صوتی و تصویری"
+        }
     </script>
-    
+
     <!-- فونت وزیر (نسخه متغیر) -->
     <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet" />
     <!-- Font Awesome 6 -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
-    
+
     <style>
         /* ============================================================
-                   متغیرهای CSS
+                   متغیرهای CSS (دارک مود پیش‌فرض با Aurora)
                    ============================================================ */
         :root {
-            --bg-primary: #f6f9fc;
-            --bg-secondary: #ffffff;
-            --bg-card: rgba(255, 255, 255, 0.7);
-            --bg-glass: rgba(255, 255, 255, 0.25);
-            --text-primary: #0b1a33;
-            --text-secondary: #334155;
-            --text-muted: #64748b;
-            --shadow-sm: 0 8px 32px rgba(0, 0, 0, 0.06);
-            --shadow-md: 0 16px 48px rgba(0, 0, 0, 0.10);
-            --shadow-lg: 0 24px 64px rgba(0, 0, 0, 0.14);
+            --bg-primary: #07080b;
+            --bg-secondary: #0d0f14;
+            --bg-card: rgba(255, 255, 255, 0.04);
+            --bg-glass: rgba(255, 255, 255, 0.02);
+            --text-primary: #f0f2f5;
+            --text-secondary: #a8b3cf;
+            --text-muted: #6b7a9a;
+            --shadow-sm: 0 8px 32px rgba(0, 0, 0, 0.5);
+            --shadow-md: 0 16px 48px rgba(0, 0, 0, 0.6);
+            --shadow-lg: 0 24px 64px rgba(0, 0, 0, 0.7);
             --radius: 28px;
             --radius-sm: 16px;
             --transition: 0.5s cubic-bezier(0.23, 1, 0.32, 1);
             --gradient-1: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             --gradient-2: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
             --gradient-hero: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
-            --glass-border: rgba(255, 255, 255, 0.3);
+            --glass-border: rgba(255, 255, 255, 0.06);
             --blur: blur(20px);
         }
-        
-        [data-theme="dark"] {
-            --bg-primary: #0a0e1a;
-            --bg-secondary: #131b2e;
-            --bg-card: rgba(20, 30, 50, 0.75);
-            --bg-glass: rgba(10, 14, 26, 0.5);
-            --text-primary: #eef2ff;
-            --text-secondary: #cbd5e1;
-            --text-muted: #94a3b8;
-            --shadow-sm: 0 8px 32px rgba(0, 0, 0, 0.5);
-            --shadow-md: 0 16px 48px rgba(0, 0, 0, 0.6);
-            --shadow-lg: 0 24px 64px rgba(0, 0, 0, 0.7);
-            --glass-border: rgba(255, 255, 255, 0.08);
+
+        /* حالت روشن (لایت) */
+        [data-theme="light"] {
+            --bg-primary: #f4f6fa;
+            --bg-secondary: #ffffff;
+            --bg-card: rgba(255, 255, 255, 0.6);
+            --bg-glass: rgba(255, 255, 255, 0.3);
+            --text-primary: #0b1a33;
+            --text-secondary: #334155;
+            --text-muted: #64748b;
+            --shadow-sm: 0 8px 32px rgba(0, 0, 0, 0.06);
+            --shadow-md: 0 16px 48px rgba(0, 0, 0, 0.10);
+            --shadow-lg: 0 24px 64px rgba(0, 0, 0, 0.14);
+            --glass-border: rgba(0, 0, 0, 0.06);
         }
-        
+
         /* ============================================================
                    ریست و پایه
                    ============================================================ */
@@ -80,11 +81,11 @@
             padding: 0;
             box-sizing: border-box;
         }
-        
+
         html {
             scroll-behavior: smooth;
         }
-        
+
         body {
             font-family: 'Vazirmatn', 'Segoe UI', sans-serif;
             background: var(--bg-primary);
@@ -94,18 +95,18 @@
             padding-top: 80px;
             overflow-x: hidden;
         }
-        
+
         ::selection {
             background: #667eea;
             color: #fff;
         }
-        
+
         .container {
             max-width: 1140px;
             margin: 0 auto;
             padding: 0 24px;
         }
-        
+
         /* ============================================================
                    نوار پیشرفت اسکرول
                    ============================================================ */
@@ -114,14 +115,14 @@
             top: 0;
             left: 0;
             width: 0%;
-            height: 4px;
+            height: 3px;
             background: var(--gradient-1);
             z-index: 9999;
             transition: width 0.1s;
             border-radius: 0 4px 4px 0;
             box-shadow: 0 0 20px rgba(102, 126, 234, 0.4);
         }
-        
+
         /* ============================================================
                    هدر شیشه‌ای
                    ============================================================ */
@@ -131,14 +132,14 @@
             left: 0;
             right: 0;
             z-index: 1000;
-            background: var(--bg-glass);
+            background: rgba(7, 8, 11, 0.5);
             backdrop-filter: var(--blur);
             -webkit-backdrop-filter: var(--blur);
             border-bottom: 1px solid var(--glass-border);
             padding: 12px 0;
             transition: background 0.5s ease, border-color 0.4s ease;
         }
-        
+
         .header-content {
             display: flex;
             justify-content: space-between;
@@ -146,7 +147,7 @@
             flex-wrap: wrap;
             gap: 12px;
         }
-        
+
         .logo h1 {
             font-size: 1.7rem;
             font-weight: 900;
@@ -161,7 +162,7 @@
             color: var(--text-muted);
             -webkit-text-fill-color: var(--text-muted);
         }
-        
+
         nav ul {
             display: flex;
             gap: 4px;
@@ -169,7 +170,7 @@
             flex-wrap: wrap;
         }
         nav a {
-            color: var(--text-primary);
+            color: var(--text-secondary);
             text-decoration: none;
             font-weight: 600;
             padding: 8px 18px;
@@ -194,18 +195,18 @@
         }
         nav a:hover {
             background: rgba(102, 126, 234, 0.12);
-            color: #667eea;
+            color: #fff;
         }
-        
+
         .header-actions {
             display: flex;
             align-items: center;
             gap: 12px;
         }
-        
+
         .theme-toggle {
-            background: var(--bg-secondary);
-            border: none;
+            background: var(--bg-card);
+            border: 1px solid var(--glass-border);
             border-radius: 50%;
             width: 44px;
             height: 44px;
@@ -217,89 +218,128 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            backdrop-filter: blur(8px);
         }
         .theme-toggle:hover {
             transform: rotate(45deg) scale(1.1);
-            box-shadow: var(--shadow-md);
+            border-color: #667eea;
         }
-        
+
         /* ============================================================
-                   بخش قهرمان با گرادیان متحرک و حباب‌ها
+                   بخش قهرمان با Aurora
                    ============================================================ */
         .hero {
             position: relative;
             background: var(--gradient-hero);
             background-size: 300% 300%;
-            animation: gradientMove 10s ease-in-out infinite alternate;
+            animation: gradientMove 12s ease-in-out infinite alternate;
             color: #fff;
             text-align: center;
-            padding: 80px 20px 70px;
+            padding: 90px 20px 70px;
             border-radius: var(--radius);
             margin-bottom: 50px;
             overflow: hidden;
-            box-shadow: 0 30px 80px rgba(79, 172, 254, 0.3);
+            box-shadow: 0 30px 80px rgba(79, 172, 254, 0.25);
             isolation: isolate;
         }
-        
+
         @keyframes gradientMove {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
         }
-        
+
         .hero .bubble {
             position: absolute;
             border-radius: 50%;
-            background: rgba(255, 255, 255, 0.12);
+            background: rgba(255, 255, 255, 0.08);
             backdrop-filter: blur(4px);
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            animation: floatBubble 18s infinite ease-in-out alternate;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            animation: floatBubble 20s infinite ease-in-out alternate;
             pointer-events: none;
             z-index: 1;
         }
-        .hero .bubble:nth-child(1) { width: 180px; height: 180px; top: -40px; right: -30px; animation-delay: 0s; }
-        .hero .bubble:nth-child(2) { width: 260px; height: 260px; bottom: -80px; left: -60px; animation-delay: -6s; }
-        .hero .bubble:nth-child(3) { width: 120px; height: 120px; top: 20%; left: 15%; animation-delay: -12s; }
-        .hero .bubble:nth-child(4) { width: 80px; height: 80px; bottom: 30%; right: 10%; animation-delay: -4s; }
-        
-        @keyframes floatBubble {
-            0% { transform: translate(0, 0) scale(1); }
-            100% { transform: translate(40px, -30px) scale(1.1); }
+        .hero .bubble:nth-child(1) {
+            width: 200px;
+            height: 200px;
+            top: -50px;
+            right: -40px;
+            animation-delay: 0s;
         }
-        
+        .hero .bubble:nth-child(2) {
+            width: 280px;
+            height: 280px;
+            bottom: -90px;
+            left: -70px;
+            animation-delay: -6s;
+        }
+        .hero .bubble:nth-child(3) {
+            width: 140px;
+            height: 140px;
+            top: 20%;
+            left: 15%;
+            animation-delay: -12s;
+        }
+        .hero .bubble:nth-child(4) {
+            width: 90px;
+            height: 90px;
+            bottom: 30%;
+            right: 10%;
+            animation-delay: -4s;
+        }
+
+        @keyframes floatBubble {
+            0% {
+                transform: translate(0, 0) scale(1);
+            }
+            100% {
+                transform: translate(50px, -40px) scale(1.15);
+            }
+        }
+
         .hero-content {
             position: relative;
             z-index: 2;
         }
-        
+
+        /* ========== عکس پروفایل – بزرگ با تصویر واقعی ========== */
         .profile-avatar {
-            width: 150px;
-            height: 150px;
+            width: 220px;
+            height: 220px;
             border-radius: 50%;
-            margin: 0 auto 24px;
-            background: var(--gradient-2);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 4.5rem;
-            color: #fff;
-            box-shadow: 0 0 0 8px rgba(255, 255, 255, 0.25), 0 24px 48px rgba(0, 0, 0, 0.2);
-            transition: transform var(--transition);
+            margin: 0 auto 28px;
+            display: block;
+            object-fit: cover;
+            border: 4px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 0 0 10px rgba(255, 255, 255, 0.1), 0 30px 60px rgba(0, 0, 0, 0.3);
+            transition: all var(--transition);
             animation: floatAvatar 6s ease-in-out infinite alternate;
         }
+
         @keyframes floatAvatar {
-            0% { transform: translateY(0); }
-            100% { transform: translateY(-12px); }
+            0% {
+                transform: translateY(0);
+            }
+            100% {
+                transform: translateY(-16px);
+            }
         }
         .profile-avatar:hover {
-            transform: scale(1.06) rotate(-6deg);
+            transform: scale(1.05) rotate(-4deg);
+            box-shadow: 0 0 0 14px rgba(255, 255, 255, 0.15), 0 40px 80px rgba(0, 0, 0, 0.4);
         }
-        
+
         .hero h2 {
-            font-size: 3.2rem;
+            font-size: 3.6rem;
             font-weight: 900;
             letter-spacing: -1px;
-            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
             margin-bottom: 8px;
         }
         .hero .tagline {
@@ -309,13 +349,14 @@
             margin-bottom: 6px;
         }
         .hero .typed-text {
-            font-size: 1.1rem;
+            font-size: 1.15rem;
             opacity: 0.85;
-            min-height: 2.8rem;
+            min-height: 3rem;
             font-weight: 300;
             direction: ltr;
+            color: rgba(255, 255, 255, 0.9);
         }
-        
+
         .social-links {
             display: flex;
             justify-content: center;
@@ -325,7 +366,7 @@
         }
         .social-links a {
             color: #fff;
-            background: rgba(255, 255, 255, 0.15);
+            background: rgba(255, 255, 255, 0.12);
             width: 60px;
             height: 60px;
             border-radius: 50%;
@@ -335,20 +376,33 @@
             font-size: 1.7rem;
             transition: all var(--transition);
             backdrop-filter: blur(8px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.15);
         }
         .social-links a:hover {
             transform: translateY(-8px) scale(1.08);
-            background: rgba(255, 255, 255, 0.3);
+            background: rgba(255, 255, 255, 0.25);
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
         }
-        .social-links .instagram:hover { background: #E4405F; border-color: #E4405F; }
-        .social-links .telegram:hover { background: #0088cc; border-color: #0088cc; }
-        .social-links .email:hover { background: #fbbf24; border-color: #fbbf24; color: #1e293b; }
-        .social-links .github:hover { background: #171515; border-color: #171515; }
-        
+        .social-links .instagram:hover {
+            background: #E4405F;
+            border-color: #E4405F;
+        }
+        .social-links .telegram:hover {
+            background: #0088cc;
+            border-color: #0088cc;
+        }
+        .social-links .email:hover {
+            background: #fbbf24;
+            border-color: #fbbf24;
+            color: #1e293b;
+        }
+        .social-links .github:hover {
+            background: #171515;
+            border-color: #171515;
+        }
+
         /* ============================================================
-                   کارت‌های بخش‌ها
+                   کارت‌های بخش‌ها (Glassmorphism)
                    ============================================================ */
         section {
             background: var(--bg-card);
@@ -365,7 +419,7 @@
             box-shadow: var(--shadow-md);
             transform: translateY(-6px);
         }
-        
+
         h3 {
             font-size: 2rem;
             font-weight: 800;
@@ -377,11 +431,15 @@
             border-bottom: 4px solid transparent;
             border-image: var(--gradient-1);
             border-image-slice: 1;
+            background: linear-gradient(135deg, var(--text-primary), var(--text-secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
         h3 i {
-            color: #667eea;
+            -webkit-text-fill-color: #667eea;
         }
-        
+
         /* ============================================================
                    مهارت‌ها
                    ============================================================ */
@@ -419,12 +477,12 @@
         .skill-tag:hover i {
             color: #fff;
         }
-        
+
         /* ============================================================
                    نوشته‌ها
                    ============================================================ */
         .post {
-            background: var(--bg-primary);
+            background: var(--bg-secondary);
             padding: 28px 32px;
             border-radius: var(--radius-sm);
             margin: 20px 0;
@@ -433,6 +491,8 @@
             box-shadow: var(--shadow-sm);
             position: relative;
             overflow: hidden;
+            border: 1px solid var(--glass-border);
+            border-right-width: 6px;
         }
         .post::before {
             content: '';
@@ -447,7 +507,7 @@
             opacity: 0.04;
         }
         .post:hover {
-            transform: translateX(10px) scale(1.01);
+            transform: translateX(10px);
             box-shadow: var(--shadow-md);
         }
         .post h4 {
@@ -457,10 +517,14 @@
             display: flex;
             align-items: center;
             gap: 10px;
+            color: var(--text-primary);
         }
         .post h4 i {
             color: #667eea;
             font-size: 1.2rem;
+        }
+        .post p {
+            color: var(--text-secondary);
         }
         .post-date {
             color: var(--text-muted);
@@ -482,9 +546,9 @@
             gap: 16px;
             color: #764ba2;
         }
-        
+
         /* ============================================================
-                   بخش آثار صوتی و تصویری (جدید)
+                   بخش آثار صوتی و تصویری
                    ============================================================ */
         .works-grid {
             display: grid;
@@ -492,9 +556,9 @@
             gap: 24px;
             margin-top: 20px;
         }
-        
+
         .work-card {
-            background: var(--bg-primary);
+            background: var(--bg-secondary);
             padding: 28px 20px 24px;
             border-radius: var(--radius-sm);
             text-align: center;
@@ -519,10 +583,11 @@
             transform: scaleX(1);
         }
         .work-card:hover {
-            transform: translateY(-8px);
+            transform: translateY(-10px);
             box-shadow: var(--shadow-md);
+            border-color: rgba(102, 126, 234, 0.2);
         }
-        
+
         .work-thumb {
             width: 80px;
             height: 80px;
@@ -534,27 +599,27 @@
             justify-content: center;
             font-size: 2.5rem;
             color: #fff;
-            box-shadow: 0 8px 24px rgba(102, 126, 234, 0.3);
+            box-shadow: 0 8px 24px rgba(102, 126, 234, 0.25);
             transition: transform var(--transition);
         }
         .work-card:hover .work-thumb {
             transform: scale(1.08) rotate(-6deg);
         }
-        
+
         .work-card h4 {
             font-size: 1.05rem;
             font-weight: 700;
             margin-bottom: 4px;
             color: var(--text-primary);
         }
-        
+
         .work-date {
             color: var(--text-muted);
             font-size: 0.85rem;
             display: block;
             margin-bottom: 12px;
         }
-        
+
         .work-tags {
             display: flex;
             flex-wrap: wrap;
@@ -570,7 +635,7 @@
             border-radius: 20px;
             font-weight: 600;
         }
-        
+
         .work-link {
             color: #667eea;
             text-decoration: none;
@@ -582,13 +647,15 @@
             padding: 8px 16px;
             border-radius: 40px;
             background: rgba(102, 126, 234, 0.08);
+            border: 1px solid transparent;
         }
         .work-link:hover {
             gap: 16px;
             background: var(--gradient-1);
             color: #fff;
+            border-color: transparent;
         }
-        
+
         /* ============================================================
                    فرم تماس
                    ============================================================ */
@@ -614,7 +681,7 @@
             border-radius: var(--radius-sm);
             font-family: inherit;
             font-size: 1rem;
-            background: var(--bg-primary);
+            background: var(--bg-secondary);
             color: var(--text-primary);
             transition: all var(--transition);
             box-shadow: var(--shadow-sm);
@@ -624,7 +691,6 @@
             outline: none;
             border-color: #667eea;
             box-shadow: 0 0 0 6px rgba(102, 126, 234, 0.15);
-            transform: scale(1.01);
         }
         .btn {
             background: var(--gradient-1);
@@ -636,22 +702,21 @@
             font-weight: 800;
             cursor: pointer;
             transition: all var(--transition);
-            box-shadow: 0 12px 32px rgba(102, 126, 234, 0.3);
+            box-shadow: 0 12px 32px rgba(102, 126, 234, 0.25);
             display: inline-flex;
             align-items: center;
             justify-content: center;
             gap: 12px;
             font-family: inherit;
-            letter-spacing: 0.5px;
         }
         .btn:hover {
-            transform: translateY(-6px) scale(1.02);
-            box-shadow: 0 20px 48px rgba(102, 126, 234, 0.4);
+            transform: translateY(-6px);
+            box-shadow: 0 20px 48px rgba(102, 126, 234, 0.35);
         }
         .btn:active {
             transform: scale(0.96);
         }
-        
+
         .social-buttons {
             display: flex;
             flex-wrap: wrap;
@@ -670,7 +735,7 @@
             font-weight: 700;
             transition: all var(--transition);
             box-shadow: var(--shadow-sm);
-            border: 1px solid rgba(255, 255, 255, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.08);
         }
         .social-button.instagram {
             background: linear-gradient(135deg, #E4405F, #C13584);
@@ -682,18 +747,20 @@
             transform: translateY(-6px) scale(1.04);
             box-shadow: var(--shadow-md);
         }
-        
+
         #formStatus {
             margin-top: 18px;
             font-weight: 700;
             text-align: center;
             padding: 12px;
             border-radius: var(--radius-sm);
-            background: var(--bg-primary);
+            background: var(--bg-secondary);
+            border: 1px solid var(--glass-border);
+            color: var(--text-primary);
         }
-        
+
         /* ============================================================
-                   کانال تلگرام (بخش اختصاصی)
+                   کانال تلگرام
                    ============================================================ */
         .telegram-channel {
             background: var(--gradient-1);
@@ -727,7 +794,7 @@
             display: inline-flex;
             align-items: center;
             gap: 12px;
-            background: rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.15);
             color: #fff;
             padding: 14px 36px;
             border-radius: 60px;
@@ -735,15 +802,15 @@
             font-weight: 700;
             font-size: 1.1rem;
             backdrop-filter: blur(4px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.15);
             transition: all var(--transition);
         }
         .telegram-channel .btn-channel:hover {
-            background: rgba(255, 255, 255, 0.35);
+            background: rgba(255, 255, 255, 0.3);
             transform: translateY(-4px);
             box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
         }
-        
+
         /* ============================================================
                    فوتر
                    ============================================================ */
@@ -787,7 +854,7 @@
         footer .url:hover {
             color: #fff;
         }
-        
+
         /* ============================================================
                    دکمه بازگشت به بالا
                    ============================================================ */
@@ -819,466 +886,536 @@
             transform: translateY(-6px) scale(1.08);
             box-shadow: 0 20px 48px rgba(102, 126, 234, 0.5);
         }
-        
+
         /* ============================================================
                    ریسپانسیو
                    ============================================================ */
         @media (max-width: 768px) {
-            body { padding-top: 70px; }
+            body {
+                padding-top: 70px;
+            }
             .header-content {
                 flex-direction: column;
                 align-items: stretch;
                 gap: 6px;
             }
-            .logo { text-align: center; }
-            nav ul { justify-content: center; }
-            .header-actions { align-self: center; }
-            
-            .hero { padding: 50px 16px 40px; }
-            .hero h2 { font-size: 2.2rem; }
-            .profile-avatar { width: 120px; height: 120px; font-size: 3.5rem; }
-            .hero .bubble { display: none; }
-            
-            section { padding: 28px 18px; }
-            h3 { font-size: 1.6rem; }
-            
-            .works-grid { grid-template-columns: 1fr; }
-            
-            .social-buttons { flex-direction: column; align-items: stretch; }
-            .social-button { justify-content: center; }
-            
-            #backToTop { width: 48px; height: 48px; font-size: 1.3rem; bottom: 20px; right: 20px; }
+            .logo {
+                text-align: center;
+            }
+            nav ul {
+                justify-content: center;
+            }
+            .header-actions {
+                align-self: center;
+            }
+
+            .hero {
+                padding: 60px 16px 40px;
+            }
+            .hero h2 {
+                font-size: 2.2rem;
+            }
+            .profile-avatar {
+                width: 180px;
+                height: 180px;
+            }
+            .hero .bubble {
+                display: none;
+            }
+
+            section {
+                padding: 28px 18px;
+            }
+            h3 {
+                font-size: 1.6rem;
+            }
+
+            .works-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .social-buttons {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            .social-button {
+                justify-content: center;
+            }
+
+            #backToTop {
+                width: 48px;
+                height: 48px;
+                font-size: 1.3rem;
+                bottom: 20px;
+                right: 20px;
+            }
         }
+
         @media (max-width: 480px) {
-            nav a { font-size: 0.8rem; padding: 6px 12px; }
-            .hero h2 { font-size: 1.8rem; }
-            .post { padding: 20px; }
-            .work-card { padding: 20px 16px; }
+            nav a {
+                font-size: 0.75rem;
+                padding: 6px 12px;
+            }
+            .hero h2 {
+                font-size: 1.8rem;
+            }
+            .hero .tagline {
+                font-size: 1rem;
+            }
+            .post {
+                padding: 18px 16px;
+            }
+            .work-card {
+                padding: 20px 16px;
+            }
+            .profile-avatar {
+                width: 150px;
+                height: 150px;
+            }
         }
     </style>
 </head>
 <body>
 
-<!-- نوار پیشرفت اسکرول -->
-<div id="scroll-progress"></div>
+    <!-- نوار پیشرفت اسکرول -->
+    <div id="scroll-progress"></div>
 
-<!-- ========== هدر ========== -->
-<header>
+    <!-- ========== هدر ========== -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <h1>مهدی رحیمیان</h1>
+                    <div class="subtitle">سایت شخصی</div>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="#home">خانه</a></li>
+                        <li><a href="#about">درباره</a></li>
+                        <li><a href="#skills">مهارت‌ها</a></li>
+                        <li><a href="#works">آثار</a></li>
+                        <li><a href="#blog">نوشته‌ها</a></li>
+                        <li><a href="#contact">تماس</a></li>
+                    </ul>
+                </nav>
+                <div class="header-actions">
+                    <button class="theme-toggle" id="themeToggle" aria-label="تغییر تم">
+                        <i class="fas fa-sun"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- ========== بخش قهرمان ========== -->
+    <section id="home" class="hero">
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+
+        <div class="container hero-content">
+            <!-- عکس پروفایل با نام فایل 1.jpg -->
+            <img src="1.jpg" alt="مهدی رحیمیان" class="profile-avatar" />
+
+            <h2>مهدی رحیمیان</h2>
+            <p class="tagline">نویسنده | گوینده | تولیدکننده محتوای صوتی و تصویری</p>
+            <div class="typed-text" id="typedText"></div>
+            <div class="social-links">
+                <a href="https://www.instagram.com/sayehaye.bi.neghab" class="instagram" target="_blank" title="اینستاگرام"><i class="fab fa-instagram"></i></a>
+                <a href="https://t.me/sayehayebineghab" class="telegram" target="_blank" title="تلگرام"><i class="fab fa-telegram"></i></a>
+                <a href="mailto:me@mahdirahimiyan.ir" class="email" title="ایمیل"><i class="fas fa-envelope"></i></a>
+                <a href="https://github.com/mahdiramsar" class="github" target="_blank" title="گیت‌هاب"><i class="fab fa-github"></i></a>
+            </div>
+        </div>
+    </section>
+
     <div class="container">
-        <div class="header-content">
-            <div class="logo">
-                <h1>مهدی رحیمیان</h1>
-                <div class="subtitle">سایت شخصی</div>
+
+        <!-- ========== درباره ========== -->
+        <section id="about">
+            <h3><i class="fas fa-user-circle"></i> درباره من</h3>
+            <p style="font-size:1.05rem; color:var(--text-secondary);">
+                سلام! من <strong style="color:var(--text-primary);">مهدی رحیمیان</strong> هستم. اینجا فضای شخصی من برای به اشتراک‌گذاری افکار، تجربیات، دکلمه‌ها و نوشته‌هایم است.
+                عاشق یادگیری، مطالعه، و تولید محتوای صوتی و تصویری هستم و معتقدم کلمات و صدا می‌توانند جهان را تغییر دهند.
+            </p>
+            <p style="margin-top:14px; color:var(--text-secondary);">
+                در این سایت می‌توانید مقالات، دلنوشته‌ها، دکلمه‌های صوتی و کانال تلگرام من را پیدا کنید.
+                از اینکه وقت می‌گذارید و مطالبم را می‌خوانید، بی‌نهایت سپاسگزارم.
+            </p>
+            <div style="margin-top:28px; text-align:center;">
+                <div class="social-buttons">
+                    <a href="https://www.instagram.com/sayehaye.bi.neghab" class="social-button instagram" target="_blank">
+                        <i class="fab fa-instagram"></i> اینستاگرام
+                    </a>
+                    <a href="https://t.me/sayehayebineghab" class="social-button telegram" target="_blank">
+                        <i class="fab fa-telegram"></i> تلگرام
+                    </a>
+                </div>
             </div>
-            <nav>
-                <ul>
-                    <li><a href="#home">خانه</a></li>
-                    <li><a href="#about">درباره</a></li>
-                    <li><a href="#skills">مهارت‌ها</a></li>
-                    <li><a href="#works">آثار</a></li>
-                    <li><a href="#blog">نوشته‌ها</a></li>
-                    <li><a href="#contact">تماس</a></li>
-                </ul>
-            </nav>
-            <div class="header-actions">
-                <button class="theme-toggle" id="themeToggle" aria-label="تغییر تم">
-                    <i class="fas fa-moon"></i>
-                </button>
+        </section>
+
+        <!-- ========== مهارت‌ها ========== -->
+        <section id="skills">
+            <h3><i class="fas fa-cogs"></i> مهارت‌ها و علایق</h3>
+            <div class="skills">
+                <span class="skill-tag"><i class="fas fa-microphone-alt"></i> گویندگی و دکلمه</span>
+                <span class="skill-tag"><i class="fas fa-feather-alt"></i> نویسندگی</span>
+                <span class="skill-tag"><i class="fas fa-search"></i> پژوهش</span>
+                <span class="skill-tag"><i class="fas fa-laptop-code"></i> تکنولوژی</span>
+                <span class="skill-tag"><i class="fas fa-code"></i> برنامه‌نویسی</span>
+                <span class="skill-tag"><i class="fas fa-book-open"></i> کتابخوانی</span>
+                <span class="skill-tag"><i class="fas fa-plane"></i> سفر</span>
+                <span class="skill-tag"><i class="fas fa-camera"></i> عکاسی</span>
+                <span class="skill-tag"><i class="fas fa-headphones"></i> موسیقی</span>
             </div>
-        </div>
+        </section>
+
+        <!-- ========== آثار صوتی و تصویری ========== -->
+        <section id="works">
+            <h3><i class="fas fa-play-circle"></i> آثار صوتی و تصویری</h3>
+            <p style="color:var(--text-secondary); margin-bottom:20px;">گزیده‌ای از دکلمه‌ها و دلنوشته‌های من با صدای خودم</p>
+
+            <div class="works-grid">
+                <!-- کارت ۱ -->
+                <div class="work-card">
+                    <div class="work-thumb">
+                        <i class="fas fa-play"></i>
+                    </div>
+                    <h4>متن و صدا #مهدی_رحیمیان✌️</h4>
+                    <span class="work-date">۱۶ دسامبر ۲۰۲۵</span>
+                    <div class="work-tags">
+                        <span>#دکلمه</span>
+                        <span>#متن_صوتی</span>
+                    </div>
+                    <a href="https://www.instagram.com/reel/DSVt85bgpEi/" target="_blank" class="work-link">
+                        <i class="fab fa-instagram"></i> مشاهده در اینستاگرام
+                    </a>
+                </div>
+
+                <!-- کارت ۲ -->
+                <div class="work-card">
+                    <div class="work-thumb">
+                        <i class="fas fa-play"></i>
+                    </div>
+                    <h4>مرا به حال خود بگذارید و رهایم کنید...</h4>
+                    <span class="work-date">دلنوشته</span>
+                    <div class="work-tags">
+                        <span>#دلنوشته</span>
+                        <span>#سایه_درون</span>
+                    </div>
+                    <a href="https://www.instagram.com/reel/DPrup05gl1L/" target="_blank" class="work-link">
+                        <i class="fab fa-instagram"></i> مشاهده در اینستاگرام
+                    </a>
+                </div>
+
+                <!-- کارت ۳ -->
+                <div class="work-card">
+                    <div class="work-thumb">
+                        <i class="fas fa-play"></i>
+                    </div>
+                    <h4>صدایم کن…</h4>
+                    <span class="work-date">۱۶ اوت ۲۰۲۵</span>
+                    <div class="work-tags">
+                        <span>#دلتنگی</span>
+                        <span>#عاشقانه</span>
+                    </div>
+                    <a href="https://www.instagram.com/reel/DNafAsACM-G/" target="_blank" class="work-link">
+                        <i class="fab fa-instagram"></i> مشاهده در اینستاگرام
+                    </a>
+                </div>
+
+                <!-- کارت ۴ -->
+                <div class="work-card">
+                    <div class="work-thumb">
+                        <i class="fas fa-play"></i>
+                    </div>
+                    <h4>متن زیبا و عمیق با خوانش گرم</h4>
+                    <span class="work-date">دلنوشته</span>
+                    <div class="work-tags">
+                        <span>#عمیق</span>
+                        <span>#خوانش</span>
+                    </div>
+                    <a href="https://www.instagram.com/reel/DNBSxyzCnJb/" target="_blank" class="work-link">
+                        <i class="fab fa-instagram"></i> مشاهده در اینستاگرام
+                    </a>
+                </div>
+            </div>
+
+            <!-- بخش کانال تلگرام -->
+            <div class="telegram-channel">
+                <h4><i class="fab fa-telegram"></i> کانال تلگرام من</h4>
+                <p>«بیان بی‌پرده احساسات و داستان‌ها» — با ۳۸ عضو</p>
+                <a href="https://t.me/sayehayebineghab" target="_blank" class="btn-channel">
+                    <i class="fab fa-telegram"></i> عضویت در کانال تلگرام
+                    <i class="fas fa-arrow-left"></i>
+                </a>
+            </div>
+        </section>
+
+        <!-- ========== نوشته‌ها ========== -->
+        <section id="blog">
+            <h3><i class="fas fa-pen-fancy"></i> آخرین نوشته‌ها</h3>
+
+            <div class="post">
+                <h4><i class="fas fa-rocket"></i> شروع یک سفر جدید</h4>
+                <span class="post-date">۲۵ دی ۱۴۰۲</span>
+                <p>اولین نوشته من در این سایت شخصی. اینجا فضایی است برای به اشتراک گذاری افکار، تجربیات و یادگیری‌هایم...</p>
+                <a href="#" class="read-more">ادامه مطلب <i class="fas fa-arrow-left"></i></a>
+            </div>
+
+            <div class="post">
+                <h4><i class="fas fa-pencil-alt"></i> نقش نوشتن در رشد شخصی</h4>
+                <span class="post-date">۲۰ دی ۱۴۰۲</span>
+                <p>چگونه نوشتن می‌تواند به ما در درک بهتر خودمان و جهان اطرافمان کمک کند؟ در این مطلب به بررسی تأثیر نوشتن بر رشد فردی می‌پردازم...</p>
+                <a href="#" class="read-more">ادامه مطلب <i class="fas fa-arrow-left"></i></a>
+            </div>
+
+            <div class="post">
+                <h4><i class="fas fa-microchip"></i> تکنولوژی و زندگی مدرن</h4>
+                <span class="post-date">۱۵ دی ۱۴۰۲</span>
+                <p>بررسی تأثیر تکنولوژی بر سبک زندگی و روابط انسانی در عصر حاضر. چگونه می‌توانیم از تکنولوژی به شکل هوشمندانه‌تری استفاده کنیم؟</p>
+                <a href="#" class="read-more">ادامه مطلب <i class="fas fa-arrow-left"></i></a>
+            </div>
+        </section>
+
+        <!-- ========== تماس ========== -->
+        <section id="contact">
+            <h3><i class="fas fa-envelope-open-text"></i> تماس با من</h3>
+            <p style="color:var(--text-secondary);">خوشحال می‌شوم پیام شما را دریافت کنم. از طریق فرم زیر یا شبکه‌های اجتماعی با من در ارتباط باشید.</p>
+
+            <form class="contact-form" id="contactForm" action="https://formspree.io/f/xyzzyx" method="POST">
+                <div class="form-group">
+                    <label for="name"><i class="fas fa-user"></i> نام شما</label>
+                    <input type="text" id="name" name="name" required placeholder="مثلاً: مهدی" />
+                </div>
+                <div class="form-group">
+                    <label for="email"><i class="fas fa-envelope"></i> ایمیل شما</label>
+                    <input type="email" id="email" name="email" required placeholder="example@mail.com" />
+                </div>
+                <div class="form-group">
+                    <label for="message"><i class="fas fa-comment"></i> پیام شما</label>
+                    <textarea id="message" name="message" rows="5" required placeholder="متن پیام..."></textarea>
+                </div>
+                <button type="submit" class="btn"><i class="fas fa-paper-plane"></i> ارسال پیام</button>
+            </form>
+            <div id="formStatus"></div>
+
+            <div style="margin-top:44px; text-align:center;">
+                <p style="color:var(--text-muted); font-weight:600;">یا از طریق شبکه‌های اجتماعی پیام دهید:</p>
+                <div class="social-buttons">
+                    <a href="https://www.instagram.com/sayehaye.bi.neghab" class="social-button instagram" target="_blank">
+                        <i class="fab fa-instagram"></i> پیام در اینستاگرام
+                    </a>
+                    <a href="https://t.me/sayehayebineghab" class="social-button telegram" target="_blank">
+                        <i class="fab fa-telegram"></i> پیام در تلگرام
+                    </a>
+                </div>
+            </div>
+        </section>
+
     </div>
-</header>
 
-<!-- ========== بخش قهرمان ========== -->
-<section id="home" class="hero">
-    <div class="bubble"></div>
-    <div class="bubble"></div>
-    <div class="bubble"></div>
-    <div class="bubble"></div>
-    
-    <div class="container hero-content">
-        <div class="profile-avatar">
-            <i class="fas fa-user-astronaut"></i>
-        </div>
-        <h2>مهدی رحیمیان</h2>
-        <p class="tagline">نویسنده | گوینده | تولیدکننده محتوای صوتی و تصویری</p>
-        <div class="typed-text" id="typedText"></div>
-        <div class="social-links">
-            <a href="https://www.instagram.com/sayehaye.bi.neghab" class="instagram" target="_blank" title="اینستاگرام"><i class="fab fa-instagram"></i></a>
-            <a href="https://t.me/sayehayebineghab" class="telegram" target="_blank" title="تلگرام"><i class="fab fa-telegram"></i></a>
-            <a href="mailto:me@mahdirahimiyan.ir" class="email" title="ایمیل"><i class="fas fa-envelope"></i></a>
-            <a href="https://github.com/mahdiramsar" class="github" target="_blank" title="گیت‌هاب"><i class="fab fa-github"></i></a>
-        </div>
-    </div>
-</section>
+    <!-- ========== دکمه بازگشت به بالا ========== -->
+    <button id="backToTop" aria-label="بازگشت به بالا">
+        <i class="fas fa-chevron-up"></i>
+    </button>
 
-<div class="container">
-
-    <!-- ========== درباره ========== -->
-    <section id="about">
-        <h3><i class="fas fa-user-circle"></i> درباره من</h3>
-        <p style="font-size:1.05rem;">
-            سلام! من <strong>مهدی رحیمیان</strong> هستم. اینجا فضای شخصی من برای به اشتراک‌گذاری افکار، تجربیات، دکلمه‌ها و نوشته‌هایم است. 
-            عاشق یادگیری، مطالعه، و تولید محتوای صوتی و تصویری هستم و معتقدم کلمات و صدا می‌توانند جهان را تغییر دهند.
-        </p>
-        <p style="margin-top:14px;">
-            در این سایت می‌توانید مقالات، دلنوشته‌ها، دکلمه‌های صوتی و کانال تلگرام من را پیدا کنید. 
-            از اینکه وقت می‌گذارید و مطالبم را می‌خوانید، بی‌نهایت سپاسگزارم.
-        </p>
-        <div style="margin-top:28px; text-align:center;">
-            <div class="social-buttons">
-                <a href="https://www.instagram.com/sayehaye.bi.neghab" class="social-button instagram" target="_blank">
-                    <i class="fab fa-instagram"></i> اینستاگرام
-                </a>
-                <a href="https://t.me/sayehayebineghab" class="social-button telegram" target="_blank">
-                    <i class="fab fa-telegram"></i> تلگرام
-                </a>
+    <!-- ========== فوتر ========== -->
+    <footer>
+        <div class="container">
+            <p class="copyright">تمامی حقوق محفوظ | طراحی و توسعه توسط مهدی رحیمیان</p>
+            <div class="footer-social">
+                <a href="https://www.instagram.com/sayehaye.bi.neghab" target="_blank" title="اینستاگرام"><i class="fab fa-instagram"></i></a>
+                <a href="https://t.me/sayehayebineghab" target="_blank" title="تلگرام"><i class="fab fa-telegram"></i></a>
+                <a href="mailto:me@mahdirahimiyan.ir" title="ایمیل"><i class="fas fa-envelope"></i></a>
+                <a href="https://github.com/mahdiramsar" target="_blank" title="گیت‌هاب"><i class="fab fa-github"></i></a>
             </div>
+            <span class="date" id="persianDate"></span>
+            <p style="margin-top:12px; opacity:0.5; font-size:0.9rem;">
+                <a href="https://mahdiramsar.github.io" class="url">MahdiRahimiyan.ir</a>
+            </p>
         </div>
-    </section>
+    </footer>
 
-    <!-- ========== مهارت‌ها ========== -->
-    <section id="skills">
-        <h3><i class="fas fa-cogs"></i> مهارت‌ها و علایق</h3>
-        <div class="skills">
-            <span class="skill-tag"><i class="fas fa-microphone-alt"></i> گویندگی و دکلمه</span>
-            <span class="skill-tag"><i class="fas fa-feather-alt"></i> نویسندگی</span>
-            <span class="skill-tag"><i class="fas fa-search"></i> پژوهش</span>
-            <span class="skill-tag"><i class="fas fa-laptop-code"></i> تکنولوژی</span>
-            <span class="skill-tag"><i class="fas fa-code"></i> برنامه‌نویسی</span>
-            <span class="skill-tag"><i class="fas fa-book-open"></i> کتابخوانی</span>
-            <span class="skill-tag"><i class="fas fa-plane"></i> سفر</span>
-            <span class="skill-tag"><i class="fas fa-camera"></i> عکاسی</span>
-            <span class="skill-tag"><i class="fas fa-headphones"></i> موسیقی</span>
-        </div>
-    </section>
+    <!-- ================================================================
+    اسکریپت کامل
+    ================================================================ -->
+    <script>
+        (function() {
+            "use strict";
 
-    <!-- ========== آثار صوتی و تصویری ========== -->
-    <section id="works">
-        <h3><i class="fas fa-play-circle"></i> آثار صوتی و تصویری</h3>
-        <p style="margin-bottom:20px;">گزیده‌ای از دکلمه‌ها و دلنوشته‌های من با صدای خودم</p>
-        
-        <div class="works-grid">
-            <!-- کارت ۱ -->
-            <div class="work-card">
-                <div class="work-thumb">
-                    <i class="fas fa-play"></i>
-                </div>
-                <h4>متن و صدا #مهدی_رحیمیان✌️</h4>
-                <span class="work-date">۱۶ دسامبر ۲۰۲۵</span>
-                <div class="work-tags">
-                    <span>#دکلمه</span>
-                    <span>#متن_صوتی</span>
-                </div>
-                <a href="https://www.instagram.com/reel/DSVt85bgpEi/" target="_blank" class="work-link">
-                    <i class="fab fa-instagram"></i> مشاهده در اینستاگرام
-                </a>
-            </div>
-            
-            <!-- کارت ۲ -->
-            <div class="work-card">
-                <div class="work-thumb">
-                    <i class="fas fa-play"></i>
-                </div>
-                <h4>مرا به حال خود بگذارید و رهایم کنید...</h4>
-                <span class="work-date">دلنوشته</span>
-                <div class="work-tags">
-                    <span>#دلنوشته</span>
-                    <span>#سایه_درون</span>
-                </div>
-                <a href="https://www.instagram.com/reel/DPrup05gl1L/" target="_blank" class="work-link">
-                    <i class="fab fa-instagram"></i> مشاهده در اینستاگرام
-                </a>
-            </div>
-            
-            <!-- کارت ۳ -->
-            <div class="work-card">
-                <div class="work-thumb">
-                    <i class="fas fa-play"></i>
-                </div>
-                <h4>صدایم کن…</h4>
-                <span class="work-date">۱۶ اوت ۲۰۲۵</span>
-                <div class="work-tags">
-                    <span>#دلتنگی</span>
-                    <span>#عاشقانه</span>
-                </div>
-                <a href="https://www.instagram.com/reel/DNafAsACM-G/" target="_blank" class="work-link">
-                    <i class="fab fa-instagram"></i> مشاهده در اینستاگرام
-                </a>
-            </div>
-            
-            <!-- کارت ۴ -->
-            <div class="work-card">
-                <div class="work-thumb">
-                    <i class="fas fa-play"></i>
-                </div>
-                <h4>متن زیبا و عمیق با خوانش گرم</h4>
-                <span class="work-date">دلنوشته</span>
-                <div class="work-tags">
-                    <span>#عمیق</span>
-                    <span>#خوانش</span>
-                </div>
-                <a href="https://www.instagram.com/reel/DNBSxyzCnJb/" target="_blank" class="work-link">
-                    <i class="fab fa-instagram"></i> مشاهده در اینستاگرام
-                </a>
-            </div>
-        </div>
-        
-        <!-- بخش کانال تلگرام -->
-        <div class="telegram-channel">
-            <h4><i class="fab fa-telegram"></i> کانال تلگرام من</h4>
-            <p>«بیان بی‌پرده احساسات و داستان‌ها» — با ۳۸ عضو</p>
-            <a href="https://t.me/sayehayebineghab" target="_blank" class="btn-channel">
-                <i class="fab fa-telegram"></i> عضویت در کانال تلگرام
-                <i class="fas fa-arrow-left"></i>
-            </a>
-        </div>
-    </section>
+            // ---------- 1. نوار پیشرفت اسکرول ----------
+            const progressBar = document.getElementById('scroll-progress');
+            window.addEventListener('scroll', () => {
+                const scrollTop = window.scrollY;
+                const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+                const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+                progressBar.style.width = progress + '%';
+            });
 
-    <!-- ========== نوشته‌ها ========== -->
-    <section id="blog">
-        <h3><i class="fas fa-pen-fancy"></i> آخرین نوشته‌ها</h3>
-        
-        <div class="post">
-            <h4><i class="fas fa-rocket"></i> شروع یک سفر جدید</h4>
-            <span class="post-date">۲۵ دی ۱۴۰۲</span>
-            <p>اولین نوشته من در این سایت شخصی. اینجا فضایی است برای به اشتراک گذاری افکار، تجربیات و یادگیری‌هایم...</p>
-            <a href="#" class="read-more">ادامه مطلب <i class="fas fa-arrow-left"></i></a>
-        </div>
-        
-        <div class="post">
-            <h4><i class="fas fa-pencil-alt"></i> نقش نوشتن در رشد شخصی</h4>
-            <span class="post-date">۲۰ دی ۱۴۰۲</span>
-            <p>چگونه نوشتن می‌تواند به ما در درک بهتر خودمان و جهان اطرافمان کمک کند؟ در این مطلب به بررسی تأثیر نوشتن بر رشد فردی می‌پردازم...</p>
-            <a href="#" class="read-more">ادامه مطلب <i class="fas fa-arrow-left"></i></a>
-        </div>
-        
-        <div class="post">
-            <h4><i class="fas fa-microchip"></i> تکنولوژی و زندگی مدرن</h4>
-            <span class="post-date">۱۵ دی ۱۴۰۲</span>
-            <p>بررسی تأثیر تکنولوژی بر سبک زندگی و روابط انسانی در عصر حاضر. چگونه می‌توانیم از تکنولوژی به شکل هوشمندانه‌تری استفاده کنیم؟</p>
-            <a href="#" class="read-more">ادامه مطلب <i class="fas fa-arrow-left"></i></a>
-        </div>
-    </section>
+            // ---------- 2. دارک/لایت مود ----------
+            const toggle = document.getElementById('themeToggle');
+            const icon = toggle.querySelector('i');
+            const currentTheme = localStorage.getItem('theme') || 'dark'; // پیش‌فرض دارک
 
-    <!-- ========== تماس ========== -->
-    <section id="contact">
-        <h3><i class="fas fa-envelope-open-text"></i> تماس با من</h3>
-        <p>خوشحال می‌شوم پیام شما را دریافت کنم. از طریق فرم زیر یا شبکه‌های اجتماعی با من در ارتباط باشید.</p>
-        
-        <form class="contact-form" id="contactForm" action="https://formspree.io/f/xyzzyx" method="POST">
-            <div class="form-group">
-                <label for="name"><i class="fas fa-user"></i> نام شما</label>
-                <input type="text" id="name" name="name" required placeholder="مثلاً: مهدی" />
-            </div>
-            <div class="form-group">
-                <label for="email"><i class="fas fa-envelope"></i> ایمیل شما</label>
-                <input type="email" id="email" name="email" required placeholder="example@mail.com" />
-            </div>
-            <div class="form-group">
-                <label for="message"><i class="fas fa-comment"></i> پیام شما</label>
-                <textarea id="message" name="message" rows="5" required placeholder="متن پیام..."></textarea>
-            </div>
-            <button type="submit" class="btn"><i class="fas fa-paper-plane"></i> ارسال پیام</button>
-        </form>
-        <div id="formStatus"></div>
-        
-        <div style="margin-top:44px; text-align:center;">
-            <p style="color:var(--text-muted); font-weight:600;">یا از طریق شبکه‌های اجتماعی پیام دهید:</p>
-            <div class="social-buttons">
-                <a href="https://www.instagram.com/sayehaye.bi.neghab" class="social-button instagram" target="_blank">
-                    <i class="fab fa-instagram"></i> پیام در اینستاگرام
-                </a>
-                <a href="https://t.me/sayehayebineghab" class="social-button telegram" target="_blank">
-                    <i class="fab fa-telegram"></i> پیام در تلگرام
-                </a>
-            </div>
-        </div>
-    </section>
-
-</div>
-
-<!-- ========== دکمه بازگشت به بالا ========== -->
-<button id="backToTop" aria-label="بازگشت به بالا">
-    <i class="fas fa-chevron-up"></i>
-</button>
-
-<!-- ========== فوتر ========== -->
-<footer>
-    <div class="container">
-        <p class="copyright">تمامی حقوق محفوظ | طراحی و توسعه توسط مهدی رحیمیان</p>
-        <div class="footer-social">
-            <a href="https://www.instagram.com/sayehaye.bi.neghab" target="_blank" title="اینستاگرام"><i class="fab fa-instagram"></i></a>
-            <a href="https://t.me/sayehayebineghab" target="_blank" title="تلگرام"><i class="fab fa-telegram"></i></a>
-            <a href="mailto:me@mahdirahimiyan.ir" title="ایمیل"><i class="fas fa-envelope"></i></a>
-            <a href="https://github.com/mahdiramsar" target="_blank" title="گیت‌هاب"><i class="fab fa-github"></i></a>
-        </div>
-        <span class="date" id="persianDate"></span>
-        <p style="margin-top:12px; opacity:0.5; font-size:0.9rem;">
-            <a href="https://mahdiramsar.github.io" class="url">MahdiRahimiyan.ir</a>
-        </p>
-    </div>
-</footer>
-
-<!-- ================================================================
-اسکریپت کامل
-================================================================ -->
-<script>
-    (function() {
-        "use strict";
-
-        // ---------- 1. نوار پیشرفت اسکرول ----------
-        const progressBar = document.getElementById('scroll-progress');
-        window.addEventListener('scroll', () => {
-            const scrollTop = window.scrollY;
-            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-            const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
-            progressBar.style.width = progress + '%';
-        });
-
-        // ---------- 2. دارک مود ----------
-        const toggle = document.getElementById('themeToggle');
-        const icon = toggle.querySelector('i');
-        const currentTheme = localStorage.getItem('theme') || 'light';
-        if (currentTheme === 'dark') {
-            document.documentElement.setAttribute('data-theme', 'dark');
-            icon.classList.replace('fa-moon', 'fa-sun');
-        }
-        toggle.addEventListener('click', () => {
-            const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
-            if (isDark) {
-                document.documentElement.removeAttribute('data-theme');
-                localStorage.setItem('theme', 'light');
+            if (currentTheme === 'light') {
+                document.documentElement.setAttribute('data-theme', 'light');
                 icon.classList.replace('fa-sun', 'fa-moon');
             } else {
-                document.documentElement.setAttribute('data-theme', 'dark');
-                localStorage.setItem('theme', 'dark');
+                document.documentElement.removeAttribute('data-theme');
                 icon.classList.replace('fa-moon', 'fa-sun');
             }
-        });
 
-        // ---------- 3. تایپ‌رایتر ----------
-        const typedEl = document.getElementById('typedText');
-        const phrases = [
-            'دکلمه‌های مرا بشنوید 🎧',
-            'همراه من در سفر کلمات 🌱',
-            'اینجا صدا و معنا به هم می‌رسند 📖',
-            'تجربیاتم را با شما به اشتراک می‌گذارم 💫'
-        ];
-        let phraseIndex = 0, charIndex = 0, isDeleting = false;
-        function typeEffect() {
-            const current = phrases[phraseIndex];
-            if (!isDeleting) {
-                typedEl.textContent = current.substring(0, charIndex++);
-                if (charIndex > current.length) {
-                    isDeleting = true;
-                    setTimeout(typeEffect, 2200);
-                    return;
-                }
-            } else {
-                typedEl.textContent = current.substring(0, charIndex--);
-                if (charIndex < 0) {
-                    isDeleting = false;
-                    charIndex = 0;
-                    phraseIndex = (phraseIndex + 1) % phrases.length;
-                    setTimeout(typeEffect, 400);
-                    return;
-                }
-            }
-            setTimeout(typeEffect, isDeleting ? 50 : 100);
-        }
-        typeEffect();
-
-        // ---------- 4. اسکرول نرم ----------
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                const targetId = this.getAttribute('href');
-                if (targetId === '#') return;
-                e.preventDefault();
-                const target = document.querySelector(targetId);
-                if (target) {
-                    const headerHeight = document.querySelector('header').offsetHeight;
-                    const targetPosition = target.getBoundingClientRect().top + window.scrollY - headerHeight - 10;
-                    window.scrollTo({ top: targetPosition, behavior: 'smooth' });
-                }
-            });
-        });
-
-        // ---------- 5. انیمیشن ورود ----------
-        const sections = document.querySelectorAll('section:not(.hero)');
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach((entry, index) => {
-                if (entry.isIntersecting) {
-                    setTimeout(() => {
-                        entry.target.style.opacity = '1';
-                        entry.target.style.transform = 'translateY(0)';
-                    }, index * 80);
-                }
-            });
-        }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
-        sections.forEach((section, i) => {
-            section.style.opacity = '0';
-            section.style.transform = 'translateY(40px)';
-            section.style.transition = 'opacity 0.7s ease, transform 0.7s ease';
-            observer.observe(section);
-        });
-
-        // ---------- 6. فرم تماس ----------
-        const form = document.getElementById('contactForm');
-        const status = document.getElementById('formStatus');
-        form.addEventListener('submit', async (e) => {
-            e.preventDefault();
-            status.textContent = '⏳ در حال ارسال...';
-            status.style.color = '#667eea';
-            const data = new FormData(form);
-            try {
-                const response = await fetch(form.action, {
-                    method: 'POST',
-                    body: data,
-                    headers: { 'Accept': 'application/json' }
-                });
-                if (response.ok) {
-                    status.innerHTML = '✅ پیام شما با موفقیت ارسال شد! به زودی پاسخ می‌دهم.';
-                    status.style.color = '#22c55e';
-                    form.reset();
+            toggle.addEventListener('click', () => {
+                const isDark = !document.documentElement.hasAttribute('data-theme');
+                if (isDark) {
+                    document.documentElement.setAttribute('data-theme', 'light');
+                    localStorage.setItem('theme', 'light');
+                    icon.classList.replace('fa-sun', 'fa-moon');
                 } else {
-                    throw new Error('خطا');
+                    document.documentElement.removeAttribute('data-theme');
+                    localStorage.setItem('theme', 'dark');
+                    icon.classList.replace('fa-moon', 'fa-sun');
                 }
-            } catch (error) {
-                status.innerHTML = '❌ خطا در ارسال. لطفاً دوباره تلاش کنید یا از شبکه‌های اجتماعی پیام دهید.';
-                status.style.color = '#ef4444';
+            });
+
+            // ---------- 3. تایپ‌رایتر ----------
+            const typedEl = document.getElementById('typedText');
+            const phrases = [
+                'دکلمه‌های مرا بشنوید 🎧',
+                'همراه من در سفر کلمات 🌱',
+                'اینجا صدا و معنا به هم می‌رسند 📖',
+                'تجربیاتم را با شما به اشتراک می‌گذارم 💫'
+            ];
+            let phraseIndex = 0,
+                charIndex = 0,
+                isDeleting = false;
+
+            function typeEffect() {
+                if (!typedEl) return;
+                const current = phrases[phraseIndex];
+                if (!isDeleting) {
+                    typedEl.textContent = current.substring(0, charIndex++);
+                    if (charIndex > current.length) {
+                        isDeleting = true;
+                        setTimeout(typeEffect, 2200);
+                        return;
+                    }
+                } else {
+                    typedEl.textContent = current.substring(0, charIndex--);
+                    if (charIndex < 0) {
+                        isDeleting = false;
+                        charIndex = 0;
+                        phraseIndex = (phraseIndex + 1) % phrases.length;
+                        setTimeout(typeEffect, 400);
+                        return;
+                    }
+                }
+                setTimeout(typeEffect, isDeleting ? 50 : 100);
             }
-            setTimeout(() => { status.innerHTML = ''; }, 8000);
-        });
+            setTimeout(typeEffect, 300);
 
-        // ---------- 7. تاریخ شمسی ----------
-        function updatePersianDate() {
-            const now = new Date();
-            const options = { year: 'numeric', month: 'long', day: 'numeric', weekday: 'long' };
-            document.getElementById('persianDate').textContent = '📅 ' + now.toLocaleDateString('fa-IR', options);
-        }
-        updatePersianDate();
+            // ---------- 4. اسکرول نرم ----------
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    e.preventDefault();
+                    const target = document.querySelector(targetId);
+                    if (target) {
+                        const headerHeight = document.querySelector('header').offsetHeight;
+                        const targetPosition = target.getBoundingClientRect().top + window.scrollY - headerHeight -
+                            10;
+                        window.scrollTo({ top: targetPosition, behavior: 'smooth' });
+                    }
+                });
+            });
 
-        // ---------- 8. دکمه بازگشت به بالا ----------
-        const backBtn = document.getElementById('backToTop');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 400) {
-                backBtn.classList.add('visible');
-            } else {
-                backBtn.classList.remove('visible');
+            // ---------- 5. انیمیشن ورود بخش‌ها ----------
+            const sections = document.querySelectorAll('section:not(.hero)');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry, index) => {
+                    if (entry.isIntersecting) {
+                        setTimeout(() => {
+                            entry.target.style.opacity = '1';
+                            entry.target.style.transform = 'translateY(0)';
+                        }, index * 80);
+                    }
+                });
+            }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+            sections.forEach((section) => {
+                section.style.opacity = '0';
+                section.style.transform = 'translateY(40px)';
+                section.style.transition = 'opacity 0.7s ease, transform 0.7s ease';
+                observer.observe(section);
+            });
+
+            // ---------- 6. فرم تماس ----------
+            const form = document.getElementById('contactForm');
+            const status = document.getElementById('formStatus');
+            if (form) {
+                form.addEventListener('submit', async (e) => {
+                    e.preventDefault();
+                    status.textContent = '⏳ در حال ارسال...';
+                    status.style.color = '#667eea';
+                    const data = new FormData(form);
+                    try {
+                        const response = await fetch(form.action, {
+                            method: 'POST',
+                            body: data,
+                            headers: { 'Accept': 'application/json' }
+                        });
+                        if (response.ok) {
+                            status.innerHTML = '✅ پیام شما با موفقیت ارسال شد! به زودی پاسخ می‌دهم.';
+                            status.style.color = '#22c55e';
+                            form.reset();
+                        } else {
+                            throw new Error('خطا');
+                        }
+                    } catch (error) {
+                        status.innerHTML =
+                            '❌ خطا در ارسال. لطفاً دوباره تلاش کنید یا از شبکه‌های اجتماعی پیام دهید.';
+                        status.style.color = '#ef4444';
+                    }
+                    setTimeout(() => { status.innerHTML = ''; }, 8000);
+                });
             }
-        });
-        backBtn.addEventListener('click', () => {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
 
-        // ---------- 9. به‌روزرسانی سال در فوتر ----------
-        const yearSpan = document.querySelector('footer .copyright');
-        if (yearSpan) {
-            yearSpan.innerHTML = `© ${new Date().getFullYear()} - تمامی حقوق محفوظ | طراحی و توسعه توسط مهدی رحیمیان`;
-        }
+            // ---------- 7. تاریخ شمسی ----------
+            function updatePersianDate() {
+                const now = new Date();
+                const options = { year: 'numeric', month: 'long', day: 'numeric', weekday: 'long' };
+                const persianDate = now.toLocaleDateString('fa-IR', options);
+                const dateEl = document.getElementById('persianDate');
+                if (dateEl) dateEl.textContent = '📅 ' + persianDate;
+            }
+            updatePersianDate();
 
-    })();
-</script>
+            // ---------- 8. دکمه بازگشت به بالا ----------
+            const backBtn = document.getElementById('backToTop');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 400) {
+                    backBtn.classList.add('visible');
+                } else {
+                    backBtn.classList.remove('visible');
+                }
+            });
+            backBtn.addEventListener('click', () => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+
+            // ---------- 9. به‌روزرسانی سال در فوتر ----------
+            const yearSpan = document.querySelector('footer .copyright');
+            if (yearSpan) {
+                yearSpan.innerHTML =
+                    `© ${new Date().getFullYear()} - تمامی حقوق محفوظ | طراحی و توسعه توسط مهدی رحیمیان`;
+            }
+
+            console.log('🚀 مهدی رحیمیان | سایت شخصی با عکس واقعی');
+        })();
+    </script>
+
 </body>
 </html>
