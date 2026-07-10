@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ساخت آیکون‌های PWA</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #07080b;
+            color: #f0f2f5;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 40px 20px;
+            text-align: center;
+        }
+        h1 {
+            margin-bottom: 12px;
+            font-size: 2rem;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        p {
+            color: #a8b3cf;
+            margin-bottom: 30px;
+            max-width: 500px;
+        }
+        .icons-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            justify-content: center;
+            margin: 30px 0;
+        }
+        .icon-box {
+            background: #0d0f14;
+            border-radius: 20px;
+            padding: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+        .icon-box:hover {
+            transform: translateY(-6px);
+        }
+        .icon-box canvas {
+            border-radius: 16px;
+            display: block;
+            margin: 0 auto 12px;
+            background: #07080b;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+        }
+        .icon-box .size {
+            font-size: 0.9rem;
+            color: #6b7a9a;
+        }
+        .icon-box .btn-download {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 8px 24px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: #fff;
+            border: none;
+            border-radius: 40px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            font-family: inherit;
+        }
+        .icon-box .btn-download:hover {
+            transform: scale(1.04);
+            box-shadow: 0 8px 24px rgba(102, 126, 234, 0.3);
+        }
+        .instructions {
+            background: #0d0f14;
+            border-radius: 16px;
+            padding: 24px 28px;
+            max-width: 600px;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            text-align: right;
+            margin-top: 20px;
+        }
+        .instructions code {
+            display: block;
+            background: #07080b;
+            padding: 12px 16px;
+            border-radius: 10px;
+            margin: 8px 0;
+            font-size: 0.85rem;
+            color: #a8b3cf;
+            direction: ltr;
+            text-align: left;
+            overflow-x: auto;
+            white-space: pre-wrap;
+            word-break: break-all;
+        }
+        .instructions li {
+            color: #a8b3cf;
+            margin: 6px 0;
+            list-style: none;
+        }
+        .instructions li::before {
+            content: "✓ ";
+            color: #667eea;
+            font-weight: 700;
+        }
+        .badge {
+            display: inline-block;
+            background: rgba(102, 126, 234, 0.15);
+            color: #667eea;
+            padding: 2px 14px;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            margin-right: 8px;
+        }
+        @media (max-width: 600px) {
+            .icons-container {
+                flex-direction: column;
+                align-items: center;
+            }
+            .icon-box canvas {
+                width: 160px !important;
+                height: 160px !important;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <h1>🎨 ساخت آیکون‌های PWA</h1>
+    <p>برای سایت شخصی <strong>مهدی رحیمیان</strong> — با یک کلیک دانلود کنید</p>
+
+    <div class="icons-container" id="iconsContainer">
+        <!-- آیکون‌ها توسط جاوااسکریپت ساخته می‌شوند -->
+    </div>
+
+    <div class="instructions">
+        <h3 style="color:#f0f2f5; margin-bottom:12px; font-size:1.1rem;">📁 نحوه استفاده</h3>
+        <ul>
+            <li>روی دکمه <strong>دانلود</strong> زیر هر آیکون کلیک کنید</li>
+            <li>فایل‌های <code>icon-192.png</code> و <code>icon-512.png</code> را در پوشهٔ پروژه قرار دهید</li>
+            <li>فایل <code>manifest.json</code> را در همان پوشه ایجاد کنید (متن آن در پایین آمده)</li>
+            <li>سایت را با HTTPS اجرا کنید تا PWA فعال شود</li>
+        </ul>
+
+        <h4 style="color:#f0f2f5; margin:16px 0 8px; font-size:0.95rem;">📄 محتوای manifest.json</h4>
+        <code>{
+            "name": "مهدی رحیمیان | سایت شخصی",
+            "short_name": "مهدی رحیمیان",
+            "description": "سایت شخصی مهدی رحیمیان",
+            "start_url": "/",
+            "display": "standalone",
+            "background_color": "#07080b",
+            "theme_color": "#07080b",
+            "icons": [
+                { "src": "icon-192.png", "sizes": "192x192", "type": "image/png" },
+                { "src": "icon-512.png", "sizes": "512x512", "type": "image/png" }
+            ]
+        }</code>
+
+        <h4 style="color:#f0f2f5; margin:16px 0 8px; font-size:0.95rem;">📄 service worker (sw.js)</h4>
+        <code>const CACHE_NAME = 'mahdi-site-v1';
+        const urlsToCache = ['/', '/index.html', '/icon-192.png', '/icon-512.png'];
+        self.addEventListener('install', e => {
+            e.waitUntil(caches.open(CACHE_NAME).then(c => c.addAll(urlsToCache)));
+        });
+        self.addEventListener('fetch', e => {
+            e.respondWith(caches.match(e.request).then(r => r || fetch(e.request)));
+        });</code>
+    </div>
+
+    <script>
+        (function() {
+            "use strict";
+
+            // ================================================================
+            // تابع برای رسم آیکون روی canvas
+            // ================================================================
+            function drawIcon(canvas, size) {
+                const ctx = canvas.getContext('2d');
+                canvas.width = size;
+                canvas.height = size;
+
+                // پس‌زمینه گرادیان
+                const grad = ctx.createLinearGradient(0, 0, size, size);
+                grad.addColorStop(0, '#667eea');
+                grad.addColorStop(0.5, '#764ba2');
+                grad.addColorStop(1, '#f093fb');
+                ctx.fillStyle = grad;
+                ctx.beginPath();
+                ctx.roundRect(0, 0, size, size, size * 0.2);
+                ctx.fill();
+
+                // حلقه بیرونی (نور)
+                ctx.shadowColor = 'rgba(102, 126, 234, 0.4)';
+                ctx.shadowBlur = size * 0.08;
+                ctx.beginPath();
+                ctx.roundRect(0, 0, size, size, size * 0.2);
+                ctx.fill();
+                ctx.shadowBlur = 0;
+
+                // حلقه داخلی (شفاف)
+                const innerSize = size * 0.85;
+                const innerX = (size - innerSize) / 2;
+                const innerY = (size - innerSize) / 2;
+                ctx.fillStyle = 'rgba(255, 255, 255, 0.06)';
+                ctx.beginPath();
+                ctx.roundRect(innerX, innerY, innerSize, innerSize, size * 0.15);
+                ctx.fill();
+
+                // حاشیه
+                ctx.strokeStyle = 'rgba(255, 255, 255, 0.12)';
+                ctx.lineWidth = size * 0.015;
+                ctx.beginPath();
+                ctx.roundRect(innerX, innerY, innerSize, innerSize, size * 0.15);
+                ctx.stroke();
+
+                // نوشتن حرف "م" (مهدی)
+                ctx.fillStyle = '#ffffff';
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'middle';
+                const fontSize = size * 0.5;
+                ctx.font = `bold ${fontSize}px 'Vazirmatn', 'Segoe UI', sans-serif`;
+                ctx.shadowColor = 'rgba(0, 0, 0, 0.2)';
+                ctx.shadowBlur = size * 0.04;
+                ctx.fillText('م', size / 2, size / 2 + size * 0.04);
+
+                // نقطه کوچک تزئینی پایین
+                ctx.shadowBlur = 0;
+                ctx.fillStyle = 'rgba(255, 255, 255, 0.25)';
+                const dotSize = size * 0.04;
+                ctx.beginPath();
+                ctx.arc(size * 0.7, size * 0.78, dotSize, 0, Math.PI * 2);
+                ctx.fill();
+
+                ctx.fillStyle = 'rgba(255, 255, 255, 0.12)';
+                ctx.beginPath();
+                ctx.arc(size * 0.3, size * 0.78, dotSize * 0.6, 0, Math.PI * 2);
+                ctx.fill();
+
+                // نوار پایین
+                const barWidth = size * 0.35;
+                const barHeight = size * 0.025;
+                const barX = (size - barWidth) / 2;
+                const barY = size * 0.88;
+                ctx.fillStyle = 'rgba(255, 255, 255, 0.12)';
+                ctx.beginPath();
+                ctx.roundRect(barX, barY, barWidth, barHeight, barHeight / 2);
+                ctx.fill();
+
+                // Gradient overlay روی کل آیکون
+                const overlay = ctx.createRadialGradient(
+                    size * 0.3, size * 0.3, 0,
+                    size * 0.3, size * 0.3, size * 0.8
+                );
+                overlay.addColorStop(0, 'rgba(255, 255, 255, 0.08)');
+                overlay.addColorStop(1, 'rgba(255, 255, 255, 0)');
+                ctx.fillStyle = overlay;
+                ctx.beginPath();
+                ctx.roundRect(0, 0, size, size, size * 0.2);
+                ctx.fill();
+            }
+
+            // ================================================================
+            // polyfill برای roundRect (اگر مرورگر پشتیبانی نکند)
+            // ================================================================
+            if (!CanvasRenderingContext2D.prototype.roundRect) {
+                CanvasRenderingContext2D.prototype.roundRect = function(x, y, w, h, radii) {
+                    const r = typeof radii === 'number' ? radii : (Array.isArray(radii) ? radii[0] : 8);
+                    this.moveTo(x + r, y);
+                    this.arcTo(x + w, y, x + w, y + h, r);
+                    this.arcTo(x + w, y + h, x, y + h, r);
+                    this.arcTo(x, y + h, x, y, r);
+                    this.arcTo(x, y, x + w, y, r);
+                    return this;
+                };
+            }
+
+            // ================================================================
+            // ساخت و نمایش آیکون‌ها
+            // ================================================================
+            const container = document.getElementById('iconsContainer');
+            const sizes = [
+                { size: 192, label: '192×192' },
+                { size: 512, label: '512×512' }
+            ];
+
+            sizes.forEach(({ size, label }) => {
+                const box = document.createElement('div');
+                box.className = 'icon-box';
+
+                const canvas = document.createElement('canvas');
+                canvas.width = size;
+                canvas.height = size;
+                canvas.style.width = Math.min(size, 200) + 'px';
+                canvas.style.height = Math.min(size, 200) + 'px';
+
+                drawIcon(canvas, size);
+
+                const sizeLabel = document.createElement('div');
+                sizeLabel.className = 'size';
+                sizeLabel.textContent = `${label} (${(size/1024).toFixed(1)} KB)`;
+
+                const btn = document.createElement('button');
+                btn.className = 'btn-download';
+                btn.textContent = '⬇ دانلود';
+                btn.addEventListener('click', () => {
+                    const link = document.createElement('a');
+                    link.download = `icon-${size}.png`;
+                    link.href = canvas.toDataURL('image/png');
+                    link.click();
+                });
+
+                box.appendChild(canvas);
+                box.appendChild(sizeLabel);
+                box.appendChild(btn);
+                container.appendChild(box);
+            });
+
+            // ================================================================
+            // اطلاعات در کنسول
+            // ================================================================
+            console.log('🎨 آیکون‌های PWA با موفقیت ساخته شدند!');
+            console.log('📁 فایل‌های icon-192.png و icon-512.png را دانلود کنید.');
+            console.log('📄 محتوای manifest.json و sw.js در صفحه موجود است.');
+
+        })();
+    </script>
+
+</body>
+</html>
