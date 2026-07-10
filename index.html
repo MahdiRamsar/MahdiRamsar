@@ -32,18 +32,9 @@
     <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
 
-    <!-- Import Map برای ماژول‌ها -->
-    <script type="importmap">
-        {
-            "imports": {
-                "aos": "https://unpkg.com/aos@2.3.1/dist/aos.js"
-            }
-        }
-    </script>
-
     <style>
         /* ============================================================
-                   متغیرهای CSS با رنگ‌های OKLCH (طبیعی‌تر و زنده‌تر)
+                   متغیرهای CSS با OKLCH
                    ============================================================ */
         :root {
             --bg-primary: oklch(0.08 0.01 260);
@@ -62,7 +53,6 @@
             --font: 'Vazirmatn', 'Segoe UI', sans-serif;
         }
 
-        /* حالت لایت با رنگ‌های جدید */
         [data-theme="light"] {
             --bg-primary: oklch(0.96 0.005 260);
             --bg-secondary: oklch(1 0 0);
@@ -75,7 +65,7 @@
         }
 
         /* ============================================================
-                   ریست و پایه با Viewport Units جدید
+                   Reset
                    ============================================================ */
         * {
             margin: 0;
@@ -95,7 +85,6 @@
             line-height: 1.8;
             padding-top: 80px;
             min-height: 100svh;
-            /* استفاده از svh برای موبایل */
             overflow-x: hidden;
             transition: background 0.5s, color 0.5s;
         }
@@ -110,11 +99,10 @@
             margin: 0 auto;
             padding: 0 24px;
             container-type: inline-size;
-            /* Container Queries */
         }
 
         /* ============================================================
-                   اسکرول پروگرس
+                   Scroll Progress
                    ============================================================ */
         #scroll-progress {
             position: fixed;
@@ -128,7 +116,7 @@
         }
 
         /* ============================================================
-                   هدر با Glassmorphism
+                   Header
                    ============================================================ */
         header {
             position: fixed;
@@ -159,6 +147,10 @@
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
+        .logo .subtitle {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
 
         nav ul {
             display: flex;
@@ -179,8 +171,33 @@
             background: oklch(1 0 0 / 0.06);
         }
 
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .theme-toggle {
+            background: var(--bg-card);
+            border: 1px solid var(--glass-border);
+            border-radius: 50%;
+            width: 44px;
+            height: 44px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            color: var(--text-primary);
+            transition: all var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .theme-toggle:hover {
+            transform: rotate(45deg) scale(1.1);
+            border-color: oklch(0.6 0.2 270);
+        }
+
         /* ============================================================
-                   هیرو با استفاده از :has() برای استایل دهی به پروفایل
+                   Hero
                    ============================================================ */
         .hero {
             position: relative;
@@ -206,7 +223,11 @@
             }
         }
 
-        /* استفاده از :has() برای تشخیص وجود عکس */
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
         .profile-avatar {
             width: 220px;
             height: 220px;
@@ -220,15 +241,6 @@
             animation: floatAvatar 6s ease-in-out infinite alternate;
         }
 
-        /* اگر تصویر وجود نداشت، fallback با آیکون */
-        .hero:not(:has(img)) .profile-avatar {
-            background: var(--gradient-1);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 5rem;
-        }
-
         @keyframes floatAvatar {
             0% {
                 transform: translateY(0);
@@ -238,216 +250,27 @@
             }
         }
 
-        /* ============================================================
-                   کارت‌ها با Container Queries
-                   ============================================================ */
-        section {
-            background: var(--bg-card);
-            backdrop-filter: blur(16px);
-            border-radius: var(--radius);
-            border: 1px solid var(--glass-border);
-            padding: 48px 40px;
-            margin: 40px 0;
-            box-shadow: var(--shadow);
-            transition: all var(--transition);
+        .hero h2 {
+            font-size: 3.6rem;
+            font-weight: 900;
+            letter-spacing: -1px;
+            text-shadow: 0 4px 20px oklch(0 0 0 / 0.2);
+            margin-bottom: 8px;
         }
-
-        /* Container Query برای تغییر layout در کارت‌ها */
-        @container (max-width: 600px) {
-            section {
-                padding: 28px 18px;
-            }
-            .works-grid {
-                grid-template-columns: 1fr !important;
-            }
-        }
-
-        /* ============================================================
-                   گرید آثار با Subgrid (پشتیبانی در ۲۰۲۶)
-                   ============================================================ */
-        .works-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 24px;
-            margin-top: 20px;
-        }
-
-        .work-card {
-            background: var(--bg-secondary);
-            padding: 28px 20px 24px;
-            border-radius: var(--radius-sm);
-            text-align: center;
-            border: 1px solid var(--glass-border);
-            transition: all var(--transition);
-            box-shadow: var(--shadow);
-        }
-        .work-card:hover {
-            transform: translateY(-10px);
-            border-color: oklch(0.6 0.2 270 / 0.2);
-        }
-
-        /* ============================================================
-                   جستجوی صوتی با Web Speech API
-                   ============================================================ */
-        .search-box {
-            display: flex;
-            gap: 12px;
-            margin-bottom: 24px;
-            flex-wrap: wrap;
-        }
-        .search-box input {
-            flex: 1;
-            min-width: 200px;
-            padding: 14px 20px;
-            border-radius: 60px;
-            border: 1px solid var(--glass-border);
-            background: var(--bg-secondary);
-            color: var(--text-primary);
-            font-family: var(--font);
-            font-size: 0.95rem;
-            transition: all var(--transition);
-        }
-        .search-box input:focus {
-            outline: none;
-            border-color: oklch(0.6 0.2 270);
-        }
-        .voice-search-btn {
-            background: var(--gradient-1);
-            color: #fff;
-            border: none;
-            border-radius: 50%;
-            width: 52px;
-            height: 52px;
+        .hero .tagline {
             font-size: 1.3rem;
-            cursor: pointer;
-            transition: all var(--transition);
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            font-weight: 300;
+            opacity: 0.92;
+            margin-bottom: 6px;
         }
-        .voice-search-btn:hover {
-            transform: scale(1.05);
-        }
-        .voice-search-btn.listening {
-            background: #ef4444;
-            animation: pulse 1s infinite;
-        }
-        @keyframes pulse {
-            0%,
-            100% {
-                transform: scale(1);
-            }
-            50% {
-                transform: scale(1.1);
-            }
+        .hero .typed-text {
+            font-size: 1.15rem;
+            opacity: 0.85;
+            min-height: 3rem;
+            font-weight: 300;
+            direction: ltr;
         }
 
-        /* ============================================================
-                   چت‌بات هوشمند (AI-Powered)
-                   ============================================================ */
-        .chatbot-toggle {
-            position: fixed;
-            bottom: 100px;
-            right: 32px;
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            background: var(--gradient-1);
-            color: #fff;
-            border: none;
-            font-size: 1.8rem;
-            cursor: pointer;
-            box-shadow: 0 12px 40px oklch(0.6 0.2 270 / 0.3);
-            transition: all var(--transition);
-            z-index: 998;
-        }
-        .chatbot-toggle:hover {
-            transform: scale(1.08);
-        }
-
-        .chatbot-window {
-            position: fixed;
-            bottom: 180px;
-            right: 32px;
-            width: 380px;
-            max-width: calc(100vw - 64px);
-            max-height: 500px;
-            background: var(--bg-secondary);
-            border-radius: var(--radius);
-            border: 1px solid var(--glass-border);
-            box-shadow: var(--shadow);
-            padding: 20px;
-            display: none;
-            flex-direction: column;
-            gap: 12px;
-            z-index: 999;
-            backdrop-filter: blur(16px);
-        }
-        .chatbot-window.active {
-            display: flex;
-        }
-        .chatbot-window .messages {
-            flex: 1;
-            overflow-y: auto;
-            max-height: 350px;
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-            padding: 8px;
-        }
-        .chatbot-window .message {
-            padding: 10px 16px;
-            border-radius: var(--radius-sm);
-            max-width: 80%;
-            word-break: break-word;
-        }
-        .chatbot-window .message.user {
-            background: var(--gradient-1);
-            color: #fff;
-            align-self: flex-end;
-        }
-        .chatbot-window .message.bot {
-            background: var(--bg-primary);
-            color: var(--text-primary);
-            align-self: flex-start;
-            border: 1px solid var(--glass-border);
-        }
-        .chatbot-window .input-area {
-            display: flex;
-            gap: 8px;
-        }
-        .chatbot-window .input-area input {
-            flex: 1;
-            padding: 10px 16px;
-            border-radius: 60px;
-            border: 1px solid var(--glass-border);
-            background: var(--bg-primary);
-            color: var(--text-primary);
-            font-family: var(--font);
-        }
-        .chatbot-window .input-area button {
-            background: var(--gradient-1);
-            color: #fff;
-            border: none;
-            border-radius: 50%;
-            width: 44px;
-            height: 44px;
-            cursor: pointer;
-        }
-
-        /* ============================================================
-                   فوتر با Temporal API
-                   ============================================================ */
-        footer .date {
-            display: block;
-            margin-top: 14px;
-            opacity: 0.8;
-            font-size: 0.95rem;
-        }
-
-        /* ============================================================
-                   سایر استایل‌ها (مشابه نسخه قبل)
-                   ============================================================ */
         .social-links {
             display: flex;
             justify-content: center;
@@ -473,6 +296,43 @@
             background: oklch(1 0 0 / 0.25);
         }
 
+        /* ============================================================
+                   Sections
+                   ============================================================ */
+        section {
+            background: var(--bg-card);
+            backdrop-filter: blur(16px);
+            border-radius: var(--radius);
+            border: 1px solid var(--glass-border);
+            padding: 48px 40px;
+            margin: 40px 0;
+            box-shadow: var(--shadow);
+            transition: all var(--transition);
+        }
+
+        section:hover {
+            transform: translateY(-4px);
+        }
+
+        h3 {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 28px;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: linear-gradient(135deg, var(--text-primary), var(--text-secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        h3 i {
+            -webkit-text-fill-color: oklch(0.6 0.2 270);
+        }
+
+        /* ============================================================
+                   Skills
+                   ============================================================ */
         .skills {
             display: flex;
             flex-wrap: wrap;
@@ -486,77 +346,203 @@
             font-weight: 600;
             border: 1px solid var(--glass-border);
             transition: all var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .skill-tag i {
+            color: oklch(0.6 0.2 270);
         }
         .skill-tag:hover {
             background: var(--gradient-1);
             color: #fff;
             transform: translateY(-4px);
         }
+        .skill-tag:hover i {
+            color: #fff;
+        }
 
-        .btn {
+        /* ============================================================
+                   Works Grid
+                   ============================================================ */
+        .works-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 24px;
+            margin-top: 20px;
+        }
+
+        .work-card {
+            background: var(--bg-secondary);
+            padding: 28px 20px 24px;
+            border-radius: var(--radius-sm);
+            text-align: center;
+            border: 1px solid var(--glass-border);
+            transition: all var(--transition);
+            box-shadow: var(--shadow);
+        }
+        .work-card:hover {
+            transform: translateY(-10px);
+            border-color: oklch(0.6 0.2 270 / 0.2);
+        }
+        .work-card h4 {
+            font-size: 1.05rem;
+            font-weight: 700;
+            margin-bottom: 4px;
+            color: var(--text-primary);
+        }
+        .work-card .work-date {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            display: block;
+            margin-bottom: 12px;
+        }
+        .work-link {
+            color: oklch(0.6 0.2 270);
+            font-weight: 700;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all var(--transition);
+            padding: 8px 20px;
+            border-radius: 40px;
+            background: oklch(0.6 0.2 270 / 0.08);
+        }
+        .work-link:hover {
+            gap: 16px;
             background: var(--gradient-1);
             color: #fff;
-            border: none;
-            padding: 16px 36px;
-            border-radius: 60px;
-            font-weight: 800;
-            cursor: pointer;
+        }
+
+        /* ============================================================
+                   Telegram Channel (بازگشت به طراحی قبلی)
+                   ============================================================ */
+        .telegram-channel {
+            background: var(--gradient-1);
+            border-radius: var(--radius-sm);
+            padding: 36px 28px;
+            margin-top: 30px;
+            text-align: center;
+            color: #fff;
+            box-shadow: 0 16px 48px oklch(0.6 0.2 270 / 0.25);
             transition: all var(--transition);
-            font-family: var(--font);
+            border: 1px solid oklch(1 0 0 / 0.06);
         }
-        .btn:hover {
+        .telegram-channel:hover {
+            transform: scale(1.02);
+            box-shadow: 0 24px 64px oklch(0.6 0.2 270 / 0.35);
+        }
+        .telegram-channel h4 {
+            font-size: 1.6rem;
+            font-weight: 800;
+            margin-bottom: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+        }
+        .telegram-channel p {
+            opacity: 0.9;
+            margin-bottom: 18px;
+            font-size: 1rem;
+        }
+        .telegram-channel .btn-channel {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: oklch(1 0 0 / 0.15);
+            color: #fff;
+            padding: 14px 36px;
+            border-radius: 60px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            backdrop-filter: blur(4px);
+            border: 1px solid oklch(1 0 0 / 0.15);
+            transition: all var(--transition);
+        }
+        .telegram-channel .btn-channel:hover {
+            background: oklch(1 0 0 / 0.3);
             transform: translateY(-4px);
-            box-shadow: 0 20px 60px oklch(0.6 0.2 270 / 0.3);
+            box-shadow: 0 12px 32px oklch(0 0 0 / 0.15);
         }
 
         /* ============================================================
-                   ریسپانسیو با استفاده از :has() و container queries
+                   Blog Posts with Search
                    ============================================================ */
-        @media (max-width: 768px) {
-            .profile-avatar {
-                width: 180px;
-                height: 180px;
-            }
-            .hero h2 {
-                font-size: 2.2rem;
-            }
-            .chatbot-window {
-                width: calc(100vw - 48px);
-                right: 24px;
-                bottom: 160px;
-            }
+        .search-box {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 24px;
+            flex-wrap: wrap;
+        }
+        .search-box input {
+            flex: 1;
+            min-width: 200px;
+            padding: 14px 20px;
+            border-radius: 60px;
+            border: 1px solid var(--glass-border);
+            background: var(--bg-secondary);
+            color: var(--text-primary);
+            font-family: var(--font);
+            font-size: 0.95rem;
+            transition: all var(--transition);
+        }
+        .search-box input:focus {
+            outline: none;
+            border-color: oklch(0.6 0.2 270);
         }
 
-        @media (max-width: 480px) {
-            .profile-avatar {
-                width: 150px;
-                height: 150px;
-            }
-            .hero h2 {
-                font-size: 1.8rem;
-            }
+        .post {
+            background: var(--bg-secondary);
+            padding: 24px 28px;
+            border-radius: var(--radius-sm);
+            margin: 16px 0;
+            border: 1px solid var(--glass-border);
+            border-right: 6px solid oklch(0.6 0.2 270);
+            transition: all var(--transition);
+        }
+        .post:hover {
+            transform: translateX(8px);
+            border-color: oklch(0.6 0.2 270 / 0.3);
+        }
+        .post h4 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--text-primary);
+        }
+        .post h4 i {
+            color: oklch(0.6 0.2 270);
+        }
+        .post .post-date {
+            color: var(--text-muted);
+            font-size: 0.8rem;
+            display: block;
+            margin-bottom: 6px;
+        }
+        .post p {
+            color: var(--text-secondary);
+        }
+        .read-more {
+            color: oklch(0.6 0.2 270);
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: all var(--transition);
+            margin-top: 6px;
+            text-decoration: none;
+        }
+        .read-more:hover {
+            gap: 14px;
         }
 
         /* ============================================================
-                   استایل‌های مربوط به انیمیشن Web Animations API
-                   ============================================================ */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: none;
-        }
-        .fade-in.visible {
-            animation: fadeInUp 0.8s ease forwards;
-        }
-        @keyframes fadeInUp {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* ============================================================
-                   دکمه بازگشت به بالا
+                   Back to Top
                    ============================================================ */
         #backToTop {
             position: fixed;
@@ -586,6 +572,9 @@
             color: #fff;
         }
 
+        /* ============================================================
+                   Footer
+                   ============================================================ */
         footer {
             background: var(--bg-secondary);
             border-top: 1px solid var(--glass-border);
@@ -593,14 +582,94 @@
             margin-top: 60px;
             text-align: center;
         }
+        .footer-social a {
+            color: var(--text-muted);
+            margin: 0 16px;
+            font-size: 1.5rem;
+            transition: all var(--transition);
+            display: inline-block;
+        }
+        .footer-social a:hover {
+            color: #fff;
+            transform: translateY(-4px);
+        }
+        footer .date {
+            display: block;
+            margin-top: 14px;
+            opacity: 0.6;
+            font-size: 0.9rem;
+        }
+        footer .copyright {
+            margin-top: 8px;
+            opacity: 0.4;
+            font-size: 0.85rem;
+        }
+
+        /* ============================================================
+                   Responsive
+                   ============================================================ */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                align-items: stretch;
+                gap: 6px;
+            }
+            .logo {
+                text-align: center;
+            }
+            nav ul {
+                justify-content: center;
+            }
+            .header-actions {
+                align-self: center;
+            }
+
+            .hero {
+                padding: 60px 16px 40px;
+            }
+            .hero h2 {
+                font-size: 2.2rem;
+            }
+            .profile-avatar {
+                width: 180px;
+                height: 180px;
+            }
+
+            section {
+                padding: 28px 18px;
+            }
+            h3 {
+                font-size: 1.6rem;
+            }
+            .works-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            nav a {
+                font-size: 0.75rem;
+                padding: 6px 12px;
+            }
+            .hero h2 {
+                font-size: 1.8rem;
+            }
+            .profile-avatar {
+                width: 150px;
+                height: 150px;
+            }
+            .post {
+                padding: 16px 18px;
+            }
+        }
     </style>
 </head>
 <body>
 
-    <!-- ========== نوار پیشرفت ========== -->
+    <!-- ========== Scroll Progress ========== -->
     <div id="scroll-progress"></div>
 
-    <!-- ========== هدر ========== -->
+    <!-- ========== Header ========== -->
     <header>
         <div class="container">
             <div class="header-content">
@@ -615,7 +684,6 @@
                         <li><a href="#skills">مهارت‌ها</a></li>
                         <li><a href="#works">آثار</a></li>
                         <li><a href="#blog">نوشته‌ها</a></li>
-                        <li><a href="#contact">تماس</a></li>
                     </ul>
                 </nav>
                 <div class="header-actions">
@@ -627,7 +695,7 @@
         </div>
     </header>
 
-    <!-- ========== هیرو ========== -->
+    <!-- ========== Hero ========== -->
     <section id="home" class="hero">
         <div class="container hero-content">
             <img src="1.jpg" alt="مهدی رحیمیان" class="profile-avatar" loading="lazy" />
@@ -645,131 +713,120 @@
 
     <div class="container">
 
-        <!-- ========== درباره ========== -->
+        <!-- ========== About ========== -->
         <section id="about">
-            <h3>درباره من</h3>
-            <p>سلام! من <strong>مهدی رحیمیان</strong> هستم. اینجا فضای شخصی من برای به اشتراک‌گذاری افکار، تجربیات، دکلمه‌ها و نوشته‌هایم است.</p>
-            <p>عاشق یادگیری، مطالعه، و تولید محتوای صوتی و تصویری هستم و معتقدم کلمات و صدا می‌توانند جهان را تغییر دهند.</p>
+            <h3><i class="fas fa-user-circle"></i> درباره من</h3>
+            <p style="font-size:1.05rem; color:var(--text-secondary);">
+                سلام! من <strong style="color:var(--text-primary);">مهدی رحیمیان</strong> هستم. اینجا فضای شخصی من برای به اشتراک‌گذاری افکار، تجربیات، دکلمه‌ها و نوشته‌هایم است.
+                عاشق یادگیری، مطالعه، و تولید محتوای صوتی و تصویری هستم و معتقدم کلمات و صدا می‌توانند جهان را تغییر دهند.
+            </p>
+            <p style="margin-top:14px; color:var(--text-secondary);">
+                در این سایت می‌توانید مقالات، دلنوشته‌ها، دکلمه‌های صوتی و کانال تلگرام من را پیدا کنید.
+                از اینکه وقت می‌گذارید و مطالبم را می‌خوانید، بی‌نهایت سپاسگزارم.
+            </p>
         </section>
 
-        <!-- ========== مهارت‌ها ========== -->
+        <!-- ========== Skills ========== -->
         <section id="skills">
-            <h3>مهارت‌ها و علایق</h3>
+            <h3><i class="fas fa-cogs"></i> مهارت‌ها و علایق</h3>
             <div class="skills">
-                <span class="skill-tag">🎤 گویندگی</span>
-                <span class="skill-tag">✍️ نویسندگی</span>
-                <span class="skill-tag">🔍 پژوهش</span>
-                <span class="skill-tag">💻 تکنولوژی</span>
-                <span class="skill-tag">⚛️ برنامه‌نویسی</span>
-                <span class="skill-tag">📚 کتابخوانی</span>
-                <span class="skill-tag">🌍 سفر</span>
-                <span class="skill-tag">📸 عکاسی</span>
-                <span class="skill-tag">🎵 موسیقی</span>
+                <span class="skill-tag"><i class="fas fa-microphone-alt"></i> گویندگی</span>
+                <span class="skill-tag"><i class="fas fa-feather-alt"></i> نویسندگی</span>
+                <span class="skill-tag"><i class="fas fa-search"></i> پژوهش</span>
+                <span class="skill-tag"><i class="fas fa-laptop-code"></i> تکنولوژی</span>
+                <span class="skill-tag"><i class="fas fa-code"></i> برنامه‌نویسی</span>
+                <span class="skill-tag"><i class="fas fa-book-open"></i> کتابخوانی</span>
+                <span class="skill-tag"><i class="fas fa-plane"></i> سفر</span>
+                <span class="skill-tag"><i class="fas fa-camera"></i> عکاسی</span>
+                <span class="skill-tag"><i class="fas fa-headphones"></i> موسیقی</span>
             </div>
         </section>
 
-        <!-- ========== آثار ========== -->
+        <!-- ========== Works ========== -->
         <section id="works">
-            <h3>آثار صوتی و تصویری</h3>
+            <h3><i class="fas fa-play-circle"></i> آثار صوتی و تصویری</h3>
+            <p style="color:var(--text-secondary); margin-bottom:20px;">گزیده‌ای از دکلمه‌ها و دلنوشته‌های من با صدای خودم</p>
+
             <div class="works-grid">
                 <div class="work-card">
                     <h4>متن و صدا #مهدی_رحیمیان✌️</h4>
                     <span class="work-date">۱۶ دسامبر ۲۰۲۵</span>
-                    <a href="https://www.instagram.com/reel/DSVt85bgpEi/" target="_blank" class="work-link">مشاهده</a>
+                    <a href="https://www.instagram.com/reel/DSVt85bgpEi/" target="_blank" class="work-link">
+                        <i class="fab fa-instagram"></i> مشاهده
+                    </a>
                 </div>
                 <div class="work-card">
-                    <h4>مرا به حال خود بگذارید...</h4>
+                    <h4>مرا به حال خود بگذارید و رهایم کنید...</h4>
                     <span class="work-date">دلنوشته</span>
-                    <a href="https://www.instagram.com/reel/DPrup05gl1L/" target="_blank" class="work-link">مشاهده</a>
+                    <a href="https://www.instagram.com/reel/DPrup05gl1L/" target="_blank" class="work-link">
+                        <i class="fab fa-instagram"></i> مشاهده
+                    </a>
                 </div>
                 <div class="work-card">
                     <h4>صدایم کن…</h4>
                     <span class="work-date">۱۶ اوت ۲۰۲۵</span>
-                    <a href="https://www.instagram.com/reel/DNafAsACM-G/" target="_blank" class="work-link">مشاهده</a>
+                    <a href="https://www.instagram.com/reel/DNafAsACM-G/" target="_blank" class="work-link">
+                        <i class="fab fa-instagram"></i> مشاهده
+                    </a>
                 </div>
                 <div class="work-card">
-                    <h4>متن زیبا و عمیق</h4>
+                    <h4>متن زیبا و عمیق با خوانش گرم</h4>
                     <span class="work-date">دلنوشته</span>
-                    <a href="https://www.instagram.com/reel/DNBSxyzCnJb/" target="_blank" class="work-link">مشاهده</a>
+                    <a href="https://www.instagram.com/reel/DNBSxyzCnJb/" target="_blank" class="work-link">
+                        <i class="fab fa-instagram"></i> مشاهده
+                    </a>
                 </div>
             </div>
+
+            <!-- Telegram Channel – طراحی قبلی -->
             <div class="telegram-channel">
-                <h4>کانال تلگرام من</h4>
-                <a href="https://t.me/sayehayebineghab" target="_blank" class="btn-channel">عضویت</a>
+                <h4><i class="fab fa-telegram"></i> کانال تلگرام من</h4>
+                <p>«بیان بی‌پرده احساسات و داستان‌ها» — با ۳۸ عضو</p>
+                <a href="https://t.me/sayehayebineghab" target="_blank" class="btn-channel">
+                    <i class="fab fa-telegram"></i> عضویت در کانال تلگرام
+                    <i class="fas fa-arrow-left"></i>
+                </a>
             </div>
         </section>
 
-        <!-- ========== نوشته‌ها با جستجوی صوتی ========== -->
+        <!-- ========== Blog ========== -->
         <section id="blog">
-            <h3>آخرین نوشته‌ها</h3>
+            <h3><i class="fas fa-pen-fancy"></i> آخرین نوشته‌ها</h3>
+
             <div class="search-box">
                 <input type="text" id="blogSearch" placeholder="جستجوی نوشته‌ها..." />
-                <button class="voice-search-btn" id="voiceSearchBtn" title="جستجوی صوتی">
-                    <i class="fas fa-microphone"></i>
-                </button>
             </div>
+
             <div id="blogPosts">
                 <div class="post" data-title="شروع یک سفر جدید">
-                    <h4>شروع یک سفر جدید</h4>
+                    <h4><i class="fas fa-rocket"></i> شروع یک سفر جدید</h4>
                     <span class="post-date">۲۵ دی ۱۴۰۲</span>
-                    <p>اولین نوشته من در این سایت شخصی...</p>
-                    <a href="#" class="read-more">ادامه مطلب</a>
+                    <p>اولین نوشته من در این سایت شخصی. اینجا فضایی است برای به اشتراک گذاری افکار، تجربیات و یادگیری‌هایم...</p>
+                    <a href="#" class="read-more">ادامه مطلب <i class="fas fa-arrow-left"></i></a>
                 </div>
+
                 <div class="post" data-title="نقش نوشتن در رشد شخصی">
-                    <h4>نقش نوشتن در رشد شخصی</h4>
+                    <h4><i class="fas fa-pencil-alt"></i> نقش نوشتن در رشد شخصی</h4>
                     <span class="post-date">۲۰ دی ۱۴۰۲</span>
-                    <p>چگونه نوشتن می‌تواند به ما در درک بهتر خودمان کمک کند؟</p>
-                    <a href="#" class="read-more">ادامه مطلب</a>
+                    <p>چگونه نوشتن می‌تواند به ما در درک بهتر خودمان و جهان اطرافمان کمک کند؟ در این مطلب به بررسی تأثیر نوشتن بر رشد فردی می‌پردازم...</p>
+                    <a href="#" class="read-more">ادامه مطلب <i class="fas fa-arrow-left"></i></a>
                 </div>
+
                 <div class="post" data-title="تکنولوژی و زندگی مدرن">
-                    <h4>تکنولوژی و زندگی مدرن</h4>
+                    <h4><i class="fas fa-microchip"></i> تکنولوژی و زندگی مدرن</h4>
                     <span class="post-date">۱۵ دی ۱۴۰۲</span>
-                    <p>بررسی تأثیر تکنولوژی بر سبک زندگی و روابط انسانی</p>
-                    <a href="#" class="read-more">ادامه مطلب</a>
+                    <p>بررسی تأثیر تکنولوژی بر سبک زندگی و روابط انسانی در عصر حاضر. چگونه می‌توانیم از تکنولوژی به شکل هوشمندانه‌تری استفاده کنیم؟</p>
+                    <a href="#" class="read-more">ادامه مطلب <i class="fas fa-arrow-left"></i></a>
                 </div>
             </div>
         </section>
 
-        <!-- ========== تماس ========== -->
-        <section id="contact">
-            <h3>تماس با من</h3>
-            <form class="contact-form" id="contactForm" action="https://formspree.io/f/xyzzyx" method="POST">
-                <div class="form-group">
-                    <label>نام شما</label>
-                    <input type="text" name="name" required placeholder="مهدی" />
-                </div>
-                <div class="form-group">
-                    <label>ایمیل شما</label>
-                    <input type="email" name="email" required placeholder="example@mail.com" />
-                </div>
-                <div class="form-group">
-                    <label>پیام شما</label>
-                    <textarea name="message" rows="5" required></textarea>
-                </div>
-                <button type="submit" class="btn">ارسال پیام</button>
-            </form>
-        </section>
-
     </div>
 
-    <!-- ========== چت‌بات هوشمند ========== -->
-    <button class="chatbot-toggle" id="chatbotToggle">
-        <i class="fas fa-robot"></i>
-    </button>
-    <div class="chatbot-window" id="chatbotWindow">
-        <div class="messages" id="chatMessages">
-            <div class="message bot">سلام! من دستیار هوشمند مهدی هستم. چطور می‌توانم کمک کنم؟</div>
-        </div>
-        <div class="input-area">
-            <input type="text" id="chatInput" placeholder="سوال خود را بپرسید..." />
-            <button id="chatSend"><i class="fas fa-paper-plane"></i></button>
-        </div>
-    </div>
-
-    <!-- ========== دکمه بازگشت ========== -->
+    <!-- ========== Back to Top ========== -->
     <button id="backToTop"><i class="fas fa-chevron-up"></i></button>
 
-    <!-- ========== فوتر ========== -->
+    <!-- ========== Footer ========== -->
     <footer>
         <div class="container">
             <p class="copyright">تمامی حقوق محفوظ | طراحی با تکنولوژی‌های ۲۰۲۶</p>
@@ -777,304 +834,161 @@
                 <a href="https://www.instagram.com/sayehaye.bi.neghab" target="_blank"><i class="fab fa-instagram"></i></a>
                 <a href="https://t.me/sayehayebineghab" target="_blank"><i class="fab fa-telegram"></i></a>
                 <a href="mailto:me@mahdirahimiyan.ir"><i class="fas fa-envelope"></i></a>
+                <a href="https://github.com/mahdiramsar" target="_blank"><i class="fab fa-github"></i></a>
             </div>
             <span class="date" id="persianDate"></span>
         </div>
     </footer>
 
     <!-- ============================================================
-    اسکریپت‌ها با استفاده از Import Map و Web Animations API
+    Scripts
     ============================================================ -->
-    <script type="module">
-        import AOS from 'aos';
+    <script>
+        (function() {
+            "use strict";
 
-        // ================================================================
-        // 1. Web Animations API برای انیمیشن بخش‌ها
-        // ================================================================
-        const sections = document.querySelectorAll('section:not(.hero)');
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.animate([
-                        { opacity: 0, transform: 'translateY(40px)' },
-                        { opacity: 1, transform: 'translateY(0)' }
-                    ], {
-                        duration: 800,
-                        easing: 'cubic-bezier(0.23, 1, 0.32, 1)',
-                        fill: 'forwards'
-                    });
+            // ---------- 1. Scroll Progress ----------
+            const progressBar = document.getElementById('scroll-progress');
+            window.addEventListener('scroll', () => {
+                const scrollTop = window.scrollY;
+                const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+                const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+                progressBar.style.width = progress + '%';
+            });
+
+            // ---------- 2. Dark/Light Mode ----------
+            const toggle = document.getElementById('themeToggle');
+            const icon = toggle.querySelector('i');
+            const currentTheme = localStorage.getItem('theme') || 'dark';
+            if (currentTheme === 'light') {
+                document.documentElement.setAttribute('data-theme', 'light');
+                icon.classList.replace('fa-sun', 'fa-moon');
+            }
+
+            toggle.addEventListener('click', () => {
+                const isDark = !document.documentElement.hasAttribute('data-theme');
+                if (isDark) {
+                    document.documentElement.setAttribute('data-theme', 'light');
+                    localStorage.setItem('theme', 'light');
+                    icon.classList.replace('fa-sun', 'fa-moon');
+                } else {
+                    document.documentElement.removeAttribute('data-theme');
+                    localStorage.setItem('theme', 'dark');
+                    icon.classList.replace('fa-moon', 'fa-sun');
                 }
             });
-        }, { threshold: 0.1 });
-        sections.forEach(s => observer.observe(s));
 
-        // ================================================================
-        // 2. AOS (برای انیمیشن‌های اضافی)
-        // ================================================================
-        AOS.init({
-            duration: 800,
-            once: true,
-            offset: 40,
-        });
+            // ---------- 3. Typewriter ----------
+            const typedEl = document.getElementById('typedText');
+            const phrases = [
+                'دکلمه‌های مرا بشنوید 🎧',
+                'همراه من در سفر کلمات 🌱',
+                'اینجا صدا و معنا به هم می‌رسند 📖',
+                'تجربیاتم را با شما به اشتراک می‌گذارم 💫'
+            ];
+            let pIdx = 0,
+                cIdx = 0,
+                del = false;
 
-        // ================================================================
-        // 3. Temporal API برای تاریخ شمسی (با پلی‌فیل)
-        // ================================================================
-        async function updatePersianDate() {
-            try {
-                // اگر Temporal در دسترس نباشد، از Date استفاده می‌کنیم
+            function typeEffect() {
+                const current = phrases[pIdx];
+                if (!del) {
+                    typedEl.textContent = current.substring(0, cIdx++);
+                    if (cIdx > current.length) {
+                        del = true;
+                        setTimeout(typeEffect, 2200);
+                        return;
+                    }
+                } else {
+                    typedEl.textContent = current.substring(0, cIdx--);
+                    if (cIdx < 0) {
+                        del = false;
+                        cIdx = 0;
+                        pIdx = (pIdx + 1) % phrases.length;
+                        setTimeout(typeEffect, 400);
+                        return;
+                    }
+                }
+                setTimeout(typeEffect, del ? 50 : 100);
+            }
+            setTimeout(typeEffect, 500);
+
+            // ---------- 4. Smooth Scroll ----------
+            document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    e.preventDefault();
+                    const target = document.querySelector(targetId);
+                    if (target) {
+                        const headerHeight = document.querySelector('header').offsetHeight;
+                        const targetPosition = target.getBoundingClientRect().top + window.scrollY - headerHeight -
+                            10;
+                        window.scrollTo({ top: targetPosition, behavior: 'smooth' });
+                    }
+                });
+            });
+
+            // ---------- 5. Animate sections on scroll (using Web Animations API) ----------
+            const sections = document.querySelectorAll('section:not(.hero)');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.animate([
+                            { opacity: 0, transform: 'translateY(40px)' },
+                            { opacity: 1, transform: 'translateY(0)' }
+                        ], {
+                            duration: 800,
+                            easing: 'cubic-bezier(0.23, 1, 0.32, 1)',
+                            fill: 'forwards'
+                        });
+                    }
+                });
+            }, { threshold: 0.1 });
+            sections.forEach(s => observer.observe(s));
+
+            // ---------- 6. Blog Search ----------
+            const searchInput = document.getElementById('blogSearch');
+            const posts = document.querySelectorAll('#blogPosts .post');
+
+            searchInput.addEventListener('input', function() {
+                const query = this.value.trim().toLowerCase();
+                posts.forEach(post => {
+                    const title = post.dataset.title.toLowerCase();
+                    post.style.display = title.includes(query) ? 'block' : 'none';
+                });
+            });
+
+            // ---------- 7. Back to Top ----------
+            const backBtn = document.getElementById('backToTop');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 400) {
+                    backBtn.classList.add('visible');
+                } else {
+                    backBtn.classList.remove('visible');
+                }
+            });
+            backBtn.addEventListener('click', () => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+
+            // ---------- 8. Persian Date ----------
+            function updatePersianDate() {
                 const now = new Date();
                 const options = { year: 'numeric', month: 'long', day: 'numeric', weekday: 'long' };
-                const persian = now.toLocaleDateString('fa-IR', options);
-                document.getElementById('persianDate').textContent = '📅 ' + persian;
-            } catch (e) {
-                console.warn('Temporal API در دسترس نیست، از Date استفاده شد');
+                document.getElementById('persianDate').textContent = '📅 ' + now.toLocaleDateString('fa-IR', options);
             }
-        }
-        updatePersianDate();
+            updatePersianDate();
 
-        // ================================================================
-        // 4. Web Speech API – جستجوی صوتی
-        // ================================================================
-        const voiceBtn = document.getElementById('voiceSearchBtn');
-        const searchInput = document.getElementById('blogSearch');
-        let recognition = null;
-
-        if ('webkitSpeechRecognition' in window || 'SpeechRecognition' in window) {
-            const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
-            recognition = new SpeechRecognition();
-            recognition.lang = 'fa-IR';
-            recognition.continuous = false;
-            recognition.interimResults = false;
-
-            voiceBtn.addEventListener('click', () => {
-                if (recognition) {
-                    recognition.start();
-                    voiceBtn.classList.add('listening');
-                }
-            });
-
-            recognition.onresult = (event) => {
-                const transcript = event.results[0][0].transcript;
-                searchInput.value = transcript;
-                // فیلتر کردن نوشته‌ها
-                filterPosts(transcript);
-                voiceBtn.classList.remove('listening');
-            };
-
-            recognition.onerror = () => {
-                voiceBtn.classList.remove('listening');
-            };
-
-            recognition.onend = () => {
-                voiceBtn.classList.remove('listening');
-            };
-        } else {
-            voiceBtn.style.display = 'none';
-        }
-
-        function filterPosts(query) {
-            const posts = document.querySelectorAll('#blogPosts .post');
-            const q = query.trim().toLowerCase();
-            posts.forEach(post => {
-                const title = post.dataset.title.toLowerCase();
-                post.style.display = title.includes(q) ? 'block' : 'none';
-            });
-        }
-
-        searchInput.addEventListener('input', (e) => {
-            filterPosts(e.target.value);
-        });
-
-        // ================================================================
-        // 5. چت‌بات هوشمند (AI-Powered)
-        // ================================================================
-        const chatToggle = document.getElementById('chatbotToggle');
-        const chatWindow = document.getElementById('chatbotWindow');
-        const chatInput = document.getElementById('chatInput');
-        const chatSend = document.getElementById('chatSend');
-        const chatMessages = document.getElementById('chatMessages');
-
-        chatToggle.addEventListener('click', () => {
-            chatWindow.classList.toggle('active');
-        });
-
-        async function sendMessage() {
-            const msg = chatInput.value.trim();
-            if (!msg) return;
-
-            // نمایش پیام کاربر
-            const userMsg = document.createElement('div');
-            userMsg.className = 'message user';
-            userMsg.textContent = msg;
-            chatMessages.appendChild(userMsg);
-
-            chatInput.value = '';
-            chatMessages.scrollTop = chatMessages.scrollHeight;
-
-            // پاسخ ربات (با استفاده از API فرضی)
-            try {
-                const response = await fetch('https://api.example.com/chat', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ message: msg })
-                });
-                const data = await response.json();
-                const botMsg = document.createElement('div');
-                botMsg.className = 'message bot';
-                botMsg.textContent = data.reply || 'متوجه نشدم، لطفاً واضح‌تر بپرسید.';
-                chatMessages.appendChild(botMsg);
-            } catch (error) {
-                // پاسخ آفلاین (برای نمایش)
-                const botMsg = document.createElement('div');
-                botMsg.className = 'message bot';
-                botMsg.textContent = 'در حال حاضر به سرور متصل نیستم. لطفاً بعداً دوباره تلاش کنید.';
-                chatMessages.appendChild(botMsg);
+            // ---------- 9. Update year ----------
+            const yearSpan = document.querySelector('footer .copyright');
+            if (yearSpan) {
+                yearSpan.innerHTML =
+                    `© ${new Date().getFullYear()} · تمامی حقوق محفوظ · طراحی با تکنولوژی‌های ۲۰۲۶`;
             }
-            chatMessages.scrollTop = chatMessages.scrollHeight;
-        }
 
-        chatSend.addEventListener('click', sendMessage);
-        chatInput.addEventListener('keydown', (e) => {
-            if (e.key === 'Enter') sendMessage();
-        });
-
-        // ================================================================
-        // 6. دارک/لایت مود
-        // ================================================================
-        const toggle = document.getElementById('themeToggle');
-        const icon = toggle.querySelector('i');
-        const currentTheme = localStorage.getItem('theme') || 'dark';
-        if (currentTheme === 'light') {
-            document.documentElement.setAttribute('data-theme', 'light');
-            icon.classList.replace('fa-sun', 'fa-moon');
-        }
-
-        toggle.addEventListener('click', () => {
-            const isDark = !document.documentElement.hasAttribute('data-theme');
-            if (isDark) {
-                document.documentElement.setAttribute('data-theme', 'light');
-                localStorage.setItem('theme', 'light');
-                icon.classList.replace('fa-sun', 'fa-moon');
-            } else {
-                document.documentElement.removeAttribute('data-theme');
-                localStorage.setItem('theme', 'dark');
-                icon.classList.replace('fa-moon', 'fa-sun');
-            }
-        });
-
-        // ================================================================
-        // 7. تایپ‌رایتر
-        // ================================================================
-        const typedEl = document.getElementById('typedText');
-        const phrases = [
-            'دکلمه‌های مرا بشنوید 🎧',
-            'همراه من در سفر کلمات 🌱',
-            'اینجا صدا و معنا به هم می‌رسند 📖'
-        ];
-        let pIdx = 0,
-            cIdx = 0,
-            del = false;
-
-        function typeEffect() {
-            const current = phrases[pIdx];
-            if (!del) {
-                typedEl.textContent = current.substring(0, cIdx++);
-                if (cIdx > current.length) {
-                    del = true;
-                    setTimeout(typeEffect, 2200);
-                    return;
-                }
-            } else {
-                typedEl.textContent = current.substring(0, cIdx--);
-                if (cIdx < 0) {
-                    del = false;
-                    cIdx = 0;
-                    pIdx = (pIdx + 1) % phrases.length;
-                    setTimeout(typeEffect, 400);
-                    return;
-                }
-            }
-            setTimeout(typeEffect, del ? 50 : 100);
-        }
-        setTimeout(typeEffect, 500);
-
-        // ================================================================
-        // 8. اسکرول نرم
-        // ================================================================
-        document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                const targetId = this.getAttribute('href');
-                if (targetId === '#') return;
-                e.preventDefault();
-                const target = document.querySelector(targetId);
-                if (target) {
-                    const headerHeight = document.querySelector('header').offsetHeight;
-                    const targetPosition = target.getBoundingClientRect().top + window.scrollY - headerHeight -
-                    10;
-                    window.scrollTo({ top: targetPosition, behavior: 'smooth' });
-                }
-            });
-        });
-
-        // ================================================================
-        // 9. نوار پیشرفت اسکرول
-        // ================================================================
-        const progressBar = document.getElementById('scroll-progress');
-        window.addEventListener('scroll', () => {
-            const scrollTop = window.scrollY;
-            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-            const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
-            progressBar.style.width = progress + '%';
-        });
-
-        // ================================================================
-        // 10. دکمه بازگشت به بالا
-        // ================================================================
-        const backBtn = document.getElementById('backToTop');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 400) {
-                backBtn.classList.add('visible');
-            } else {
-                backBtn.classList.remove('visible');
-            }
-        });
-        backBtn.addEventListener('click', () => {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
-
-        // ================================================================
-        // 11. فرم تماس
-        // ================================================================
-        const form = document.getElementById('contactForm');
-        form.addEventListener('submit', async (e) => {
-            e.preventDefault();
-            const status = document.createElement('div');
-            status.textContent = '⏳ در حال ارسال...';
-            form.appendChild(status);
-            const data = new FormData(form);
-            try {
-                const response = await fetch(form.action, {
-                    method: 'POST',
-                    body: data,
-                    headers: { 'Accept': 'application/json' }
-                });
-                if (response.ok) {
-                    status.innerHTML = '✅ پیام شما با موفقیت ارسال شد!';
-                    status.style.color = '#22c55e';
-                    form.reset();
-                } else {
-                    throw new Error('خطا');
-                }
-            } catch (error) {
-                status.innerHTML = '❌ خطا در ارسال. لطفاً دوباره تلاش کنید.';
-                status.style.color = '#ef4444';
-            }
-            setTimeout(() => status.remove(), 6000);
-        });
-
-        console.log('🚀 سایت با تکنولوژی‌های ۲۰۲۶ بارگذاری شد!');
-        console.log('✨ CSS Container Queries, :has(), Web Animations API, Temporal, Web Speech, PWA, AI Chatbot');
+            console.log('🚀 سایت با تکنولوژی‌های ۲۰۲۶ بارگذاری شد!');
+        })();
     </script>
 
     <!-- Service Worker (PWA) -->
