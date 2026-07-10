@@ -1,644 +1,727 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     
-    <!-- سئو و متا تگ‌های حیاتی -->
-    <title>مهدی رحیمیان - سایت شخصی | نوشته‌ها و مقالات</title>
-    <meta name="description" content="سایت شخصی مهدی رحیمیان - فضای شخصی برای نوشته‌ها، مقالات، افکار و تجربیات شخصی">
-    <meta name="keywords" content="مهدی رحیمیان, مهیار رحیمیان, محمد مهدی رحیمیان, وبلاگ شخصی, نوشته های مهدی رحیمیان">
-    <meta name="author" content="مهدی رحیمیان">
-    <meta name="robots" content="index, follow">
+    <!-- SEO -->
+    <title>مهدی رحیمیان | سایت شخصی و نوشته‌ها</title>
+    <meta name="description" content="سایت شخصی مهدی رحیمیان - فضایی برای نوشته‌ها، مقالات و تجربیات شخصی" />
+    <meta name="keywords" content="مهدی رحیمیان, مهیار رحیمیان, وبلاگ شخصی, نویسندگی" />
+    <meta name="author" content="مهدی رحیمیان" />
+    <meta name="robots" content="index, follow" />
     
     <!-- Open Graph -->
-    <meta property="og:title" content="مهدی رحیمیان - سایت شخصی">
-    <meta property="og:description" content="فضای شخصی مهدی رحیمیان برای نوشته‌ها و مقالات">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://mahdiramsar.github.io">
+    <meta property="og:title" content="مهدی رحیمیان - سایت شخصی" />
+    <meta property="og:description" content="فضای شخصی برای نوشته‌ها و مقالات" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://mahdiramsar.github.io" />
     
-    <!-- Schema.org structured data -->
+    <!-- Schema.org -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
         "@type": "Person",
         "name": "مهدی رحیمیان",
         "url": "https://mahdiramsar.github.io",
-        "description": "نویسنده و صاحب سایت شخصی",
-        "mainEntityOfPage": {
-            "@type": "WebPage",
-            "@id": "https://mahdiramsar.github.io"
-        }
+        "description": "نویسنده و صاحب سایت شخصی"
     }
     </script>
     
-    <!-- استایل‌ها -->
-    <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazir-font@v30.1.0/dist/font-face.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <!-- فونت وزیر (نسخه جدید) -->
+    <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazir-font@v30.1.0/dist/font-face.css" rel="stylesheet" />
+    <!-- فونت‌آزم (آیکون‌ها) -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
+    
     <style>
-        /* Reset و تنظیمات پایه */
+        /* ========== متغیرهای CSS ========== */
+        :root {
+            --bg-primary: #f0f2f5;
+            --bg-secondary: #ffffff;
+            --bg-card: #ffffff;
+            --text-primary: #1e293b;
+            --text-secondary: #475569;
+            --shadow: 0 10px 30px rgba(0,0,0,0.08);
+            --shadow-hover: 0 20px 40px rgba(0,0,0,0.15);
+            --radius: 24px;
+            --transition: 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            --gradient-hero: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --gradient-header: linear-gradient(135deg, #1e293b, #334155);
+            --glass-bg: rgba(255,255,255,0.12);
+            --glass-border: rgba(255,255,255,0.2);
+        }
+        
+        [data-theme="dark"] {
+            --bg-primary: #0f172a;
+            --bg-secondary: #1e293b;
+            --bg-card: #1e293b;
+            --text-primary: #f1f5f9;
+            --text-secondary: #cbd5e1;
+            --shadow: 0 10px 30px rgba(0,0,0,0.4);
+            --shadow-hover: 0 20px 40px rgba(0,0,0,0.6);
+            --gradient-header: linear-gradient(135deg, #0f172a, #1e293b);
+            --glass-bg: rgba(30,41,59,0.5);
+            --glass-border: rgba(255,255,255,0.1);
+        }
+        
+        /* ========== ریست ========== */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
         
+        html {
+            scroll-behavior: smooth;
+        }
+        
         body {
-            font-family: Vazir, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: Vazir, 'Segoe UI', sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
             line-height: 1.8;
-            color: #333;
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            min-height: 100vh;
+            transition: background var(--transition), color var(--transition);
+            padding-top: 80px; /* فضای هدر چسبنده */
         }
         
         .container {
-            max-width: 1000px;
+            max-width: 1100px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 24px;
         }
         
-        /* هدر و ناوبری */
+        /* ========== هدر شیشه‌ای ========== */
         header {
-            background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
-            color: white;
-            padding: 20px 0;
-            position: sticky;
+            position: fixed;
             top: 0;
+            left: 0;
+            right: 0;
             z-index: 1000;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            background: var(--glass-bg);
+            backdrop-filter: blur(16px) saturate(180%);
+            -webkit-backdrop-filter: blur(16px) saturate(180%);
+            border-bottom: 1px solid var(--glass-border);
+            padding: 12px 0;
+            transition: background var(--transition);
         }
         
         .header-content {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            flex-wrap: wrap;
+            gap: 16px;
         }
         
         .logo h1 {
-            font-size: 1.8em;
-            margin: 0;
+            font-size: 1.6rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            background: var(--gradient-hero);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
-        
         .logo .subtitle {
-            font-size: 0.9em;
-            opacity: 0.8;
-            margin-top: 5px;
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            -webkit-text-fill-color: var(--text-secondary);
         }
         
         nav ul {
-            list-style: none;
             display: flex;
-            gap: 30px;
+            gap: 8px;
+            list-style: none;
+            flex-wrap: wrap;
         }
-        
         nav a {
-            color: white;
+            color: var(--text-primary);
             text-decoration: none;
             font-weight: 500;
-            transition: color 0.3s ease;
-            padding: 5px 10px;
-            border-radius: 5px;
+            padding: 8px 16px;
+            border-radius: 40px;
+            transition: all var(--transition);
+            font-size: 0.9rem;
         }
-        
         nav a:hover {
-            color: #3498db;
-            background: rgba(255,255,255,0.1);
+            background: var(--gradient-hero);
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
         }
         
-        /* بخش اصلی */
+        /* دکمه دارک مود */
+        .theme-toggle {
+            background: var(--bg-card);
+            border: none;
+            border-radius: 50%;
+            width: 44px;
+            height: 44px;
+            font-size: 1.3rem;
+            cursor: pointer;
+            color: var(--text-primary);
+            box-shadow: var(--shadow);
+            transition: all var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .theme-toggle:hover {
+            transform: rotate(30deg) scale(1.1);
+        }
+        
+        /* ========== بخش قهرمان ========== */
         .hero {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
+            background: var(--gradient-hero);
+            color: #fff;
             text-align: center;
-            padding: 100px 0;
-            margin-bottom: 50px;
+            padding: 80px 0 70px;
+            border-radius: var(--radius);
+            margin: 0 0 50px 0;
             position: relative;
             overflow: hidden;
+            box-shadow: 0 20px 60px rgba(102, 126, 234, 0.3);
         }
-        
-        .hero::before {
+        .hero::after {
             content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><polygon fill="rgba(255,255,255,0.05)" points="0,1000 1000,0 1000,1000"/></svg>');
+            inset: 0;
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 600'%3E%3Cpath d='M600 0L0 600L600 600z' fill='rgba(255,255,255,0.05)'/%3E%3C/svg%3E");
+            background-size: cover;
+            pointer-events: none;
         }
-        
         .hero-content {
             position: relative;
             z-index: 2;
         }
         
-        .profile-img {
-            width: 180px;
-            height: 180px;
+        .profile-avatar {
+            width: 150px;
+            height: 150px;
             border-radius: 50%;
-            border: 5px solid rgba(255,255,255,0.3);
-            margin: 0 auto 30px;
-            background-image: url('profile.jpg');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
+            margin: 0 auto 24px;
+            background: linear-gradient(135deg, #f093fb, #f5576c);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4.5rem;
+            color: #fff;
+            box-shadow: 0 0 0 6px rgba(255,255,255,0.25), 0 20px 40px rgba(0,0,0,0.2);
+            transition: transform var(--transition);
+        }
+        .profile-avatar:hover {
+            transform: scale(1.05) rotate(-4deg);
         }
         
         .hero h2 {
-            font-size: 3em;
-            margin-bottom: 20px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            font-size: 2.8rem;
+            font-weight: 800;
+            margin-bottom: 12px;
+            text-shadow: 0 4px 12px rgba(0,0,0,0.2);
         }
-        
-        .hero p {
-            font-size: 1.3em;
-            margin-bottom: 30px;
+        .hero .tagline {
+            font-size: 1.2rem;
             opacity: 0.9;
+            margin-bottom: 10px;
+        }
+        .hero .typed-text {
+            font-size: 1.1rem;
+            opacity: 0.85;
+            min-height: 2.5rem;
+            direction: ltr;
         }
         
         .social-links {
             display: flex;
             justify-content: center;
-            gap: 25px;
-            margin-top: 30px;
+            gap: 16px;
+            margin-top: 28px;
+            flex-wrap: wrap;
         }
-        
         .social-links a {
-            color: white;
-            font-size: 1.8em;
-            transition: all 0.3s ease;
-            display: inline-block;
-            padding: 10px;
+            color: #fff;
+            background: rgba(255,255,255,0.15);
+            width: 56px;
+            height: 56px;
             border-radius: 50%;
-            background: rgba(255,255,255,0.1);
-            width: 60px;
-            height: 60px;
             display: flex;
             align-items: center;
             justify-content: center;
+            font-size: 1.6rem;
+            transition: all var(--transition);
+            backdrop-filter: blur(4px);
+            border: 1px solid rgba(255,255,255,0.1);
         }
-        
         .social-links a:hover {
-            transform: translateY(-5px) scale(1.1);
-            background: rgba(255,255,255,0.2);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            transform: translateY(-6px) scale(1.1);
+            background: rgba(255,255,255,0.3);
+            box-shadow: 0 16px 30px rgba(0,0,0,0.25);
         }
-        
         .social-links .instagram:hover { color: #E4405F; }
         .social-links .telegram:hover { color: #0088cc; }
-        .social-links .email:hover { color: #ea4335; }
+        .social-links .email:hover { color: #ffd700; }
+        .social-links .github:hover { color: #171515; }
         
-        /* بخش‌های محتوا */
+        /* ========== کارت‌های بخش‌ها ========== */
         section {
-            background: white;
+            background: var(--bg-card);
+            padding: 48px 40px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
             margin: 40px 0;
-            padding: 50px;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transition: all var(--transition);
+            border: 1px solid rgba(255,255,255,0.05);
         }
-        
         section:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+            box-shadow: var(--shadow-hover);
+            transform: translateY(-4px);
         }
         
         h3 {
-            color: #2c3e50;
-            font-size: 2em;
-            margin-bottom: 30px;
-            padding-bottom: 15px;
-            border-bottom: 3px solid #3498db;
-            position: relative;
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 28px;
+            padding-bottom: 14px;
+            border-bottom: 4px solid transparent;
+            border-image: var(--gradient-hero);
+            border-image-slice: 1;
+            display: inline-block;
         }
         
-        h3::after {
-            content: '';
-            position: absolute;
-            bottom: -3px;
-            right: 0;
-            width: 100px;
-            height: 3px;
-            background: linear-gradient(90deg, #3498db, transparent);
-        }
-        
-        /* مهارت‌ها */
+        /* ========== مهارت‌ها ========== */
         .skills {
             display: flex;
             flex-wrap: wrap;
-            gap: 15px;
-            margin-top: 20px;
+            gap: 12px;
         }
-        
         .skill-tag {
-            background: linear-gradient(135deg, #3498db, #2980b9);
-            color: white;
-            padding: 10px 20px;
-            border-radius: 25px;
-            font-size: 0.9em;
-            transition: transform 0.3s ease;
+            background: var(--gradient-hero);
+            color: #fff;
+            padding: 8px 22px;
+            border-radius: 40px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all var(--transition);
+            cursor: default;
+            box-shadow: 0 4px 12px rgba(102,126,234,0.25);
         }
-        
         .skill-tag:hover {
-            transform: scale(1.05);
+            transform: scale(1.06) rotate(-2deg);
+            box-shadow: 0 8px 24px rgba(102,126,234,0.4);
         }
         
-        /* نوشته‌ها */
+        /* ========== نوشته‌ها ========== */
         .post {
-            background: #f8f9fa;
-            padding: 30px;
-            border-radius: 15px;
-            margin: 25px 0;
-            border-right: 5px solid #3498db;
-            transition: all 0.3s ease;
+            background: var(--bg-primary);
+            padding: 24px 28px;
+            border-radius: 16px;
+            margin: 20px 0;
+            border-right: 6px solid;
+            border-image: var(--gradient-hero);
+            border-image-slice: 1;
+            transition: all var(--transition);
         }
-        
         .post:hover {
-            background: #e9ecef;
-            transform: translateX(10px);
+            transform: translateX(8px);
+            box-shadow: var(--shadow-hover);
         }
-        
         .post h4 {
-            color: #2c3e50;
-            font-size: 1.4em;
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+        .post-date {
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            display: block;
             margin-bottom: 10px;
         }
-        
-        .post-date {
-            color: #7f8c8d;
-            font-size: 0.9em;
-            margin-bottom: 15px;
-            display: block;
-        }
-        
         .read-more {
-            color: #3498db;
+            color: #667eea;
+            font-weight: 600;
             text-decoration: none;
-            font-weight: bold;
-            display: inline-block;
-            margin-top: 10px;
-            transition: color 0.3s ease;
-        }
-        
-        .read-more:hover {
-            color: #2980b9;
-        }
-        
-        /* شبکه‌های اجتماعی در بخش تماس */
-        .social-section {
-            text-align: center;
-            margin-top: 40px;
-        }
-        
-        .social-buttons {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin-top: 20px;
-            flex-wrap: wrap;
-        }
-        
-        .social-button {
-            display: flex;
+            display: inline-flex;
             align-items: center;
-            gap: 10px;
-            padding: 15px 25px;
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            color: white;
-            text-decoration: none;
-            border-radius: 50px;
-            transition: all 0.3s ease;
-            font-weight: bold;
+            gap: 6px;
+            transition: gap var(--transition);
+        }
+        .read-more:hover {
+            gap: 14px;
         }
         
-        .social-button.instagram {
-            background: linear-gradient(135deg, #E4405F, #C13584);
-        }
-        
-        .social-button.telegram {
-            background: linear-gradient(135deg, #0088cc, #005999);
-        }
-        
-        .social-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-        }
-        
-        /* فرم تماس -->
+        /* ========== فرم تماس ========== */
         .contact-form {
             display: grid;
             gap: 20px;
-            margin-top: 30px;
+            margin-top: 24px;
         }
-        
         .form-group {
             display: flex;
             flex-direction: column;
+            gap: 6px;
         }
-        
         .form-group label {
-            margin-bottom: 8px;
-            font-weight: bold;
-            color: #2c3e50;
+            font-weight: 600;
+            color: var(--text-secondary);
         }
-        
         .form-group input,
         .form-group textarea {
-            padding: 15px;
-            border: 2px solid #e9ecef;
-            border-radius: 10px;
+            padding: 14px 18px;
+            border: 2px solid rgba(0,0,0,0.08);
+            border-radius: 14px;
             font-family: inherit;
-            font-size: 1em;
-            transition: border-color 0.3s ease;
+            font-size: 1rem;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            transition: border var(--transition);
         }
-        
         .form-group input:focus,
         .form-group textarea:focus {
             outline: none;
-            border-color: #3498db;
+            border-color: #667eea;
+            box-shadow: 0 0 0 4px rgba(102,126,234,0.15);
         }
-        
         .btn {
-            background: linear-gradient(135deg, #3498db, #2980b9);
-            color: white;
-            padding: 15px 30px;
+            background: var(--gradient-hero);
+            color: #fff;
             border: none;
-            border-radius: 10px;
-            font-size: 1.1em;
-            font-weight: bold;
+            padding: 16px 32px;
+            border-radius: 40px;
+            font-size: 1.1rem;
+            font-weight: 700;
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: all var(--transition);
+            box-shadow: 0 8px 24px rgba(102,126,234,0.3);
             font-family: inherit;
         }
-        
         .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(52, 152, 219, 0.3);
+            transform: translateY(-4px);
+            box-shadow: 0 16px 40px rgba(102,126,234,0.4);
+        }
+        .btn:active {
+            transform: scale(0.96);
         }
         
-        /* فوتر */
-        footer {
-            background: #2c3e50;
-            color: white;
-            text-align: center;
-            padding: 40px 0;
-            margin-top: 50px;
-        }
-        
-        .footer-social {
+        /* دکمه‌های اجتماعی */
+        .social-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 16px;
             margin-top: 20px;
         }
-        
-        .footer-social a {
-            color: white;
-            margin: 0 15px;
-            font-size: 1.3em;
+        .social-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 14px 28px;
+            border-radius: 60px;
+            color: #fff;
             text-decoration: none;
-            transition: color 0.3s ease;
+            font-weight: 600;
+            transition: all var(--transition);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+        }
+        .social-button.instagram {
+            background: linear-gradient(135deg, #E4405F, #C13584);
+        }
+        .social-button.telegram {
+            background: linear-gradient(135deg, #0088cc, #005999);
+        }
+        .social-button:hover {
+            transform: translateY(-4px) scale(1.03);
+            box-shadow: 0 12px 32px rgba(0,0,0,0.2);
         }
         
+        /* ========== فوتر ========== */
+        footer {
+            background: var(--gradient-header);
+            color: #e2e8f0;
+            padding: 40px 0;
+            margin-top: 50px;
+            border-radius: var(--radius) var(--radius) 0 0;
+            text-align: center;
+        }
+        .footer-social a {
+            color: #cbd5e1;
+            margin: 0 16px;
+            font-size: 1.4rem;
+            transition: color var(--transition);
+            text-decoration: none;
+        }
         .footer-social a:hover {
-            color: #3498db;
+            color: #fff;
+        }
+        footer .date {
+            display: block;
+            margin-top: 12px;
+            opacity: 0.7;
+            font-size: 0.9rem;
         }
         
-        /* ریسپانسیو */
+        /* ========== ریسپانسیو ========== */
         @media (max-width: 768px) {
+            body { padding-top: 70px; }
             .header-content {
                 flex-direction: column;
-                text-align: center;
-                gap: 20px;
+                align-items: stretch;
+                gap: 8px;
             }
+            .logo { text-align: center; }
+            nav ul { justify-content: center; }
+            .theme-toggle { align-self: center; }
             
-            nav ul {
-                gap: 15px;
-                flex-wrap: wrap;
-                justify-content: center;
-            }
+            .hero { padding: 50px 20px; }
+            .hero h2 { font-size: 2rem; }
+            .profile-avatar { width: 120px; height: 120px; font-size: 3.5rem; }
             
-            .hero h2 {
-                font-size: 2em;
-            }
+            section { padding: 28px 18px; }
+            h3 { font-size: 1.6rem; }
             
-            section {
-                padding: 30px 20px;
-            }
-            
-            .skills {
-                justify-content: center;
-            }
-            
-            .social-links {
-                gap: 15px;
-            }
-            
-            .social-links a {
-                width: 50px;
-                height: 50px;
-                font-size: 1.5em;
-            }
-            
-            .social-buttons {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            .social-button {
-                width: 100%;
-                max-width: 300px;
-                justify-content: center;
-            }
+            .social-buttons { flex-direction: column; align-items: stretch; }
+            .social-button { justify-content: center; }
+        }
+        @media (max-width: 480px) {
+            nav a { font-size: 0.8rem; padding: 6px 12px; }
+            .hero h2 { font-size: 1.6rem; }
         }
     </style>
 </head>
 <body>
-    <!-- هدر -->
-    <header>
-        <div class="container">
-            <div class="header-content">
-                <div class="logo">
-                    <h1>مهدی رحیمیان</h1>
-                    <div class="subtitle">سایت شخصی</div>
-                </div>
-                <nav>
-                    <ul>
-                        <li><a href="#home">خانه</a></li>
-                        <li><a href="#about">درباره من</a></li>
-                        <li><a href="#skills">مهارت‌ها</a></li>
-                        <li><a href="#blog">نوشته‌ها</a></li>
-                        <li><a href="#contact">تماس</a></li>
-                    </ul>
-                </nav>
-            </div>
-        </div>
-    </header>
 
-    <!-- بخش اصلی -->
-    <section id="home" class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <div class="profile-img"></div>
-                <h2>مهدی رحیمیان</h2>
-                <p>خوش آمدید به فضای شخصی من برای نوشته‌ها، افکار و تجربیاتم</p>
-                <div class="social-links">
-                    <a href="https://www.instagram.com/sayehaye.bi.neghab" class="instagram" target="_blank" title="اینستاگرام">
-                        <i class="fab fa-instagram"></i>
-                    </a>
-                    <a href="https://t.me/sayehayebineghab" class="telegram" target="_blank" title="تلگرام">
-                        <i class="fab fa-telegram"></i>
-                    </a>
-                    <a href="mailto:your-email@example.com" class="email" title="ایمیل">
-                        <i class="fas fa-envelope"></i>
-                    </a>
-                </div>
+<!-- ========== هدر ========== -->
+<header>
+    <div class="container">
+        <div class="header-content">
+            <div class="logo">
+                <h1>مهدی رحیمیان</h1>
+                <div class="subtitle">سایت شخصی</div>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#home">خانه</a></li>
+                    <li><a href="#about">درباره</a></li>
+                    <li><a href="#skills">مهارت‌ها</a></li>
+                    <li><a href="#blog">نوشته‌ها</a></li>
+                    <li><a href="#contact">تماس</a></li>
+                </ul>
+            </nav>
+            <button class="theme-toggle" id="themeToggle" aria-label="تغییر تم">
+                <i class="fas fa-moon"></i>
+            </button>
+        </div>
+    </div>
+</header>
+
+<!-- ========== بخش قهرمان ========== -->
+<section id="home" class="hero">
+    <div class="container hero-content">
+        <div class="profile-avatar">
+            <i class="fas fa-user-astronaut"></i>
+        </div>
+        <h2>مهدی رحیمیان</h2>
+        <p class="tagline">نویسنده | پژوهشگر | عاشق تکنولوژی</p>
+        <div class="typed-text" id="typedText"></div>
+        <div class="social-links">
+            <a href="https://www.instagram.com/sayehaye.bi.neghab" class="instagram" target="_blank" title="اینستاگرام"><i class="fab fa-instagram"></i></a>
+            <a href="https://t.me/sayehayebineghab" class="telegram" target="_blank" title="تلگرام"><i class="fab fa-telegram"></i></a>
+            <a href="mailto:me@mahdirahimiyan.ir" class="email" title="ایمیل"><i class="fas fa-envelope"></i></a>
+            <a href="https://github.com/mahdiramsar" class="github" target="_blank" title="گیت‌هاب"><i class="fab fa-github"></i></a>
+        </div>
+    </div>
+</section>
+
+<div class="container">
+
+    <!-- ========== درباره ========== -->
+    <section id="about">
+        <h3>درباره من</h3>
+        <p style="font-size:1.05rem;">
+            سلام! من <strong>مهدی رحیمیان</strong> هستم. اینجا فضای شخصی من برای به اشتراک‌گذاری افکار، تجربیات و نوشته‌هایم است. 
+            عاشق یادگیری، مطالعه، و نوشتن هستم و معتقدم که کلمات می‌توانند جهان را تغییر دهند.
+        </p>
+        <p style="margin-top:14px;">
+            در این سایت می‌توانید مقالات، خاطرات، و دیدگاه‌های مرا در زمینه‌های مختلف بخوانید. 
+            از اینکه وقت می‌گذارید و مطالبم را می‌خوانید، بی‌نهایت سپاسگزارم.
+        </p>
+        <div style="margin-top:28px; text-align:center;">
+            <div class="social-buttons">
+                <a href="https://www.instagram.com/sayehaye.bi.neghab" class="social-button instagram" target="_blank">
+                    <i class="fab fa-instagram"></i> اینستاگرام
+                </a>
+                <a href="https://t.me/sayehayebineghab" class="social-button telegram" target="_blank">
+                    <i class="fab fa-telegram"></i> تلگرام
+                </a>
             </div>
         </div>
     </section>
 
-    <div class="container">
-        <!-- درباره من -->
-        <section id="about">
-            <h3>درباره من</h3>
-            <p>سلام! من <strong>مهدی رحیمیان</strong> هستم. اینجا فضای شخصی من برای به اشتراک گذاری افکار، تجربیات و نوشته‌هایم است. عاشق یادگیری و نوشتن هستم و دوست دارم دانش و تجربیاتم را با دیگران تقسیم کنم.</p>
-            <p>در این سایت می‌توانید مقالات، خاطرات و دیدگاه‌های مرا در زمینه‌های مختلف بخوانید. از اینکه وقت می‌گذارید و مطالبم را می‌خوانید، صمیمانه سپاسگزارم.</p>
-            
-            <div class="social-section">
-                <h4 style="color: #2c3e50; margin-bottom: 20px;">من رو در شبکه‌های اجتماعی دنبال کنید</h4>
-                <div class="social-buttons">
-                    <a href="https://www.instagram.com/sayehaye.bi.neghab" class="social-button instagram" target="_blank">
-                        <i class="fab fa-instagram"></i>
-                        اینستاگرام: sayehaye.bi.neghab
-                    </a>
-                    <a href="https://t.me/sayehayebineghab" class="social-button telegram" target="_blank">
-                        <i class="fab fa-telegram"></i>
-                        تلگرام: sayehayebineghab
-                    </a>
-                </div>
-            </div>
-        </section>
-
-        <!-- مهارت‌ها و علایق -->
-        <section id="skills">
-            <h3>مهارت‌ها و علایق</h3>
-            <div class="skills">
-                <span class="skill-tag">نوشتن و نویسندگی</span>
-                <span class="skill-tag">تحقیق و پژوهش</span>
-                <span class="skill-tag">تکنولوژی</span>
-                <span class="skill-tag">برنامه‌نویسی</span>
-                <span class="skill-tag">خواندن کتاب</span>
-                <span class="skill-tag">سفر و گردشگری</span>
-                <span class="skill-tag">عکاسی</span>
-                <span class="skill-tag">موسیقی</span>
-            </div>
-        </section>
-
-        <!-- نوشته‌ها -->
-        <section id="blog">
-            <h3>آخرین نوشته‌ها</h3>
-            
-            <div class="post">
-                <h4>شروع یک سفر جدید</h4>
-                <span class="post-date">۲۵ دی ۱۴۰۲</span>
-                <p>اولین نوشته من در این سایت شخصی. اینجا فضایی است برای به اشتراک گذاری افکار، تجربیات و یادگیری‌هایم. امیدوارم این سفر برای من و شما مفید باشد...</p>
-                <a href="#" class="read-more">ادامه مطلب →</a>
-            </div>
-            
-            <div class="post">
-                <h4>نقش نوشتن در رشد شخصی</h4>
-                <span class="post-date">۲۰ دی ۱۴۰۲</span>
-                <p>چگونه نوشتن می‌تواند به ما در درک بهتر خودمان و جهان اطرافمان کمک کند؟ در این مطلب به بررسی تأثیر نوشتن بر رشد فردی می‌پردازم...</p>
-                <a href="#" class="read-more">ادامه مطلب →</a>
-            </div>
-            
-            <div class="post">
-                <h4>تکنولوژی و زندگی مدرن</h4>
-                <span class="post-date">۱۵ دی ۱۴۰۲</span>
-                <p>بررسی تأثیر تکنولوژی بر سبک زندگی و روابط انسانی در عصر حاضر. چگونه می‌توانیم از تکنولوژی به شکل هوشمندانه‌تری استفاده کنیم؟</p>
-                <a href="#" class="read-more">ادامه مطلب →</a>
-            </div>
-        </section>
-
-        <!-- تماس با من -->
-        <section id="contact">
-            <h3>تماس با من</h3>
-            <p>اگر می‌خواهید با من در ارتباط باشید، از طریق فرم زیر یا شبکه‌های اجتماعی می‌توانید پیام بفرستید.</p>
-            
-            <form class="contact-form">
-                <div class="form-group">
-                    <label for="name">نام شما:</label>
-                    <input type="text" id="name" name="name" required>
-                </div>
-                
-                <div class="form-group">
-                    <label for="email">ایمیل:</label>
-                    <input type="email" id="email" name="email" required>
-                </div>
-                
-                <div class="form-group">
-                    <label for="message">پیام شما:</label>
-                    <textarea id="message" name="message" rows="5" required></textarea>
-                </div>
-                
-                <button type="submit" class="btn">ارسال پیام</button>
-            </form>
-            
-            <div class="social-section">
-                <h4 style="color: #2c3e50; margin: 40px 0 20px 0;">ارتباط سریع از طریق شبکه‌های اجتماعی</h4>
-                <div class="social-buttons">
-                    <a href="https://www.instagram.com/sayehaye.bi.neghab" class="social-button instagram" target="_blank">
-                        <i class="fab fa-instagram"></i>
-                        پیام در اینستاگرام
-                    </a>
-                    <a href="https://t.me/sayehayebineghab" class="social-button telegram" target="_blank">
-                        <i class="fab fa-telegram"></i>
-                        پیام در تلگرام
-                    </a>
-                </div>
-            </div>
-        </section>
-    </div>
-
-    <!-- فوتر -->
-    <footer>
-        <div class="container">
-            <p>© ۱۴۰۲ - تمامی حقوق محفوظ است | طراحی و توسعه توسط مهدی رحیمیان</p>
-            <div class="footer-social">
-                <a href="https://www.instagram.com/sayehaye.bi.neghab" target="_blank" title="اینستاگرام">
-                    <i class="fab fa-instagram"></i> اینستاگرام
-                </a>
-                <a href="https://t.me/sayehayebineghab" target="_blank" title="تلگرام">
-                    <i class="fab fa-telegram"></i> تلگرام
-                </a>
-                <a href="mailto:your-email@example.com" title="ایمیل">
-                    <i class="fas fa-envelope"></i> ایمیل
-                </a>
-            </div>
-            <p style="margin-top: 15px; opacity: 0.8; font-size: 0.9em;">
-                <a href="https://mahdiramsar.github.io" style="color: #3498db; text-decoration: none;">MahdiRahimiyan.ir</a>
-            </p>
+    <!-- ========== مهارت‌ها ========== -->
+    <section id="skills">
+        <h3>مهارت‌ها و علایق</h3>
+        <div class="skills">
+            <span class="skill-tag">✍️ نوشتن و نویسندگی</span>
+            <span class="skill-tag">🔍 تحقیق و پژوهش</span>
+            <span class="skill-tag">💻 تکنولوژی</span>
+            <span class="skill-tag">⚛️ برنامه‌نویسی</span>
+            <span class="skill-tag">📚 کتابخوانی</span>
+            <span class="skill-tag">🌍 سفر و گردشگری</span>
+            <span class="skill-tag">📸 عکاسی</span>
+            <span class="skill-tag">🎵 موسیقی</span>
         </div>
-    </footer>
+    </section>
 
-    <!-- اسکریپت‌های کوچک برای تعامل -->
-    <script>
-        // اسکرول نرم برای لینک‌های داخلی
+    <!-- ========== نوشته‌ها ========== -->
+    <section id="blog">
+        <h3>آخرین نوشته‌ها</h3>
+        
+        <div class="post">
+            <h4>شروع یک سفر جدید</h4>
+            <span class="post-date">۲۵ دی ۱۴۰۲</span>
+            <p>اولین نوشته من در این سایت شخصی. اینجا فضایی است برای به اشتراک گذاری افکار، تجربیات و یادگیری‌هایم...</p>
+            <a href="#" class="read-more">ادامه مطلب <i class="fas fa-arrow-left"></i></a>
+        </div>
+        
+        <div class="post">
+            <h4>نقش نوشتن در رشد شخصی</h4>
+            <span class="post-date">۲۰ دی ۱۴۰۲</span>
+            <p>چگونه نوشتن می‌تواند به ما در درک بهتر خودمان و جهان اطرافمان کمک کند؟ در این مطلب به بررسی تأثیر نوشتن بر رشد فردی می‌پردازم...</p>
+            <a href="#" class="read-more">ادامه مطلب <i class="fas fa-arrow-left"></i></a>
+        </div>
+        
+        <div class="post">
+            <h4>تکنولوژی و زندگی مدرن</h4>
+            <span class="post-date">۱۵ دی ۱۴۰۲</span>
+            <p>بررسی تأثیر تکنولوژی بر سبک زندگی و روابط انسانی در عصر حاضر. چگونه می‌توانیم از تکنولوژی به شکل هوشمندانه‌تری استفاده کنیم؟</p>
+            <a href="#" class="read-more">ادامه مطلب <i class="fas fa-arrow-left"></i></a>
+        </div>
+    </section>
+
+    <!-- ========== تماس ========== -->
+    <section id="contact">
+        <h3>تماس با من</h3>
+        <p>خوشحال می‌شوم پیام شما را دریافت کنم. از طریق فرم زیر یا شبکه‌های اجتماعی با من در ارتباط باشید.</p>
+        
+        <!-- فرم تماس با استفاده از Formspree (رایگان) -->
+        <form class="contact-form" id="contactForm" action="https://formspree.io/f/xyzzyx" method="POST">
+            <div class="form-group">
+                <label for="name">نام شما</label>
+                <input type="text" id="name" name="name" required placeholder="مثلاً: مهدی" />
+            </div>
+            <div class="form-group">
+                <label for="email">ایمیل شما</label>
+                <input type="email" id="email" name="email" required placeholder="example@mail.com" />
+            </div>
+            <div class="form-group">
+                <label for="message">پیام شما</label>
+                <textarea id="message" name="message" rows="5" required placeholder="متن پیام..."></textarea>
+            </div>
+            <button type="submit" class="btn"><i class="fas fa-paper-plane"></i> ارسال پیام</button>
+        </form>
+        <div id="formStatus" style="margin-top:16px; font-weight:600; text-align:center;"></div>
+        
+        <div style="margin-top:40px; text-align:center;">
+            <p style="color:var(--text-secondary);">یا از طریق شبکه‌های اجتماعی پیام دهید:</p>
+            <div class="social-buttons">
+                <a href="https://www.instagram.com/sayehaye.bi.neghab" class="social-button instagram" target="_blank">
+                    <i class="fab fa-instagram"></i> پیام در اینستاگرام
+                </a>
+                <a href="https://t.me/sayehayebineghab" class="social-button telegram" target="_blank">
+                    <i class="fab fa-telegram"></i> پیام در تلگرام
+                </a>
+            </div>
+        </div>
+    </section>
+
+</div>
+
+<!-- ========== فوتر ========== -->
+<footer>
+    <div class="container">
+        <p>© ۱۴۰۲ - تمامی حقوق محفوظ | طراحی و توسعه توسط مهدی رحیمیان</p>
+        <div class="footer-social">
+            <a href="https://www.instagram.com/sayehaye.bi.neghab" target="_blank" title="اینستاگرام"><i class="fab fa-instagram"></i></a>
+            <a href="https://t.me/sayehayebineghab" target="_blank" title="تلگرام"><i class="fab fa-telegram"></i></a>
+            <a href="mailto:me@mahdirahimiyan.ir" title="ایمیل"><i class="fas fa-envelope"></i></a>
+            <a href="https://github.com/mahdiramsar" target="_blank" title="گیت‌هاب"><i class="fab fa-github"></i></a>
+        </div>
+        <span class="date" id="persianDate"></span>
+        <p style="margin-top:10px; opacity:0.6; font-size:0.9rem;">
+            <a href="https://mahdiramsar.github.io" style="color:#94a3b8; text-decoration:none;">MahdiRahimiyan.ir</a>
+        </p>
+    </div>
+</footer>
+
+<!-- ========== اسکریپت ========== -->
+<script>
+    (function() {
+        "use strict";
+
+        // ---- 1. دارک مود ----
+        const toggle = document.getElementById('themeToggle');
+        const icon = toggle.querySelector('i');
+        const currentTheme = localStorage.getItem('theme') || 'light';
+        if (currentTheme === 'dark') {
+            document.documentElement.setAttribute('data-theme', 'dark');
+            icon.classList.replace('fa-moon', 'fa-sun');
+        }
+        toggle.addEventListener('click', () => {
+            const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+            if (isDark) {
+                document.documentElement.removeAttribute('data-theme');
+                localStorage.setItem('theme', 'light');
+                icon.classList.replace('fa-sun', 'fa-moon');
+            } else {
+                document.documentElement.setAttribute('data-theme', 'dark');
+                localStorage.setItem('theme', 'dark');
+                icon.classList.replace('fa-moon', 'fa-sun');
+            }
+        });
+
+        // ---- 2. تایپینگ (Typewriter) ----
+        const typedEl = document.getElementById('typedText');
+        const phrases = [
+            'نوشته‌های من را بخوانید ✍️',
+            'همراه من در سفر یادگیری 🌱',
+            'اینجا دنیای کلمات است 📖'
+        ];
+        let index = 0, charIndex = 0, isDeleting = false;
+        function typeEffect() {
+            const current = phrases[index];
+            if (!isDeleting) {
+                typedEl.textContent = current.substring(0, charIndex++);
+                if (charIndex > current.length) {
+                    isDeleting = true;
+                    setTimeout(typeEffect, 2000);
+                    return;
+                }
+            } else {
+                typedEl.textContent = current.substring(0, charIndex--);
+                if (charIndex < 0) {
+                    isDeleting = false;
+                    charIndex = 0;
+                    index = (index + 1) % phrases.length;
+                    setTimeout(typeEffect, 400);
+                    return;
+                }
+            }
+            setTimeout(typeEffect, isDeleting ? 60 : 120);
+        }
+        typeEffect();
+
+        // ---- 3. اسکرول نرم ----
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
+            anchor.addEventListener('click', function(e) {
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
                 if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 }
             });
         });
 
-        // انیمیشن برای sections هنگام اسکرول
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
+        // ---- 4. انیمیشن ورود بخش‌ها ----
+        const sections = document.querySelectorAll('section:not(.hero)');
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -646,44 +729,57 @@
                     entry.target.style.transform = 'translateY(0)';
                 }
             });
-        }, observerOptions);
-
-        // اعمال انیمیشن روی sections
-        document.querySelectorAll('section').forEach(section => {
+        }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+        sections.forEach(section => {
             section.style.opacity = '0';
-            section.style.transform = 'translateY(20px)';
-            section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            section.style.transform = 'translateY(30px)';
+            section.style.transition = 'opacity 0.7s ease, transform 0.7s ease';
             observer.observe(section);
         });
 
-        // مدیریت فرم تماس
-        document.querySelector('.contact-form').addEventListener('submit', function(e) {
+        // ---- 5. فرم تماس (با Formspree) ----
+        const form = document.getElementById('contactForm');
+        const status = document.getElementById('formStatus');
+        form.addEventListener('submit', async (e) => {
             e.preventDefault();
-            alert('پیام شما با موفقیت ارسال شد! به زودی با شما تماس می‌گیرم.');
-            this.reset();
+            status.textContent = 'در حال ارسال...';
+            status.style.color = '#667eea';
+            const data = new FormData(form);
+            try {
+                const response = await fetch(form.action, {
+                    method: 'POST',
+                    body: data,
+                    headers: { 'Accept': 'application/json' }
+                });
+                if (response.ok) {
+                    status.textContent = '✅ پیام شما با موفقیت ارسال شد! به زودی پاسخ می‌دهم.';
+                    status.style.color = '#22c55e';
+                    form.reset();
+                } else {
+                    throw new Error('خطا در ارسال');
+                }
+            } catch (error) {
+                status.textContent = '❌ خطا در ارسال پیام. لطفاً دوباره تلاش کنید یا از شبکه‌های اجتماعی پیام دهید.';
+                status.style.color = '#ef4444';
+            }
+            setTimeout(() => { status.textContent = ''; }, 8000);
         });
 
-        // اضافه کردن effect به دکمه‌های شبکه‌های اجتماعی
-        document.querySelectorAll('.social-button').forEach(button => {
-            button.addEventListener('mouseenter', function() {
-                this.style.transform = 'translateY(-5px) scale(1.05)';
-            });
-            
-            button.addEventListener('mouseleave', function() {
-                this.style.transform = 'translateY(0) scale(1)';
-            });
-        });
-
-        // اضافه کردن تاریخ شمسی پویا
+        // ---- 6. تاریخ شمسی پویا ----
         function updatePersianDate() {
             const now = new Date();
-            const options = { year: 'numeric', month: 'long', day: 'numeric' };
+            const options = { year: 'numeric', month: 'long', day: 'numeric', weekday: 'long' };
             const persianDate = now.toLocaleDateString('fa-IR', options);
-            document.getElementById('current-date').textContent = persianDate;
+            document.getElementById('persianDate').textContent = '📅 ' + persianDate;
         }
-        
-        // اجرای تابع هنگام لود صفحه
-        document.addEventListener('DOMContentLoaded', updatePersianDate);
-    </script>
+        updatePersianDate();
+
+        // ---- 7. (اختیاری) نمایش سال در فوتر ----
+        document.querySelector('footer p:first-child').innerHTML =
+            `© ${new Date().getFullYear()} - تمامی حقوق محفوست | طراحی و توسعه توسط مهدی رحیمیان`;
+
+    })();
+</script>
+
 </body>
 </html>
