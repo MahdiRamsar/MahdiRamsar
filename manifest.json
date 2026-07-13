@@ -1,11 +1,11 @@
 {
-    "name": "مهدی رحیمیان | سایت شخصی",
+    "name": "مهدی رحیمیان | سایت شخصی ۲۰۲۶",
     "short_name": "مهدی رحیمیان",
-    "description": "سایت شخصی مهدی رحیمیان با آخرین تکنولوژی‌های وب",
     "start_url": "/",
     "display": "standalone",
     "background_color": "#07080b",
     "theme_color": "#07080b",
+    "orientation": "portrait",
     "icons": [
         {
             "src": "icon-192.png",
