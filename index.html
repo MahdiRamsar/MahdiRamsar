@@ -1,12 +1,11 @@
-```html
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- PWA Manifest -->
-    <link rel="manifest" href="manifest.json" />
+    <!-- PWA Manifest (در صورت نیاز فعال کنید) -->
+    <!-- <link rel="manifest" href="manifest.json" /> -->
 
     <!-- SEO -->
     <title>مهدی رحیمیان | سایت شخصی ۲۰۲۶</title>
@@ -269,7 +268,8 @@
         .hero-bg {
             position: absolute;
             inset: 0;
-            background-image: url('1.jpg');
+            /* به جای عکس گم‌شده، از گرادینت استفاده شده است */
+            background: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
             background-size: cover;
             background-position: center;
             filter: blur(20px) brightness(0.6);
@@ -305,10 +305,16 @@
             border: 4px solid rgba(255, 255, 255, 0.25);
             box-shadow: 0 0 0 12px rgba(255, 255, 255, 0.08), 0 30px 60px rgba(0, 0, 0, 0.5);
             transition: all var(--transition);
-            animation: floatAvatar 6s ease-in-out infinite alternate;
             opacity: 0;
+            /* انیمیشن‌ها تثبیت شدند */
             animation: floatAvatar 6s ease-in-out infinite alternate, fadeInUp 0.8s ease forwards;
             animation-delay: 0.1s;
+            background: var(--gradient-1); /* پس‌زمینه جایگزین برای زمانی که عکس موجود نیست */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 5rem;
+            color: #fff;
         }
 
         @keyframes floatAvatar {
@@ -357,6 +363,8 @@
             opacity: 0;
             animation: fadeInUp 0.8s ease forwards;
             animation-delay: 0.4s;
+            /* قابلیت دسترسی برای صفحه‌خوان‌ها */
+            aria-live: polite;
         }
 
         .hero-cta {
@@ -685,7 +693,7 @@
         }
 
         /* ============================================================
-                   BLOG POSTS – فقط کارت‌های ویژه با اسکرول
+                   BLOG POSTS
                    ============================================================ */
         .search-box {
             display: flex;
@@ -710,7 +718,6 @@
             border-color: oklch(0.6 0.2 270);
         }
 
-        /* ===== پست ویژه با جلد و اسکرول داخلی ===== */
         .post-featured {
             background: var(--bg-secondary);
             border-radius: var(--radius);
@@ -727,12 +734,22 @@
             position: relative;
             width: 100%;
             height: 200px;
-            background-image: url('1.jpg');
             background-size: cover;
             background-position: center;
             filter: blur(6px) brightness(0.5);
             transform: scale(1.02);
             transition: transform 0.3s ease;
+        }
+        
+        /* تنوع در جلد پست‌ها با گرادینت‌های مختلف */
+        .post-featured:nth-child(1) .featured-cover {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        }
+        .post-featured:nth-child(2) .featured-cover {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        }
+        .post-featured:nth-child(3) .featured-cover {
+            background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
         }
 
         .post-featured:hover .featured-cover {
@@ -770,7 +787,6 @@
             margin-bottom: 10px;
         }
 
-        /* محتوای کامل با اسکرول */
         .post-featured .full-content-scroll {
             max-height: 220px;
             overflow-y: auto;
@@ -997,10 +1013,13 @@
         <div class="hero-bg" id="heroBg"></div>
         <div class="hero-overlay"></div>
         <div class="hero-content">
-            <img src="1.jpg" alt="مهدی رحیمیان" class="profile-avatar" loading="lazy" />
+            <!-- در صورت آپلود عکس واقعی، src را تغییر دهید. در حال حاضر آیکون نمایش داده می‌شود -->
+            <div class="profile-avatar" style="background: var(--gradient-1);">
+                <i class="fas fa-user-circle"></i>
+            </div>
             <h2>مهدی رحیمیان</h2>
             <p class="tagline">نویسنده | گوینده | تولیدکننده محتوای صوتی و تصویری</p>
-            <div class="typed-text" id="typedText"></div>
+            <div class="typed-text" id="typedText" aria-live="polite"></div>
             <a href="#works" class="hero-cta">
                 <i class="fas fa-headphones"></i>
                 شنیدن دکلمه‌ها
@@ -1026,19 +1045,19 @@
             </p>
             <div class="stats-grid">
                 <div class="stat-item stagger-item">
-                    <span class="number" id="statDeclem">۲۰+</span>
+                    <span class="number" id="statDeclem">۰</span>
                     <span class="label">دکلمه</span>
                 </div>
                 <div class="stat-item stagger-item">
-                    <span class="number" id="statPosts">۵۰+</span>
+                    <span class="number" id="statPosts">۰</span>
                     <span class="label">نوشته</span>
                 </div>
                 <div class="stat-item stagger-item">
-                    <span class="number" id="statFollowers">۱۰۰۰+</span>
+                    <span class="number" id="statFollowers">۰</span>
                     <span class="label">دنبال‌کننده</span>
                 </div>
                 <div class="stat-item stagger-item">
-                    <span class="number" id="statProjects">۱۲</span>
+                    <span class="number" id="statProjects">۰</span>
                     <span class="label">پروژه</span>
                 </div>
             </div>
@@ -1102,9 +1121,7 @@
 
             <div id="blogPosts">
 
-                <!-- ============================================= -->
-                <!-- نوشته ۱ – تقاطع عشق و خشم                      -->
-                <!-- ============================================= -->
+                <!-- نوشته ۱ – تقاطع عشق و خشم -->
                 <div class="post-featured stagger-item" data-title="تقاطع عشق و خشم">
                     <div class="featured-cover"></div>
                     <div class="featured-overlay">
@@ -1155,9 +1172,7 @@
                     </div>
                 </div>
 
-                <!-- ============================================= -->
-                <!-- نوشته ۲ – حال دلم خوب نیست                     -->
-                <!-- ============================================= -->
+                <!-- نوشته ۲ – حال دلم خوب نیست -->
                 <div class="post-featured stagger-item" data-title="حال دلم خوب نیست">
                     <div class="featured-cover"></div>
                     <div class="featured-overlay">
@@ -1203,9 +1218,7 @@
                     </div>
                 </div>
 
-                <!-- ============================================= -->
-                <!-- نوشته ۳ – آن فاجعه‌ی مهربان لعنتی              -->
-                <!-- ============================================= -->
+                <!-- نوشته ۳ – آن فاجعه‌ی مهربان لعنتی -->
                 <div class="post-featured stagger-item" data-title="آن فاجعه‌ی مهربان لعنتی">
                     <div class="featured-cover"></div>
                     <div class="featured-overlay">
@@ -1420,50 +1433,67 @@
             document.querySelector('footer .copyright').innerHTML =
                 `© ${new Date().getFullYear()} · تمامی حقوق محفوظ · طراحی با تکنولوژی‌های ۲۰۲۶`;
 
-            // Counter animation
-            function animateCounter(el, target, suffix = '') {
-                let current = 0;
-                const step = Math.ceil(target / 40);
-                const interval = setInterval(() => {
-                    current += step;
-                    if (current >= target) { current = target;
-                        clearInterval(interval); }
-                    el.textContent = current + suffix;
-                }, 30);
+            // =============================================================
+            // Counter Animation with Persian Digits and requestAnimationFrame
+            // =============================================================
+            function toPersianNum(n) {
+                const persianDigits = ['۰', '۱', '۲', '۳', '۴', '۵', '۶', '۷', '۸', '۹'];
+                return String(n).replace(/\d/g, d => persianDigits[d]);
             }
+
+            function animateCounter(el, target, suffix = '') {
+                const duration = 2000; // 2 seconds
+                const startTime = performance.now();
+                const startVal = 0;
+
+                function update(currentTime) {
+                    const elapsed = currentTime - startTime;
+                    const progress = Math.min(elapsed / duration, 1);
+                    const current = Math.floor(progress * target);
+                    el.textContent = toPersianNum(current) + suffix;
+                    if (progress < 1) {
+                        requestAnimationFrame(update);
+                    } else {
+                        el.textContent = toPersianNum(target) + suffix;
+                    }
+                }
+                requestAnimationFrame(update);
+            }
+
             const statsObserver = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         const items = entry.target.querySelectorAll('.stat-item .number');
+                        // اهداف به ترتیب: دکلمه، نوشته، دنبال‌کننده، پروژه
                         const targets = [20, 50, 1000, 12];
                         items.forEach((el, i) => {
-                            animateCounter(el, targets[i], (i < 3) ? '+' : '');
+                            // برای آیتم‌های ۱ تا ۳ علامت "+" اضافه می‌شود
+                            const suffix = (i < 3) ? '+' : '';
+                            animateCounter(el, targets[i], suffix);
                         });
                         statsObserver.unobserve(entry.target);
                     }
                 });
             }, { threshold: 0.3 });
+
             const statsSection = document.querySelector('.stats-grid');
             if (statsSection) statsObserver.observe(statsSection.closest('section'));
 
-            // Parallax on hero
+            // Parallax on hero (با ضریب کمتر برای جلوگیری از لبه‌های سفید)
             const heroBg = document.getElementById('heroBg');
             if (heroBg) {
                 window.addEventListener('scroll', () => {
-                    heroBg.style.transform = `scale(1.1) translateY(${window.scrollY * 0.15}px)`;
+                    heroBg.style.transform = `scale(1.1) translateY(${window.scrollY * 0.05}px)`;
                 });
             }
 
-            console.log('✅ سه نوشته با اسکرول داخلی اضافه شدند.');
-        })();
-    </script>
+            // Service Worker (جهت جلوگیری از خطای ۴۰۴، این بخش غیرفعال شده است.
+            // برای فعال‌سازی، خط زیر را از حالت کامنت خارج کرده و فایل sw.js را در پوشه اصلی ایجاد کنید)
+            // if ('serviceWorker' in navigator) {
+            //     navigator.serviceWorker.register('sw.js').catch(() => {});
+            // }
 
-    <!-- Service Worker -->
-    <script>
-        if ('serviceWorker' in navigator) {
-            navigator.serviceWorker.register('sw.js').catch(() => {});
-        }
+        })();
     </script>
 </body>
 </html>
-```
