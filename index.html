@@ -3,32 +3,25 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="manifest" href="manifest.json" />
 
-    <!-- PWA Manifest (برای جلوگیری از خطای ۴۰۴ کامنت شده، در صورت نیاز فعال کنید) -->
-    <!-- <link rel="manifest" href="manifest.json" /> -->
-
-    <!-- SEO -->
     <title>مهدی رحیمیان | سایت شخصی ۲۰۲۶</title>
     <meta name="description" content="سایت شخصی مهدی رحیمیان با آخرین تکنولوژی‌های وب ۲۰۲۶" />
     <meta name="theme-color" content="#07080b" />
 
-    <!-- Open Graph -->
     <meta property="og:title" content="مهدی رحیمیان | سایت شخصی ۲۰۲۶" />
     <meta property="og:description" content="آثار صوتی و تصویری، دلنوشته‌ها و کانال تلگرام" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://mahdiramsar.github.io" />
-
-    <!-- Schema.org -->
+    
     <script type="application/ld+json">
         { "@context": "https://schema.org", "@type": "Person", "name": "مهدی رحیمیان", "url": "https://mahdiramsar.github.io" }
     </script>
 
-    <!-- Fonts -->
     <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
 
     <style>
-        /* ============================ CSS VARIABLES ============================ */
         :root {
             --bg-primary: oklch(0.08 0.01 260);
             --bg-secondary: oklch(0.12 0.015 260);
@@ -56,7 +49,6 @@
             --shadow: 0 20px 60px oklch(0 0 0 / 0.06);
         }
 
-        /* ============================ RESET ============================ */
         * { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; scroll-padding-top: 80px; }
         body {
@@ -69,7 +61,6 @@
         ::selection { background: oklch(0.6 0.2 270); color: #fff; }
         .container { max-width: 1140px; margin: 0 auto; padding: 0 24px; }
 
-        /* ============================ CURSOR GLOW ============================ */
         #cursor-glow {
             position: fixed; width: 60px; height: 60px; border-radius: 50%;
             background: radial-gradient(circle, oklch(0.6 0.2 270 / 0.3) 0%, transparent 70%);
@@ -84,13 +75,11 @@
         }
         @media (hover: hover) { #cursor-glow, #cursor-dot { display: block; } }
 
-        /* ============================ SCROLL PROGRESS ============================ */
         #scroll-progress {
             position: fixed; top: 0; left: 0; width: 0%; height: 3px;
             background: var(--gradient-1); z-index: 9998; transition: width 0.1s;
         }
 
-        /* ============================ HEADER ============================ */
         header {
             position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
             background: oklch(0.08 0.01 260 / 0.5); backdrop-filter: blur(32px) saturate(200%);
@@ -103,16 +92,17 @@
         nav a { color: var(--text-secondary); font-weight: 600; padding: 8px 18px; border-radius: 40px; font-size: 0.9rem; transition: all var(--transition); }
         nav a:hover, nav a:focus-visible { color: #fff; background: oklch(1 0 0 / 0.06); outline: none; }
         .header-actions { display: flex; align-items: center; gap: 12px; }
-        .theme-toggle {
+        
+        .theme-toggle, .lang-toggle {
             background: var(--bg-card); border: 1px solid var(--glass-border); border-radius: 50%;
             width: 44px; height: 44px; font-size: 1.2rem; cursor: pointer; color: var(--text-primary);
             transition: all var(--transition); display: flex; align-items: center; justify-content: center;
         }
-        .theme-toggle:hover, .theme-toggle:focus-visible {
+        .theme-toggle:hover, .theme-toggle:focus-visible,
+        .lang-toggle:hover, .lang-toggle:focus-visible {
             transform: rotate(45deg) scale(1.1); border-color: oklch(0.6 0.2 270); outline: none;
         }
 
-        /* ============================ HERO ============================ */
         .hero {
             position: relative; min-height: 100vh; display: flex; align-items: center; justify-content: center;
             text-align: center; overflow: hidden; margin-bottom: 0; padding: 0; background: #000;
@@ -134,8 +124,7 @@
             box-shadow: 0 0 0 12px rgba(255, 255, 255, 0.08), 0 30px 60px rgba(0, 0, 0, 0.5);
             transition: all var(--transition); opacity: 0;
             animation: floatAvatar 6s ease-in-out infinite alternate, fadeInUp 0.8s ease forwards;
-            animation-delay: 0.1s;
-            background: var(--gradient-1);
+            animation-delay: 0.1s; background: var(--gradient-1);
         }
         @keyframes floatAvatar { 0% { transform: translateY(0); } 100% { transform: translateY(-16px); } }
         @keyframes fadeInUp { to { opacity: 1; transform: translateY(0); } }
@@ -149,7 +138,6 @@
         .social-links a { color: #fff; background: rgba(255, 255, 255, 0.12); backdrop-filter: blur(4px); width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.7rem; transition: all var(--transition); border: 1px solid rgba(255, 255, 255, 0.15); }
         .social-links a:hover, .social-links a:focus-visible { transform: translateY(-8px) scale(1.08); background: rgba(255, 255, 255, 0.25); outline: none; }
 
-        /* ============================ SECTIONS ============================ */
         section:not(.hero) { background: var(--bg-card); backdrop-filter: blur(16px); border-radius: var(--radius); border: 1px solid var(--glass-border); padding: 48px 40px; margin: 40px 0; box-shadow: var(--shadow); transition: all var(--transition); position: relative; z-index: 2; overflow: hidden; }
         section:not(.hero)::before { content: ''; position: absolute; inset: 0; border-radius: var(--radius); pointer-events: none; background: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), oklch(0.6 0.2 270 / 0.06) 0%, transparent 60%); opacity: 0; transition: opacity 0.4s ease; z-index: 0; }
         section:not(.hero):hover::before { opacity: 1; }
@@ -161,19 +149,13 @@
         .stagger-item:nth-child(2) { animation-delay: 0.2s; }
         .stagger-item:nth-child(3) { animation-delay: 0.3s; }
         .stagger-item:nth-child(4) { animation-delay: 0.4s; }
-        .stagger-item:nth-child(5) { animation-delay: 0.5s; }
-        .stagger-item:nth-child(6) { animation-delay: 0.6s; }
-        .stagger-item:nth-child(7) { animation-delay: 0.7s; }
-        .stagger-item:nth-child(8) { animation-delay: 0.8s; }
 
-        /* ============================ STATS ============================ */
         .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 24px; margin: 20px 0 10px; }
         .stat-item { text-align: center; padding: 20px 16px; background: var(--bg-secondary); border-radius: var(--radius-sm); border: 1px solid var(--glass-border); transition: all var(--transition); }
         .stat-item:hover { transform: translateY(-6px); border-color: oklch(0.6 0.2 270 / 0.2); }
         .stat-item .number { font-size: 2.4rem; font-weight: 900; background: var(--gradient-1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; display: block; line-height: 1.2; }
         .stat-item .label { font-size: 0.85rem; color: var(--text-muted); margin-top: 4px; }
 
-        /* ============================ WORKS ============================ */
         .works-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px; margin-top: 20px; }
         .work-card { background: var(--bg-secondary); padding: 28px 20px 24px; border-radius: var(--radius-sm); text-align: center; border: 1px solid var(--glass-border); transition: all var(--transition); box-shadow: var(--shadow); position: relative; overflow: hidden; }
         .work-card::after { content: ''; position: absolute; inset: 0; background: var(--gradient-1); opacity: 0; transition: opacity var(--transition); border-radius: var(--radius-sm); }
@@ -187,7 +169,6 @@
         .work-link { color: oklch(0.6 0.2 270); font-weight: 700; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; transition: all var(--transition); padding: 8px 20px; border-radius: 40px; background: oklch(0.6 0.2 270 / 0.08); }
         .work-link:hover, .work-link:focus-visible { gap: 16px; background: var(--gradient-1); color: #fff; outline: none; }
 
-        /* ============================ TELEGRAM ============================ */
         .telegram-channel { background: var(--gradient-1); border-radius: var(--radius-sm); padding: 36px 28px; margin-top: 30px; text-align: center; color: #fff; box-shadow: 0 16px 48px oklch(0.6 0.2 270 / 0.25); transition: all var(--transition); border: 1px solid oklch(1 0 0 / 0.06); }
         .telegram-channel:hover { transform: scale(1.02); box-shadow: 0 24px 64px oklch(0.6 0.2 270 / 0.35); }
         .telegram-channel h4 { font-size: 1.6rem; font-weight: 800; margin-bottom: 6px; display: flex; align-items: center; justify-content: center; gap: 12px; }
@@ -195,7 +176,6 @@
         .telegram-channel .btn-channel { display: inline-flex; align-items: center; gap: 12px; background: oklch(1 0 0 / 0.15); color: #fff; padding: 14px 36px; border-radius: 60px; text-decoration: none; font-weight: 700; font-size: 1.1rem; backdrop-filter: blur(4px); border: 1px solid oklch(1 0 0 / 0.15); transition: all var(--transition); }
         .telegram-channel .btn-channel:hover, .telegram-channel .btn-channel:focus-visible { background: oklch(1 0 0 / 0.3); transform: translateY(-4px); box-shadow: 0 12px 32px oklch(0 0 0 / 0.15); outline: none; }
 
-        /* ============================ BLOG ============================ */
         .search-box { display: flex; gap: 12px; margin-bottom: 24px; flex-wrap: wrap; }
         .search-box input { flex: 1; min-width: 200px; padding: 14px 20px; border-radius: 60px; border: 1px solid var(--glass-border); background: var(--bg-secondary); color: var(--text-primary); font-family: var(--font); font-size: 0.95rem; transition: all var(--transition); }
         .search-box input:focus { outline: none; border-color: oklch(0.6 0.2 270); box-shadow: 0 0 0 4px oklch(0.6 0.2 270 / 0.1); }
@@ -212,53 +192,64 @@
         .post-featured .full-content-scroll::-webkit-scrollbar-track { background: transparent; }
         .post-featured .full-content-scroll::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.25); border-radius: 8px; }
 
-        /* ============================ BACK TO TOP ============================ */
         #backToTop { position: fixed; bottom: 32px; right: 32px; width: 52px; height: 52px; border-radius: 50%; background: var(--bg-secondary); color: var(--text-secondary); border: 1px solid var(--glass-border); font-size: 1.2rem; cursor: pointer; transition: all var(--transition); opacity: 0; visibility: hidden; transform: translateY(20px); z-index: 999; display: flex; align-items: center; justify-content: center; }
         #backToTop.visible { opacity: 1; visibility: visible; transform: translateY(0); }
         #backToTop:hover, #backToTop:focus-visible { background: oklch(1 0 0 / 0.04); color: #fff; outline: none; }
 
-        /* ============================ FOOTER ============================ */
         footer { background: var(--bg-secondary); border-top: 1px solid var(--glass-border); padding: 48px 0 32px; margin-top: 60px; text-align: center; position: relative; z-index: 2; }
         .footer-social a { color: var(--text-muted); margin: 0 16px; font-size: 1.5rem; transition: all var(--transition); display: inline-block; }
         .footer-social a:hover, .footer-social a:focus-visible { color: #fff; transform: translateY(-4px); outline: none; }
         footer .date { display: block; margin-top: 14px; opacity: 0.6; font-size: 0.9rem; }
         footer .copyright { margin-top: 8px; opacity: 0.4; font-size: 0.85rem; }
 
-        /* ============================ RESPONSIVE ============================ */
         @media (max-width: 768px) { .header-content { flex-direction: column; align-items: stretch; gap: 6px; } .logo { text-align: center; } nav ul { justify-content: center; } .header-actions { align-self: center; } .hero { min-height: 90vh; padding: 60px 16px 40px; } .hero h2 { font-size: 2.2rem; } .profile-avatar { width: 180px; height: 180px; } .hero-cta { padding: 14px 28px; font-size: 1rem; } section:not(.hero) { padding: 28px 18px; } h3 { font-size: 1.6rem; } .works-grid { grid-template-columns: 1fr; } .stats-grid { grid-template-columns: repeat(2, 1fr); } .post-featured .featured-cover { height: 140px; } .post-featured .featured-overlay { padding: 18px 18px 22px; } .post-featured .featured-overlay h4 { font-size: 1.4rem; } .post-featured .full-content-scroll { max-height: 200px; font-size: 0.95rem; } #backToTop { width: 48px; height: 48px; right: 16px; bottom: 16px; } }
         @media (max-width: 480px) { nav a { font-size: 0.75rem; padding: 6px 12px; } .hero h2 { font-size: 1.8rem; } .profile-avatar { width: 150px; height: 150px; } .stats-grid { grid-template-columns: 1fr 1fr; gap: 12px; } .stat-item .number { font-size: 1.8rem; } .post-featured .featured-cover { height: 120px; } .post-featured .featured-overlay h4 { font-size: 1.2rem; } .post-featured .full-content-scroll { max-height: 150px; font-size: 0.9rem; } }
     </style>
 </head>
 <body>
 
-    <!-- CURSOR -->
     <div id="cursor-glow"></div>
     <div id="cursor-dot"></div>
-
-    <!-- SCROLL PROGRESS -->
     <div id="scroll-progress"></div>
 
-    <!-- HEADER -->
     <header>
         <div class="container">
             <div class="header-content">
-                <div class="logo"><h1>مهدی رحیمیان</h1><div class="subtitle">سایت شخصی ۲۰۲۶</div></div>
-                <nav><ul><li><a href="#home">خانه</a></li><li><a href="#about">درباره</a></li><li><a href="#works">آثار</a></li><li><a href="#blog">نوشته‌ها</a></li></ul></nav>
-                <div class="header-actions"><button class="theme-toggle" id="themeToggle" aria-label="تغییر تم" aria-pressed="false"><i class="fas fa-sun"></i></button></div>
+                <div class="logo">
+                    <h1>مهدی رحیمیان</h1>
+                    <div class="subtitle" data-i18n="header_subtitle">سایت شخصی ۲۰۲۶</div>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="#home" data-i18n="nav_home">خانه</a></li>
+                        <li><a href="#about" data-i18n="nav_about">درباره</a></li>
+                        <li><a href="#works" data-i18n="nav_works">آثار</a></li>
+                        <li><a href="#blog" data-i18n="nav_blog">نوشته‌ها</a></li>
+                    </ul>
+                </nav>
+                <div class="header-actions">
+                    <button class="lang-toggle" id="langToggle" aria-label="تغییر زبان" data-i18n="lang_btn_fa">
+                        <i class="fas fa-globe"></i>
+                    </button>
+                    <button class="theme-toggle" id="themeToggle" aria-label="تغییر تم" aria-pressed="false">
+                        <i class="fas fa-sun"></i>
+                    </button>
+                </div>
             </div>
         </div>
     </header>
 
-    <!-- HERO -->
     <section id="home" class="hero">
         <div class="hero-bg" id="heroBg"></div>
         <div class="hero-overlay"></div>
         <div class="hero-content">
             <img src="1.jpg" alt="مهدی رحیمیان" class="profile-avatar" loading="lazy" />
             <h2>مهدی رحیمیان</h2>
-            <p class="tagline">نویسنده | گوینده | تولیدکننده محتوای صوتی و تصویری</p>
+            <p class="tagline" data-i18n="hero_tagline">نویسنده | گوینده | تولیدکننده محتوای صوتی و تصویری</p>
             <div class="typed-text" id="typedText" aria-live="polite"></div>
-            <a href="#works" class="hero-cta"><i class="fas fa-headphones"></i> شنیدن دکلمه‌ها <i class="fas fa-arrow-left"></i></a>
+            <a href="#works" class="hero-cta" data-i18n="hero_cta">
+                <i class="fas fa-headphones"></i> <span data-i18n="hero_cta_text">شنیدن دکلمه‌ها</span> <i class="fas fa-arrow-left"></i>
+            </a>
             <div class="social-links">
                 <a href="https://www.instagram.com/sayehaye.bi.neghab" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
                 <a href="https://t.me/sayehayebineghab" target="_blank" rel="noopener noreferrer"><i class="fab fa-telegram"></i></a>
@@ -269,44 +260,43 @@
     </section>
 
     <div class="container">
-        <!-- ABOUT -->
         <section id="about">
-            <h3><i class="fas fa-user-circle"></i> درباره من</h3>
-            <p style="font-size:1.05rem; color:var(--text-secondary);">سلام! من <strong style="color:var(--text-primary);">مهدی رحیمیان</strong> هستم. اینجا فضای شخصی من برای به اشتراک‌گذاری افکار، تجربیات، دکلمه‌ها و نوشته‌هایم است. عاشق یادگیری، مطالعه، و تولید محتوای صوتی و تصویری هستم.</p>
+            <h3><i class="fas fa-user-circle"></i> <span data-i18n="about_title">درباره من</span></h3>
+            <p style="font-size:1.05rem; color:var(--text-secondary);" data-i18n="about_desc">
+                سلام! من <strong style="color:var(--text-primary);">مهدی رحیمیان</strong> هستم. اینجا فضای شخصی من برای به اشتراک‌گذاری افکار، تجربیات، دکلمه‌ها و نوشته‌هایم است. عاشق یادگیری، مطالعه، و تولید محتوای صوتی و تصویری هستم.
+            </p>
             <div class="stats-grid">
-                <div class="stat-item stagger-item"><span class="number" id="statDeclem">۰</span><span class="label">دکلمه</span></div>
-                <div class="stat-item stagger-item"><span class="number" id="statPosts">۰</span><span class="label">نوشته</span></div>
-                <div class="stat-item stagger-item"><span class="number" id="statFollowers">۰</span><span class="label">دنبال‌کننده</span></div>
-                <div class="stat-item stagger-item"><span class="number" id="statProjects">۰</span><span class="label">پروژه</span></div>
+                <div class="stat-item stagger-item"><span class="number" id="statDeclem">۰</span><span class="label" data-i18n="stat_1">دکلمه</span></div>
+                <div class="stat-item stagger-item"><span class="number" id="statPosts">۰</span><span class="label" data-i18n="stat_2">نوشته</span></div>
+                <div class="stat-item stagger-item"><span class="number" id="statFollowers">۰</span><span class="label" data-i18n="stat_3">دنبال‌کننده</span></div>
+                <div class="stat-item stagger-item"><span class="number" id="statProjects">۰</span><span class="label" data-i18n="stat_4">پروژه</span></div>
             </div>
         </section>
 
-        <!-- WORKS -->
         <section id="works">
-            <h3><i class="fas fa-play-circle"></i> آثار صوتی و تصویری</h3>
-            <p style="color:var(--text-secondary); margin-bottom:20px;">گزیده‌ای از دکلمه‌ها و دلنوشته‌های من با صدای خودم</p>
+            <h3><i class="fas fa-play-circle"></i> <span data-i18n="works_title">آثار صوتی و تصویری</span></h3>
+            <p style="color:var(--text-secondary); margin-bottom:20px;" data-i18n="works_desc">گزیده‌ای از دکلمه‌ها و دلنوشته‌های من با صدای خودم</p>
             <div class="works-grid">
-                <div class="work-card stagger-item"><div class="work-cover"><i class="fas fa-microphone-alt"></i></div><h4>متن و صدا #مهدی_رحیمیان✌️</h4><span class="work-date">۱۶ دسامبر ۲۰۲۵</span><a href="https://www.instagram.com/reel/DSVt85bgpEi/" target="_blank" rel="noopener noreferrer" class="work-link"><i class="fab fa-instagram"></i> مشاهده</a></div>
-                <div class="work-card stagger-item"><div class="work-cover"><i class="fas fa-feather-alt"></i></div><h4>مرا به حال خود بگذارید و رهایم کنید...</h4><span class="work-date">دلنوشته</span><a href="https://www.instagram.com/reel/DPrup05gl1L/" target="_blank" rel="noopener noreferrer" class="work-link"><i class="fab fa-instagram"></i> مشاهده</a></div>
-                <div class="work-card stagger-item"><div class="work-cover"><i class="fas fa-heart"></i></div><h4>صدایم کن…</h4><span class="work-date">۱۶ اوت ۲۰۲۵</span><a href="https://www.instagram.com/reel/DNafAsACM-G/" target="_blank" rel="noopener noreferrer" class="work-link"><i class="fab fa-instagram"></i> مشاهده</a></div>
-                <div class="work-card stagger-item"><div class="work-cover"><i class="fas fa-star"></i></div><h4>متن زیبا و عمیق با خوانش گرم</h4><span class="work-date">دلنوشته</span><a href="https://www.instagram.com/reel/DNBSxyzCnJb/" target="_blank" rel="noopener noreferrer" class="work-link"><i class="fab fa-instagram"></i> مشاهده</a></div>
+                <div class="work-card stagger-item"><div class="work-cover"><i class="fas fa-microphone-alt"></i></div><h4>متن و صدا #مهدی_رحیمیان✌️</h4><span class="work-date">۱۶ دسامبر ۲۰۲۵</span><a href="https://www.instagram.com/reel/DSVt85bgpEi/" target="_blank" rel="noopener noreferrer" class="work-link"><i class="fab fa-instagram"></i> <span data-i18n="view">مشاهده</span></a></div>
+                <div class="work-card stagger-item"><div class="work-cover"><i class="fas fa-feather-alt"></i></div><h4>مرا به حال خود بگذارید و رهایم کنید...</h4><span class="work-date">دلنوشته</span><a href="https://www.instagram.com/reel/DPrup05gl1L/" target="_blank" rel="noopener noreferrer" class="work-link"><i class="fab fa-instagram"></i> <span data-i18n="view">مشاهده</span></a></div>
+                <div class="work-card stagger-item"><div class="work-cover"><i class="fas fa-heart"></i></div><h4>صدایم کن…</h4><span class="work-date">۱۶ اوت ۲۰۲۵</span><a href="https://www.instagram.com/reel/DNafAsACM-G/" target="_blank" rel="noopener noreferrer" class="work-link"><i class="fab fa-instagram"></i> <span data-i18n="view">مشاهده</span></a></div>
+                <div class="work-card stagger-item"><div class="work-cover"><i class="fas fa-star"></i></div><h4>متن زیبا و عمیق با خوانش گرم</h4><span class="work-date">دلنوشته</span><a href="https://www.instagram.com/reel/DNBSxyzCnJb/" target="_blank" rel="noopener noreferrer" class="work-link"><i class="fab fa-instagram"></i> <span data-i18n="view">مشاهده</span></a></div>
             </div>
-            <div class="telegram-channel stagger-item"><h4><i class="fab fa-telegram"></i> کانال تلگرام من</h4><p>«بیان بی‌پرده احساسات و داستان‌ها» </p><a href="https://t.me/sayehayebineghab" target="_blank" rel="noopener noreferrer" class="btn-channel"><i class="fab fa-telegram"></i> عضویت در کانال تلگرام <i class="fas fa-arrow-left"></i></a></div>
+            <div class="telegram-channel stagger-item"><h4><i class="fab fa-telegram"></i> <span data-i18n="tg_title">کانال تلگرام من</span></h4><p data-i18n="tg_desc">«بیان بی‌پرده احساسات و داستان‌ها» </p><a href="https://t.me/sayehayebineghab" target="_blank" rel="noopener noreferrer" class="btn-channel"><i class="fab fa-telegram"></i> <span data-i18n="tg_btn">عضویت در کانال تلگرام</span> <i class="fas fa-arrow-left"></i></a></div>
         </section>
 
-        <!-- ========== BLOG ========== -->
         <section id="blog">
-            <h3><i class="fas fa-pen-fancy"></i> نوشته‌ها</h3>
-            <div class="search-box"><input type="text" id="blogSearch" placeholder="جستجوی نوشته‌ها..." /></div>
+            <h3><i class="fas fa-pen-fancy"></i> <span data-i18n="blog_title">نوشته‌ها</span></h3>
+            <div class="search-box"><input type="text" id="blogSearch" placeholder="جستجوی نوشته‌ها..." data-i18n="search_placeholder" /></div>
             <div id="blogPosts">
 
-                <!-- نوشته ۱ – تقاطع عشق و خشم -->
-                <div class="post-featured stagger-item" data-title="تقاطع عشق و خشم">
+                <!-- Post 1 -->
+                <div class="post-featured stagger-item" data-title-fa="تقاطع عشق و خشم" data-title-en="Intersection of Love and Rage">
                     <div class="featured-cover"></div>
                     <div class="featured-overlay">
-                        <h4><i class="fas fa-heart-broken"></i> تقاطع عشق و خشم</h4>
-                        <span class="post-date">۱۰ تیر ۱۴۰۴</span>
-                        <div class="full-content-scroll">
+                        <h4><i class="fas fa-heart-broken"></i> <span data-i18n="post1_title">تقاطع عشق و خشم</span></h4>
+                        <span class="post-date" data-i18n="post1_date">۱۰ تیر ۱۴۰۴</span>
+                        <div class="full-content-scroll" data-i18n="post1_content">
                             گاهی کلمه‌ها
                             چیزی بیشتر از صداهای بی‌جان نیستند
                             اما همین بی‌جان‌ها
@@ -351,13 +341,13 @@
                     </div>
                 </div>
 
-                <!-- نوشته ۲ – حال دلم خوب نیست -->
-                <div class="post-featured stagger-item" data-title="حال دلم خوب نیست">
+                <!-- Post 2 -->
+                <div class="post-featured stagger-item" data-title-fa="حال دلم خوب نیست" data-title-en="My Heart Isn't Well">
                     <div class="featured-cover"></div>
                     <div class="featured-overlay">
-                        <h4><i class="fas fa-heart-broken"></i> حال دلم خوب نیست</h4>
-                        <span class="post-date">۱۵ تیر ۱۴۰۴</span>
-                        <div class="full-content-scroll">
+                        <h4><i class="fas fa-heart-broken"></i> <span data-i18n="post2_title">حال دلم خوب نیست</span></h4>
+                        <span class="post-date" data-i18n="post2_date">۱۵ تیر ۱۴۰۴</span>
+                        <div class="full-content-scroll" data-i18n="post2_content">
                             حال دلم خوب نیست
                             نه از آن حال‌ هایی که با یک فنجان چای یا لبخند کسی خوب می‌شود
                             خشم در رگ‌هایم می‌دود
@@ -397,13 +387,13 @@
                     </div>
                 </div>
 
-                <!-- نوشته ۳ – آن فاجعه‌ی مهربان لعنتی -->
-                <div class="post-featured stagger-item" data-title="آن فاجعه‌ی مهربان لعنتی">
+                <!-- Post 3 -->
+                <div class="post-featured stagger-item" data-title-fa="آن فاجعه‌ی مهربان لعنتی" data-title-en="That Damn Kind Disaster">
                     <div class="featured-cover"></div>
                     <div class="featured-overlay">
-                        <h4><i class="fas fa-heart-broken"></i> آن فاجعه‌ی مهربان لعنتی</h4>
-                        <span class="post-date">۲۰ تیر ۱۴۰۴</span>
-                        <div class="full-content-scroll">
+                        <h4><i class="fas fa-heart-broken"></i> <span data-i18n="post3_title">آن فاجعه‌ی مهربان لعنتی</span></h4>
+                        <span class="post-date" data-i18n="post3_date">۲۰ تیر ۱۴۰۴</span>
+                        <div class="full-content-scroll" data-i18n="post3_content">
                             آن فاجعه‌ی مهربان لعنتی
                             نه می‌گذارد فراموش کنم
                             نه اجازه می‌دهد تمام کنم
@@ -446,15 +436,13 @@
                     </div>
                 </div>
 
-                <!-- ============================================= -->
-                <!-- نوشته ۴ – از این آشفتگی بیکران (متن جدید)     -->
-                <!-- ============================================= -->
-                <div class="post-featured stagger-item" data-title="از این آشفتگی بیکران">
+                <!-- Post 4 -->
+                <div class="post-featured stagger-item" data-title-fa="از این آشفتگی بیکران" data-title-en="From this Endless Chaos">
                     <div class="featured-cover"></div>
                     <div class="featured-overlay">
-                        <h4><i class="fas fa-wind"></i> از این آشفتگی بیکران</h4>
-                        <span class="post-date">۲۳ تیر ۱۴۰۴</span>
-                        <div class="full-content-scroll">
+                        <h4><i class="fas fa-wind"></i> <span data-i18n="post4_title">از این آشفتگی بیکران</span></h4>
+                        <span class="post-date" data-i18n="post4_date">۲۳ تیر ۱۴۰۴</span>
+                        <div class="full-content-scroll" data-i18n="post4_content">
                             از این آشفتگی بیکران
                             از این غوغای بی حاصل 
                             از این نفسهایی که در گرداب هر روزه گم می‌شوند... به ستوه آمده‌ام
@@ -483,16 +471,13 @@
 
             </div>
         </section>
-
     </div>
 
-    <!-- BACK TO TOP -->
     <button id="backToTop" aria-label="بازگشت به بالا"><i class="fas fa-chevron-up"></i></button>
 
-    <!-- FOOTER -->
     <footer>
         <div class="container">
-            <p class="copyright">تمامی حقوق محفوظ | طراحی با تکنولوژی‌های ۲۰۲۶</p>
+            <p class="copyright" data-i18n="footer_copyright">تمامی حقوق محفوظ | طراحی با تکنولوژی‌های ۲۰۲۶</p>
             <div class="footer-social">
                 <a href="https://www.instagram.com/sayehaye.bi.neghab" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
                 <a href="https://t.me/sayehayebineghab" target="_blank" rel="noopener noreferrer"><i class="fab fa-telegram"></i></a>
@@ -503,12 +488,137 @@
         </div>
     </footer>
 
-    <!-- ============================================================
-    SCRIPT
-    ============================================================ -->
     <script>
         (function() {
             "use strict";
+
+            // ---------- TRANSLATIONS ----------
+            const translations = {
+                fa: {
+                    header_subtitle: "سایت شخصی ۲۰۲۶",
+                    nav_home: "خانه", nav_about: "درباره", nav_works: "آثار", nav_blog: "نوشته‌ها",
+                    lang_btn_fa: "تغییر زبان",
+                    hero_tagline: "نویسنده | گوینده | تولیدکننده محتوای صوتی و تصویری",
+                    hero_cta_text: "شنیدن دکلمه‌ها",
+                    about_title: "درباره من",
+                    about_desc: "سلام! من <strong style=\"color:var(--text-primary);\">مهدی رحیمیان</strong> هستم. اینجا فضای شخصی من برای به اشتراک‌گذاری افکار، تجربیات، دکلمه‌ها و نوشته‌هایم است. عاشق یادگیری، مطالعه، و تولید محتوای صوتی و تصویری هستم.",
+                    stat_1: "دکلمه", stat_2: "نوشته", stat_3: "دنبال‌کننده", stat_4: "پروژه",
+                    works_title: "آثار صوتی و تصویری",
+                    works_desc: "گزیده‌ای از دکلمه‌ها و دلنوشته‌های من با صدای خودم",
+                    view: "مشاهده",
+                    tg_title: "کانال تلگرام من",
+                    tg_desc: "«بیان بی‌پرده احساسات و داستان‌ها»",
+                    tg_btn: "عضویت در کانال تلگرام",
+                    blog_title: "نوشته‌ها",
+                    search_placeholder: "جستجوی نوشته‌ها...",
+                    post1_title: "تقاطع عشق و خشم", post1_date: "۱۰ تیر ۱۴۰۴",
+                    post2_title: "حال دلم خوب نیست", post2_date: "۱۵ تیر ۱۴۰۴",
+                    post3_title: "آن فاجعه‌ی مهربان لعنتی", post3_date: "۲۰ تیر ۱۴۰۴",
+                    post4_title: "از این آشفتگی بیکران", post4_date: "۲۳ تیر ۱۴۰۴",
+                    footer_copyright: "تمامی حقوق محفوظ | طراحی با تکنولوژی‌های ۲۰۲۶",
+                    typewriter: ["دکلمه‌های مرا بشنوید 🎧", "همراه من در سفر کلمات 🌱", "اینجا صدا و معنا به هم می‌رسند 📖", "تجربیاتم را با شما به اشتراک می‌گذارم 💫"],
+                    post1_content: "گاهی کلمه‌ها\nچیزی بیشتر از صداهای بی‌جان نیستند\nاما همین بی‌جان‌ها\nدقیق‌ترین ابزار شکنجه‌اند\nمن سالها\nبا واژه‌هایی زندگی کردم\nکه ظاهراً برای عشق ساخته شده بودند\nاما در بطنشان\nنفرتی رسوب کرده بود\nکه از هزار سیلی دردناک‌تر بود\n\n«تو را دوستت دارم»\nدرست زمانی که داشت دلم از حضورت می‌سوخت\nمن از تو متنفر بودم\nدر همان لحظه‌ای که بی‌دفاع\nبه چشم‌هایت زل زده بودم\nو دلم می‌خواست\nتمام زخم‌هایم را در آغوشت جا بذارم\n\nاین است تناقض بشر\nکه می‌داند چه چیزی آزارش می‌دهد\nاما باز هم به آن پناه می‌برد\nو من\nبزرگ‌ترین خطای منطقی‌ام را\nدر دوست داشتن تو مرتکب شدم\n\nدر من چیزی شکست\nنه یک‌بار\nنه دو بار\nبارها\nدر تقاطع عشق و خشم\nدر سطرهای نانوشته‌ای\nکه بین واژه‌ی «دوستت دارم» و «دیگر هیچ‌وقت نباش»\nمدام در رفت‌ و آمد بودم\nو حالا فقط\nزخم مانده\nواژه مانده\nو من\nکه نمی‌دانم\nاز کدامشان باید بگریزم",
+                    post2_content: "حال دلم خوب نیست\nنه از آن حال‌ هایی که با یک فنجان چای یا لبخند کسی خوب می‌شود\nخشم در رگ‌هایم می‌دود\nتنفر مثل زهر\nآرام در جانم می‌نشیند\nچشمانم خیس از بغضی کهنه\nو دلم...\nدلم زخمی ست که هنوز خون تازه می‌ریزد\n\nحافظه\nدشمن بی‌رحم شب های من است\nهر شب\nتمام صحنه‌ها را دوباره زنده می‌کند\nبا همان وضوح\nهمان درد\n\nمی‌خواهم بروم\nکوچ کنم به جایی که هیچکس مرا نشناسد\nهیچکس نتواند پیدایم کند\nاما مسئولم...\nدر برابر آنهایی که دوستشان دارم مسئولم\n\nفراموشی برایم آسان نیست\nمثل دیگران نمی‌توانم بگویم بیخیال\nنمی‌توانم ذهنم را خاموش کنم\nنمی توانم وانمود کنم که اشتباه می‌کردم\nزیرا هر بار که تلاش می‌کنم\nتکرار می آید\nتکرار همان درد\nهمان زخم\nهمان تنهایی\nتکرار مزخرفترین واژه برای فراموش نکردن است\n\nو حالا...\nاز این دنیا حالم به هم می‌خورد",
+                    post3_content: "آن فاجعه‌ی مهربان لعنتی\nنه می‌گذارد فراموش کنم\nنه اجازه می‌دهد تمام کنم\n\nتمام شب ها\nذهنم مثل یک نوار قدیمی\nهمان لحظه ها را پخش می‌کند\nکلمه‌ هایی که نباید می‌ گفتی\nسکوت‌ هایی که نباید می‌کردم\nو آن لبخندت که\nدرست وقتی دلم را می‌دراندی\nروی لبانت می‌نشست\n\nمن در تکرار مردم\nدر بازپخش بیرحمانه‌ی\nتمام اشتباه‌ها و همه ی دوست‌داشتن‌ ها\nکه هیچوقت به نجات نینجامید\n\nآیا تو واقعاً نمی‌فهمیدی؟\nیا من بیش از حد\nدر خودم غرق شده بودم\nکه نتوانستم نشانه‌ها را ببینم؟\n\nآدم‌ها\nگاهی با ما می‌مانند\nنه از سر عشق\nکه از سر ترس\nاز سر عادت\nیا صرفاً به خاطر ناتوانی‌ شان\nدر ترک کردن آنچه\nروزی برایشان معنا داشت\n\nاما من\nدر دل همان تکرار\nفهمیدم که هر دوستت دارم\nمی‌تواند نوعی شکنجه باشد\nاگر از دهان کسی بیرون بیاید\nکه نمی‌خواهد حقیقتت را ببیند",
+                    post4_content: "از این آشفتگی بیکران\nاز این غوغای بی حاصل \nاز این نفسهایی که در گرداب هر روزه گم می‌شوند... به ستوه آمده‌ام\nچرا باید به فردا بیندیشم؟\nفردا هم جز طوفان\nجز حسرت\nجز تکرار همین امروز چیزی نیست\nاما تو...\nتو جایی نیستی که نقشه بکشی یا فردا را سروسامان دهی\nتو خود فردا هستی که نمی‌ آید\nخود آرامشی که هرگز نبود\nمن به جاده های این دنیا بی‌اعتمادم\nبه خورشیدهایی که هر صبح طلوع می‌کنند اما زمین را گرم نمی‌کنند\nپس مرا با خود ببر\nحتی اگر بگویم: مرا بگذار و برو\nبگذار زیر همان درختان بید مجنون\nزیر همان چشمهایی که هیچ طوفانی آن را از ریشه نمی‌کند\nاگر باز پرسیدی کجاست\nمی‌ گویم\nآن جا که سایه‌ات آغاز می‌شود و من پایان...\n\nمهدی رحیمیان ✌️"
+                },
+                en: {
+                    header_subtitle: "Personal Website 2026",
+                    nav_home: "Home", nav_about: "About", nav_works: "Works", nav_blog: "Posts",
+                    lang_btn_fa: "Change Language",
+                    hero_tagline: "Writer | Narrator | Audio & Visual Content Creator",
+                    hero_cta_text: "Listen to Narrations",
+                    about_title: "About Me",
+                    about_desc: "Hi! I'm <strong style=\"color:var(--text-primary);\">Mahdi Rahimian</strong>. This is my personal space for sharing thoughts, experiences, narrations, and writings. I love learning, reading, and producing audio and visual content.",
+                    stat_1: "Narrations", stat_2: "Posts", stat_3: "Followers", stat_4: "Projects",
+                    works_title: "Audio & Visual Works",
+                    works_desc: "A selection of my narrations and heartfelt writings in my own voice",
+                    view: "View",
+                    tg_title: "My Telegram Channel",
+                    tg_desc: "«Unveiled expression of emotions and stories»",
+                    tg_btn: "Join Telegram Channel",
+                    blog_title: "Posts",
+                    search_placeholder: "Search posts...",
+                    post1_title: "Intersection of Love and Rage", post1_date: "July 10, 2025",
+                    post2_title: "My Heart Isn't Well", post2_date: "July 15, 2025",
+                    post3_title: "That Damn Kind Disaster", post3_date: "July 20, 2025",
+                    post4_title: "From this Endless Chaos", post4_date: "July 23, 2025",
+                    footer_copyright: "All Rights Reserved | Designed with 2026 Technologies",
+                    typewriter: ["Listen to my narrations 🎧", "Join me on the journey of words 🌱", "Where sound and meaning meet 📖", "Sharing my experiences with you 💫"],
+                    post1_content: "Sometimes words\nare nothing more than soulless sounds\nbut these very soulless sounds\nare the most precise instruments of torture\nFor years\nI lived with words\nthat were seemingly built for love\nbut deep within them\nhatred had sedimented\nmore painful than a thousand slaps\n\n«I love you»\nexactly when my heart was burning from your presence\nI hated you\nin that very moment when defenseless\nI stared into your eyes\nand I wished\nto place all my wounds in your embrace\n\nThis is human contradiction\nto know what hurts you\nbut still take refuge in it\nand I\ncommitted my greatest logical fallacy\nin loving you\n\nSomething in me broke\nnot once\nnot twice\nmany times\nat the intersection of love and rage\nin the unwritten lines\nbetween the words «I love you» and «Never be again»\nI was constantly coming and going\nand now only\nthe wound remains\nthe word remains\nand I\nwho don't know\nwhich one I should escape from",
+                    post2_content: "My heart isn't well\nnot the kind that gets better with a cup of tea or someone's smile\nrage runs through my veins\nhatred like poison\ngently sits in my soul\nmy eyes wet with an old lump in the throat\nand my heart...\nmy heart is a wound that still bleeds fresh blood\n\nMemory\nthe merciless enemy of my nights\nevery night\nit brings all the scenes back to life\nwith the same clarity\nthe same pain\n\nI want to leave\nmigrate to a place where no one knows me\nno one can find me\nbut I am responsible...\nresponsible to those I love\n\nForgetting isn't easy for me\nunlike others, I can't say 'whatever'\nI can't turn off my mind\nI can't pretend I was wrong\nbecause every time I try\nrepetition comes\nthe repetition of the same pain\nthe same wound\nthe same loneliness\nthe most ridiculous word for not forgetting is repetition\n\nand now...\nI'm sick of this world",
+                    post3_content: "That damn kind disaster\nneither lets me forget\nnor allows me to finish\n\nEvery night\nmy mind like an old tape\nplays those moments back\nthe words you shouldn't have said\nthe silences I shouldn't have kept\nand that smile of yours\nthat appeared on your lips\nexactly when you were tearing my heart apart\n\nI died in repetition\nin the ruthless replay\nof all the mistakes and all the loves\nthat never led to salvation\n\nDid you truly not understand?\nor was I too\ndrowned in myself\nthat I couldn't see the signs?\n\nPeople\nsometimes stay with us\nnot out of love\nbut out of fear\nout of habit\nor simply because of their inability\nto leave what\nonce held meaning for them\n\nBut I\nin the heart of that repetition\nrealized that every 'I love you'\ncan be a form of torture\nif it comes from the mouth of someone\nwho doesn't want to see your truth",
+                    post4_content: "From this endless chaos\nfrom this futile uproar\nfrom these breaths that get lost in the daily whirlpool... I am weary\nWhy should I think of tomorrow?\nTomorrow is nothing but a storm\nnothing but regret\nnothing but the repetition of this very today\nBut you...\nYou are not a place to map out or put tomorrow in order\nYou are tomorrow itself that never comes\nthe tranquility that never existed\nI distrust the roads of this world\nto the suns that rise every morning but don't warm the earth\nSo take me with you\neven if I say: leave me and go\nLet me be under those weeping willows\nunder those eyes that no storm can uproot\nIf you ask again where it is\nI will say\nthere where your shadow begins and I end...\n\nMahdi Rahimian ✌️"
+                }
+            };
+
+            // ---------- LANGUAGE SWITCH ----------
+            let currentLang = localStorage.getItem('lang') || 'fa';
+            const langToggle = document.getElementById('langToggle');
+            const htmlTag = document.documentElement;
+
+            function setLanguage(lang) {
+                currentLang = lang;
+                document.querySelectorAll('[data-i18n]').forEach(el => {
+                    const key = el.getAttribute('data-i18n');
+                    if (translations[lang][key] !== undefined) {
+                        if (el.tagName === 'INPUT') {
+                            el.placeholder = translations[lang][key];
+                        } else {
+                            el.innerHTML = translations[lang][key];
+                        }
+                    }
+                });
+
+                // Update blog post titles and dates (data-title-fa / data-title-en)
+                document.querySelectorAll('.post-featured').forEach(post => {
+                    const titleKey = 'post' + post.dataset.titleFa.split(' ')[0] + '_title'; // Rough, better to rely on data-i18n
+                    // Actually, the titles are already handled by data-i18n. 
+                });
+
+                // Update Typed.js phrases
+                const newPhrases = translations[lang].typewriter;
+                typewriterPhrases = newPhrases;
+
+                // Update Direction and Lang
+                if (lang === 'fa') {
+                    htmlTag.setAttribute('dir', 'rtl');
+                    htmlTag.setAttribute('lang', 'fa');
+                    langToggle.setAttribute('aria-label', 'تغییر زبان');
+                } else {
+                    htmlTag.setAttribute('dir', 'ltr');
+                    htmlTag.setAttribute('lang', 'en');
+                    langToggle.setAttribute('aria-label', 'Change Language');
+                }
+
+                // Update Blog Search Placeholder
+                const searchInput = document.getElementById('blogSearch');
+                searchInput.placeholder = translations[lang].search_placeholder;
+
+                localStorage.setItem('lang', lang);
+                // Restart typewriter with new phrases
+                typedPhrases = translations[lang].typewriter;
+                pIdx = 0; cIdx = 0; del = false; lastTime = 0;
+                // We need to reset the typewriter loop. We'll just trigger a reset by changing the ref.
+                // Actually, we can just call the function again.
+                // To prevent multiple loops, we check if it's running.
+                // In the code below, we'll use the global `typedPhrases`.
+            }
+
+            // Define a global for typewriter to pick up
+            let typedPhrases = translations[currentLang].typewriter;
+
+            langToggle.addEventListener('click', () => {
+                const newLang = currentLang === 'fa' ? 'en' : 'fa';
+                setLanguage(newLang);
+            });
+
+            // Initialize language based on localStorage
+            if (currentLang === 'en') {
+                setLanguage('en');
+            } else {
+                setLanguage('fa');
+            }
 
             // ---------- CURSOR ----------
             const glow = document.getElementById('cursor-glow');
@@ -578,16 +688,15 @@
                 }
             });
 
-            // ---------- TYPEWRITER ----------
+            // ---------- TYPEWRITER (Multi-language support) ----------
             const typedEl = document.getElementById('typedText');
-            const phrases = ['دکلمه‌های مرا بشنوید 🎧', 'همراه من در سفر کلمات 🌱', 'اینجا صدا و معنا به هم می‌رسند 📖', 'تجربیاتم را با شما به اشتراک می‌گذارم 💫'];
             let pIdx = 0, cIdx = 0, del = false;
             let lastTime = 0, typeSpeed = 100, deleteSpeed = 50, pauseTime = 2200;
 
             function typeWriter(timestamp) {
                 if (!lastTime) lastTime = timestamp;
                 const elapsed = timestamp - lastTime;
-                const current = phrases[pIdx];
+                const current = typedPhrases[pIdx];
                 
                 if (!del) {
                     if (elapsed >= typeSpeed) {
@@ -599,7 +708,7 @@
                     if (elapsed >= deleteSpeed) {
                         typedEl.textContent = current.substring(0, cIdx--);
                         lastTime = timestamp;
-                        if (cIdx < 0) { del = false; cIdx = 0; pIdx = (pIdx + 1) % phrases.length; setTimeout(() => { lastTime = 0; requestAnimationFrame(typeWriter); }, 400); return; }
+                        if (cIdx < 0) { del = false; cIdx = 0; pIdx = (pIdx + 1) % typedPhrases.length; setTimeout(() => { lastTime = 0; requestAnimationFrame(typeWriter); }, 400); return; }
                     }
                 }
                 requestAnimationFrame(typeWriter);
@@ -626,7 +735,8 @@
             searchInput.addEventListener('input', function() {
                 const query = this.value.trim().toLowerCase();
                 posts.forEach(post => {
-                    const title = post.dataset.title ? post.dataset.title.toLowerCase() : '';
+                    const titleKey = currentLang === 'fa' ? post.dataset.titleFa : post.dataset.titleEn;
+                    const title = titleKey ? titleKey.toLowerCase() : '';
                     post.style.display = title.includes(query) ? 'block' : 'none';
                 });
             });
@@ -639,27 +749,34 @@
             backBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 
             // ---------- DATE ----------
-            document.getElementById('persianDate').textContent = '📅 ' + new Date().toLocaleDateString('fa-IR', { year: 'numeric', month: 'long', day: 'numeric', weekday: 'long' });
-            document.querySelector('footer .copyright').innerHTML = `© ${new Date().getFullYear()} · تمامی حقوق محفوظ · طراحی با تکنولوژی‌های ۲۰۲۶`;
+            const dateEl = document.getElementById('persianDate');
+            if (currentLang === 'fa') {
+                dateEl.textContent = '📅 ' + new Date().toLocaleDateString('fa-IR', { year: 'numeric', month: 'long', day: 'numeric', weekday: 'long' });
+            } else {
+                dateEl.textContent = '📅 ' + new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric', weekday: 'long' });
+            }
 
             // ---------- COUNTER ----------
             function toPersianNum(n) {
                 const persianDigits = ['۰', '۱', '۲', '۳', '۴', '۵', '۶', '۷', '۸', '۹'];
                 return String(n).replace(/\d/g, d => persianDigits[d]);
             }
-            function animateCounter(el, target, suffix = '') {
+            function toEnglishNum(n) { return String(n); }
+
+            function animateCounter(el, target, suffix = '', lang = 'fa') {
                 const duration = 2000;
                 const startTime = performance.now();
                 function update(currentTime) {
                     const elapsed = currentTime - startTime;
                     const progress = Math.min(elapsed / duration, 1);
                     const current = Math.floor(progress * target);
-                    el.textContent = toPersianNum(current) + suffix;
+                    el.textContent = (lang === 'fa' ? toPersianNum(current) : toEnglishNum(current)) + suffix;
                     if (progress < 1) requestAnimationFrame(update);
-                    else el.textContent = toPersianNum(target) + suffix;
+                    else el.textContent = (lang === 'fa' ? toPersianNum(target) : toEnglishNum(target)) + suffix;
                 }
                 requestAnimationFrame(update);
             }
+
             const statsObserver = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
@@ -667,7 +784,7 @@
                         const targets = [20, 50, 1000, 12];
                         items.forEach((el, i) => {
                             const suffix = (i < 3) ? '+' : '';
-                            animateCounter(el, targets[i], suffix);
+                            animateCounter(el, targets[i], suffix, currentLang);
                         });
                         statsObserver.unobserve(entry.target);
                     }
@@ -710,8 +827,5 @@
 
         })();
     </script>
-    
-    <!-- Service Worker -->
-    <!-- <script> if ('serviceWorker' in navigator) { navigator.serviceWorker.register('sw.js').catch(() => {}); } </script> -->
 </body>
 </html>
