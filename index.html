@@ -120,7 +120,6 @@
         }
         .hero-bg {
             position: absolute; inset: 0;
-            /* فال‌بک گرادینت برای زمانی که عکس موجود نیست */
             background-image: url('1.jpg'), linear-gradient(135deg, #0f0c29, #302b63, #24243e);
             background-size: cover; background-position: center;
             filter: blur(20px) brightness(0.6); transform: scale(1.1); transition: transform 0.1s linear;
@@ -136,7 +135,6 @@
             transition: all var(--transition); opacity: 0;
             animation: floatAvatar 6s ease-in-out infinite alternate, fadeInUp 0.8s ease forwards;
             animation-delay: 0.1s;
-            /* اگر عکس لود نشود، یک گرادینت جایگزین دیده می‌شود */
             background: var(--gradient-1);
         }
         @keyframes floatAvatar { 0% { transform: translateY(0); } 100% { transform: translateY(-16px); } }
@@ -296,12 +294,13 @@
             <div class="telegram-channel stagger-item"><h4><i class="fab fa-telegram"></i> کانال تلگرام من</h4><p>«بیان بی‌پرده احساسات و داستان‌ها» </p><a href="https://t.me/sayehayebineghab" target="_blank" rel="noopener noreferrer" class="btn-channel"><i class="fab fa-telegram"></i> عضویت در کانال تلگرام <i class="fas fa-arrow-left"></i></a></div>
         </section>
 
-        <!-- BLOG -->
+        <!-- ========== BLOG ========== -->
         <section id="blog">
             <h3><i class="fas fa-pen-fancy"></i> نوشته‌ها</h3>
             <div class="search-box"><input type="text" id="blogSearch" placeholder="جستجوی نوشته‌ها..." /></div>
             <div id="blogPosts">
-                <!-- Post 1 -->
+
+                <!-- نوشته ۱ – تقاطع عشق و خشم -->
                 <div class="post-featured stagger-item" data-title="تقاطع عشق و خشم">
                     <div class="featured-cover"></div>
                     <div class="featured-overlay">
@@ -352,7 +351,7 @@
                     </div>
                 </div>
 
-                <!-- Post 2 -->
+                <!-- نوشته ۲ – حال دلم خوب نیست -->
                 <div class="post-featured stagger-item" data-title="حال دلم خوب نیست">
                     <div class="featured-cover"></div>
                     <div class="featured-overlay">
@@ -398,7 +397,7 @@
                     </div>
                 </div>
 
-                <!-- Post 3 -->
+                <!-- نوشته ۳ – آن فاجعه‌ی مهربان لعنتی -->
                 <div class="post-featured stagger-item" data-title="آن فاجعه‌ی مهربان لعنتی">
                     <div class="featured-cover"></div>
                     <div class="featured-overlay">
@@ -447,8 +446,44 @@
                     </div>
                 </div>
 
+                <!-- ============================================= -->
+                <!-- نوشته ۴ – از این آشفتگی بیکران (متن جدید)     -->
+                <!-- ============================================= -->
+                <div class="post-featured stagger-item" data-title="از این آشفتگی بیکران">
+                    <div class="featured-cover"></div>
+                    <div class="featured-overlay">
+                        <h4><i class="fas fa-wind"></i> از این آشفتگی بیکران</h4>
+                        <span class="post-date">۲۳ تیر ۱۴۰۴</span>
+                        <div class="full-content-scroll">
+                            از این آشفتگی بیکران
+                            از این غوغای بی حاصل 
+                            از این نفسهایی که در گرداب هر روزه گم می‌شوند... به ستوه آمده‌ام
+                            چرا باید به فردا بیندیشم؟
+                            فردا هم جز طوفان
+                            جز حسرت
+                            جز تکرار همین امروز چیزی نیست
+                            اما تو...
+                            تو جایی نیستی که نقشه بکشی یا فردا را سروسامان دهی
+                            تو خود فردا هستی که نمی‌ آید
+                            خود آرامشی که هرگز نبود
+                            من به جاده های این دنیا بی‌اعتمادم
+                            به خورشیدهایی که هر صبح طلوع می‌کنند اما زمین را گرم نمی‌کنند
+                            پس مرا با خود ببر
+                            حتی اگر بگویم: مرا بگذار و برو
+                            بگذار زیر همان درختان بید مجنون
+                            زیر همان چشمهایی که هیچ طوفانی آن را از ریشه نمی‌کند
+                            اگر باز پرسیدی کجاست
+                            می‌ گویم
+                            آن جا که سایه‌ات آغاز می‌شود و من پایان...
+
+                            مهدی رحیمیان ✌️
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </section>
+
     </div>
 
     <!-- BACK TO TOP -->
@@ -469,7 +504,7 @@
     </footer>
 
     <!-- ============================================================
-    SCRIPT (نسخه نهایی با تمام بهینه‌سازی‌ها و متن‌های کامل)
+    SCRIPT
     ============================================================ -->
     <script>
         (function() {
@@ -543,7 +578,7 @@
                 }
             });
 
-            // ---------- TYPEWRITER (با ریکوئست‌انیمیشن‌فریم) ----------
+            // ---------- TYPEWRITER ----------
             const typedEl = document.getElementById('typedText');
             const phrases = ['دکلمه‌های مرا بشنوید 🎧', 'همراه من در سفر کلمات 🌱', 'اینجا صدا و معنا به هم می‌رسند 📖', 'تجربیاتم را با شما به اشتراک می‌گذارم 💫'];
             let pIdx = 0, cIdx = 0, del = false;
@@ -607,7 +642,7 @@
             document.getElementById('persianDate').textContent = '📅 ' + new Date().toLocaleDateString('fa-IR', { year: 'numeric', month: 'long', day: 'numeric', weekday: 'long' });
             document.querySelector('footer .copyright').innerHTML = `© ${new Date().getFullYear()} · تمامی حقوق محفوظ · طراحی با تکنولوژی‌های ۲۰۲۶`;
 
-            // ---------- COUNTER (Persian & requestAnimationFrame) ----------
+            // ---------- COUNTER ----------
             function toPersianNum(n) {
                 const persianDigits = ['۰', '۱', '۲', '۳', '۴', '۵', '۶', '۷', '۸', '۹'];
                 return String(n).replace(/\d/g, d => persianDigits[d]);
@@ -656,7 +691,7 @@
                 });
             }
 
-            // ---------- FALLBACK FOR IMAGE ERROR ----------
+            // ---------- FALLBACK ----------
             const avatarImg = document.querySelector('.profile-avatar');
             if (avatarImg) {
                 avatarImg.addEventListener('error', function() {
@@ -676,7 +711,7 @@
         })();
     </script>
     
-    <!-- Service Worker (برای جلوگیری از خطای ۴۰۴، کامنت شده است) -->
+    <!-- Service Worker -->
     <!-- <script> if ('serviceWorker' in navigator) { navigator.serviceWorker.register('sw.js').catch(() => {}); } </script> -->
 </body>
 </html>
