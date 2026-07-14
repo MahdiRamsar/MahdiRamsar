@@ -29,6 +29,10 @@
         }
     </script>
 
+    <!-- Preconnect for faster font loading -->
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" />
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
+
     <!-- Fonts -->
     <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
@@ -100,6 +104,18 @@
         @media (max-width: 768px) {
             body {
                 cursor: auto;
+            }
+        }
+
+        /* احترام به تنظیمات کاهش حرکت کاربر */
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
             }
         }
 
@@ -191,7 +207,7 @@
         }
 
         .logo h1 {
-            font-size: 1.7rem;
+            font-size: clamp(1.3rem, 4vw, 1.7rem);
             font-weight: 900;
             background: var(--gradient-1);
             -webkit-background-clip: text;
@@ -199,7 +215,7 @@
             background-clip: text;
         }
         .logo .subtitle {
-            font-size: 0.75rem;
+            font-size: clamp(0.65rem, 1.5vw, 0.75rem);
             color: var(--text-muted);
         }
 
@@ -214,8 +230,9 @@
             font-weight: 600;
             padding: 8px 18px;
             border-radius: 40px;
-            font-size: 0.9rem;
+            font-size: clamp(0.75rem, 1.2vw, 0.9rem);
             transition: all var(--transition);
+            text-decoration: none;
         }
         nav a:hover {
             color: #fff;
@@ -298,8 +315,8 @@
         }
 
         .profile-avatar {
-            width: 220px;
-            height: 220px;
+            width: clamp(150px, 25vw, 220px);
+            height: clamp(150px, 25vw, 220px);
             border-radius: 50%;
             object-fit: cover;
             border: 4px solid rgba(255, 255, 255, 0.25);
@@ -309,6 +326,7 @@
             opacity: 0;
             animation: floatAvatar 6s ease-in-out infinite alternate, fadeInUp 0.8s ease forwards;
             animation-delay: 0.1s;
+            aspect-ratio: 1/1;
         }
 
         @keyframes floatAvatar {
@@ -328,7 +346,7 @@
         }
 
         .hero h2 {
-            font-size: 3.6rem;
+            font-size: clamp(2rem, 6vw, 3.6rem);
             font-weight: 900;
             letter-spacing: -1px;
             text-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
@@ -339,7 +357,7 @@
             animation-delay: 0.2s;
         }
         .hero .tagline {
-            font-size: 1.3rem;
+            font-size: clamp(1rem, 2.5vw, 1.3rem);
             font-weight: 300;
             color: rgba(255, 255, 255, 0.9);
             opacity: 0;
@@ -348,7 +366,7 @@
             margin-bottom: 6px;
         }
         .hero .typed-text {
-            font-size: 1.15rem;
+            font-size: clamp(0.95rem, 1.8vw, 1.15rem);
             opacity: 0.85;
             min-height: 3rem;
             font-weight: 300;
@@ -371,7 +389,7 @@
             border-radius: 60px;
             color: #fff;
             font-weight: 800;
-            font-size: 1.1rem;
+            font-size: clamp(0.95rem, 1.4vw, 1.1rem);
             text-decoration: none;
             transition: all var(--transition);
             margin-top: 24px;
@@ -402,13 +420,13 @@
             background: rgba(255, 255, 255, 0.12);
             backdrop-filter: blur(4px);
             -webkit-backdrop-filter: blur(4px);
-            width: 60px;
-            height: 60px;
+            width: clamp(50px, 8vw, 60px);
+            height: clamp(50px, 8vw, 60px);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.7rem;
+            font-size: clamp(1.3rem, 2.5vw, 1.7rem);
             transition: all var(--transition);
             border: 1px solid rgba(255, 255, 255, 0.15);
         }
@@ -432,6 +450,7 @@
             position: relative;
             z-index: 2;
             overflow: hidden;
+            scroll-margin-top: 90px;
         }
 
         section:not(.hero)::before {
@@ -454,7 +473,7 @@
         }
 
         h3 {
-            font-size: 2rem;
+            font-size: clamp(1.6rem, 4vw, 2rem);
             font-weight: 800;
             margin-bottom: 28px;
             display: inline-flex;
@@ -520,7 +539,7 @@
             border-color: oklch(0.6 0.2 270 / 0.2);
         }
         .stat-item .number {
-            font-size: 2.4rem;
+            font-size: clamp(1.8rem, 4vw, 2.4rem);
             font-weight: 900;
             background: var(--gradient-1);
             -webkit-background-clip: text;
@@ -650,7 +669,7 @@
             box-shadow: 0 24px 64px oklch(0.6 0.2 270 / 0.35);
         }
         .telegram-channel h4 {
-            font-size: 1.6rem;
+            font-size: clamp(1.2rem, 2.5vw, 1.6rem);
             font-weight: 800;
             margin-bottom: 6px;
             display: flex;
@@ -721,6 +740,7 @@
             box-shadow: var(--shadow);
             transition: all var(--transition);
             position: relative;
+            scroll-margin-top: 90px;
         }
 
         .post-featured .featured-cover {
@@ -733,6 +753,7 @@
             filter: blur(6px) brightness(0.5);
             transform: scale(1.02);
             transition: transform 0.3s ease;
+            aspect-ratio: 16/9;
         }
 
         .post-featured:hover .featured-cover {
@@ -750,7 +771,7 @@
         }
 
         .post-featured .featured-overlay h4 {
-            font-size: 1.8rem;
+            font-size: clamp(1.2rem, 3vw, 1.8rem);
             font-weight: 800;
             margin-bottom: 4px;
             display: flex;
@@ -776,7 +797,7 @@
             overflow-y: auto;
             padding-right: 6px;
             margin-top: 6px;
-            font-size: 1rem;
+            font-size: clamp(0.9rem, 1.5vw, 1rem);
             line-height: 2;
             color: rgba(255, 255, 255, 0.9);
             text-shadow: 0 1px 6px rgba(0, 0, 0, 0.3);
@@ -885,13 +906,6 @@
                 min-height: 90vh;
                 padding: 60px 16px 40px;
             }
-            .hero h2 {
-                font-size: 2.2rem;
-            }
-            .profile-avatar {
-                width: 180px;
-                height: 180px;
-            }
             .hero-cta {
                 padding: 14px 28px;
                 font-size: 1rem;
@@ -899,9 +913,6 @@
 
             section:not(.hero) {
                 padding: 28px 18px;
-            }
-            h3 {
-                font-size: 1.6rem;
             }
 
             .works-grid {
@@ -917,9 +928,6 @@
             .post-featured .featured-overlay {
                 padding: 18px 18px 22px;
             }
-            .post-featured .featured-overlay h4 {
-                font-size: 1.4rem;
-            }
             .post-featured .full-content-scroll {
                 max-height: 180px;
                 font-size: 0.95rem;
@@ -931,25 +939,12 @@
                 font-size: 0.75rem;
                 padding: 6px 12px;
             }
-            .hero h2 {
-                font-size: 1.8rem;
-            }
-            .profile-avatar {
-                width: 150px;
-                height: 150px;
-            }
             .stats-grid {
                 grid-template-columns: 1fr 1fr;
                 gap: 12px;
             }
-            .stat-item .number {
-                font-size: 1.8rem;
-            }
             .post-featured .featured-cover {
                 height: 120px;
-            }
-            .post-featured .featured-overlay h4 {
-                font-size: 1.2rem;
             }
             .post-featured .full-content-scroll {
                 max-height: 150px;
@@ -968,23 +963,23 @@
     <div id="scroll-progress"></div>
 
     <!-- ========== HEADER ========== -->
-    <header>
+    <header role="banner">
         <div class="container">
             <div class="header-content">
                 <div class="logo">
                     <h1>مهدی رحیمیان</h1>
                     <div class="subtitle">سایت شخصی ۲۰۲۶</div>
                 </div>
-                <nav>
+                <nav role="navigation" aria-label="منوی اصلی">
                     <ul>
-                        <li><a href="#home">خانه</a></li>
-                        <li><a href="#about">درباره</a></li>
-                        <li><a href="#works">آثار</a></li>
-                        <li><a href="#blog">نوشته‌ها</a></li>
+                        <li><a href="#home" aria-label="رفتن به صفحه خانه">خانه</a></li>
+                        <li><a href="#about" aria-label="رفتن به بخش درباره من">درباره</a></li>
+                        <li><a href="#works" aria-label="رفتن به بخش آثار">آثار</a></li>
+                        <li><a href="#blog" aria-label="رفتن به بخش نوشته‌ها">نوشته‌ها</a></li>
                     </ul>
                 </nav>
                 <div class="header-actions">
-                    <button class="theme-toggle" id="themeToggle" aria-label="تغییر تم">
+                    <button class="theme-toggle" id="themeToggle" aria-label="تغییر تم روشن/تاریک" aria-pressed="false">
                         <i class="fas fa-sun"></i>
                     </button>
                 </div>
@@ -993,24 +988,24 @@
     </header>
 
     <!-- ========== HERO ========== -->
-    <section id="home" class="hero">
+    <section id="home" class="hero" aria-label="بخش هدر اصلی">
         <div class="hero-bg" id="heroBg"></div>
         <div class="hero-overlay"></div>
         <div class="hero-content">
-            <img src="1.jpg" alt="مهدی رحیمیان" class="profile-avatar" loading="lazy" />
+            <img src="1.jpg" alt="مهدی رحیمیان" class="profile-avatar" loading="eager" width="220" height="220" />
             <h2>مهدی رحیمیان</h2>
             <p class="tagline">نویسنده | گوینده | تولیدکننده محتوای صوتی و تصویری</p>
-            <div class="typed-text" id="typedText"></div>
-            <a href="#works" class="hero-cta">
+            <div class="typed-text" id="typedText" aria-live="polite"></div>
+            <a href="#works" class="hero-cta" aria-label="مشاهده آثار صوتی">
                 <i class="fas fa-headphones"></i>
                 شنیدن دکلمه‌ها
                 <i class="fas fa-arrow-left"></i>
             </a>
             <div class="social-links">
-                <a href="https://www.instagram.com/sayehaye.bi.neghab" target="_blank"><i class="fab fa-instagram"></i></a>
-                <a href="https://t.me/sayehayebineghab" target="_blank"><i class="fab fa-telegram"></i></a>
-                <a href="mailto:me@mahdirahimiyan.ir"><i class="fas fa-envelope"></i></a>
-                <a href="https://github.com/mahdiramsar" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="https://www.instagram.com/sayehaye.bi.neghab" target="_blank" aria-label="اینستاگرام"><i class="fab fa-instagram"></i></a>
+                <a href="https://t.me/sayehayebineghab" target="_blank" aria-label="تلگرام"><i class="fab fa-telegram"></i></a>
+                <a href="mailto:me@mahdirahimiyan.ir" aria-label="ایمیل"><i class="fas fa-envelope"></i></a>
+                <a href="https://github.com/mahdiramsar" target="_blank" aria-label="گیت‌هاب"><i class="fab fa-github"></i></a>
             </div>
         </div>
     </section>
@@ -1018,7 +1013,7 @@
     <div class="container">
 
         <!-- ========== ABOUT ========== -->
-        <section id="about">
+        <section id="about" aria-label="درباره من">
             <h3><i class="fas fa-user-circle"></i> درباره من</h3>
             <p style="font-size:1.05rem; color:var(--text-secondary);">
                 سلام! من <strong style="color:var(--text-primary);">مهدی رحیمیان</strong> هستم. اینجا فضای شخصی من برای به اشتراک‌گذاری افکار، تجربیات، دکلمه‌ها و نوشته‌هایم است.
@@ -1045,7 +1040,7 @@
         </section>
 
         <!-- ========== WORKS ========== -->
-        <section id="works">
+        <section id="works" aria-label="آثار صوتی و تصویری">
             <h3><i class="fas fa-play-circle"></i> آثار صوتی و تصویری</h3>
             <p style="color:var(--text-secondary); margin-bottom:20px;">گزیده‌ای از دکلمه‌ها و دلنوشته‌های من با صدای خودم</p>
             <div class="works-grid">
@@ -1053,7 +1048,7 @@
                     <div class="work-cover"><i class="fas fa-microphone-alt"></i></div>
                     <h4>متن و صدا #مهدی_رحیمیان✌️</h4>
                     <span class="work-date">۱۶ دسامبر ۲۰۲۵</span>
-                    <a href="https://www.instagram.com/reel/DSVt85bgpEi/" target="_blank" class="work-link">
+                    <a href="https://www.instagram.com/reel/DSVt85bgpEi/" target="_blank" class="work-link" aria-label="مشاهده در اینستاگرام">
                         <i class="fab fa-instagram"></i> مشاهده
                     </a>
                 </div>
@@ -1061,7 +1056,7 @@
                     <div class="work-cover"><i class="fas fa-feather-alt"></i></div>
                     <h4>مرا به حال خود بگذارید و رهایم کنید...</h4>
                     <span class="work-date">دلنوشته</span>
-                    <a href="https://www.instagram.com/reel/DPrup05gl1L/" target="_blank" class="work-link">
+                    <a href="https://www.instagram.com/reel/DPrup05gl1L/" target="_blank" class="work-link" aria-label="مشاهده در اینستاگرام">
                         <i class="fab fa-instagram"></i> مشاهده
                     </a>
                 </div>
@@ -1069,7 +1064,7 @@
                     <div class="work-cover"><i class="fas fa-heart"></i></div>
                     <h4>صدایم کن…</h4>
                     <span class="work-date">۱۶ اوت ۲۰۲۵</span>
-                    <a href="https://www.instagram.com/reel/DNafAsACM-G/" target="_blank" class="work-link">
+                    <a href="https://www.instagram.com/reel/DNafAsACM-G/" target="_blank" class="work-link" aria-label="مشاهده در اینستاگرام">
                         <i class="fab fa-instagram"></i> مشاهده
                     </a>
                 </div>
@@ -1077,7 +1072,7 @@
                     <div class="work-cover"><i class="fas fa-star"></i></div>
                     <h4>متن زیبا و عمیق با خوانش گرم</h4>
                     <span class="work-date">دلنوشته</span>
-                    <a href="https://www.instagram.com/reel/DNBSxyzCnJb/" target="_blank" class="work-link">
+                    <a href="https://www.instagram.com/reel/DNBSxyzCnJb/" target="_blank" class="work-link" aria-label="مشاهده در اینستاگرام">
                         <i class="fab fa-instagram"></i> مشاهده
                     </a>
                 </div>
@@ -1085,7 +1080,7 @@
             <div class="telegram-channel stagger-item">
                 <h4><i class="fab fa-telegram"></i> کانال تلگرام من</h4>
                 <p>«بیان بی‌پرده احساسات و داستان‌ها» </p>
-                <a href="https://t.me/sayehayebineghab" target="_blank" class="btn-channel">
+                <a href="https://t.me/sayehayebineghab" target="_blank" class="btn-channel" aria-label="عضویت در کانال تلگرام">
                     <i class="fab fa-telegram"></i> عضویت در کانال تلگرام
                     <i class="fas fa-arrow-left"></i>
                 </a>
@@ -1093,11 +1088,11 @@
         </section>
 
         <!-- ========== BLOG ========== -->
-        <section id="blog">
+        <section id="blog" aria-label="نوشته‌ها">
             <h3><i class="fas fa-pen-fancy"></i> نوشته‌ها</h3>
 
             <div class="search-box">
-                <input type="text" id="blogSearch" placeholder="جستجوی نوشته‌ها..." />
+                <input type="text" id="blogSearch" placeholder="جستجوی نوشته‌ها..." aria-label="جستجوی نوشته‌ها" />
             </div>
 
             <div id="blogPosts">
@@ -1123,7 +1118,7 @@
                             که از هزار سیلی دردناک‌تر بود
 
                             «تو را دوستت دارم»
-                            درست زمانی که داشت دلم از حضورت می‌سوخت
+                            درست زمانی که داشتم دلم از حضورت می‌سوخت
                             من از تو متنفر بودم
                             در همان لحظه‌ای که بی‌دفاع
                             به چشم‌هایت زل زده بودم
@@ -1260,17 +1255,17 @@
     </div>
 
     <!-- ========== BACK TO TOP ========== -->
-    <button id="backToTop"><i class="fas fa-chevron-up"></i></button>
+    <button id="backToTop" aria-label="بازگشت به بالای صفحه"><i class="fas fa-chevron-up"></i></button>
 
     <!-- ========== FOOTER ========== -->
-    <footer>
+    <footer role="contentinfo">
         <div class="container">
             <p class="copyright">تمامی حقوق محفوظ | طراحی با تکنولوژی‌های ۲۰۲۶</p>
             <div class="footer-social">
-                <a href="https://www.instagram.com/sayehaye.bi.neghab" target="_blank"><i class="fab fa-instagram"></i></a>
-                <a href="https://t.me/sayehayebineghab" target="_blank"><i class="fab fa-telegram"></i></a>
-                <a href="mailto:me@mahdirahimiyan.ir"><i class="fas fa-envelope"></i></a>
-                <a href="https://github.com/mahdiramsar" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="https://www.instagram.com/sayehaye.bi.neghab" target="_blank" aria-label="اینستاگرام"><i class="fab fa-instagram"></i></a>
+                <a href="https://t.me/sayehayebineghab" target="_blank" aria-label="تلگرام"><i class="fab fa-telegram"></i></a>
+                <a href="mailto:me@mahdirahimiyan.ir" aria-label="ایمیل"><i class="fas fa-envelope"></i></a>
+                <a href="https://github.com/mahdiramsar" target="_blank" aria-label="گیت‌هاب"><i class="fab fa-github"></i></a>
             </div>
             <span class="date" id="persianDate"></span>
         </div>
@@ -1335,6 +1330,7 @@
             if (currentTheme === 'light') {
                 document.documentElement.setAttribute('data-theme', 'light');
                 icon.classList.replace('fa-sun', 'fa-moon');
+                toggle.setAttribute('aria-pressed', 'true');
             }
             toggle.addEventListener('click', () => {
                 const isDark = !document.documentElement.hasAttribute('data-theme');
@@ -1342,10 +1338,12 @@
                     document.documentElement.setAttribute('data-theme', 'light');
                     localStorage.setItem('theme', 'light');
                     icon.classList.replace('fa-sun', 'fa-moon');
+                    toggle.setAttribute('aria-pressed', 'true');
                 } else {
                     document.documentElement.removeAttribute('data-theme');
                     localStorage.setItem('theme', 'dark');
                     icon.classList.replace('fa-moon', 'fa-sun');
+                    toggle.setAttribute('aria-pressed', 'false');
                 }
             });
 
@@ -1420,17 +1418,25 @@
             document.querySelector('footer .copyright').innerHTML =
                 `© ${new Date().getFullYear()} · تمامی حقوق محفوظ · طراحی با تکنولوژی‌های ۲۰۲۶`;
 
-            // Counter animation
+            // Counter animation with requestAnimationFrame
             function animateCounter(el, target, suffix = '') {
                 let current = 0;
                 const step = Math.ceil(target / 40);
-                const interval = setInterval(() => {
+                let frameId = null;
+
+                function update() {
                     current += step;
-                    if (current >= target) { current = target;
-                        clearInterval(interval); }
+                    if (current >= target) {
+                        current = target;
+                        el.textContent = current + suffix;
+                        return;
+                    }
                     el.textContent = current + suffix;
-                }, 30);
+                    frameId = requestAnimationFrame(update);
+                }
+                frameId = requestAnimationFrame(update);
             }
+
             const statsObserver = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
@@ -1454,7 +1460,7 @@
                 });
             }
 
-            console.log('✅ سه نوشته با اسکرول داخلی اضافه شدند.');
+            console.log('✅ نسخه بهبودیافته با اعمال پیشنهادات (بدون تغییر در نام/آدرس عکس)');
         })();
     </script>
 
