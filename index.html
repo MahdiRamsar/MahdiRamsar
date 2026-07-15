@@ -232,49 +232,50 @@
     ============================================================ -->
     <script>
         // ================================================================
-        // ۱. دریافت پست‌های تلگرام با ربات (فقط پروکسی اصلاح شده)
+        // ۱. دریافت پست‌های تلگرام با ربات
         // ================================================================
         (function loadTelegramPosts() {
 
-            const BOT_TOKEN = '8541689592:AAEKqvFy6NVyB0KL10qUVFIm6pfmMymqhpc';
-            const CHANNEL_USERNAME = 'sayehayebineghab';
+            // ======================== فقط این دو خط رو عوض کن ========================
+            const BOT_TOKEN = '8541689592:AAEKqvFy6NVyB0KL10qUVFIm6pfmMymqhpc'; // توکن رباتت
+            const CHANNEL_USERNAME = 'sayehayebineghab'; // اسم کانال بدون @
+            // =========================================================================
 
             const container = document.getElementById('posts-container');
             if (!container) return;
 
-            // نمایش پیام بارگذاری
-            container.innerHTML = `
-                <p style="color:var(--text-muted); text-align:center; width:100%;">
-                    <i class="fas fa-spinner fa-spin"></i> در حال دریافت پست‌ها...
-                </p>
-            `;
+            // اگر توکن وارد نشده بود
+            if (!BOT_TOKEN || BOT_TOKEN === 'توکن_ربات_تت') {
+                container.innerHTML = `
+                    <div style="text-align:center; width:100%; padding:20px; color:var(--text-muted);">
+                        <i class="fas fa-exclamation-triangle" style="color:orange;"></i>
+                        <p>لطفاً توکن ربات را در کد تنظیم کنید.</p>
+                    </div>
+                `;
+                return;
+            }
 
-            // استفاده از allorigins به جای corsproxy (پایدارتر)
-            const proxy = 'https://api.allorigins.win/get?url=';
+            // استفاده از پروکسی برای رفع CORS
+            const proxy = 'https://corsproxy.io/?';
             const url = `https://api.telegram.org/bot${BOT_TOKEN}/getUpdates?limit=10`;
 
             fetch(proxy + encodeURIComponent(url))
                 .then(res => {
-                    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+                    if (!res.ok) throw new Error('خطا در ارتباط با سرور');
                     return res.json();
                 })
                 .then(data => {
-                    if (!data.contents) throw new Error('پروکسی پاسخی نداد');
-                    const jsonData = JSON.parse(data.contents);
-                    if (!jsonData.ok) throw new Error(jsonData.description || 'خطای API');
+                    if (!data.ok) throw new Error(data.description || 'خطای API');
 
-                    const posts = jsonData.result
+                    // فیلتر کردن پیام‌های کانال
+                    const posts = data.result
                         .filter(update => update.channel_post)
                         .map(update => update.channel_post)
-                        .reverse();
+                        .reverse(); // جدیدترین اول
 
                     if (!posts.length) {
-                        container.innerHTML = `
-                            <p style="color:var(--text-muted); text-align:center; width:100%;">
-                                😕 هنوز پستی در کانال منتشر نشده.
-                                <br /><small>یک پیام جدید در کانال بفرست و صفحه را ریفرش کن.</small>
-                            </p>
-                        `;
+                        container.innerHTML =
+                            `<p style="color:var(--text-muted); text-align:center; width:100%;">😕 هنوز پستی در کانال منتشر نشده.</p>`;
                         return;
                     }
 
@@ -292,30 +293,27 @@
 
                         let mediaHtml = `<div style="font-size:3rem; opacity:0.3;">📝</div>`;
 
+                        // عکس
                         if (post.photo) {
-                            mediaHtml = `
-                                <img src="https://t.me/${CHANNEL_USERNAME}/${post.message_id}" 
-                                     alt="پست تصویری" loading="lazy" 
-                                     style="width:100%;height:100%;object-fit:cover;" />
-                            `;
+                            const fileId = post.photo[post.photo.length - 1].file_id;
+                            mediaHtml =
+                                `<img src="https://t.me/${CHANNEL_USERNAME}/${post.message_id}" alt="پست تصویری" loading="lazy" style="width:100%;height:100%;object-fit:cover;" />`;
                         }
 
+                        // ویدئو
                         if (post.video) {
-                            mediaHtml = `
-                                <video controls style="width:100%;height:100%;object-fit:cover;" preload="metadata">
-                                    <source src="https://t.me/${CHANNEL_USERNAME}/${post.message_id}" />
-                                </video>
-                            `;
+                            mediaHtml =
+                                `<video controls style="width:100%;height:100%;object-fit:cover;" preload="metadata"><source src="https://t.me/${CHANNEL_USERNAME}/${post.message_id}" /></video>`;
                         }
 
+                        // لینک در متن
                         let linkHtml = '';
                         if (post.entities) {
                             const entity = post.entities.find(e => e.type === 'url');
                             if (entity) {
                                 const urlText = text.slice(entity.offset, entity.offset + entity.length);
-                                linkHtml = `
-                                    <br /><a href="${urlText}" target="_blank" style="color:oklch(0.6 0.2 270);font-size:0.85rem;">🔗 لینک</a>
-                                `;
+                                linkHtml =
+                                    `<br /><a href="${urlText}" target="_blank" style="color:oklch(0.6 0.2 270);font-size:0.85rem;">🔗 لینک</a>`;
                             }
                         }
 
@@ -340,8 +338,8 @@
                         <div style="text-align:center; width:100%; padding:20px; color:var(--text-muted);">
                             <i class="fas fa-exclamation-triangle" style="color:orange; font-size:1.5rem;"></i>
                             <p style="margin-top:10px;">⚠️ خطا در دریافت پست‌ها</p>
-                            <small>${err.message}</small>
-                            <br /><small>مطمئن شو ربات به کانال اضافه شده و یک پیام جدید فرستاده‌ای.</small>
+                            <small>مطمئن شو ربات به کانال اضافه شده و توکن درست است.</small>
+                            <br /><small style="color:var(--text-muted);">${err.message}</small>
                         </div>
                     `;
                 });
@@ -445,5 +443,6 @@
             });
         })();
     </script>
+
 </body>
 </html>
