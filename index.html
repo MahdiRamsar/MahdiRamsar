@@ -653,339 +653,825 @@
         background: var(--gradient-1);  
         border-radius: var(--radius-sm);  
         padding: 36px 28px;  
-        margindient-1); opacity:0; transition:opacity var(--transition); border-radius:var(--radius-sm); }
-        .work-card:hover { transform:translateY(-10px); border-color:oklch(0.6 0.2 270 / 0.2); }
-        .work-card:hover::after { opacity:0.04; }
-        .work-card>* { position:relative; z-index:1; }
-        .work-cover {
-            width:100%; aspect-ratio:16/9; border-radius:var(--radius-sm); margin-bottom:16px;
-            overflow:hidden; background:var(--gradient-1); display:flex; align-items:center; justify-content:center;
-            font-size:3rem; color:#fff; box-shadow:0 8px 24px oklch(0.6 0.2 270 / 0.15);
-            transition:transform var(--transition);
-        }
-        .work-card:hover .work-cover { transform:scale(1.04); }
-        .work-cover img, .work-cover video { width:100%; height:100%; object-fit:cover; }
+        margin-top: 30px;  
+        text-align: center;  
+        color: #fff;  
+        box-shadow: 0 16px 48px oklch(0.6 0.2 270 / 0.25);  
+        transition: all var(--transition);  
+        border: 1px solid oklch(1 0 0 / 0.06);  
+    }  
+    .telegram-channel:hover {  
+        transform: scale(1.02);  
+        box-shadow: 0 24px 64px oklch(0.6 0.2 270 / 0.35);  
+    }  
+    .telegram-channel h4 {  
+        font-size: clamp(1.2rem, 2.5vw, 1.6rem);  
+        font-weight: 800;  
+        margin-bottom: 6px;  
+        display: flex;  
+        align-items: center;  
+        justify-content: center;  
+        gap: 12px;  
+    }  
+    .telegram-channel p {  
+        opacity: 0.9;  
+        margin-bottom: 18px;  
+        font-size: 1rem;  
+    }  
+    .telegram-channel .btn-channel {  
+        display: inline-flex;  
+        align-items: center;  
+        gap: 12px;  
+        background: oklch(1 0 0 / 0.15);  
+        color: #fff;  
+        padding: 14px 36px;  
+        border-radius: 60px;  
+        text-decoration: none;  
+        font-weight: 700;  
+        font-size: 1.1rem;  
+        backdrop-filter: blur(4px);  
+        border: 1px solid oklch(1 0 0 / 0.15);  
+        transition: all var(--transition);  
+    }  
+    .telegram-channel .btn-channel:hover {  
+        background: oklch(1 0 0 / 0.3);  
+        transform: translateY(-4px);  
+        box-shadow: 0 12px 32px oklch(0 0 0 / 0.15);  
+    }  
 
-        @media (max-width:768px) { body { padding-top:70px; } .header-content { flex-direction:column; gap:8px; } nav ul { justify-content:center; } section:not(.hero) { padding:28px 18px; } .works-grid { grid-template-columns:1fr; } }
-    </style>
-</head>
-<body>
+    /* ============================================================  
+               BLOG POSTS – فقط کارت‌های ویژه با اسکرول  
+               ============================================================ */  
+    .search-box {  
+        display: flex;  
+        gap: 12px;  
+        margin-bottom: 24px;  
+        flex-wrap: wrap;  
+    }  
+    .search-box input {  
+        flex: 1;  
+        min-width: 200px;  
+        padding: 14px 20px;  
+        border-radius: 60px;  
+        border: 1px solid var(--glass-border);  
+        background: var(--bg-secondary);  
+        color: var(--text-primary);  
+        font-family: var(--font);  
+        font-size: 0.95rem;  
+        transition: all var(--transition);  
+    }  
+    .search-box input:focus {  
+        outline: none;  
+        border-color: oklch(0.6 0.2 270);  
+    }  
 
-    <!-- ====== اسکرول بار ====== -->
-    <div id="scroll-progress"></div>
+    /* ===== پست ویژه با جلد و اسکرول داخلی ===== */  
+    .post-featured {  
+        background: var(--bg-secondary);  
+        border-radius: var(--radius);  
+        margin: 30px 0;  
+        padding: 0;  
+        overflow: hidden;  
+        border: 1px solid var(--glass-border);  
+        box-shadow: var(--shadow);  
+        transition: all var(--transition);  
+        position: relative;  
+        scroll-margin-top: 90px;  
+    }  
 
-    <!-- ====== هدر ====== -->
-    <header>
-        <div class="container header-content">
-            <div class="logo">
-                <h1>سایه‌های بی‌نقاب</h1>
-                <div class="subtitle">✨ بیان بی‌پرده احساسات و داستان‌ها</div>
-            </div>
-            <nav>
-                <ul>
-                    <li><a href="#hero">خانه</a></li>
-                    <li><a href="#about">درباره</a></li>
-                    <li><a href="#works">آثار</a></li>
-                    <li><a href="#telegram-posts">کانال</a></li>
-                </ul>
-            </nav>
-            <div class="header-actions">
-                <button class="theme-toggle" id="themeToggle" aria-label="تغییر تم">
-                    <i class="fas fa-moon"></i>
-                </button>
-            </div>
-        </div>
-    </header>
+    .post-featured .featured-cover {  
+        position: relative;  
+        width: 100%;  
+        height: 200px;  
+        background-image: url('1.jpg');  
+        background-size: cover;  
+        background-position: center;  
+        filter: blur(6px) brightness(0.5);  
+        transform: scale(1.02);  
+        transition: transform 0.3s ease;  
+        aspect-ratio: 16/9;  
+    }  
 
-    <!-- ====== هیرو ====== -->
-    <section class="hero" id="hero">
-        <div class="hero-bg" id="heroBg"></div>
-        <div class="hero-overlay"></div>
-        <div class="hero-content">
-            <img src="1.jpg" alt="سایه‌های بی‌نقاب" class="profile-avatar" loading="eager" />
-            <h2>سایه‌های بی‌نقاب</h2>
-            <p class="tagline">بیان بی‌پرده احساسات و داستان‌ها</p>
-            <div class="typed-text" id="typedText"></div>
-            <a href="https://t.me/sayehayebineghab" target="_blank" class="hero-cta">
-                <i class="fab fa-telegram"></i> عضویت در کانال
-            </a>
-            <div class="social-links">
-                <a href="https://t.me/sayehayebineghab" target="_blank" aria-label="تلگرام"><i class="fab fa-telegram"></i></a>
-                <a href="https://instagram.com/sayehaye.bi.neghab" target="_blank" aria-label="اینستاگرام"><i class="fab fa-instagram"></i></a>
-                <a href="https://github.com/mahdiramsar" target="_blank" aria-label="گیت‌هاب"><i class="fab fa-github"></i></a>
-                <a href="mailto:mahdi@example.com" aria-label="ایمیل"><i class="fas fa-envelope"></i></a>
-            </div>
-        </div>
-    </section>
+    .post-featured:hover .featured-cover {  
+        transform: scale(1.05);  
+    }  
 
-    <main class="container">
+    .post-featured .featured-overlay {  
+        position: relative;  
+        background: linear-gradient(to top, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.5) 100%);  
+        padding: 24px 30px 30px;  
+        color: #fff;  
+        min-height: 200px;  
+        display: flex;  
+        flex-direction: column;  
+    }  
 
-        <!-- ====== درباره ====== -->
-        <section id="about">
-            <h3><i class="fas fa-user-astronaut"></i> درباره ما</h3>
-            <p style="font-size:1.05rem; line-height:2; max-width:700px;">
-                «سایه‌های بی‌نقاب» فضایی برای بیان بی‌پرده احساسات، داستان‌ها و هنر است.
-                اینجا جایی برای به اشتراک‌گذاری دلنوشته‌ها، آثار صوتی و تصویری، و هر آنچه در ذهن و قلب ما می‌گذرد.
-                خوشحالیم که همراه ما هستید. 🌱
-            </p>
-            <div class="stats-grid">
-                <div class="stat-item"><span class="number">۴۰</span><span class="label">عضو</span></div>
-                <div class="stat-item"><span class="number">۷۴</span><span class="label">واکنش</span></div>
-                <div class="stat-item"><span class="number">۲</span><span class="label">مدیر</span></div>
-                <div class="stat-item"><span class="number">❤️</span><span class="label">عشق به هنر</span></div>
-            </div>
-        </section>
+    .post-featured .featured-overlay h4 {  
+        font-size: clamp(1.2rem, 3vw, 1.8rem);  
+        font-weight: 800;  
+        margin-bottom: 4px;  
+        display: flex;  
+        align-items: center;  
+        gap: 12px;  
+        color: #fff;  
+        text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);  
+    }  
 
-        <!-- ====== آثار ====== -->
-        <section id="works">
-            <h3><i class="fas fa-microphone-alt"></i> آثار صوتی و تصویری</h3>
-            <div class="works-grid">
-                <div class="work-card">
-                    <div class="work-cover"><i class="fas fa-headphones"></i></div>
-                    <h4 style="font-weight:700;">پادکست اول</h4>
-                    <p style="color:var(--text-muted); font-size:0.9rem;">گفت‌وگو درباره تکنولوژی و زندگی</p>
-                </div>
-                <div class="work-card">
-                    <div class="work-cover"><i class="fas fa-film"></i></div>
-                    <h4 style="font-weight:700;">موشن گرافیک</h4>
-                    <p style="color:var(--text-muted); font-size:0.9rem;">تصویرسازی دیجیتال با افکت‌های ویژه</p>
-                </div>
-                <div class="work-card">
-                    <div class="work-cover"><i class="fas fa-pen-fancy"></i></div>
-                    <h4 style="font-weight:700;">دلنوشته‌ها</h4>
-                    <p style="color:var(--text-muted); font-size:0.9rem;">مجموعه‌ای از نثرهای کوتاه و شعر</p>
-                </div>
-            </div>
-        </section>
+    .post-featured .featured-overlay h4 i {  
+        color: #ff6b8a;  
+    }  
 
-        <!-- ====== بخش تلگرام (با ربات) ====== -->
-        <section id="telegram-posts">
-            <h3><i class="fab fa-telegram-plane"></i> آخرین پست‌های کانال</h3>
-            <div id="posts-container" class="works-grid">
-                <p style="color:var(--text-muted); text-align:center; width:100%;">
-                    <i class="fas fa-spinner fa-spin"></i> در حال دریافت پست‌ها...
-                </p>
-            </div>
-        </section>
+    .post-featured .featured-overlay .post-date {  
+        font-size: 0.85rem;  
+        opacity: 0.7;  
+        margin-bottom: 10px;  
+    }  
 
-    </main>
+    /* محتوای کامل با اسکرول */  
+    .post-featured .full-content-scroll {  
+        max-height: 220px;  
+        overflow-y: auto;  
+        padding-right: 6px;  
+        margin-top: 6px;  
+        font-size: clamp(0.9rem, 1.5vw, 1rem);  
+        line-height: 2;  
+        color: rgba(255, 255, 255, 0.9);  
+        text-shadow: 0 1px 6px rgba(0, 0, 0, 0.3);  
+        white-space: pre-wrap;  
+        scrollbar-width: thin;  
+        scrollbar-color: rgba(255, 255, 255, 0.2) transparent;  
+    }  
 
-    <!-- ============================================================
-    ======== اسکریپت‌ها ========
-    ============================================================ -->
-    <script>
-        // ================================================================
-        // ۱. دریافت پست‌های تلگرام با ربات
-        // ================================================================
-        (function loadTelegramPosts() {
+    .post-featured .full-content-scroll::-webkit-scrollbar {  
+        width: 4px;  
+    }  
+    .post-featured .full-content-scroll::-webkit-scrollbar-track {  
+        background: transparent;  
+    }  
+    .post-featured .full-content-scroll::-webkit-scrollbar-thumb {  
+        background: rgba(255, 255, 255, 0.25);  
+        border-radius: 8px;  
+    }  
 
-            // ======================== فقط این دو خط رو عوض کن ========================
-            const BOT_TOKEN = '8541689592:AAEKqvFy6NVyB0KL10qUVFIm6pfmMymqhpc'; // توکن رباتت
-            const CHANNEL_USERNAME = 'sayehayebineghab'; // اسم کانال بدون @
-            // =========================================================================
+    /* ============================================================  
+               BACK TO TOP  
+               ============================================================ */  
+    #backToTop {  
+        position: fixed;  
+        bottom: 32px;  
+        right: 32px;  
+        width: 48px;  
+        height: 48px;  
+        border-radius: 50%;  
+        background: var(--bg-secondary);  
+        color: var(--text-secondary);  
+        border: 1px solid var(--glass-border);  
+        font-size: 1.2rem;  
+        cursor: pointer;  
+        transition: all var(--transition);  
+        opacity: 0;  
+        visibility: hidden;  
+        transform: translateY(20px);  
+        z-index: 999;  
+    }  
+    #backToTop.visible {  
+        opacity: 1;  
+        visibility: visible;  
+        transform: translateY(0);  
+    }  
+    #backToTop:hover {  
+        background: oklch(1 0 0 / 0.04);  
+        color: #fff;  
+    }  
 
-            const container = document.getElementById('posts-container');
-            if (!container) return;
+    /* ============================================================  
+               FOOTER  
+               ============================================================ */  
+    footer {  
+        background: var(--bg-secondary);  
+        border-top: 1px solid var(--glass-border);  
+        padding: 48px 0 32px;  
+        margin-top: 60px;  
+        text-align: center;  
+        position: relative;  
+        z-index: 2;  
+    }  
+    .footer-social a {  
+        color: var(--text-muted);  
+        margin: 0 16px;  
+        font-size: 1.5rem;  
+        transition: all var(--transition);  
+        display: inline-block;  
+    }  
+    .footer-social a:hover {  
+        color: #fff;  
+        transform: translateY(-4px);  
+    }  
+    footer .date {  
+        display: block;  
+        margin-top: 14px;  
+        opacity: 0.6;  
+        font-size: 0.9rem;  
+    }  
+    footer .copyright {  
+        margin-top: 8px;  
+        opacity: 0.4;  
+        font-size: 0.85rem;  
+    }  
 
-            // اگر توکن وارد نشده بود
-            if (!BOT_TOKEN || BOT_TOKEN === 'توکن_ربات_تت') {
-                container.innerHTML = `
-                    <div style="text-align:center; width:100%; padding:20px; color:var(--text-muted);">
-                        <i class="fas fa-exclamation-triangle" style="color:orange;"></i>
-                        <p>لطفاً توکن ربات را در کد تنظیم کنید.</p>
-                    </div>
-                `;
-                return;
-            }
+    /* ============================================================  
+               RESPONSIVE  
+               ============================================================ */  
+    @media (max-width: 768px) {  
+        .header-content {  
+            flex-direction: column;  
+            align-items: stretch;  
+            gap: 6px;  
+        }  
+        .logo {  
+            text-align: center;  
+        }  
+        nav ul {  
+            justify-content: center;  
+        }  
+        .header-actions {  
+            align-self: center;  
+        }  
 
-            // استفاده از پروکسی برای رفع CORS
-            const proxy = 'https://corsproxy.io/?';
-            const url = `https://api.telegram.org/bot${BOT_TOKEN}/getUpdates?limit=10`;
+        .hero {  
+            min-height: 90vh;  
+            padding: 60px 16px 40px;  
+        }  
+        .hero-cta {  
+            padding: 14px 28px;  
+            font-size: 1rem;  
+        }  
 
-            fetch(proxy + encodeURIComponent(url))
-                .then(res => {
-                    if (!res.ok) throw new Error('خطا در ارتباط با سرور');
-                    return res.json();
-                })
-                .then(data => {
-                    if (!data.ok) throw new Error(data.description || 'خطای API');
+        section:not(.hero) {  
+            padding: 28px 18px;  
+        }  
 
-                    // فیلتر کردن پیام‌های کانال
-                    const posts = data.result
-                        .filter(update => update.channel_post)
-                        .map(update => update.channel_post)
-                        .reverse(); // جدیدترین اول
+        .works-grid {  
+            grid-template-columns: 1fr;  
+        }  
+        .stats-grid {  
+            grid-template-columns: repeat(2, 1fr);  
+        }  
 
-                    if (!posts.length) {
-                        container.innerHTML =
-                            `<p style="color:var(--text-muted); text-align:center; width:100%;">😕 هنوز پستی در کانال منتشر نشده.</p>`;
-                        return;
-                    }
+        .post-featured .featured-cover {  
+            height: 140px;  
+        }  
+        .post-featured .featured-overlay {  
+            padding: 18px 18px 22px;  
+        }  
+        .post-featured .full-content-scroll {  
+            max-height: 180px;  
+            font-size: 0.95rem;  
+        }  
+    }  
 
-                    let html = '';
-                    const showCount = Math.min(posts.length, 6);
+    @media (max-width: 480px) {  
+        nav a {  
+            font-size: 0.75rem;  
+            padding: 6px 12px;  
+        }  
+        .stats-grid {  
+            grid-template-columns: 1fr 1fr;  
+            gap: 12px;  
+        }  
+        .post-featured .featured-cover {  
+            height: 120px;  
+        }  
+        .post-featured .full-content-scroll {  
+            max-height: 150px;  
+            font-size: 0.9rem;  
+        }  
+    }  
+</style>
 
-                    for (let i = 0; i < showCount; i++) {
-                        const post = posts[i];
-                        const text = post.text || post.caption || '📎 بدون متن';
-                        const date = new Date(post.date * 1000).toLocaleDateString('fa-IR', {
-                            year: 'numeric',
-                            month: 'long',
-                            day: 'numeric'
-                        });
+</head>  
+<body>  <!-- ========== CURSOR GLOW ========== -->  
+<div id="cursor-glow"></div>  
+<div id="cursor-dot"></div>  
 
-                        let mediaHtml = `<div style="font-size:3rem; opacity:0.3;">📝</div>`;
+<!-- ========== SCROLL PROGRESS ========== -->  
+<div id="scroll-progress"></div>  
 
-                        // عکس
-                        if (post.photo) {
-                            const fileId = post.photo[post.photo.length - 1].file_id;
-                            mediaHtml =
-                                `<img src="https://t.me/${CHANNEL_USERNAME}/${post.message_id}" alt="پست تصویری" loading="lazy" style="width:100%;height:100%;object-fit:cover;" />`;
-                        }
+<!-- ========== HEADER ========== -->  
+<header role="banner">  
+    <div class="container">  
+        <div class="header-content">  
+            <div class="logo">  
+                <h1>مهدی رحیمیان</h1>  
+                <div class="subtitle">سایت شخصی ۲۰۲۶</div>  
+            </div>  
+            <nav role="navigation" aria-label="منوی اصلی">  
+                <ul>  
+                    <li><a href="#home" aria-label="رفتن به صفحه خانه">خانه</a></li>  
+                    <li><a href="#about" aria-label="رفتن به بخش درباره من">درباره</a></li>  
+                    <li><a href="#works" aria-label="رفتن به بخش آثار">آثار</a></li>  
+                    <li><a href="#blog" aria-label="رفتن به بخش نوشته‌ها">نوشته‌ها</a></li>  
+                </ul>  
+            </nav>  
+            <div class="header-actions">  
+                <button class="theme-toggle" id="themeToggle" aria-label="تغییر تم روشن/تاریک" aria-pressed="false">  
+                    <i class="fas fa-sun"></i>  
+                </button>  
+            </div>  
+        </div>  
+    </div>  
+</header>  
 
-                        // ویدئو
-                        if (post.video) {
-                            mediaHtml =
-                                `<video controls style="width:100%;height:100%;object-fit:cover;" preload="metadata"><source src="https://t.me/${CHANNEL_USERNAME}/${post.message_id}" /></video>`;
-                        }
+<!-- ========== HERO ========== -->  
+<section id="home" class="hero" aria-label="بخش هدر اصلی">  
+    <div class="hero-bg" id="heroBg"></div>  
+    <div class="hero-overlay"></div>  
+    <div class="hero-content">  
+        <img src="1.jpg" alt="مهدی رحیمیان" class="profile-avatar" loading="eager" width="220" height="220" />  
+        <h2>مهدی رحیمیان</h2>  
+        <p class="tagline">نویسنده | گوینده | تولیدکننده محتوای صوتی و تصویری</p>  
+        <div class="typed-text" id="typedText" aria-live="polite"></div>  
+        <a href="#works" class="hero-cta" aria-label="مشاهده آثار صوتی">  
+            <i class="fas fa-headphones"></i>  
+            شنیدن دکلمه‌ها  
+            <i class="fas fa-arrow-left"></i>  
+        </a>  
+        <div class="social-links">  
+            <a href="https://www.instagram.com/sayehaye.bi.neghab" target="_blank" rel="noopener noreferrer" aria-label="اینستاگرام"><i class="fab fa-instagram"></i></a>  
+            <a href="https://t.me/sayehayebineghab" target="_blank" rel="noopener noreferrer" aria-label="تلگرام"><i class="fab fa-telegram"></i></a>  
+            <a href="mailto:me@mahdirahimiyan.ir" aria-label="ایمیل"><i class="fas fa-envelope"></i></a>  
+            <a href="https://github.com/mahdiramsar" target="_blank" rel="noopener noreferrer" aria-label="گیت‌هاب"><i class="fab fa-github"></i></a>  
+        </div>  
+    </div>  
+</section>  
 
-                        // لینک در متن
-                        let linkHtml = '';
-                        if (post.entities) {
-                            const entity = post.entities.find(e => e.type === 'url');
-                            if (entity) {
-                                const urlText = text.slice(entity.offset, entity.offset + entity.length);
-                                linkHtml =
-                                    `<br /><a href="${urlText}" target="_blank" style="color:oklch(0.6 0.2 270);font-size:0.85rem;">🔗 لینک</a>`;
-                            }
-                        }
+<div class="container">  
 
-                        html += `
-                            <div class="work-card">
-                                <div class="work-cover">${mediaHtml}</div>
-                                <p style="font-weight:600;margin:8px 0; font-size:0.95rem; line-height:1.6;">
-                                    ${text.slice(0, 130)}${text.length > 130 ? '...' : ''}
-                                    ${linkHtml}
-                                </p>
-                                <small style="color:var(--text-muted); font-size:0.75rem;">
-                                    <i class="far fa-calendar-alt"></i> ${date}
-                                </small>
-                            </div>
-                        `;
-                    }
+    <!-- ========== ABOUT ========== -->  
+    <section id="about" aria-label="درباره من">  
+        <h3><i class="fas fa-user-circle"></i> درباره من</h3>  
+        <p style="font-size:1.05rem; color:var(--text-secondary);">  
+            سلام! من <strong style="color:var(--text-primary);">مهدی رحیمیان</strong> هستم. اینجا فضای شخصی من برای به اشتراک‌گذاری افکار، تجربیات، دکلمه‌ها و نوشته‌هایم است.  
+            عاشق یادگیری، مطالعه، و تولید محتوای صوتی و تصویری هستم و معتقدم کلمات و صدا می‌توانند جهان را تغییر دهند.  
+        </p>  
+        <div class="stats-grid">  
+            <div class="stat-item stagger-item">  
+                <span class="number" id="statDeclem">۲۰+</span>  
+                <span class="label">دکلمه</span>  
+            </div>  
+            <div class="stat-item stagger-item">  
+                <span class="number" id="statPosts">۵۰+</span>  
+                <span class="label">نوشته</span>  
+            </div>  
+            <div class="stat-item stagger-item">  
+                <span class="number" id="statFollowers">۱۰۰۰+</span>  
+                <span class="label">دنبال‌کننده</span>  
+            </div>  
+            <div class="stat-item stagger-item">  
+                <span class="number" id="statProjects">۱۲</span>  
+                <span class="label">پروژه</span>  
+            </div>  
+        </div>  
+    </section>  
 
-                    container.innerHTML = html;
-                })
-                .catch(err => {
-                    container.innerHTML = `
-                        <div style="text-align:center; width:100%; padding:20px; color:var(--text-muted);">
-                            <i class="fas fa-exclamation-triangle" style="color:orange; font-size:1.5rem;"></i>
-                            <p style="margin-top:10px;">⚠️ خطا در دریافت پست‌ها</p>
-                            <small>مطمئن شو ربات به کانال اضافه شده و توکن درست است.</small>
-                            <br /><small style="color:var(--text-muted);">${err.message}</small>
-                        </div>
-                    `;
-                });
-        })();
+    <!-- ========== WORKS ========== -->  
+    <section id="works" aria-label="آثار صوتی و تصویری">  
+        <h3><i class="fas fa-play-circle"></i> آثار صوتی و تصویری</h3>  
+        <p style="color:var(--text-secondary); margin-bottom:20px;">گزیده‌ای از دکلمه‌ها و دلنوشته‌های من با صدای خودم</p>  
+        <div class="works-grid">  
+            <div class="work-card stagger-item">  
+                <div class="work-cover"><i class="fas fa-microphone-alt"></i></div>  
+                <h4>متن و صدا #مهدی_رحیمیان✌️</h4>  
+                <span class="work-date">۱۶ دسامبر ۲۰۲۵</span>  
+                <a href="https://www.instagram.com/reel/DSVt85bgpEi/" target="_blank" rel="noopener noreferrer" class="work-link" aria-label="مشاهده در اینستاگرام">  
+                    <i class="fab fa-instagram"></i> مشاهده  
+                </a>  
+            </div>  
+            <div class="work-card stagger-item">  
+                <div class="work-cover"><i class="fas fa-feather-alt"></i></div>  
+                <h4>مرا به حال خود بگذارید و رهایم کنید...</h4>  
+                <span class="work-date">دلنوشته</span>  
+                <a href="https://www.instagram.com/reel/DPrup05gl1L/" target="_blank" rel="noopener noreferrer" class="work-link" aria-label="مشاهده در اینستاگرام">  
+                    <i class="fab fa-instagram"></i> مشاهده  
+                </a>  
+            </div>  
+            <div class="work-card stagger-item">  
+                <div class="work-cover"><i class="fas fa-heart"></i></div>  
+                <h4>صدایم کن…</h4>  
+                <span class="work-date">۱۶ اوت ۲۰۲۵</span>  
+                <a href="https://www.instagram.com/reel/DNafAsACM-G/" target="_blank" rel="noopener noreferrer" class="work-link" aria-label="مشاهده در اینستاگرام">  
+                    <i class="fab fa-instagram"></i> مشاهده  
+                </a>  
+            </div>  
+            <div class="work-card stagger-item">  
+                <div class="work-cover"><i class="fas fa-star"></i></div>  
+                <h4>متن زیبا و عمیق با خوانش گرم</h4>  
+                <span class="work-date">دلنوشته</span>  
+                <a href="https://www.instagram.com/reel/DNBSxyzCnJb/" target="_blank" rel="noopener noreferrer" class="work-link" aria-label="مشاهده در اینستاگرام">  
+                    <i class="fab fa-instagram"></i> مشاهده  
+                </a>  
+            </div>  
+        </div>  
+        <div class="telegram-channel stagger-item">  
+            <h4><i class="fab fa-telegram"></i> کانال تلگرام من</h4>  
+            <p>«بیان بی‌پرده احساسات و داستان‌ها» </p>  
+            <a href="https://t.me/sayehayebineghab" target="_blank" rel="noopener noreferrer" class="btn-channel" aria-label="عضویت در کانال تلگرام">  
+                <i class="fab fa-telegram"></i> عضویت در کانال تلگرام  
+                <i class="fas fa-arrow-left"></i>  
+            </a>  
+        </div>  
+    </section>  
 
-        // ================================================================
-        // ۲. تایپ‌رایتینگ
-        // ================================================================
-        (function typeWriter() {
-            const el = document.getElementById('typedText');
-            if (!el) return;
-            const words = ['بیان بی‌پرده احساسات', 'داستان‌های ناگفته', 'هنر و زندگی', 'سایه‌های بی‌نقاب'];
-            let wordIndex = 0,
-                charIndex = 0,
-                isDeleting = false;
+    <!-- ========== BLOG ========== -->  
+    <section id="blog" aria-label="نوشته‌ها">  
+        <h3><i class="fas fa-pen-fancy"></i> نوشته‌ها</h3>  
 
-            function type() {
-                const currentWord = words[wordIndex];
-                if (isDeleting) {
-                    el.textContent = currentWord.substring(0, charIndex - 1);
-                    charIndex--;
-                } else {
-                    el.textContent = currentWord.substring(0, charIndex + 1);
-                    charIndex++;
-                }
-                if (!isDeleting && charIndex === currentWord.length) {
-                    isDeleting = true;
-                    setTimeout(type, 2000);
-                    return;
-                }
-                if (isDeleting && charIndex === 0) {
-                    isDeleting = false;
-                    wordIndex = (wordIndex + 1) % words.length;
-                    setTimeout(type, 400);
-                    return;
-                }
-                setTimeout(type, isDeleting ? 40 : 80);
-            }
-            type();
-        })();
+        <div class="search-box">  
+            <input type="text" id="blogSearch" placeholder="جستجوی نوشته‌ها..." aria-label="جستجوی نوشته‌ها" />  
+        </div>  
 
-        // ================================================================
-        // ۳. تم دارک/لایت
-        // ================================================================
-        (function themeToggle() {
-            const btn = document.getElementById('themeToggle');
-            const icon = btn.querySelector('i');
-            const html = document.documentElement;
-            const saved = localStorage.getItem('theme') || 'dark';
-            if (saved === 'light') {
-                html.setAttribute('data-theme', 'light');
-                icon.className = 'fas fa-sun';
-            }
-            btn.addEventListener('click', () => {
-                const current = html.getAttribute('data-theme');
-                if (current === 'light') {
-                    html.removeAttribute('data-theme');
-                    localStorage.setItem('theme', 'dark');
-                    icon.className = 'fas fa-moon';
-                } else {
-                    html.setAttribute('data-theme', 'light');
-                    localStorage.setItem('theme', 'light');
-                    icon.className = 'fas fa-sun';
-                }
-            });
-        })();
+        <div id="blogPosts">  
 
-        // ================================================================
-        // ۴. اسکرول پروگرس
-        // ================================================================
-        (function scrollProgress() {
-            const bar = document.getElementById('scroll-progress');
-            window.addEventListener('scroll', () => {
-                const h = document.documentElement.scrollHeight - window.innerHeight;
-                const pct = h > 0 ? (window.scrollY / h) * 100 : 0;
-                bar.style.width = pct + '%';
-            });
-        })();
+            <!-- ============================================= -->  
+            <!-- نوشته ۱ – تقاطع عشق و خشم                      -->  
+            <!-- ============================================= -->  
+            <div class="post-featured stagger-item" data-title="تقاطع عشق و خشم">  
+                <div class="featured-cover" role="img" aria-label="تصویر جلد نوشته تقاطع عشق و خشم"></div>  
+                <div class="featured-overlay">  
+                    <h4><i class="fas fa-heart-broken"></i> تقاطع عشق و خشم</h4>  
+                    <span class="post-date">۱۰ تیر ۱۴۰۴</span>  
+                    <div class="full-content-scroll">  
+                        گاهی کلمه‌ها  
+                        چیزی بیشتر از صداهای بی‌جان نیستند  
+                        اما همین بی‌جان‌ها  
+                        دقیق‌ترین ابزار شکنجه‌اند  
+                        من سالها  
+                        با واژه‌هایی زندگی کردم  
+                        که ظاهراً برای عشق ساخته شده بودند  
+                        اما در بطنشان  
+                        نفرتی رسوب کرده بود  
+                        که از هزار سیلی دردناک‌تر بود  
 
-        // ================================================================
-        // ۵. افکت نور روی کارت‌ها
-        // ================================================================
-        (function cardGlow() {
-            document.querySelectorAll('section:not(.hero)').forEach(section => {
-                section.addEventListener('mousemove', (e) => {
-                    const rect = section.getBoundingClientRect();
-                    section.style.setProperty('--mouse-x', ((e.clientX - rect.left) / rect.width) * 100 + '%');
-                    section.style.setProperty('--mouse-y', ((e.clientY - rect.top) / rect.height) * 100 + '%');
-                });
-            });
-        })();
+                        «تو را دوستت دارم»  
+                        درست زمانی که داشتم دلم از حضورت می‌سوخت  
+                        من از تو متنفر بودم  
+                        در همان لحظه‌ای که بی‌دفاع  
+                        به چشم‌هایت زل زده بودم  
+                        و دلم می‌خواست  
+                        تمام زخم‌هایم را در آغوشت جا بذارم  
 
-        // ================================================================
-        // ۶. پارالاکس هیرو
-        // ================================================================
-        (function heroParallax() {
-            const bg = document.getElementById('heroBg');
-            if (!bg) return;
-            window.addEventListener('scroll', () => {
-                bg.style.transform = `scale(1.1) translateY(${window.scrollY * 0.05}px)`;
-            });
-        })();
-    </script>
+                        این است تناقض بشر  
+                        که می‌داند چه چیزی آزارش می‌دهد  
+                        اما باز هم به آن پناه می‌برد  
+                        و من  
+                        بزرگ‌ترین خطای منطقی‌ام را  
+                        در دوست داشتن تو مرتکب شدم  
 
-</body>
+                        در من چیزی شکست  
+                        نه یک‌بار  
+                        نه دو بار  
+                        بارها  
+                        در تقاطع عشق و خشم  
+                        در سطرهای نانوشته‌ای  
+                        که بین واژه‌ی «دوستت دارم» و «دیگر هیچ‌وقت نباش»  
+                        مدام در رفت‌ و آمد بودم  
+                        و حالا فقط  
+                        زخم مانده  
+                        واژه مانده  
+                        و من  
+                        که نمی‌دانم  
+                        از کدامشان باید بگریزم  
+                    </div>  
+                </div>  
+            </div>  
+
+            <!-- ============================================= -->  
+            <!-- نوشته ۲ – حال دلم خوب نیست                     -->  
+            <!-- ============================================= -->  
+            <div class="post-featured stagger-item" data-title="حال دلم خوب نیست">  
+                <div class="featured-cover" role="img" aria-label="تصویر جلد نوشته حال دلم خوب نیست"></div>  
+                <div class="featured-overlay">  
+                    <h4><i class="fas fa-heart-broken"></i> حال دلم خوب نیست</h4>  
+                    <span class="post-date">۱۵ تیر ۱۴۰۴</span>  
+                    <div class="full-content-scroll">  
+                        حال دلم خوب نیست  
+                        نه از آن حال‌ هایی که با یک فنجان چای یا لبخند کسی خوب می‌شود  
+                        خشم در رگ‌هایم می‌دود  
+                        تنفر مثل زهر  
+                        آرام در جانم می‌نشیند  
+                        چشمانم خیس از بغضی کهنه  
+                        و دلم...  
+                        دلم زخمی ست که هنوز خون تازه می‌ریزد  
+
+                        حافظه  
+                        دشمن بی‌رحم شب های من است  
+                        هر شب  
+                        تمام صحنه‌ها را دوباره زنده می‌کند  
+                        با همان وضوح  
+                        همان درد  
+
+                        می‌خواهم بروم  
+                        کوچ کنم به جایی که هیچکس مرا نشناسد  
+                        هیچکس نتواند پیدایم کند  
+                        اما مسئولم...  
+                        در برابر آنهایی که دوستشان دارم مسئولم  
+
+                        فراموشی برایم آسان نیست  
+                        مثل دیگران نمی‌توانم بگویم بیخیال  
+                        نمی‌توانم ذهنم را خاموش کنم  
+                        نمی توانم وانمود کنم که اشتباه می‌کردم  
+                        زیرا هر بار که تلاش می‌کنم  
+                        تکرار می آید  
+                        تکرار همان درد  
+                        همان زخم  
+                        همان تنهایی  
+                        تکرار مزخرفترین واژه برای فراموش نکردن است  
+
+                        و حالا...  
+                        از این دنیا حالم به هم می‌خورد  
+                    </div>  
+                </div>  
+            </div>  
+
+            <!-- ============================================= -->  
+            <!-- نوشته ۳ – آن فاجعه‌ی مهربان لعنتی              -->  
+            <!-- ============================================= -->  
+            <div class="post-featured stagger-item" data-title="آن فاجعه‌ی مهربان لعنتی">  
+                <div class="featured-cover" role="img" aria-label="تصویر جلد نوشته آن فاجعه‌ی مهربان لعنتی"></div>  
+                <div class="featured-overlay">  
+                    <h4><i class="fas fa-heart-broken"></i> آن فاجعه‌ی مهربان لعنتی</h4>  
+                    <span class="post-date">۲۰ تیر ۱۴۰۴</span>  
+                    <div class="full-content-scroll">  
+                        آن فاجعه‌ی مهربان لعنتی  
+                        نه می‌گذارد فراموش کنم  
+                        نه اجازه می‌دهد تمام کنم  
+
+                        تمام شب ها  
+                        ذهنم مثل یک نوار قدیمی  
+                        همان لحظه ها را پخش می‌کند  
+                        کلمه‌ هایی که نباید می‌ گفتی  
+                        سکوت‌ هایی که نباید می‌کردم  
+                        و آن لبخندت که  
+                        درست وقتی دلم را می‌دراندی  
+                        روی لبانت می‌نشست  
+
+                        من در تکرار مردم  
+                        در بازپخش بیرحمانه‌ی  
+                        تمام اشتباه‌ها و همه ی دوست‌داشتن‌ ها  
+                        که هیچوقت به نجات نینجامید  
+
+                        آیا تو واقعاً نمی‌فهمیدی؟  
+                        یا من بیش از حد  
+                        در خودم غرق شده بودم  
+                        که نتوانستم نشانه‌ها را ببینم؟  
+
+                        آدم‌ها  
+                        گاهی با ما می‌مانند  
+                        نه از سر عشق  
+                        که از سر ترس  
+                        از سر عادت  
+                        یا صرفاً به خاطر ناتوانی‌ شان  
+                        در ترک کردن آنچه  
+                        روزی برایشان معنا داشت  
+
+                        اما من  
+                        در دل همان تکرار  
+                        فهمیدم که هر دوستت دارم  
+                        می‌تواند نوعی شکنجه باشد  
+                        اگر از دهان کسی بیرون بیاید  
+                        که نمی‌خواهد حقیقتت را ببیند  
+                    </div>  
+                </div>  
+            </div>  
+
+        </div>  
+    </section>  
+
+</div>  
+
+<!-- ========== BACK TO TOP ========== -->  
+<button id="backToTop" aria-label="بازگشت به بالای صفحه"><i class="fas fa-chevron-up"></i></button>  
+
+<!-- ========== FOOTER ========== -->  
+<footer role="contentinfo">  
+    <div class="container">  
+        <p class="copyright">تمامی حقوق محفوظ | طراحی با تکنولوژی‌های ۲۰۲۶</p>  
+        <div class="footer-social">  
+            <a href="https://www.instagram.com/sayehaye.bi.neghab" target="_blank" rel="noopener noreferrer" aria-label="اینستاگرام"><i class="fab fa-instagram"></i></a>  
+            <a href="https://t.me/sayehayebineghab" target="_blank" rel="noopener noreferrer" aria-label="تلگرام"><i class="fab fa-telegram"></i></a>  
+            <a href="mailto:me@mahdirahimiyan.ir" aria-label="ایمیل"><i class="fas fa-envelope"></i></a>  
+            <a href="https://github.com/mahdiramsar" target="_blank" rel="noopener noreferrer" aria-label="گیت‌هاب"><i class="fab fa-github"></i></a>  
+        </div>  
+        <span class="date" id="persianDate"></span>  
+    </div>  
+</footer>  
+
+<!-- ============================================================  
+SCRIPTS  
+============================================================ -->  
+<script>  
+    (function() {  
+        "use strict";  
+
+        // Cursor  
+        const glow = document.getElementById('cursor-glow');  
+        const dot = document.getElementById('cursor-dot');  
+        if (window.matchMedia('(hover: hover)').matches) {  
+            document.addEventListener('mousemove', (e) => {  
+                glow.style.left = e.clientX + 'px';  
+                glow.style.top = e.clientY + 'px';  
+                dot.style.left = e.clientX + 'px';  
+                dot.style.top = e.clientY + 'px';  
+            });  
+            document.querySelectorAll('a, button, .work-card, .post-featured, .stat-item').forEach(el => {  
+                el.addEventListener('mouseenter', () => {  
+                    glow.style.width = '80px';  
+                    glow.style.height = '80px';  
+                    glow.style.opacity = '0.8';  
+                    dot.style.width = '10px';  
+                    dot.style.height = '10px';  
+                });  
+                el.addEventListener('mouseleave', () => {  
+                    glow.style.width = '60px';  
+                    glow.style.height = '60px';  
+                    glow.style.opacity = '1';  
+                    dot.style.width = '6px';  
+                    dot.style.height = '6px';  
+                });  
+            });  
+        }  
+
+        // Spotlight  
+        document.querySelectorAll('section:not(.hero)').forEach(section => {  
+            section.addEventListener('mousemove', (e) => {  
+                const rect = section.getBoundingClientRect();  
+                section.style.setProperty('--mouse-x', ((e.clientX - rect.left) / rect.width * 100) + '%');  
+                section.style.setProperty('--mouse-y', ((e.clientY - rect.top) / rect.height * 100) + '%');  
+            });  
+        });  
+
+        // Scroll progress  
+        const progressBar = document.getElementById('scroll-progress');  
+        window.addEventListener('scroll', () => {  
+            const scrollTop = window.scrollY;  
+            const docHeight = document.documentElement.scrollHeight - window.innerHeight;  
+            progressBar.style.width = (docHeight > 0 ? (scrollTop / docHeight) * 100 : 0) + '%';  
+        });  
+
+        // Theme toggle  
+        const toggle = document.getElementById('themeToggle');  
+        const icon = toggle.querySelector('i');  
+        const currentTheme = localStorage.getItem('theme') || 'dark';  
+        if (currentTheme === 'light') {  
+            document.documentElement.setAttribute('data-theme', 'light');  
+            icon.classList.replace('fa-sun', 'fa-moon');  
+            toggle.setAttribute('aria-pressed', 'true');  
+        }  
+        toggle.addEventListener('click', () => {  
+            const isDark = !document.documentElement.hasAttribute('data-theme');  
+            if (isDark) {  
+                document.documentElement.setAttribute('data-theme', 'light');  
+                localStorage.setItem('theme', 'light');  
+                icon.classList.replace('fa-sun', 'fa-moon');  
+                toggle.setAttribute('aria-pressed', 'true');  
+            } else {  
+                document.documentElement.removeAttribute('data-theme');  
+                localStorage.setItem('theme', 'dark');  
+                icon.classList.replace('fa-moon', 'fa-sun');  
+                toggle.setAttribute('aria-pressed', 'false');  
+            }  
+        });  
+
+        // Typewriter  
+        const typedEl = document.getElementById('typedText');  
+        const phrases = ['دکلمه‌های مرا بشنوید 🎧', 'همراه من در سفر کلمات 🌱', 'اینجا صدا و معنا به هم می‌رسند 📖',  
+            'تجربیاتم را با شما به اشتراک می‌گذارم 💫'  
+        ];  
+        let pIdx = 0,  
+            cIdx = 0,  
+            del = false;  
+
+        function typeEffect() {  
+            const current = phrases[pIdx];  
+            if (!del) {  
+                typedEl.textContent = current.substring(0, cIdx++);  
+                if (cIdx > current.length) { del = true;  
+                    setTimeout(typeEffect, 2200); return; }  
+            } else {  
+                typedEl.textContent = current.substring(0, cIdx--);  
+                if (cIdx < 0) { del = false;  
+                    cIdx = 0;  
+                    pIdx = (pIdx + 1) % phrases.length;  
+                    setTimeout(typeEffect, 400); return; }  
+            }  
+            setTimeout(typeEffect, del ? 50 : 100);  
+        }  
+        setTimeout(typeEffect, 700);  
+
+        // Smooth scroll for nav and hero CTA  
+        document.querySelectorAll('nav a[href^="#"], .hero-cta[href^="#"]').forEach(anchor => {  
+            anchor.addEventListener('click', function(e) {  
+                const targetId = this.getAttribute('href');  
+                if (targetId === '#') return;  
+                e.preventDefault();  
+                const target = document.querySelector(targetId);  
+                if (target) {  
+                    const headerHeight = document.querySelector('header').offsetHeight;  
+                    window.scrollTo({ top: target.getBoundingClientRect().top + window.scrollY -  
+                            headerHeight - 10, behavior: 'smooth' });  
+                }  
+            });  
+        });  
+
+        // Blog search  
+        const searchInput = document.getElementById('blogSearch');  
+        const posts = document.querySelectorAll('#blogPosts .post-featured');  
+        searchInput.addEventListener('input', function() {  
+            const query = this.value.trim().toLowerCase();  
+            posts.forEach(post => {  
+                const title = post.dataset.title ? post.dataset.title.toLowerCase() : '';  
+                post.style.display = title.includes(query) ? 'block' : 'none';  
+            });  
+        });  
+
+        // Back to top  
+        const backBtn = document.getElementById('backToTop');  
+        window.addEventListener('scroll', () => {  
+            backBtn.classList.toggle('visible', window.scrollY > 400);  
+        });  
+        backBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));  
+
+        // Persian date  
+        document.getElementById('persianDate').textContent = '📅 ' + new Date().toLocaleDateString('fa-IR', {  
+            year: 'numeric',  
+            month: 'long',  
+            day: 'numeric',  
+            weekday: 'long'  
+        });  
+
+        // Update copyright year  
+        document.querySelector('footer .copyright').innerHTML =  
+            `© ${new Date().getFullYear()} · تمامی حقوق محفوظ · طراحی با تکنولوژی‌های ۲۰۲۶`;  
+
+        // Counter animation with requestAnimationFrame  
+        function animateCounter(el, target, suffix = '') {  
+            let current = 0;  
+            const step = Math.ceil(target / 40);  
+            let frameId = null;  
+
+            function update() {  
+                current += step;  
+                if (current >= target) {  
+                    current = target;  
+                    el.textContent = current + suffix;  
+                    return;  
+                }  
+                el.textContent = current + suffix;  
+                frameId = requestAnimationFrame(update);  
+            }  
+            frameId = requestAnimationFrame(update);  
+        }  
+
+        const statsObserver = new IntersectionObserver((entries) => {  
+            entries.forEach(entry => {  
+                if (entry.isIntersecting) {  
+                    const items = entry.target.querySelectorAll('.stat-item .number');  
+                    const targets = [20, 50, 1000, 12];  
+                    items.forEach((el, i) => {  
+                        animateCounter(el, targets[i], (i < 3) ? '+' : '');  
+                    });  
+                    statsObserver.unobserve(entry.target);  
+                }  
+            });  
+        }, { threshold: 0.3 });  
+        const statsSection = document.querySelector('.stats-grid');  
+        if (statsSection) statsObserver.observe(statsSection.closest('section'));  
+
+        // Parallax on hero  
+        const heroBg = document.getElementById('heroBg');  
+        if (heroBg) {  
+            let ticking = false;  
+            window.addEventListener('scroll', () => {  
+                if (!ticking) {  
+                    window.requestAnimationFrame(() => {  
+                        heroBg.style.transform = `scale(1.1) translateY(${window.scrollY * 0.15}px)`;  
+                        ticking = false;  
+                    });  
+                    ticking = true;  
+                }  
+            });  
+        }  
+
+        console.log('✅ نسخه بهبودیافته با اعمال پیشنهادات (بدون تغییر در نام/آدرس عکس)');  
+    })();  
+</script>  
+
+<!-- Service Worker -->  
+<script>  
+    if ('serviceWorker' in navigator) {  
+        navigator.serviceWorker.register('sw.js').catch(() => {});  
+    }  
+</script>
+
+</body>  
 </html>
