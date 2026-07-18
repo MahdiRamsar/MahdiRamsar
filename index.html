@@ -255,21 +255,6 @@
         .stagger-item:nth-child(7) { animation-delay: 0.7s; }
         .stagger-item:nth-child(8) { animation-delay: 0.8s; }
 
-        /* ===== STATS ===== */
-        .stats-grid {
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 24px; margin: 20px 0 10px;
-        }
-        .stat-item {
-            text-align: center; padding: 20px 16px; background: var(--bg-secondary);
-            border-radius: var(--radius-sm); border: 1px solid var(--glass-border); transition: all var(--transition);
-        }
-        .stat-item:hover { transform: translateY(-6px); border-color: oklch(0.6 0.2 270 / 0.2); }
-        .stat-item .number {
-            font-size: clamp(1.8rem, 4vw, 2.4rem); font-weight: 900; background: var(--gradient-1);
-            -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; display: block; line-height: 1.2;
-        }
-        .stat-item .label { font-size: 0.85rem; color: var(--text-muted); margin-top: 4px; }
-
         /* ===== WORKS GRID ===== */
         .works-grid {
             display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px; margin-top: 20px;
@@ -407,12 +392,10 @@
             .hero-cta { padding: 14px 28px; font-size: 1rem; }
             section:not(.hero) { padding: 28px 18px; }
             .works-grid { grid-template-columns: 1fr; }
-            .stats-grid { grid-template-columns: repeat(2, 1fr); }
             .posts-grid { grid-template-columns: 1fr; }
         }
         @media (max-width: 480px) {
             nav a { font-size: 0.75rem; padding: 6px 12px; }
-            .stats-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
         }
         .text-center { text-align: center; }
         .mt-20 { margin-top: 20px; }
@@ -484,11 +467,12 @@
                 اینجا فضای شخصی من برای به اشتراک‌گذاری افکار، تجربیات، دکلمه‌ها و <strong>دل‌نوشته‌های بی‌نقاب</strong> است.
                 معتقدم کلمات و صدا می‌توانند جهان را تغییر دهند.
             </p>
-            <div class="stats-grid">
-                <div class="stat-item stagger-item"><span class="number" id="statDeclem">۲۰+</span><span class="label">دکلمه</span></div>
-                <div class="stat-item stagger-item"><span class="number" id="statPosts">۵۰+</span><span class="label">دل‌نوشته</span></div>
-                <div class="stat-item stagger-item"><span class="number" id="statFollowers">۱۰۰۰+</span><span class="label">دنبال‌کننده</span></div>
-                <div class="stat-item stagger-item"><span class="number" id="statProjects">۱۲</span><span class="label">پروژه</span></div>
+            <!-- بخش آمار (stats-grid) به درخواست کاربر حذف شد -->
+            <div class="social-links-mini" style="margin-top:20px; display:flex; justify-content:center; gap:16px; flex-wrap:wrap;">
+                <a href="https://www.instagram.com/sayehaye.bi.neghab" target="_blank" rel="noopener noreferrer" aria-label="اینستاگرام" style="color:var(--text-muted); font-size:1.4rem; transition:all var(--transition);"><i class="fab fa-instagram"></i></a>
+                <a href="https://t.me/sayehayebineghab" target="_blank" rel="noopener noreferrer" aria-label="تلگرام" style="color:var(--text-muted); font-size:1.4rem; transition:all var(--transition);"><i class="fab fa-telegram"></i></a>
+                <a href="mailto:me@mahdirahimiyan.ir" aria-label="ایمیل" style="color:var(--text-muted); font-size:1.4rem; transition:all var(--transition);"><i class="fas fa-envelope"></i></a>
+                <a href="https://github.com/mahdiramsar" target="_blank" rel="noopener noreferrer" aria-label="گیت‌هاب" style="color:var(--text-muted); font-size:1.4rem; transition:all var(--transition);"><i class="fab fa-github"></i></a>
             </div>
         </section>
 
@@ -597,7 +581,7 @@
                     dot.style.left = e.clientX + 'px';
                     dot.style.top = e.clientY + 'px';
                 });
-                document.querySelectorAll('a, button, .work-card, .post-card, .stat-item').forEach(el => {
+                document.querySelectorAll('a, button, .work-card, .post-card').forEach(el => {
                     el.addEventListener('mouseenter', () => {
                         glow.style.width = '80px';
                         glow.style.height = '80px';
@@ -728,36 +712,6 @@
                 `© ${new Date().getFullYear()} · تمامی حقوق محفوظ · طراحی با تکنولوژی‌های ۲۰۲۶`;
 
             // =========================================================
-            // COUNTER ANIMATION
-            // =========================================================
-            function animateCounter(el, target, suffix = '') {
-                let current = 0;
-                const step = Math.ceil(target / 40);
-                let frameId = null;
-
-                function update() {
-                    current += step;
-                    if (current >= target) { current = target;
-                        el.textContent = current + suffix; return; }
-                    el.textContent = current + suffix;
-                    frameId = requestAnimationFrame(update);
-                }
-                frameId = requestAnimationFrame(update);
-            }
-            const statsObserver = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        const items = entry.target.querySelectorAll('.stat-item .number');
-                        const targets = [20, 50, 1000, 12];
-                        items.forEach((el, i) => { animateCounter(el, targets[i], (i < 3) ? '+' : ''); });
-                        statsObserver.unobserve(entry.target);
-                    }
-                });
-            }, { threshold: 0.3 });
-            const statsSection = document.querySelector('.stats-grid');
-            if (statsSection) statsObserver.observe(statsSection.closest('section'));
-
-            // =========================================================
             // PARALLAX
             // =========================================================
             const heroBg = document.getElementById('heroBg');
@@ -823,11 +777,9 @@
                     ogDesc.content = post.metaDescription || post.excerpt || post.content.substring(0, 150) + '...';
                     ogUrl.content = window.location.href;
 
-                    // حذف Schema قبلی
                     if (schemaPost) { schemaPost.remove();
                         schemaPost = null; }
 
-                    // Schema BlogPosting
                     const script = document.createElement('script');
                     script.type = 'application/ld+json';
                     script.id = 'schema-post';
@@ -956,7 +908,7 @@
             }
             loadPosts();
 
-            console.log('✅ نسخه نهایی با سئوی حرفه‌ای (متا دیسکریپشن، Open Graph، Schema)');
+            console.log('✅ نسخه نهایی بدون آمار (حذف stats-grid)');
         })();
     </script>
     <script>
