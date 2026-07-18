@@ -133,11 +133,20 @@
         }
         @media (hover: hover) { #cursor-glow, #cursor-dot { display: block; } }
 
-        /* ===== SCROLL PROGRESS ===== */
+        /* ===== SCROLL PROGRESS (برای کل صفحه) ===== */
         #scroll-progress {
             position: fixed; top: 0; left: 0; width: 0%; height: 3px;
             background: var(--gradient-1); z-index: 9998; transition: width 0.1s;
         }
+
+        /* ===== READING PROGRESS (برای نوشته‌ها - پایین هدر) ===== */
+        #reading-progress {
+            position: fixed; top: 78px; left: 0; width: 0%; height: 3px;
+            background: oklch(0.6 0.2 270); z-index: 9997; transition: width 0.1s;
+            box-shadow: 0 0 10px oklch(0.6 0.2 270 / 0.5);
+            display: none;
+        }
+        #reading-progress.active { display: block; }
 
         /* ===== HEADER ===== */
         header {
@@ -340,7 +349,7 @@
         .post-card:hover { transform: translateY(-8px); border-color: oklch(0.6 0.2 270 / 0.25); }
         .post-card:focus-visible { outline: 3px solid oklch(0.6 0.2 270); outline-offset: 2px; }
         .post-card .post-thumb {
-            width: 100%; aspect-ratio: 16/9; background-image: url('1.jpg');
+            width: 100%; aspect-ratio: 16/9;
             background-size: cover; background-position: center; filter: brightness(0.7); transition: filter 0.4s ease;
         }
         .post-card:hover .post-thumb { filter: brightness(1); }
@@ -388,6 +397,37 @@
         .posts-list-view { display: block; }
         .posts-list-view.hidden { display: none; }
 
+        /* ===== POST NAVIGATION (قبلی/بعدی) ===== */
+        .post-navigation {
+            display: flex; justify-content: space-between; gap: 16px;
+            margin-top: 32px; padding-top: 24px; border-top: 1px solid var(--glass-border);
+            flex-wrap: wrap;
+        }
+        .post-navigation a {
+            display: inline-flex; align-items: center; gap: 8px;
+            padding: 10px 20px; border-radius: 40px;
+            background: var(--bg-secondary); border: 1px solid var(--glass-border);
+            color: var(--text-secondary); text-decoration: none; font-weight: 600;
+            transition: all var(--transition); font-size: 0.9rem; max-width: 45%;
+        }
+        .post-navigation a:hover {
+            background: var(--bg-card); color: var(--text-primary);
+            border-color: oklch(0.6 0.2 270 / 0.3);
+            transform: translateX(4px);
+        }
+        .post-navigation a.prev-post { transform: translateX(-4px); }
+        .post-navigation a.prev-post:hover { transform: translateX(0); }
+        .post-navigation .nav-label { opacity: 0.6; font-size: 0.75rem; display: block; }
+        .post-navigation .nav-title { font-weight: 700; display: block; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 180px; }
+
+        /* ===== 404 CUSTOM ===== */
+        .not-found {
+            text-align: center; padding: 60px 20px;
+        }
+        .not-found i { font-size: 4rem; opacity: 0.2; color: var(--text-muted); margin-bottom: 20px; display: block; }
+        .not-found h3 { font-size: 2rem; font-weight: 800; margin-bottom: 10px; color: var(--text-primary); }
+        .not-found p { color: var(--text-secondary); }
+
         /* ===== BACK TO TOP ===== */
         #backToTop {
             position: fixed; bottom: 32px; right: 32px; width: 48px; height: 48px; border-radius: 50%;
@@ -423,6 +463,8 @@
             section:not(.hero) { padding: 28px 18px; }
             .works-grid { grid-template-columns: 1fr; }
             .posts-grid { grid-template-columns: 1fr; }
+            .post-navigation a { max-width: 100%; flex: 1; }
+            .post-navigation .nav-title { max-width: 100px; }
         }
         @media (max-width: 480px) {
             nav a { font-size: 0.75rem; padding: 6px 12px; }
@@ -438,6 +480,7 @@
     <div id="cursor-glow"></div>
     <div id="cursor-dot"></div>
     <div id="scroll-progress"></div>
+    <div id="reading-progress"></div>
 
     <!-- ========== HEADER ========== -->
     <header role="banner">
@@ -560,6 +603,7 @@
             <div id="singlePost" class="single-post-view">
                 <a href="#" class="back-to-posts" id="backToPosts"><i class="fas fa-arrow-right"></i> بازگشت به لیست</a>
                 <div id="singlePostContent"></div>
+                <div id="postNavigationContainer"></div>
                 <div class="share-actions" id="shareActions">
                     <button id="sharePostBtn"><i class="fas fa-share-alt"></i> اشتراک‌گذاری</button>
                 </div>
@@ -595,7 +639,7 @@
     </footer>
 
     <!-- ============================================================
-    SCRIPTS (بهبودیافته)
+    SCRIPTS (بهبودیافته با ناوبری و خط پیشرفت)
     ============================================================ -->
     <script>
         (function() {
@@ -643,7 +687,7 @@
             });
 
             // =========================================================
-            // SCROLL PROGRESS
+            // SCROLL PROGRESS (سراسری)
             // =========================================================
             const progressBar = document.getElementById('scroll-progress');
             window.addEventListener('scroll', () => {
@@ -651,6 +695,32 @@
                 const docHeight = document.documentElement.scrollHeight - window.innerHeight;
                 progressBar.style.width = (docHeight > 0 ? (scrollTop / docHeight) * 100 : 0) + '%';
             });
+
+            // =========================================================
+            // READING PROGRESS (برای نوشته‌ها)
+            // =========================================================
+            const readingProgress = document.getElementById('reading-progress');
+
+            function updateReadingProgress() {
+                const singlePost = document.getElementById('singlePost');
+                if (singlePost && singlePost.classList.contains('active')) {
+                    const content = singlePost.querySelector('.post-body');
+                    if (content) {
+                        const rect = content.getBoundingClientRect();
+                        const totalHeight = content.scrollHeight;
+                        const visibleHeight = window.innerHeight - rect.top;
+                        const progress = Math.min(100, Math.max(0, (visibleHeight / totalHeight) * 100));
+                        readingProgress.style.width = progress + '%';
+                        readingProgress.classList.add('active');
+                        return;
+                    }
+                }
+                readingProgress.style.width = '0%';
+                readingProgress.classList.remove('active');
+            }
+
+            window.addEventListener('scroll', updateReadingProgress);
+            window.addEventListener('resize', updateReadingProgress);
 
             // =========================================================
             // THEME TOGGLE
@@ -721,7 +791,6 @@
                             top: target.getBoundingClientRect().top + window.scrollY - headerHeight - 10,
                             behavior: 'smooth'
                         });
-                        // به‌روزرسانی aria-current
                         navLinks.forEach(l => l.removeAttribute('aria-current'));
                         this.setAttribute('aria-current', 'page');
                     }
@@ -736,7 +805,7 @@
             backBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 
             // =========================================================
-            // PERSIAN DATE (یکنواخت)
+            // PERSIAN DATE
             // =========================================================
             document.getElementById('persianDate').textContent = '📅 ' + new Date().toLocaleDateString('fa-IR', {
                 year: 'numeric',
@@ -748,7 +817,7 @@
                 `© ${new Date().getFullYear()} · تمامی حقوق محفوظ · طراحی با تکنولوژی‌های ۲۰۲۶`;
 
             // =========================================================
-            // PARALLAX (بهبود)
+            // PARALLAX
             // =========================================================
             const heroBg = document.getElementById('heroBg');
             if (heroBg) {
@@ -765,7 +834,7 @@
             }
 
             // =========================================================
-            // POSTS ENGINE (با پشتیبانی از کیبورد و اشتراک‌گذاری)
+            // POSTS ENGINE (با تصویر اختصاصی، ناوبری، 404)
             // =========================================================
             let postsData = [];
             let currentSlug = null;
@@ -778,6 +847,7 @@
             const searchInput = document.getElementById('searchInput');
             const noPostsMsg = document.getElementById('noPosts');
             const sharePostBtn = document.getElementById('sharePostBtn');
+            const navContainer = document.getElementById('postNavigationContainer');
 
             // متا تگ‌های پویا
             const metaTitle = document.querySelector('title');
@@ -790,7 +860,6 @@
             const robots = document.querySelector('meta[name="robots"]');
             let schemaPost = null;
 
-            // توابع کمکی
             function getSlugFromURL() {
                 const path = window.location.pathname;
                 const parts = path.split('/').filter(Boolean);
@@ -822,7 +891,6 @@
                     canonical.href = window.location.href;
                     robots.content = 'index, follow';
 
-                    // Schema
                     if (schemaPost) { schemaPost.remove();
                         schemaPost = null; }
                     const script = document.createElement('script');
@@ -842,7 +910,6 @@
                     document.head.appendChild(script);
                     schemaPost = script;
                 } else {
-                    // حالت پیش‌فرض
                     metaTitle.textContent = 'سایه‌های بی‌نقاب | دل‌نوشته‌ها و دکلمه‌ها';
                     metaDesc.content = 'سایت شخصی مهدی رحیمیان، نویسنده و گوینده‌ی اهل رامسر | دل‌نوشته‌های بی‌نقاب، دکلمه‌ها و کانال تلگرام';
                     ogTitle.content = 'سایه‌های بی‌نقاب | دل‌نوشته‌ها';
@@ -865,16 +932,16 @@
                 noPostsMsg.style.display = 'none';
                 let html = '';
                 posts.forEach(post => {
-                    const dateFormatted = post.date; // فرض می‌کنیم تاریخ شمسی است
+                    const imgSrc = post.image || '1.jpg';
                     html += `
                         <div class="post-card" data-slug="${post.slug}" role="button" tabindex="0" aria-label="مشاهده نوشته: ${post.title}">
                             <div class="post-link" data-slug="${post.slug}" style="cursor:pointer;">
-                                <div class="post-thumb" style="background-image: url('${post.image || '1.jpg'}');"></div>
+                                <div class="post-thumb" style="background-image: url('${imgSrc}');"></div>
                                 <div class="post-info">
                                     <h4>${post.title}</h4>
                                     <div class="post-excerpt">${post.excerpt || post.content.substring(0, 120) + '...'}</div>
                                     <div class="post-meta">
-                                        <span><i class="fas fa-calendar-alt"></i> ${dateFormatted}</span>
+                                        <span><i class="fas fa-calendar-alt"></i> ${post.date}</span>
                                         <button class="share-btn" data-slug="${post.slug}" aria-label="اشتراک‌گذاری نوشته"><i class="fas fa-share-alt"></i></button>
                                     </div>
                                 </div>
@@ -884,23 +951,18 @@
                 });
                 postsGrid.innerHTML = html;
 
-                // رویداد کلیک و کیبورد برای کارت‌ها
                 document.querySelectorAll('.post-card').forEach(card => {
-                    const link = card.querySelector('.post-link');
                     const slug = card.dataset.slug;
-                    // کلیک
                     card.addEventListener('click', function(e) {
                         if (e.target.closest('.share-btn')) return;
                         if (slug) showSinglePost(slug);
                     });
-                    // کیبورد (Enter و Space)
                     card.addEventListener('keydown', function(e) {
                         if (e.key === 'Enter' || e.key === ' ') {
                             e.preventDefault();
                             if (slug) showSinglePost(slug);
                         }
                     });
-                    // دکمه اشتراک‌گذاری داخل کارت
                     const shareBtn = card.querySelector('.share-btn');
                     if (shareBtn) {
                         shareBtn.addEventListener('click', function(e) {
@@ -915,12 +977,21 @@
             function showSinglePost(slug) {
                 const post = postsData.find(p => p.slug === slug);
                 if (!post) {
+                    // نمایش ۴۰۴ سفارشی
                     postsListView.classList.remove('hidden');
                     singlePostView.classList.remove('active');
                     singlePostView.style.display = 'none';
                     renderPostsList(postsData);
                     updateURL(null);
                     updateSEO(null);
+                    // نمایش پیام ۴۰۴ در لیست
+                    postsGrid.innerHTML = `
+                        <div class="not-found" style="grid-column:1/-1;">
+                            <i class="fas fa-search"></i>
+                            <h3>نوشته‌ای پیدا نشد</h3>
+                            <p>متأسفیم، نوشته‌ای با این آدرس وجود ندارد. لطفاً از لیست زیر یکی را انتخاب کنید.</p>
+                        </div>
+                    `;
                     return;
                 }
 
@@ -931,6 +1002,7 @@
                 postsListView.classList.add('hidden');
                 singlePostView.classList.add('active');
                 singlePostView.style.display = 'block';
+
                 const dateFormatted = post.date;
                 singlePostContent.innerHTML = `
                     <div class="post-header">
@@ -939,8 +1011,45 @@
                     </div>
                     <div class="post-body">${post.content}</div>
                 `;
+
+                // ناوبری قبلی/بعدی
+                const currentIndex = postsData.findIndex(p => p.slug === slug);
+                const prevPost = currentIndex > 0 ? postsData[currentIndex - 1] : null;
+                const nextPost = currentIndex < postsData.length - 1 ? postsData[currentIndex + 1] : null;
+                let navHtml = '<div class="post-navigation">';
+                if (prevPost) {
+                    navHtml += `<a href="/p/${prevPost.slug}" class="prev-post" data-slug="${prevPost.slug}">
+                        <i class="fas fa-chevron-right"></i>
+                        <span><span class="nav-label">نوشته قبلی</span><span class="nav-title">${prevPost.title}</span></span>
+                    </a>`;
+                } else {
+                    navHtml += `<span></span>`;
+                }
+                if (nextPost) {
+                    navHtml += `<a href="/p/${nextPost.slug}" class="next-post" data-slug="${nextPost.slug}">
+                        <span><span class="nav-label">نوشته بعدی</span><span class="nav-title">${nextPost.title}</span></span>
+                        <i class="fas fa-chevron-left"></i>
+                    </a>`;
+                } else {
+                    navHtml += `<span></span>`;
+                }
+                navHtml += '</div>';
+                navContainer.innerHTML = navHtml;
+
+                // رویداد کلیک برای لینک‌های ناوبری (جلوگیری از رفرش)
+                navContainer.querySelectorAll('a[data-slug]').forEach(link => {
+                    link.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        const slug = this.dataset.slug;
+                        if (slug) showSinglePost(slug);
+                    });
+                });
+
                 // دکمه اشتراک‌گذاری
                 sharePostBtn.onclick = function() { sharePost(post); };
+
+                // به‌روزرسانی خط پیشرفت
+                setTimeout(updateReadingProgress, 100);
                 document.getElementById('blog').scrollIntoView({ behavior: 'smooth', block: 'start' });
             }
 
@@ -949,16 +1058,17 @@
                 postsListView.classList.remove('hidden');
                 singlePostView.classList.remove('active');
                 singlePostView.style.display = 'none';
+                navContainer.innerHTML = '';
                 updateURL(null);
                 updateSEO(null);
                 document.title = 'سایه‌های بی‌نقاب | دل‌نوشته‌ها';
                 document.getElementById('blog').scrollIntoView({ behavior: 'smooth', block: 'start' });
                 applySearch();
+                updateReadingProgress();
             }
 
             backBtnPosts.addEventListener('click', goBackToList);
 
-            // اشتراک‌گذاری با Web Share API
             function sharePost(post) {
                 const url = window.location.origin + '/p/' + encodeURIComponent(post.slug);
                 if (navigator.share) {
@@ -968,7 +1078,6 @@
                         url: url
                     }).catch(() => {});
                 } else {
-                    // Fallback: کپی لینک
                     navigator.clipboard.writeText(url).then(() => {
                         alert('لینک نوشته در کلیپ‌بورد کپی شد.');
                     }).catch(() => {
@@ -977,7 +1086,6 @@
                 }
             }
 
-            // جستجو
             function applySearch() {
                 const query = searchInput.value.trim().toLowerCase();
                 if (!query) { renderPostsList(postsData); return; }
@@ -990,13 +1098,11 @@
             }
             searchInput.addEventListener('input', applySearch);
 
-            // مدیریت دکمه‌های بازگشت مرورگر
             window.addEventListener('popstate', (e) => {
                 const slug = e.state && e.state.slug;
                 if (slug) { showSinglePost(slug); } else { goBackToList(e); }
             });
 
-            // بارگذاری پست‌ها
             function loadPosts() {
                 fetch('posts.json')
                     .then(res => { if (!res.ok) throw new Error('posts.json not found'); return res.json(); })
@@ -1014,7 +1120,7 @@
             }
             loadPosts();
 
-            console.log('✅ نسخه نهایی بهبودیافته با پشتیبانی از سئو، دسترسی، اشتراک‌گذاری و عملکرد بهتر');
+            console.log('✅ نسخه نهایی با تصاویر اختصاصی، ناوبری، خط پیشرفت و ۴۰۴ سفارشی');
         })();
     </script>
     <script>
