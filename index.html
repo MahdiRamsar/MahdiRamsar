@@ -46,8 +46,8 @@
 
     <style>
         /* ============================================================
-               CSS VARIABLES (بهبود کنتراست در تم روشن)
-               ============================================================ */
+           CSS VARIABLES (بهبود کنتراست در تم روشن)
+           ============================================================ */
         :root {
             --bg-primary: oklch(0.08 0.01 260);
             --bg-secondary: oklch(0.12 0.015 260);
@@ -133,13 +133,13 @@
         }
         @media (hover: hover) { #cursor-glow, #cursor-dot { display: block; } }
 
-        /* ===== SCROLL PROGRESS (برای کل صفحه) ===== */
+        /* ===== SCROLL PROGRESS (سراسری) ===== */
         #scroll-progress {
             position: fixed; top: 0; left: 0; width: 0%; height: 3px;
             background: var(--gradient-1); z-index: 9998; transition: width 0.1s;
         }
 
-        /* ===== READING PROGRESS (برای نوشته‌ها - پایین هدر) ===== */
+        /* ===== READING PROGRESS (برای نوشته‌ها) ===== */
         #reading-progress {
             position: fixed; top: 78px; left: 0; width: 0%; height: 3px;
             background: oklch(0.6 0.2 270); z-index: 9997; transition: width 0.1s;
@@ -207,7 +207,7 @@
         @keyframes floatAvatar { 0% { transform: translateY(0); } 100% { transform: translateY(-16px); } }
         @keyframes fadeInUp { to { opacity: 1; transform: translateY(0); } }
 
-        .hero h2 {
+        .hero h1 {
             font-size: clamp(2rem, 6vw, 3.6rem); font-weight: 900; letter-spacing: -1px;
             text-shadow: 0 4px 20px rgba(0, 0, 0, 0.5); margin-bottom: 8px; color: #fff;
             opacity: 0; animation: fadeInUp 0.8s ease forwards; animation-delay: 0.2s;
@@ -397,7 +397,7 @@
         .posts-list-view { display: block; }
         .posts-list-view.hidden { display: none; }
 
-        /* ===== POST NAVIGATION (قبلی/بعدی) ===== */
+        /* ===== POST NAVIGATION ===== */
         .post-navigation {
             display: flex; justify-content: space-between; gap: 16px;
             margin-top: 32px; padding-top: 24px; border-top: 1px solid var(--glass-border);
@@ -513,7 +513,7 @@
         <div class="hero-overlay"></div>
         <div class="hero-content">
             <img src="1.jpg" alt="مهدی رحیمیان" class="profile-avatar" loading="eager" width="220" height="220" />
-            <h2>مهدی رحیمیان</h2>
+            <h1>مهدی رحیمیان</h1>
             <p class="tagline">نویسنده | گوینده | اهل رامسر (سخت‌سر)</p>
             <div class="typed-text" id="typedText" aria-live="polite"></div>
             <a href="#works" class="hero-cta">
@@ -639,7 +639,7 @@
     </footer>
 
     <!-- ============================================================
-    SCRIPTS (بهبودیافته با ناوبری و خط پیشرفت)
+    SCRIPTS (بهبودیافته با ناوبری، خط پیشرفت، ۴۰۴ و تصاویر اختصاصی)
     ============================================================ -->
     <script>
         (function() {
@@ -984,7 +984,6 @@
                     renderPostsList(postsData);
                     updateURL(null);
                     updateSEO(null);
-                    // نمایش پیام ۴۰۴ در لیست
                     postsGrid.innerHTML = `
                         <div class="not-found" style="grid-column:1/-1;">
                             <i class="fas fa-search"></i>
