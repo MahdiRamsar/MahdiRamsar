@@ -7,19 +7,20 @@
     <!-- PWA Manifest -->
     <link rel="manifest" href="manifest.json" />
 
-    <!-- SEO با دامنه‌ی جدید -->
+    <!-- SEO Default -->
     <title>سایه‌های بی‌نقاب | دل‌نوشته‌ها و دکلمه‌ها</title>
-    <meta name="description" content="سایت شخصی مهدی رحیمیان، نویسنده و گوینده‌ی اهل رامسر | دل‌نوشته‌های بی‌نقاب، دکلمه‌ها و کانال تلگرام سایه‌های بی‌نقاب" />
+    <meta name="description" content="سایت شخصی مهدی رحیمیان، نویسنده و گوینده‌ی اهل رامسر | دل‌نوشته‌های بی‌نقاب، دکلمه‌ها و کانال تلگرام" />
     <meta name="theme-color" content="#07080b" />
 
-    <!-- Open Graph -->
+    <!-- Open Graph Default -->
     <meta property="og:title" content="سایه‌های بی‌نقاب | دل‌نوشته‌ها" />
     <meta property="og:description" content="دل‌نوشته‌های بی‌نقاب، دکلمه‌ها و آثار صوتی و تصویری" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://sayehayebineghab.ir" />
+    <meta property="og:image" content="https://sayehayebineghab.ir/1.jpg" />
 
-    <!-- Schema.org -->
-    <script type="application/ld+json">
+    <!-- Schema.org Default -->
+    <script type="application/ld+json" id="schema-default">
         {
             "@context": "https://schema.org",
             "@type": "Person",
@@ -337,7 +338,7 @@
         }
         .post-card {
             background: var(--bg-secondary); border-radius: var(--radius-sm); overflow: hidden;
-            border: 1px solid var(--glass-border); transition: all var(--transition); cursor: pointer;
+            border: 1px solid var(--glass-border); transition: all var(--transition);
             box-shadow: var(--shadow);
         }
         .post-card:hover { transform: translateY(-8px); border-color: oklch(0.6 0.2 270 / 0.25); }
@@ -351,6 +352,11 @@
         .post-card:hover .post-info h4 { color: oklch(0.6 0.2 270); }
         .post-card .post-excerpt { font-size: 0.9rem; color: var(--text-secondary); line-height: 1.7; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
         .post-card .post-meta { display: flex; justify-content: space-between; align-items: center; margin-top: 12px; font-size: 0.8rem; color: var(--text-muted); }
+        .post-card a {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
 
         .single-post-view { display: none; animation: fadeInUp 0.5s ease forwards; }
         .single-post-view.active { display: block; }
@@ -539,7 +545,7 @@
             </div>
 
             <div id="singlePost" class="single-post-view">
-                <button class="back-to-posts" id="backToPosts"><i class="fas fa-arrow-right"></i> بازگشت به لیست</button>
+                <a href="#" class="back-to-posts" id="backToPosts"><i class="fas fa-arrow-right"></i> بازگشت به لیست</a>
                 <div id="singlePostContent"></div>
             </div>
 
@@ -579,7 +585,9 @@
         (function() {
             "use strict";
 
-            // Cursor
+            // =========================================================
+            // CURSOR
+            // =========================================================
             const glow = document.getElementById('cursor-glow');
             const dot = document.getElementById('cursor-dot');
             if (window.matchMedia('(hover: hover)').matches) {
@@ -607,7 +615,9 @@
                 });
             }
 
-            // Spotlight
+            // =========================================================
+            // SPOTLIGHT
+            // =========================================================
             document.querySelectorAll('section:not(.hero)').forEach(section => {
                 section.addEventListener('mousemove', (e) => {
                     const rect = section.getBoundingClientRect();
@@ -616,7 +626,9 @@
                 });
             });
 
-            // Scroll Progress
+            // =========================================================
+            // SCROLL PROGRESS
+            // =========================================================
             const progressBar = document.getElementById('scroll-progress');
             window.addEventListener('scroll', () => {
                 const scrollTop = window.scrollY;
@@ -624,7 +636,9 @@
                 progressBar.style.width = (docHeight > 0 ? (scrollTop / docHeight) * 100 : 0) + '%';
             });
 
-            // Theme Toggle
+            // =========================================================
+            // THEME TOGGLE
+            // =========================================================
             const toggle = document.getElementById('themeToggle');
             const icon = toggle.querySelector('i');
             const currentTheme = localStorage.getItem('theme') || 'dark';
@@ -648,31 +662,36 @@
                 }
             });
 
-            // Typewriter
+            // =========================================================
+            // TYPEWRITER
+            // =========================================================
             const typedEl = document.getElementById('typedText');
             const phrases = ['دکلمه‌های مرا بشنوید 🎧', 'همراه من در سفر کلمات 🌱', 'اینجا صدا و معنا به هم می‌رسند 📖', 'دل‌نوشته‌های بی‌نقاب را بخوانید ✍️'];
             let pIdx = 0,
                 cIdx = 0,
                 del = false;
+            let typeTimeout;
 
             function typeEffect() {
                 const current = phrases[pIdx];
                 if (!del) {
                     typedEl.textContent = current.substring(0, cIdx++);
                     if (cIdx > current.length) { del = true;
-                        setTimeout(typeEffect, 2200); return; }
+                        typeTimeout = setTimeout(typeEffect, 2200); return; }
                 } else {
                     typedEl.textContent = current.substring(0, cIdx--);
                     if (cIdx < 0) { del = false;
                         cIdx = 0;
                         pIdx = (pIdx + 1) % phrases.length;
-                        setTimeout(typeEffect, 400); return; }
+                        typeTimeout = setTimeout(typeEffect, 400); return; }
                 }
-                setTimeout(typeEffect, del ? 50 : 100);
+                typeTimeout = setTimeout(typeEffect, del ? 50 : 100);
             }
             setTimeout(typeEffect, 700);
 
-            // Smooth scroll
+            // =========================================================
+            // SMOOTH SCROLL
+            // =========================================================
             document.querySelectorAll('nav a[href^="#"], .hero-cta[href^="#"]').forEach(anchor => {
                 anchor.addEventListener('click', function(e) {
                     const targetId = this.getAttribute('href');
@@ -681,18 +700,24 @@
                     const target = document.querySelector(targetId);
                     if (target) {
                         const headerHeight = document.querySelector('header').offsetHeight;
-                        window.scrollTo({ top: target.getBoundingClientRect().top + window.scrollY - headerHeight -
-                                10, behavior: 'smooth' });
+                        window.scrollTo({
+                            top: target.getBoundingClientRect().top + window.scrollY - headerHeight - 10,
+                            behavior: 'smooth'
+                        });
                     }
                 });
             });
 
-            // Back to top
+            // =========================================================
+            // BACK TO TOP
+            // =========================================================
             const backBtn = document.getElementById('backToTop');
             window.addEventListener('scroll', () => { backBtn.classList.toggle('visible', window.scrollY > 400); });
             backBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 
-            // Persian Date
+            // =========================================================
+            // PERSIAN DATE
+            // =========================================================
             document.getElementById('persianDate').textContent = '📅 ' + new Date().toLocaleDateString('fa-IR', {
                 year: 'numeric',
                 month: 'long',
@@ -702,7 +727,9 @@
             document.querySelector('footer .copyright').innerHTML =
                 `© ${new Date().getFullYear()} · تمامی حقوق محفوظ · طراحی با تکنولوژی‌های ۲۰۲۶`;
 
-            // Counter Animation
+            // =========================================================
+            // COUNTER ANIMATION
+            // =========================================================
             function animateCounter(el, target, suffix = '') {
                 let current = 0;
                 const step = Math.ceil(target / 40);
@@ -730,7 +757,9 @@
             const statsSection = document.querySelector('.stats-grid');
             if (statsSection) statsObserver.observe(statsSection.closest('section'));
 
-            // Parallax
+            // =========================================================
+            // PARALLAX
+            // =========================================================
             const heroBg = document.getElementById('heroBg');
             if (heroBg) {
                 let ticking = false;
@@ -746,9 +775,11 @@
             }
 
             // =========================================================
-            // POSTS ENGINE (JSON + SLUG)
+            // POSTS ENGINE (JSON + SLUG) + SEO Dynamic
             // =========================================================
             let postsData = [];
+            let currentSlug = null;
+
             const postsGrid = document.getElementById('postsGrid');
             const singlePostView = document.getElementById('singlePost');
             const postsListView = document.getElementById('postsList');
@@ -756,6 +787,15 @@
             const backBtnPosts = document.getElementById('backToPosts');
             const searchInput = document.getElementById('searchInput');
             const noPostsMsg = document.getElementById('noPosts');
+
+            // متا تگ‌ها
+            const metaTitle = document.querySelector('title');
+            const metaDesc = document.querySelector('meta[name="description"]');
+            const ogTitle = document.querySelector('meta[property="og:title"]');
+            const ogDesc = document.querySelector('meta[property="og:description"]');
+            const ogUrl = document.querySelector('meta[property="og:url"]');
+            const schemaDefault = document.getElementById('schema-default');
+            let schemaPost = null;
 
             function getSlugFromURL() {
                 const path = window.location.pathname;
@@ -775,6 +815,48 @@
                 }
             }
 
+            function updateSEO(post) {
+                if (post) {
+                    metaTitle.textContent = post.title + ' | سایه‌های بی‌نقاب';
+                    metaDesc.content = post.metaDescription || post.excerpt || post.content.substring(0, 150) + '...';
+                    ogTitle.content = post.title + ' | سایه‌های بی‌نقاب';
+                    ogDesc.content = post.metaDescription || post.excerpt || post.content.substring(0, 150) + '...';
+                    ogUrl.content = window.location.href;
+
+                    // حذف Schema قبلی
+                    if (schemaPost) { schemaPost.remove();
+                        schemaPost = null; }
+
+                    // Schema BlogPosting
+                    const script = document.createElement('script');
+                    script.type = 'application/ld+json';
+                    script.id = 'schema-post';
+                    const dateISO = post.date ? post.date.replace(/[^\d]/g, '') : '1404';
+                    const content = {
+                        "@context": "https://schema.org",
+                        "@type": "BlogPosting",
+                        "headline": post.title,
+                        "datePublished": dateISO + '-00-00',
+                        "author": {
+                            "@type": "Person",
+                            "name": "مهدی رحیمیان"
+                        },
+                        "description": post.metaDescription || post.excerpt || post.content.substring(0, 150) + '...'
+                    };
+                    script.textContent = JSON.stringify(content);
+                    document.head.appendChild(script);
+                    schemaPost = script;
+                } else {
+                    metaTitle.textContent = 'سایه‌های بی‌نقاب | دل‌نوشته‌ها و دکلمه‌ها';
+                    metaDesc.content = 'سایت شخصی مهدی رحیمیان، نویسنده و گوینده‌ی اهل رامسر | دل‌نوشته‌های بی‌نقاب، دکلمه‌ها و کانال تلگرام';
+                    ogTitle.content = 'سایه‌های بی‌نقاب | دل‌نوشته‌ها';
+                    ogDesc.content = 'دل‌نوشته‌های بی‌نقاب، دکلمه‌ها و آثار صوتی و تصویری';
+                    ogUrl.content = window.location.origin + '/';
+                    if (schemaPost) { schemaPost.remove();
+                        schemaPost = null; }
+                }
+            }
+
             function renderPostsList(posts) {
                 if (!posts || posts.length === 0) {
                     postsGrid.innerHTML = '';
@@ -785,13 +867,15 @@
                 let html = '';
                 posts.forEach(post => {
                     html += `
-                        <div class="post-card" onclick="window.navigateToPost('${post.slug}')">
-                            <div class="post-thumb" style="background-image: url('1.jpg');"></div>
-                            <div class="post-info">
-                                <h4>${post.title}</h4>
-                                <div class="post-excerpt">${post.excerpt || post.content.substring(0, 120) + '...'}</div>
-                                <div class="post-meta"><span><i class="fas fa-calendar-alt"></i> ${post.date}</span><span><i class="fas fa-eye"></i> مطالعه</span></div>
-                            </div>
+                        <div class="post-card">
+                            <a href="/p/${post.slug}" aria-label="مشاهده نوشته ${post.title}">
+                                <div class="post-thumb" style="background-image: url('1.jpg');"></div>
+                                <div class="post-info">
+                                    <h4>${post.title}</h4>
+                                    <div class="post-excerpt">${post.excerpt || post.content.substring(0, 120) + '...'}</div>
+                                    <div class="post-meta"><span><i class="fas fa-calendar-alt"></i> ${post.date}</span><span><i class="fas fa-eye"></i> مطالعه</span></div>
+                                </div>
+                            </a>
                         </div>
                     `;
                 });
@@ -806,31 +890,36 @@
                     singlePostView.style.display = 'none';
                     renderPostsList(postsData);
                     updateURL(null);
+                    updateSEO(null);
                     return;
                 }
+
+                currentSlug = slug;
                 updateURL(slug);
+                updateSEO(post);
+
                 postsListView.classList.add('hidden');
                 singlePostView.classList.add('active');
                 singlePostView.style.display = 'block';
                 singlePostContent.innerHTML = `
-                    <div class="post-header"><h1>${post.title}</h1><div class="post-date-single" style="color:var(--text-muted);"><i class="fas fa-calendar-alt"></i> ${post.date}</div></div>
+                    <div class="post-header"><h1>${post.title}</h1><div style="color:var(--text-muted);"><i class="fas fa-calendar-alt"></i> ${post.date}</div></div>
                     <div class="post-body">${post.content}</div>
                 `;
                 document.getElementById('blog').scrollIntoView({ behavior: 'smooth', block: 'start' });
-                document.title = `${post.title} | سایه‌های بی‌نقاب`;
             }
 
-            window.navigateToPost = function(slug) { showSinglePost(slug); };
-
-            function goBackToList() {
+            function goBackToList(e) {
+                e.preventDefault();
                 postsListView.classList.remove('hidden');
                 singlePostView.classList.remove('active');
                 singlePostView.style.display = 'none';
                 updateURL(null);
+                updateSEO(null);
                 document.title = 'سایه‌های بی‌نقاب | دل‌نوشته‌ها';
                 document.getElementById('blog').scrollIntoView({ behavior: 'smooth', block: 'start' });
                 applySearch();
             }
+
             backBtnPosts.addEventListener('click', goBackToList);
 
             function applySearch() {
@@ -847,8 +936,7 @@
 
             window.addEventListener('popstate', (e) => {
                 const slug = e.state && e.state.slug;
-                if (slug) showSinglePost(slug);
-                else goBackToList();
+                if (slug) { showSinglePost(slug); } else { goBackToList(e); }
             });
 
             function loadPosts() {
@@ -858,15 +946,17 @@
                         postsData = data;
                         renderPostsList(postsData);
                         const slug = getSlugFromURL();
-                        if (slug) showSinglePost(slug);
+                        if (slug) { showSinglePost(slug); } else { updateSEO(null); }
                     })
                     .catch(() => {
                         postsGrid.innerHTML =
                             `<div style="grid-column:1/-1; text-align:center; padding:40px; color:var(--text-muted);"><i class="fas fa-exclamation-triangle" style="font-size:2rem;"></i><p style="margin-top:12px;">فایل posts.json پیدا نشد.</p></div>`;
+                        updateSEO(null);
                     });
             }
             loadPosts();
-            console.log('✅ نسخه نهایی با طرح اصلی + posts.json');
+
+            console.log('✅ نسخه نهایی با سئوی حرفه‌ای (متا دیسکریپشن، Open Graph، Schema)');
         })();
     </script>
     <script>
