@@ -19,7 +19,7 @@
     <meta property="og:description" content="دل‌نوشته‌های بی‌نقاب، دکلمه‌ها و آثار صوتی و تصویری" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://sayehayebineghab.ir" />
-    <meta property="og:image" content="https://sayehayebineghab.ir/1.webp" />
+    <meta property="og:image" content="https://sayehayebineghab.ir/1.jpg" />
 
     <!-- Schema.org Default -->
     <script type="application/ld+json" id="schema-default">
@@ -178,7 +178,7 @@
             background: #000; isolation: isolate; z-index: 2;
         }
         .hero-bg {
-            position: absolute; inset: 0; background-image: url('1.webp');
+            position: absolute; inset: 0; background-image: url('1.jpg');
             background-size: cover; background-position: center;
             filter: blur(20px) brightness(0.6); transform: scale(1.1); transition: transform 0.1s linear; will-change: transform; z-index: 0;
         }
@@ -340,7 +340,7 @@
         .post-card:hover { transform: translateY(-8px); border-color: oklch(0.6 0.2 270 / 0.25); }
         .post-card:focus-visible { outline: 3px solid oklch(0.6 0.2 270); outline-offset: 2px; }
         .post-card .post-thumb {
-            width: 100%; aspect-ratio: 16/9; background-image: url('1.webp');
+            width: 100%; aspect-ratio: 16/9; background-image: url('1.jpg');
             background-size: cover; background-position: center; filter: brightness(0.7); transition: filter 0.4s ease;
         }
         .post-card:hover .post-thumb { filter: brightness(1); }
@@ -469,7 +469,7 @@
         <div class="hero-bg" id="heroBg"></div>
         <div class="hero-overlay"></div>
         <div class="hero-content">
-            <img src="1.webp" alt="مهدی رحیمیان" class="profile-avatar" loading="eager" width="220" height="220" />
+            <img src="1.jpg" alt="مهدی رحیمیان" class="profile-avatar" loading="eager" width="220" height="220" />
             <h2>مهدی رحیمیان</h2>
             <p class="tagline">نویسنده | گوینده | اهل رامسر (سخت‌سر)</p>
             <div class="typed-text" id="typedText" aria-live="polite"></div>
@@ -818,7 +818,7 @@
                     ogTitle.content = fullTitle;
                     ogDesc.content = desc;
                     ogUrl.content = window.location.href;
-                    ogImage.content = post.image || 'https://sayehayebineghab.ir/1.webp';
+                    ogImage.content = post.image || 'https://sayehayebineghab.ir/1.jpg';
                     canonical.href = window.location.href;
                     robots.content = 'index, follow';
 
@@ -836,7 +836,7 @@
                         "datePublished": dateISO + '-00-00',
                         "author": { "@type": "Person", "name": "مهدی رحیمیان" },
                         "description": desc,
-                        "image": post.image || 'https://sayehayebineghab.ir/1.webp'
+                        "image": post.image || 'https://sayehayebineghab.ir/1.jpg'
                     };
                     script.textContent = JSON.stringify(content);
                     document.head.appendChild(script);
@@ -848,7 +848,7 @@
                     ogTitle.content = 'سایه‌های بی‌نقاب | دل‌نوشته‌ها';
                     ogDesc.content = 'دل‌نوشته‌های بی‌نقاب، دکلمه‌ها و آثار صوتی و تصویری';
                     ogUrl.content = window.location.origin + '/';
-                    ogImage.content = 'https://sayehayebineghab.ir/1.webp';
+                    ogImage.content = 'https://sayehayebineghab.ir/1.jpg';
                     canonical.href = 'https://sayehayebineghab.ir/';
                     robots.content = 'index, follow';
                     if (schemaPost) { schemaPost.remove();
@@ -869,7 +869,7 @@
                     html += `
                         <div class="post-card" data-slug="${post.slug}" role="button" tabindex="0" aria-label="مشاهده نوشته: ${post.title}">
                             <div class="post-link" data-slug="${post.slug}" style="cursor:pointer;">
-                                <div class="post-thumb" style="background-image: url('${post.image || '1.webp'}');"></div>
+                                <div class="post-thumb" style="background-image: url('${post.image || '1.jpg'}');"></div>
                                 <div class="post-info">
                                     <h4>${post.title}</h4>
                                     <div class="post-excerpt">${post.excerpt || post.content.substring(0, 120) + '...'}</div>
