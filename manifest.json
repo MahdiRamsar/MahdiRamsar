@@ -1,12 +1,40 @@
 {
-    "name": "مهدی رحیمیان | سایت شخصی ۲۰۲۶",
-    "short_name": "مهدی رحیمیان",
+    "name": "سایه‌های بی‌نقاب | دل‌نوشته‌ها و دکلمه‌ها",
+    "short_name": "سایه‌های بی‌نقاب",
     "start_url": "/",
+    "scope": "/",
     "display": "standalone",
     "background_color": "#07080b",
     "theme_color": "#07080b",
     "orientation": "portrait",
+    "dir": "rtl",
+    "lang": "fa",
     "icons": [
+        {
+            "src": "icon-48.png",
+            "sizes": "48x48",
+            "type": "image/png"
+        },
+        {
+            "src": "icon-72.png",
+            "sizes": "72x72",
+            "type": "image/png"
+        },
+        {
+            "src": "icon-96.png",
+            "sizes": "96x96",
+            "type": "image/png"
+        },
+        {
+            "src": "icon-128.png",
+            "sizes": "128x128",
+            "type": "image/png"
+        },
+        {
+            "src": "icon-144.png",
+            "sizes": "144x144",
+            "type": "image/png"
+        },
         {
             "src": "icon-192.png",
             "sizes": "192x192",
@@ -15,6 +43,14 @@
         {
             "src": "icon-512.png",
             "sizes": "512x512",
+            "type": "image/png"
+        }
+    ],
+    "categories": ["personal", "blog", "literature"],
+    "screenshots": [
+        {
+            "src": "screenshot-mobile.png",
+            "sizes": "1080x1920",
             "type": "image/png"
         }
     ]
