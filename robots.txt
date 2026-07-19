@@ -1,3 +1,15 @@
+# همه‌ی ربات‌ها
 User-agent: *
+
+# اجازه‌ی خزش کامل سایت
 Allow: /
+
+# جلوگیری از خزش پوشه‌های سیستمی (اختیاری)
+Disallow: /assets/
+Disallow: /images/
+
+# معرفی Sitemap
 Sitemap: https://sayehayebineghab.ir/sitemap.xml
+
+# زمان تأخیر بین درخواست‌ها (برای ربات‌های سنگین)
+Crawl-delay: 1
