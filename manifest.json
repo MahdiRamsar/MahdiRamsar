@@ -45,13 +45,5 @@
             "sizes": "512x512",
             "type": "image/png"
         }
-    ],
-    "categories": ["personal", "blog", "literature"],
-    "screenshots": [
-        {
-            "src": "screenshot-mobile.png",
-            "sizes": "1080x1920",
-            "type": "image/png"
-        }
     ]
 }
