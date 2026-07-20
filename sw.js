@@ -1,12 +1,17 @@
-const CACHE_NAME = 'mahdi-site-v2'; // نسخه را افزایش دهید تا کش قدیمی باطل شود
+const CACHE_NAME = 'mahdi-site-v3';
 const urlsToCache = [
     '/',
     '/index.html',
+    '/404.html',
     '/1.jpg',
-    '/1.webp',
-    '/1.avif',
     '/posts.json',
     '/manifest.json',
+    '/images/taghato-eshgh-va-kheshm.webp',
+    '/images/hal-e-delam-khoob-nist.webp',
+    '/images/an-faje-ye-mehraban-lanati.webp',
+    '/images/bozorgtarin-eshtebah-ma.webp',
+    '/images/roozi-ta-kharhare-ashiq-boodam.webp',
+    '/images/che-fargh-mikonad-bidar-basham-ya-dar-khab.webp',
     '/icon-192.png',
     '/icon-512.png'
 ];
@@ -45,26 +50,23 @@ self.addEventListener('fetch', event => {
             caches.match(request).then(cachedResponse => {
                 const fetchPromise = fetch(request)
                     .then(networkResponse => {
-                        // کش نسخه‌ی جدید برای استفاده‌ی بعدی
                         caches.open(CACHE_NAME).then(cache => {
                             cache.put(request, networkResponse.clone());
                         });
                         return networkResponse;
                     })
-                    .catch(() => cachedResponse); // اگر شبکه در دسترس نبود، کش شده را برگردان
+                    .catch(() => cachedResponse);
                 return cachedResponse || fetchPromise;
             })
         );
         return;
     }
 
-    // برای درخواست‌های دیگر (تصاویر، فایل‌های استاتیک، JSON)
+    // برای سایر درخواست‌ها: cache-first
     event.respondWith(
         caches.match(request)
             .then(response => response || fetch(request))
             .catch(() => {
-                // در صورت خطای شبکه (مثلاً قطع اینترنت) می‌توانید یک صفحه‌ی پیش‌فرض نمایش دهید
-                // اما در اینجا چیزی برنمی‌گردانیم چون سایت اصلی می‌تواند ۴۰۴ را مدیریت کند
                 return new Response('Network error', { status: 503 });
             })
     );
