@@ -647,7 +647,7 @@
     </footer>
 
     <!-- ============================================================
-    SCRIPTS (با لینک‌های مستقیم برای گوگل)
+    SCRIPTS (با لینک‌های مستقیم برای گوگل - نسخه جدید /post/...)
     ============================================================ -->
     <script>
         (function() {
@@ -842,7 +842,7 @@
             }
 
             // =========================================================
-            // POSTS ENGINE (با لینک‌های مستقیم برای گوگل)
+            // POSTS ENGINE (با لینک‌های مستقیم به /post/slug.html)
             // =========================================================
             let postsData = [];
             let currentSlug = null;
@@ -868,10 +868,19 @@
             const robots = document.querySelector('meta[name="robots"]');
             let schemaPost = null;
 
+            // تابع برای گرفتن slug از آدرس جدید
             function getSlugFromURL() {
                 const path = window.location.pathname;
                 const parts = path.split('/').filter(Boolean);
-                if (parts.length >= 2 && parts[0] === 'p') return decodeURIComponent(parts[1]);
+                // اگر آدرس به صورت /post/slug.html باشد
+                if (parts.length >= 2 && parts[0] === 'post') {
+                    const slug = parts[1].replace(/\.html$/, '');
+                    return slug;
+                }
+                // پشتیبانی از آدرس قدیمی /p/slug (برای سازگاری)
+                if (parts.length >= 2 && parts[0] === 'p') {
+                    return decodeURIComponent(parts[1]);
+                }
                 const params = new URLSearchParams(window.location.search);
                 if (params.has('post')) return params.get('post');
                 return null;
@@ -879,7 +888,7 @@
 
             function updateURL(slug) {
                 if (slug) {
-                    const newUrl = window.location.origin + '/p/' + encodeURIComponent(slug);
+                    const newUrl = window.location.origin + '/post/' + encodeURIComponent(slug) + '.html';
                     window.history.pushState({ slug: slug }, '', newUrl);
                 } else {
                     window.history.pushState({ slug: null }, '', window.location.origin + '/');
@@ -943,7 +952,7 @@
                     const imgSrc = post.image || '1.jpg';
                     html += `
                         <div class="post-card" data-slug="${post.slug}">
-                            <a href="/p/${post.slug}" class="post-link" aria-label="مشاهده نوشته: ${post.title}">
+                            <a href="/post/${post.slug}.html" class="post-link" aria-label="مشاهده نوشته: ${post.title}">
                                 <div class="post-thumb" style="background-image: url('${imgSrc}');"></div>
                                 <div class="post-info">
                                     <h4>${post.title}</h4>
@@ -1008,13 +1017,13 @@
                     <div class="post-body">${post.content}</div>
                 `;
 
-                // ناوبری قبلی/بعدی
+                // ناوبری قبلی/بعدی (لینک به فایل‌های جدید)
                 const currentIndex = postsData.findIndex(p => p.slug === slug);
                 const prevPost = currentIndex > 0 ? postsData[currentIndex - 1] : null;
                 const nextPost = currentIndex < postsData.length - 1 ? postsData[currentIndex + 1] : null;
                 let navHtml = '<div class="post-navigation">';
                 if (prevPost) {
-                    navHtml += `<a href="/p/${prevPost.slug}" class="prev-post" data-slug="${prevPost.slug}">
+                    navHtml += `<a href="/post/${prevPost.slug}.html" class="prev-post" data-slug="${prevPost.slug}">
                         <i class="fas fa-chevron-right"></i>
                         <span><span class="nav-label">نوشته قبلی</span><span class="nav-title">${prevPost.title}</span></span>
                     </a>`;
@@ -1022,7 +1031,7 @@
                     navHtml += `<span></span>`;
                 }
                 if (nextPost) {
-                    navHtml += `<a href="/p/${nextPost.slug}" class="next-post" data-slug="${nextPost.slug}">
+                    navHtml += `<a href="/post/${nextPost.slug}.html" class="next-post" data-slug="${nextPost.slug}">
                         <span><span class="nav-label">نوشته بعدی</span><span class="nav-title">${nextPost.title}</span></span>
                         <i class="fas fa-chevron-left"></i>
                     </a>`;
@@ -1032,7 +1041,7 @@
                 navHtml += '</div>';
                 navContainer.innerHTML = navHtml;
 
-                // رویداد کلیک برای لینک‌های ناوبری (جلوگیری از رفرش)
+                // رویداد کلیک برای لینک‌های ناوبری (جلوگیری از رفرش – ولی ما لینک مستقیم می‌دهیم)
                 navContainer.querySelectorAll('a[data-slug]').forEach(link => {
                     link.addEventListener('click', function(e) {
                         e.preventDefault();
@@ -1066,7 +1075,7 @@
             backBtnPosts.addEventListener('click', goBackToList);
 
             function sharePost(post) {
-                const url = window.location.origin + '/p/' + encodeURIComponent(post.slug);
+                const url = window.location.origin + '/post/' + encodeURIComponent(post.slug) + '.html';
                 if (navigator.share) {
                     navigator.share({
                         title: post.title,
@@ -1116,7 +1125,7 @@
             }
             loadPosts();
 
-            console.log('✅ نسخه نهایی با لینک‌های مستقیم برای گوگل');
+            console.log('✅ نسخه نهایی با لینک‌های مستقیم به /post/slug.html');
         })();
     </script>
     <script>
