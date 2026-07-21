@@ -1,9 +1,0 @@
-<IfModule mod_rewrite.c>
-    RewriteEngine On
-    RewriteBase /
-
-    # اگر فایل یا پوشه وجود ندارد، همه‌ی درخواست‌ها را به index.html هدایت کن
-    RewriteCond %{REQUEST_FILENAME} !-f
-    RewriteCond %{REQUEST_FILENAME} !-d
-    RewriteRule ^(.*)$ index.html [L,QSA]
-</IfModule>
