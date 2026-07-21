@@ -4,48 +4,48 @@
   <!-- صفحه اصلی -->
   <url>
     <loc>https://sayehayebineghab.ir/</loc>
-    <lastmod>2026-07-20</lastmod>
+    <lastmod>2026-07-21</lastmod>
     <priority>1.0</priority>
   </url>
 
-  <!-- نوشته ۱ -->
+  <!-- نوشته ۱: تقاطع عشق و خشم -->
   <url>
-    <loc>https://sayehayebineghab.ir/p/taghato-eshgh-va-kheshm</loc>
+    <loc>https://sayehayebineghab.ir/post/taghato-eshgh-va-kheshm.html</loc>
     <lastmod>2026-07-10</lastmod>
     <priority>0.8</priority>
   </url>
 
-  <!-- نوشته ۲ -->
+  <!-- نوشته ۲: حال دلم خوب نیست -->
   <url>
-    <loc>https://sayehayebineghab.ir/p/hal-e-delam-khoob-nist</loc>
+    <loc>https://sayehayebineghab.ir/post/hal-e-delam-khoob-nist.html</loc>
     <lastmod>2026-07-15</lastmod>
     <priority>0.8</priority>
   </url>
 
-  <!-- نوشته ۳ -->
+  <!-- نوشته ۳: آن فاجعه‌ی مهربان لعنتی -->
   <url>
-    <loc>https://sayehayebineghab.ir/p/an-faje-ye-mehraban-lanati</loc>
+    <loc>https://sayehayebineghab.ir/post/an-faje-ye-mehraban-lanati.html</loc>
     <lastmod>2026-07-20</lastmod>
     <priority>0.8</priority>
   </url>
 
-  <!-- نوشته ۴ -->
+  <!-- نوشته ۴: بزرگ‌ترین اشتباه ما... -->
   <url>
-    <loc>https://sayehayebineghab.ir/p/bozorgtarin-eshtebah-ma</loc>
+    <loc>https://sayehayebineghab.ir/post/bozorgtarin-eshtebah-ma.html</loc>
     <lastmod>2026-07-28</lastmod>
     <priority>0.8</priority>
   </url>
 
-  <!-- نوشته ۵ -->
+  <!-- نوشته ۵: روزی تا خرخره عاشق بودم... -->
   <url>
-    <loc>https://sayehayebineghab.ir/p/roozi-ta-kharhare-ashiq-boodam</loc>
+    <loc>https://sayehayebineghab.ir/post/roozi-ta-kharhare-ashiq-boodam.html</loc>
     <lastmod>2026-07-30</lastmod>
     <priority>0.8</priority>
   </url>
 
-  <!-- نوشته ۶ -->
+  <!-- نوشته ۶: چه فرق می‌کند بیدار باشم یا در خواب... -->
   <url>
-    <loc>https://sayehayebineghab.ir/p/che-fargh-mikonad-bidar-basham-ya-dar-khab</loc>
+    <loc>https://sayehayebineghab.ir/post/che-fargh-mikonad-bidar-basham-ya-dar-khab.html</loc>
     <lastmod>2026-08-02</lastmod>
     <priority>0.8</priority>
   </url>
