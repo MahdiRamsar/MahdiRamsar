@@ -45,7 +45,6 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
 
     <style>
-        /* همان استایل‌های فایل قبلی */
         :root {
             --bg-primary: oklch(0.08 0.01 260);
             --bg-secondary: oklch(0.12 0.015 260);
@@ -92,6 +91,27 @@
             transition: all var(--transition); margin-bottom: 24px; cursor: pointer;
         }
         .back-to-posts:hover { background: var(--bg-card); color: var(--text-primary); transform: translateX(-4px); }
+        .post-navigation {
+            display: flex; justify-content: space-between; gap: 16px;
+            margin-top: 32px; padding-top: 24px; border-top: 1px solid var(--glass-border);
+            flex-wrap: wrap;
+        }
+        .post-navigation a {
+            display: inline-flex; align-items: center; gap: 8px;
+            padding: 10px 20px; border-radius: 40px;
+            background: var(--bg-secondary); border: 1px solid var(--glass-border);
+            color: var(--text-secondary); text-decoration: none; font-weight: 600;
+            transition: all var(--transition); font-size: 0.9rem; max-width: 45%;
+        }
+        .post-navigation a:hover {
+            background: var(--bg-card); color: var(--text-primary);
+            border-color: oklch(0.6 0.2 270 / 0.3);
+            transform: translateX(4px);
+        }
+        .post-navigation a.prev-post { transform: translateX(-4px); }
+        .post-navigation a.prev-post:hover { transform: translateX(0); }
+        .post-navigation .nav-label { opacity: 0.6; font-size: 0.75rem; display: block; }
+        .post-navigation .nav-title { font-weight: 700; display: block; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 180px; }
         @keyframes fadeInUp { to { opacity: 1; transform: translateY(0); } }
         header {
             position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
@@ -138,6 +158,8 @@
             .logo { text-align: center; }
             nav ul { justify-content: center; }
             .header-actions { align-self: center; }
+            .post-navigation a { max-width: 100%; flex: 1; }
+            .post-navigation .nav-title { max-width: 100px; }
         }
     </style>
 </head>
@@ -211,6 +233,17 @@
 از این دنیا حالم به هم می‌خورد
 
 ✍️ مهدی رحیمیان | نویسنده در رامسر (سخت‌سر)</div>
+
+            <div class="post-navigation">
+                <a href="/post/taghato-eshgh-va-kheshm.html" class="prev-post">
+                    <i class="fas fa-chevron-right"></i>
+                    <span><span class="nav-label">نوشته قبلی</span><span class="nav-title">تقاطع عشق و خشم</span></span>
+                </a>
+                <a href="/post/an-faje-ye-mehraban-lanati.html" class="next-post">
+                    <span><span class="nav-label">نوشته بعدی</span><span class="nav-title">آن فاجعه‌ی مهربان لعنتی</span></span>
+                    <i class="fas fa-chevron-left"></i>
+                </a>
+            </div>
         </div>
     </div>
 
