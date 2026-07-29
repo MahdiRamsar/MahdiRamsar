@@ -1,9 +1,10 @@
-const CACHE_NAME = 'mahdi-site-v3';
+const CACHE_NAME = 'mahdi-site-v4'; // نسخه کش آپدیت شد
 const urlsToCache = [
     '/',
     '/index.html',
     '/404.html',
     '/1.jpg',
+    '/music.mp3', // فایل صوتی با نام جدید به لیست اضافه شد
     '/posts.json',
     '/manifest.json',
     '/images/taghato-eshgh-va-kheshm.webp',
