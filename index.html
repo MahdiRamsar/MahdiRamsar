@@ -10,7 +10,7 @@
     <meta name="referrer" content="strict-origin-when-cross-origin" />
     <meta name="google-site-verification" content="Ts3MtnYWVUcmbNFnUnTrhXMyAZWJ-JqdbcMi83bCx2M" />
 
-    <!-- ===== CSP (اصلاح شده) ===== -->
+    <!-- ===== CSP ===== -->
     <meta http-equiv="Content-Security-Policy" 
           content="default-src 'self'; 
                    script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://static.cloudflareinsights.com; 
@@ -358,13 +358,8 @@
             animation: pulseMusic 1.5s ease-in-out infinite;
         }
         @keyframes pulseMusic {
-            0%,
-            100% {
-                box-shadow: 0 0 0 0 rgba(124,58,237,0.4);
-            }
-            50% {
-                box-shadow: 0 0 0 12px rgba(124,58,237,0);
-            }
+            0%, 100% { box-shadow: 0 0 0 0 rgba(124,58,237,0.4); }
+            50% { box-shadow: 0 0 0 12px rgba(124,58,237,0); }
         }
 
         /* ===== MUSIC PLAYER ===== */
@@ -484,18 +479,11 @@
             aspect-ratio: 1/1;
         }
         @keyframes floatAvatar {
-            0% {
-                transform: translateY(0);
-            }
-            100% {
-                transform: translateY(-16px);
-            }
+            0% { transform: translateY(0); }
+            100% { transform: translateY(-16px); }
         }
         @keyframes fadeInUp {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            to { opacity: 1; transform: translateY(0); }
         }
         .hero h1 {
             font-size: clamp(2rem, 6vw, 3.6rem);
@@ -1287,149 +1275,49 @@
                 padding: calc(var(--spacing-unit) * 3.5) calc(var(--spacing-unit) * 2.25);
                 margin: calc(var(--spacing-unit) * 3) 0;
             }
-            .works-grid {
-                grid-template-columns: 1fr;
-            }
-            .posts-grid {
-                grid-template-columns: 1fr;
-            }
-            .post-navigation a {
-                max-width: 100%;
-                flex: 1;
-            }
-            .post-navigation .nav-title {
-                max-width: 100px;
-            }
-            .about-slide {
-                padding: calc(var(--spacing-unit) * 2);
-            }
-            .hero {
-                min-height: 90vh;
-                padding: 60px 16px 40px;
-            }
-            .hero-cta {
-                padding: calc(var(--spacing-unit) * 1.75) calc(var(--spacing-unit) * 3.5);
-                font-size: 1rem;
-            }
-            .header-content {
-                flex-direction: column;
-                align-items: stretch;
-                gap: calc(var(--spacing-unit) * 0.75);
-            }
-            .logo {
-                text-align: center;
-            }
-            nav ul {
-                justify-content: center;
-            }
-            .header-actions {
-                align-self: center;
-                flex-wrap: wrap;
-                justify-content: center;
-            }
+            .works-grid { grid-template-columns: 1fr; }
+            .posts-grid { grid-template-columns: 1fr; }
+            .post-navigation a { max-width: 100%; flex: 1; }
+            .post-navigation .nav-title { max-width: 100px; }
+            .about-slide { padding: calc(var(--spacing-unit) * 2); }
+            .hero { min-height: 90vh; padding: 60px 16px 40px; }
+            .hero-cta { padding: calc(var(--spacing-unit) * 1.75) calc(var(--spacing-unit) * 3.5); font-size: 1rem; }
+            .header-content { flex-direction: column; align-items: stretch; gap: calc(var(--spacing-unit) * 0.75); }
+            .logo { text-align: center; }
+            nav ul { justify-content: center; }
+            .header-actions { align-self: center; flex-wrap: wrap; justify-content: center; }
         }
         @container (max-width: 480px) {
-            nav a {
-                font-size: 0.75rem;
-                padding: calc(var(--spacing-unit) * 0.75) calc(var(--spacing-unit) * 1.5);
-            }
-            .best-of {
-                grid-template-columns: 1fr 1fr;
-            }
-            .music-timer {
-                font-size: 0.6rem;
-                min-width: 60px;
-                padding: 2px 6px;
-            }
-            .music-error {
-                font-size: 0.55rem;
-                padding: 2px 8px;
-            }
-            .music-retry {
-                font-size: 0.55rem;
-                padding: 2px 8px;
-            }
+            nav a { font-size: 0.75rem; padding: calc(var(--spacing-unit) * 0.75) calc(var(--spacing-unit) * 1.5); }
+            .best-of { grid-template-columns: 1fr 1fr; }
+            .music-timer { font-size: 0.6rem; min-width: 60px; padding: 2px 6px; }
+            .music-error { font-size: 0.55rem; padding: 2px 8px; }
+            .music-retry { font-size: 0.55rem; padding: 2px 8px; }
         }
         @media (max-width: 768px) {
-            .header-content {
-                flex-direction: column;
-                align-items: stretch;
-                gap: calc(var(--spacing-unit) * 0.75);
-            }
-            .logo {
-                text-align: center;
-            }
-            nav ul {
-                justify-content: center;
-            }
-            .header-actions {
-                align-self: center;
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-            .hero {
-                min-height: 90vh;
-                padding: 60px 16px 40px;
-            }
-            .hero-cta {
-                padding: calc(var(--spacing-unit) * 1.75) calc(var(--spacing-unit) * 3.5);
-                font-size: 1rem;
-            }
-            section:not(.hero) {
-                padding: calc(var(--spacing-unit) * 3.5) calc(var(--spacing-unit) * 2.25);
-                margin: calc(var(--spacing-unit) * 3) 0;
-            }
-            .works-grid {
-                grid-template-columns: 1fr;
-            }
-            .posts-grid {
-                grid-template-columns: 1fr;
-            }
-            .post-navigation a {
-                max-width: 100%;
-                flex: 1;
-            }
-            .post-navigation .nav-title {
-                max-width: 100px;
-            }
-            .about-slide {
-                padding: calc(var(--spacing-unit) * 2);
-            }
+            .header-content { flex-direction: column; align-items: stretch; gap: calc(var(--spacing-unit) * 0.75); }
+            .logo { text-align: center; }
+            nav ul { justify-content: center; }
+            .header-actions { align-self: center; flex-wrap: wrap; justify-content: center; }
+            .hero { min-height: 90vh; padding: 60px 16px 40px; }
+            .hero-cta { padding: calc(var(--spacing-unit) * 1.75) calc(var(--spacing-unit) * 3.5); font-size: 1rem; }
+            section:not(.hero) { padding: calc(var(--spacing-unit) * 3.5) calc(var(--spacing-unit) * 2.25); margin: calc(var(--spacing-unit) * 3) 0; }
+            .works-grid { grid-template-columns: 1fr; }
+            .posts-grid { grid-template-columns: 1fr; }
+            .post-navigation a { max-width: 100%; flex: 1; }
+            .post-navigation .nav-title { max-width: 100px; }
+            .about-slide { padding: calc(var(--spacing-unit) * 2); }
         }
         @media (max-width: 480px) {
-            nav a {
-                font-size: 0.75rem;
-                padding: calc(var(--spacing-unit) * 0.75) calc(var(--spacing-unit) * 1.5);
-            }
-            .best-of {
-                grid-template-columns: 1fr 1fr;
-            }
-            .music-timer {
-                font-size: 0.6rem;
-                min-width: 60px;
-                padding: 2px 6px;
-            }
-            .music-error {
-                font-size: 0.55rem;
-                padding: 2px 8px;
-            }
-            .music-retry {
-                font-size: 0.55rem;
-                padding: 2px 8px;
-            }
+            nav a { font-size: 0.75rem; padding: calc(var(--spacing-unit) * 0.75) calc(var(--spacing-unit) * 1.5); }
+            .best-of { grid-template-columns: 1fr 1fr; }
+            .music-timer { font-size: 0.6rem; min-width: 60px; padding: 2px 6px; }
+            .music-error { font-size: 0.55rem; padding: 2px 8px; }
+            .music-retry { font-size: 0.55rem; padding: 2px 8px; }
         }
         @media (prefers-reduced-motion: reduce) {
-            .profile-avatar {
-                animation: none;
-            }
-            .hero h1,
-            .hero .tagline,
-            .hero .typed-text,
-            .hero-cta,
-            .social-links {
-                animation: none;
-                opacity: 1;
-            }
+            .profile-avatar { animation: none; }
+            .hero h1, .hero .tagline, .hero .typed-text, .hero-cta, .social-links { animation: none; opacity: 1; }
         }
     </style>
 </head>
@@ -1735,13 +1623,12 @@
         </div>
     </footer>
 
-    <!-- ===== AUDIO – پشتیبانی از چندین فرمت ===== -->
+    <!-- ===== AUDIO (پشتیبانی از چندین فرمت) ===== -->
     <audio id="bgMusic" loop preload="metadata">
         <source src="/music.mp3" type="audio/mpeg">
         <source src="/music.ogg" type="audio/ogg">
         <source src="/music.m4a" type="audio/mp4">
         <source src="/music.wav" type="audio/wav">
-        <!-- Fallback -->
         <p>مرورگر شما از پخش موسیقی پشتیبانی نمی‌کند.</p>
     </audio>
 
@@ -1868,7 +1755,7 @@
             });
 
             // ==========================================================
-            // ===== MUSIC PLAYER – با پشتیبانی از چندین فرمت و مدیریت خطا =====
+            // ===== MUSIC PLAYER =====
             // ==========================================================
             const audio = document.getElementById('bgMusic');
             const playPauseBtn = document.getElementById('playPauseBtn');
@@ -1896,7 +1783,6 @@
                 totalTimeEl.textContent = formatTime(audio.duration);
             }
 
-            // ===== نمایش خطا =====
             function showError(message) {
                 musicError.textContent = message || 'خطا در بارگذاری';
                 musicError.classList.add('visible');
@@ -1907,7 +1793,6 @@
                 errorShown = true;
             }
 
-            // ===== پنهان کردن خطا =====
             function hideError() {
                 musicError.classList.remove('visible');
                 retryBtn.classList.remove('visible');
@@ -1915,7 +1800,6 @@
                 errorShown = false;
             }
 
-            // ===== بارگذاری مجدد =====
             function reloadAudio() {
                 hideError();
                 audio.load();
@@ -1925,14 +1809,13 @@
 
             retryBtn.addEventListener('click', reloadAudio);
 
-            // ===== رویدادهای audio =====
             audio.addEventListener('loadedmetadata', function() {
                 if (audio.duration && isFinite(audio.duration)) {
                     totalTimeEl.textContent = formatTime(audio.duration);
                     timerDisplay.classList.add('visible');
                     stopBtn.classList.add('visible');
                     hideError();
-                    console.log('فایل صوتی با موفقیت بارگذاری شد. مدت:', audio.duration, 'ثانیه');
+                    console.log('فایل صوتی با موفقیت بارگذاری شد.');
                 }
             });
 
@@ -1954,24 +1837,16 @@
             audio.addEventListener('error', function(e) {
                 const errorCode = e.target.error ? e.target.error.code : 'unknown';
                 let msg = 'خطا در بارگذاری (کد: ' + errorCode + ')';
-                if (errorCode === 4) {
-                    msg = 'فایل صوتی پیدا نشد. (مسیر /music.mp3 یا فرمت دیگر)';
-                } else if (errorCode === 3) {
-                    msg = 'خطا در دریافت فایل صوتی.';
-                } else if (errorCode === 2) {
-                    msg = 'کدک صوتی پشتیبانی نمی‌شود.';
-                }
+                if (errorCode === 4) msg = 'فایل صوتی پیدا نشد. (مسیر /music.mp3 یا فرمت دیگر)';
+                else if (errorCode === 3) msg = 'خطا در دریافت فایل صوتی.';
+                else if (errorCode === 2) msg = 'کدک صوتی پشتیبانی نمی‌شود.';
                 console.error('خطای audio:', msg);
                 showError(msg);
             });
 
-            // ===== دکمه پلی/توقف =====
             playPauseBtn.addEventListener('click', function(e) {
                 e.preventDefault();
-                if (errorShown) {
-                    reloadAudio();
-                    return;
-                }
+                if (errorShown) { reloadAudio(); return; }
                 if (isPlaying) {
                     audio.pause();
                     playIcon.className = 'fas fa-play';
@@ -1995,7 +1870,6 @@
                 }
             });
 
-            // ===== دکمه استپ =====
             stopBtn.addEventListener('click', function(e) {
                 e.preventDefault();
                 if (errorShown) return;
@@ -2008,7 +1882,6 @@
                 if (audio.duration) totalTimeEl.textContent = formatTime(audio.duration);
             });
 
-            // ===== بررسی اولیه =====
             if (audio.readyState >= 1 && audio.duration && isFinite(audio.duration)) {
                 timerDisplay.classList.add('visible');
                 stopBtn.classList.add('visible');
@@ -2017,7 +1890,6 @@
             } else if (audio.error) {
                 showError('خطا در بارگذاری اولیه');
             } else {
-                // اگر فایل هنوز بارگذاری نشده، کمی صبر می‌کنیم
                 setTimeout(() => {
                     if (!audio.duration || isNaN(audio.duration)) {
                         showError('بارگذاری با تأخیر مواجه شد');
@@ -2033,9 +1905,7 @@
                 'اینجا صدا و معنا به هم می‌رسند 📖',
                 'دل‌نوشته‌های بی‌نقاب را بخوانید ✍️',
             ];
-            let pIdx = 0,
-                cIdx = 0,
-                del = false;
+            let pIdx = 0, cIdx = 0, del = false;
             let typeTimeout;
 
             function typeEffect() {
@@ -2093,19 +1963,16 @@
             // ===== PERSIAN DATE =====
             const dateEl = document.getElementById('persianDate');
             if (dateEl) {
-                dateEl.textContent =
-                    '📅 ' +
-                    new Date().toLocaleDateString('fa-IR', {
-                        year: 'numeric',
-                        month: 'long',
-                        day: 'numeric',
-                        weekday: 'long',
-                    });
+                dateEl.textContent = '📅 ' + new Date().toLocaleDateString('fa-IR', {
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric',
+                    weekday: 'long'
+                });
             }
             const copyrightEl = document.querySelector('.copyright');
             if (copyrightEl) {
-                copyrightEl.innerHTML =
-                    `© ${new Date().getFullYear()} · تمامی حقوق محفوظ · طراحی با تکنولوژی‌های ۲۰۲۶`;
+                copyrightEl.innerHTML = `© ${new Date().getFullYear()} · تمامی حقوق محفوظ · طراحی با تکنولوژی‌های ۲۰۲۶`;
             }
 
             // ===== PARALLAX =====
@@ -2115,8 +1982,7 @@
                 window.addEventListener('scroll', () => {
                     if (!paraTick) {
                         window.requestAnimationFrame(() => {
-                            heroBg.style.transform =
-                                `scale(1.1) translateY(${window.scrollY * 0.15}px)`;
+                            heroBg.style.transform = `scale(1.1) translateY(${window.scrollY * 0.15}px)`;
                             paraTick = false;
                         });
                         paraTick = true;
@@ -2165,15 +2031,14 @@
             }
 
             // ===== FAQ ACCORDION =====
-            const faqItems = document.querySelectorAll('.faq-item');
-            faqItems.forEach((item) => {
+            document.querySelectorAll('.faq-item').forEach((item) => {
                 const btn = item.querySelector('.faq-question');
                 btn.addEventListener('click', () => {
                     const isOpen = item.classList.contains('open');
-                    faqItems.forEach((other) => {
-                        if (other !== item && other.classList.contains('open')) {
-                            other.classList.remove('open');
-                            other.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+                    document.querySelectorAll('.faq-item').forEach((el) => {
+                        if (el !== item && el.classList.contains('open')) {
+                            el.classList.remove('open');
+                            el.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
                         }
                     });
                     if (!isOpen) {
@@ -2187,7 +2052,7 @@
             });
 
             // ==========================================================
-            // ===== POSTS ENGINE (همانند قبل) =====
+            // ===== POSTS ENGINE =====
             // ==========================================================
             let postsData = [];
             const postsGrid = document.getElementById('postsGrid');
