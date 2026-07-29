@@ -6,7 +6,6 @@ Allow: /
 
 # جلوگیری از خزش پوشه‌های غیرضروری (اختیاری)
 Disallow: /assets/
-Disallow: /images/
 
 # معرفی نقشه‌ی سایت
 Sitemap: https://sayehayebineghab.ir/sitemap.xml
