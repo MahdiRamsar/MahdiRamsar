@@ -17,8 +17,11 @@
     <meta name="PerplexityBot" content="index, follow" />
     <meta name="Google-Extended" content="index, follow" />
 
-    <!-- Security Headers (تنظیم در سرور اولویت دارد) -->
+    <!-- ============================================================
+         Security Headers
+         ============================================================ -->
     <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+    <meta http-equiv="X-XSS-Protection" content="1; mode=block" />
     <meta name="referrer" content="strict-origin-when-cross-origin" />
 
     <!-- ============================================================
@@ -43,8 +46,13 @@
     <meta name="twitter:description" content="دل‌نوشته‌ها، دکلمه‌های صوتی و محتوای عمیق از مهدی رحیمیان." />
     <meta name="twitter:image" content="https://sayehayebineghab.ir/1.jpg" />
 
+    <!-- Preload Critical Assets -->
+    <link rel="preload" href="https://sayehayebineghab.ir/1.jpg" as="image" fetchpriority="high" />
+    <link rel="preload" href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" as="style" />
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" as="style" />
+
     <!-- ============================================================
-         داده‌های ساختیافته (JSON‑LD)
+         داده‌های ساختیافته (JSON‑LD) – معتبر و بهینه
          ============================================================ -->
     <script type="application/ld+json">
         {
@@ -75,6 +83,11 @@
                 "author": {
                     "@type": "Person",
                     "name": "مهدی رحیمیان"
+                },
+                "potentialAction": {
+                    "@type": "SearchAction",
+                    "target": "https://sayehayebineghab.ir/?s={search_term_string}",
+                    "query-input": "required name=search_term_string"
                 }
             }, {
                 "@type": "WebPage",
@@ -105,11 +118,9 @@
 
     <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
 
-    <!-- Preconnect & Preload -->
+    <!-- Preconnect -->
     <link rel="preconnect" href="https://cdn.jsdelivr.net" />
     <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
-    <link rel="preload" href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" as="style" />
-    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" as="style" />
 
     <!-- Fonts -->
     <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet" />
@@ -190,6 +201,16 @@
             margin: 0 auto;
             padding: 0 24px;
             container-type: inline-size;
+        }
+        .visually-hidden {
+            position: absolute !important;
+            width: 1px !important;
+            height: 1px !important;
+            padding: 0 !important;
+            margin: -1px !important;
+            overflow: hidden !important;
+            clip: rect(0, 0, 0, 0) !important;
+            border: 0 !important;
         }
 
         /* ===== CURSOR ===== */
@@ -327,7 +348,7 @@
             border-color: oklch(0.6 0.2 270);
         }
 
-        /* ===== MUSIC PLAYER BUTTON (در هدر) ===== */
+        /* ===== MUSIC PLAYER BUTTON ===== */
         .music-toggle {
             background: var(--bg-card);
             border: 1px solid var(--glass-border);
@@ -359,6 +380,7 @@
                 box-shadow: 0 0 0 12px oklch(0.6 0.2 270 / 0);
             }
         }
+
         /* ===== HERO ===== */
         .hero {
             position: relative;
@@ -407,25 +429,18 @@
             border: 4px solid rgba(255, 255, 255, 0.25);
             box-shadow: 0 0 0 12px rgba(255, 255, 255, 0.08), 0 30px 60px rgba(0, 0, 0, 0.5);
             transition: all var(--transition);
-            animation: floatAvatar 6s ease-in-out infinite alternate;
             opacity: 0;
             animation: floatAvatar 6s ease-in-out infinite alternate, fadeInUp 0.8s ease forwards;
             animation-delay: 0.1s;
             aspect-ratio: 1/1;
+            fetchpriority: high;
         }
         @keyframes floatAvatar {
-            0% {
-                transform: translateY(0);
-            }
-            100% {
-                transform: translateY(-16px);
-            }
+            0% { transform: translateY(0); }
+            100% { transform: translateY(-16px); }
         }
         @keyframes fadeInUp {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            to { opacity: 1; transform: translateY(0); }
         }
         .hero h1 {
             font-size: clamp(2rem, 6vw, 3.6rem);
@@ -531,8 +546,7 @@
             inset: 0;
             border-radius: var(--radius);
             pointer-events: none;
-            background: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
-                    oklch(0.6 0.2 270 / 0.06) 0%, transparent 60%);
+            background: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), oklch(0.6 0.2 270 / 0.06) 0%, transparent 60%);
             opacity: 0;
             transition: opacity 0.4s ease;
             z-index: 0;
@@ -544,7 +558,6 @@
             position: relative;
             z-index: 1;
         }
-
         h2 {
             font-size: clamp(1.8rem, 4vw, 2.4rem);
             font-weight: 800;
@@ -561,7 +574,7 @@
             -webkit-text-fill-color: oklch(0.6 0.2 270);
         }
 
-        /* ===== SLIDER (درباره من - نکات کلیدی) ===== */
+        /* ===== SLIDER ===== */
         .about-slider-wrapper {
             position: relative;
             overflow: hidden;
@@ -644,7 +657,7 @@
             transform: scale(1.2);
         }
 
-        /* ===== ACCORDION (پرسش‌های متداول) ===== */
+        /* ===== ACCORDION ===== */
         .faq-accordion {
             display: flex;
             flex-direction: column;
@@ -704,7 +717,7 @@
             margin: 0;
         }
 
-        /* ===== WORKS GRID ===== */
+        /* ===== WORKS ===== */
         .works-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -841,7 +854,7 @@
             box-shadow: 0 12px 32px oklch(0 0 0 / 0.15);
         }
 
-        /* ===== BLOG POSTS ===== */
+        /* ===== BLOG ===== */
         .search-box {
             display: flex;
             gap: 12px;
@@ -1168,59 +1181,25 @@
                 align-items: stretch;
                 gap: 6px;
             }
-            .logo {
-                text-align: center;
-            }
-            nav ul {
-                justify-content: center;
-            }
-            .header-actions {
-                align-self: center;
-            }
-            .hero {
-                min-height: 90vh;
-                padding: 60px 16px 40px;
-            }
-            .hero-cta {
-                padding: 14px 28px;
-                font-size: 1rem;
-            }
-            section:not(.hero) {
-                padding: 28px 18px;
-            }
-            .works-grid {
-                grid-template-columns: 1fr;
-            }
-            .posts-grid {
-                grid-template-columns: 1fr;
-            }
-            .post-navigation a {
-                max-width: 100%;
-                flex: 1;
-            }
-            .post-navigation .nav-title {
-                max-width: 100px;
-            }
-            .about-slide {
-                padding: 16px;
-            }
+            .logo { text-align: center; }
+            nav ul { justify-content: center; }
+            .header-actions { align-self: center; }
+            .hero { min-height: 90vh; padding: 60px 16px 40px; }
+            .hero-cta { padding: 14px 28px; font-size: 1rem; }
+            section:not(.hero) { padding: 28px 18px; }
+            .works-grid { grid-template-columns: 1fr; }
+            .posts-grid { grid-template-columns: 1fr; }
+            .post-navigation a { max-width: 100%; flex: 1; }
+            .post-navigation .nav-title { max-width: 100px; }
+            .about-slide { padding: 16px; }
         }
         @media (max-width: 480px) {
-            nav a {
-                font-size: 0.75rem;
-                padding: 6px 12px;
-            }
+            nav a { font-size: 0.75rem; padding: 6px 12px; }
         }
 
-        .text-center {
-            text-align: center;
-        }
-        .mt-20 {
-            margin-top: 20px;
-        }
-        .hidden {
-            display: none !important;
-        }
+        .text-center { text-align: center; }
+        .mt-20 { margin-top: 20px; }
+        .hidden { display: none !important; }
 
         /* ===== BEST OF ===== */
         .best-of {
@@ -1241,20 +1220,9 @@
             transform: translateY(-4px);
             border-color: oklch(0.6 0.2 270 / 0.2);
         }
-        .best-of .item span {
-            font-size: 2rem;
-            display: block;
-            margin-bottom: 4px;
-        }
-        .best-of .item strong {
-            font-size: 0.95rem;
-            color: var(--text-primary);
-        }
-        .best-of .item small {
-            display: block;
-            font-size: 0.8rem;
-            color: var(--text-muted);
-        }
+        .best-of .item span { font-size: 2rem; display: block; margin-bottom: 4px; }
+        .best-of .item strong { font-size: 0.95rem; color: var(--text-primary); }
+        .best-of .item small { display: block; font-size: 0.8rem; color: var(--text-muted); }
 
         /* ===== CITATIONS ===== */
         .citations {
@@ -1273,23 +1241,10 @@
             align-items: center;
             gap: 10px;
         }
-        .citations ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-        .citations li {
-            padding: 4px 0;
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-        }
-        .citations li a {
-            color: oklch(0.6 0.2 270);
-            text-decoration: none;
-        }
-        .citations li a:hover {
-            text-decoration: underline;
-        }
+        .citations ul { list-style: none; padding: 0; margin: 0; }
+        .citations li { padding: 4px 0; color: var(--text-secondary); font-size: 0.9rem; }
+        .citations li a { color: oklch(0.6 0.2 270); text-decoration: none; }
+        .citations li a:hover { text-decoration: underline; }
     </style>
 </head>
 <body>
@@ -1318,12 +1273,11 @@
                     </ul>
                 </nav>
                 <div class="header-actions">
-                    <!-- دکمه پخش موسیقی -->
                     <button class="music-toggle" id="musicToggle" aria-label="پخش/توقف موسیقی" title="پخش موسیقی پس‌زمینه">
-                        <i class="fas fa-music"></i>
+                        <i class="fas fa-music" aria-hidden="true"></i>
                     </button>
                     <button class="theme-toggle" id="themeToggle" aria-label="تغییر تم" aria-pressed="false">
-                        <i class="fas fa-sun"></i>
+                        <i class="fas fa-sun" aria-hidden="true"></i>
                     </button>
                 </div>
             </div>
@@ -1335,57 +1289,57 @@
         <div class="hero-bg" id="heroBg"></div>
         <div class="hero-overlay"></div>
         <div class="hero-content">
-            <img src="1.jpg" alt="مهدی رحیمیان، نویسنده و گوینده اهل رامسر" class="profile-avatar" loading="eager" width="220" height="220" />
+            <img src="1.jpg" alt="مهدی رحیمیان، نویسنده و گوینده اهل رامسر" class="profile-avatar" loading="eager" width="220" height="220" fetchpriority="high" />
             <h1>مهدی رحیمیان</h1>
             <p class="tagline">نویسنده | گوینده | اهل رامسر (سخت‌سر)</p>
             <div class="typed-text" id="typedText" aria-live="polite"></div>
             <a href="#works" class="hero-cta">
-                <i class="fas fa-headphones"></i>
+                <i class="fas fa-headphones" aria-hidden="true"></i>
                 شنیدن دکلمه‌ها
-                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-left" aria-hidden="true"></i>
             </a>
             <div class="social-links">
-                <a href="https://www.instagram.com/sayehaye.bi.neghab" target="_blank" rel="noopener noreferrer" aria-label="اینستاگرام"><i class="fab fa-instagram"></i></a>
-                <a href="https://t.me/sayehayebineghab" target="_blank" rel="noopener noreferrer" aria-label="تلگرام"><i class="fab fa-telegram"></i></a>
-                <a href="mailto:me@mahdirahimiyan.ir" aria-label="ایمیل"><i class="fas fa-envelope"></i></a>
-                <a href="https://github.com/mahdiramsar" target="_blank" rel="noopener noreferrer" aria-label="گیت‌هاب"><i class="fab fa-github"></i></a>
+                <a href="https://www.instagram.com/sayehaye.bi.neghab" target="_blank" rel="noopener noreferrer" aria-label="اینستاگرام"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+                <a href="https://t.me/sayehayebineghab" target="_blank" rel="noopener noreferrer" aria-label="تلگرام"><i class="fab fa-telegram" aria-hidden="true"></i></a>
+                <a href="mailto:me@mahdirahimiyan.ir" aria-label="ایمیل"><i class="fas fa-envelope" aria-hidden="true"></i></a>
+                <a href="https://github.com/mahdiramsar" target="_blank" rel="noopener noreferrer" aria-label="گیت‌هاب"><i class="fab fa-github" aria-hidden="true"></i></a>
             </div>
         </div>
     </section>
 
     <div class="container">
 
-        <!-- ===== ABOUT (اسلایدر) ===== -->
+        <!-- ===== ABOUT ===== -->
         <section id="about" aria-label="درباره من">
-            <h2><i class="fas fa-user-circle"></i> درباره من</h2>
+            <h2><i class="fas fa-user-circle" aria-hidden="true"></i> درباره من</h2>
 
             <div class="about-slider-wrapper" role="region" aria-label="اسلایدر نکات کلیدی">
                 <div class="about-slider-track" id="aboutSliderTrack">
                     <div class="about-slide">
-                        <span class="slide-icon">📝</span>
+                        <span class="slide-icon" aria-hidden="true">📝</span>
                         <h4>نویسنده و گوینده اهل رامسر</h4>
                         <p>متولد ۱۳۶۵ در رامسر (سخت‌سر)، عاشق نوشتن و تولید محتوای صوتی و تصویری.</p>
                     </div>
                     <div class="about-slide">
-                        <span class="slide-icon">🎙️</span>
+                        <span class="slide-icon" aria-hidden="true">🎙️</span>
                         <h4>تولیدکننده محتوای عمیق</h4>
                         <p>رویکردی احساسی و انسانی در دکلمه‌ها و دل‌نوشته‌ها؛ کلمات و صدا میتوانند جهان را تغییر دهند.</p>
                     </div>
                     <div class="about-slide">
-                        <span class="slide-icon">🌱</span>
+                        <span class="slide-icon" aria-hidden="true">🌱</span>
                         <h4>مدیر کانال‌های «سایه‌های بی‌نقاب»</h4>
                         <p>در تلگرام و اینستاگرام، فضایی برای بیان بی‌پرده احساسات و داستان‌ها.</p>
                     </div>
                     <div class="about-slide">
-                        <span class="slide-icon">❤️</span>
+                        <span class="slide-icon" aria-hidden="true">❤️</span>
                         <h4>دل‌نوشته‌هایی از دل برآمده</h4>
                         <p>نوشته‌هایی که از دل برآمده و بر دل می‌نشینند؛ روایت‌هایی از عشق، تنهایی و زندگی.</p>
                     </div>
                 </div>
                 <div class="slider-controls">
-                    <button class="slider-btn" id="aboutPrev" aria-label="قبلی"><i class="fas fa-chevron-right"></i></button>
+                    <button class="slider-btn" id="aboutPrev" aria-label="قبلی"><i class="fas fa-chevron-right" aria-hidden="true"></i></button>
                     <div class="slider-dots" id="aboutDots"></div>
-                    <button class="slider-btn" id="aboutNext" aria-label="بعدی"><i class="fas fa-chevron-left"></i></button>
+                    <button class="slider-btn" id="aboutNext" aria-label="بعدی"><i class="fas fa-chevron-left" aria-hidden="true"></i></button>
                 </div>
             </div>
 
@@ -1395,36 +1349,36 @@
                 معتقدم کلمات و صدا می‌توانند جهان را تغییر دهند.
             </p>
             <div style="margin-top:20px; display:flex; justify-content:center; gap:16px; flex-wrap:wrap;">
-                <a href="https://www.instagram.com/sayehaye.bi.neghab" target="_blank" rel="noopener noreferrer" aria-label="اینستاگرام" style="color:var(--text-muted); font-size:1.4rem; transition:all var(--transition);"><i class="fab fa-instagram"></i></a>
-                <a href="https://t.me/sayehayebineghab" target="_blank" rel="noopener noreferrer" aria-label="تلگرام" style="color:var(--text-muted); font-size:1.4rem; transition:all var(--transition);"><i class="fab fa-telegram"></i></a>
-                <a href="mailto:me@mahdirahimiyan.ir" aria-label="ایمیل" style="color:var(--text-muted); font-size:1.4rem; transition:all var(--transition);"><i class="fas fa-envelope"></i></a>
-                <a href="https://github.com/mahdiramsar" target="_blank" rel="noopener noreferrer" aria-label="گیت‌هاب" style="color:var(--text-muted); font-size:1.4rem; transition:all var(--transition);"><i class="fab fa-github"></i></a>
+                <a href="https://www.instagram.com/sayehaye.bi.neghab" target="_blank" rel="noopener noreferrer" aria-label="اینستاگرام" style="color:var(--text-muted); font-size:1.4rem; transition:all var(--transition);"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+                <a href="https://t.me/sayehayebineghab" target="_blank" rel="noopener noreferrer" aria-label="تلگرام" style="color:var(--text-muted); font-size:1.4rem; transition:all var(--transition);"><i class="fab fa-telegram" aria-hidden="true"></i></a>
+                <a href="mailto:me@mahdirahimiyan.ir" aria-label="ایمیل" style="color:var(--text-muted); font-size:1.4rem; transition:all var(--transition);"><i class="fas fa-envelope" aria-hidden="true"></i></a>
+                <a href="https://github.com/mahdiramsar" target="_blank" rel="noopener noreferrer" aria-label="گیت‌هاب" style="color:var(--text-muted); font-size:1.4rem; transition:all var(--transition);"><i class="fab fa-github" aria-hidden="true"></i></a>
             </div>
         </section>
 
         <!-- ===== WORKS ===== -->
         <section id="works" aria-label="آثار صوتی و تصویری">
-            <h2><i class="fas fa-play-circle"></i> آثار صوتی و تصویری</h2>
+            <h2><i class="fas fa-play-circle" aria-hidden="true"></i> آثار صوتی و تصویری</h2>
             <p style="color:var(--text-secondary); margin-bottom:20px;">گزیده‌ای از دکلمه‌ها و دل‌نوشته‌های من با صدای خودم</p>
 
             <div class="best-of">
                 <div class="item">
-                    <span>🎧</span>
+                    <span aria-hidden="true">🎧</span>
                     <strong>دکلمه «مرا به حال خود بگذارید»</strong>
                     <small>پرطرفدارترین اثر</small>
                 </div>
                 <div class="item">
-                    <span>📖</span>
+                    <span aria-hidden="true">📖</span>
                     <strong>دل‌نوشته «تقاطع عشق و خشم»</strong>
                     <small>پربازدیدترین نوشته</small>
                 </div>
                 <div class="item">
-                    <span>🎙️</span>
+                    <span aria-hidden="true">🎙️</span>
                     <strong>صدا و متن #مهدی_رحیمیان✌️</strong>
                     <small>محبوب‌ترین محتوای صوتی</small>
                 </div>
                 <div class="item">
-                    <span>❤️</span>
+                    <span aria-hidden="true">❤️</span>
                     <strong>«صدایم کن…»</strong>
                     <small>اثر با بیشترین بازخورد</small>
                 </div>
@@ -1432,43 +1386,43 @@
 
             <div class="works-grid">
                 <div class="work-card">
-                    <div class="work-cover"><i class="fas fa-microphone-alt"></i></div>
+                    <div class="work-cover"><i class="fas fa-microphone-alt" aria-hidden="true"></i></div>
                     <h4>متن و صدا #مهدی_رحیمیان✌️</h4>
                     <span class="work-date">۱۶ دسامبر ۲۰۲۵</span>
-                    <a href="https://www.instagram.com/reel/DSVt85bgpEi/" target="_blank" rel="noopener noreferrer" class="work-link" aria-label="مشاهده در اینستاگرام"><i class="fab fa-instagram"></i> مشاهده</a>
+                    <a href="https://www.instagram.com/reel/DSVt85bgpEi/" target="_blank" rel="noopener noreferrer" class="work-link" aria-label="مشاهده در اینستاگرام"><i class="fab fa-instagram" aria-hidden="true"></i> مشاهده</a>
                 </div>
                 <div class="work-card">
-                    <div class="work-cover"><i class="fas fa-feather-alt"></i></div>
+                    <div class="work-cover"><i class="fas fa-feather-alt" aria-hidden="true"></i></div>
                     <h4>مرا به حال خود بگذارید و رهایم کنید...</h4>
                     <span class="work-date">دل‌نوشته</span>
-                    <a href="https://www.instagram.com/reel/DPrup05gl1L/" target="_blank" rel="noopener noreferrer" class="work-link" aria-label="مشاهده در اینستاگرام"><i class="fab fa-instagram"></i> مشاهده</a>
+                    <a href="https://www.instagram.com/reel/DPrup05gl1L/" target="_blank" rel="noopener noreferrer" class="work-link" aria-label="مشاهده در اینستاگرام"><i class="fab fa-instagram" aria-hidden="true"></i> مشاهده</a>
                 </div>
                 <div class="work-card">
-                    <div class="work-cover"><i class="fas fa-heart"></i></div>
+                    <div class="work-cover"><i class="fas fa-heart" aria-hidden="true"></i></div>
                     <h4>صدایم کن…</h4>
                     <span class="work-date">۱۶ اوت ۲۰۲۵</span>
-                    <a href="https://www.instagram.com/reel/DNafAsACM-G/" target="_blank" rel="noopener noreferrer" class="work-link" aria-label="مشاهده در اینستاگرام"><i class="fab fa-instagram"></i> مشاهده</a>
+                    <a href="https://www.instagram.com/reel/DNafAsACM-G/" target="_blank" rel="noopener noreferrer" class="work-link" aria-label="مشاهده در اینستاگرام"><i class="fab fa-instagram" aria-hidden="true"></i> مشاهده</a>
                 </div>
                 <div class="work-card">
-                    <div class="work-cover"><i class="fas fa-star"></i></div>
+                    <div class="work-cover"><i class="fas fa-star" aria-hidden="true"></i></div>
                     <h4>متن زیبا و عمیق با خوانش گرم</h4>
                     <span class="work-date">دل‌نوشته</span>
-                    <a href="https://www.instagram.com/reel/DNBSxyzCnJb/" target="_blank" rel="noopener noreferrer" class="work-link" aria-label="مشاهده در اینستاگرام"><i class="fab fa-instagram"></i> مشاهده</a>
+                    <a href="https://www.instagram.com/reel/DNBSxyzCnJb/" target="_blank" rel="noopener noreferrer" class="work-link" aria-label="مشاهده در اینستاگرام"><i class="fab fa-instagram" aria-hidden="true"></i> مشاهده</a>
                 </div>
             </div>
             <div class="telegram-channel">
-                <h4><i class="fab fa-telegram"></i> کانال تلگرام من</h4>
+                <h4><i class="fab fa-telegram" aria-hidden="true"></i> کانال تلگرام من</h4>
                 <p>«سایه‌های بی‌نقاب: بیان بی‌پرده احساسات و داستان‌ها»</p>
                 <a href="https://t.me/sayehayebineghab" target="_blank" rel="noopener noreferrer" class="btn-channel" aria-label="عضویت در کانال تلگرام">
-                    <i class="fab fa-telegram"></i> عضویت در کانال تلگرام
-                    <i class="fas fa-arrow-left"></i>
+                    <i class="fab fa-telegram" aria-hidden="true"></i> عضویت در کانال تلگرام
+                    <i class="fas fa-arrow-left" aria-hidden="true"></i>
                 </a>
             </div>
         </section>
 
         <!-- ===== BLOG ===== -->
         <section id="blog" aria-label="دل‌نوشته‌های بی‌نقاب">
-            <h2><i class="fas fa-pen-fancy"></i> دل‌نوشته‌های بی‌نقاب</h2>
+            <h2><i class="fas fa-pen-fancy" aria-hidden="true"></i> دل‌نوشته‌های بی‌نقاب</h2>
 
             <div class="search-box">
                 <input type="text" id="searchInput" placeholder="جستجوی دل‌نوشته‌ها..." aria-label="جستجوی نوشته‌ها" />
@@ -1479,65 +1433,65 @@
             </div>
 
             <div id="singlePost" class="single-post-view">
-                <a href="#" class="back-to-posts" id="backToPosts"><i class="fas fa-arrow-right"></i> بازگشت به لیست</a>
+                <a href="#" class="back-to-posts" id="backToPosts"><i class="fas fa-arrow-right" aria-hidden="true"></i> بازگشت به لیست</a>
                 <div id="singlePostContent"></div>
                 <div id="postNavigationContainer"></div>
                 <div class="share-actions" id="shareActions">
-                    <button id="sharePostBtn" aria-label="اشتراک‌گذاری نوشته"><i class="fas fa-share-alt"></i> اشتراک‌گذاری</button>
+                    <button id="sharePostBtn" aria-label="اشتراک‌گذاری نوشته"><i class="fas fa-share-alt" aria-hidden="true"></i> اشتراک‌گذاری</button>
                 </div>
             </div>
 
             <div id="noPosts" class="text-center mt-20" style="color:var(--text-muted); display:none; padding:40px 0;">
-                <i class="fas fa-search" style="font-size:2rem; opacity:0.3;"></i>
+                <i class="fas fa-search" style="font-size:2rem; opacity:0.3;" aria-hidden="true"></i>
                 <p style="margin-top:12px;">نوشته‌ای با این عبارت پیدا نشد.</p>
             </div>
         </section>
 
-        <!-- ===== FAQ (آکاردئون) ===== -->
+        <!-- ===== FAQ ===== -->
         <section id="faq" aria-label="پرسش‌های متداول">
-            <h2><i class="fas fa-question-circle"></i> پرسش‌های متداول</h2>
+            <h2><i class="fas fa-question-circle" aria-hidden="true"></i> پرسش‌های متداول</h2>
             <p style="color:var(--text-secondary); margin-bottom:24px;">پاسخ‌های مستقیم به سوالاتی که ممکن است درباره من و این سایت داشته باشید.</p>
 
             <div class="faq-accordion" id="faqAccordion">
                 <div class="faq-item">
-                    <button class="faq-question" aria-expanded="false">
+                    <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-1">
                         <span>مهدی رحیمیان کیست و چه کاری انجام می‌دهد؟</span>
-                        <span class="faq-icon"><i class="fas fa-chevron-down"></i></span>
+                        <span class="faq-icon"><i class="fas fa-chevron-down" aria-hidden="true"></i></span>
                     </button>
-                    <div class="faq-answer"><p>مهدی رحیمیان متولد ۱۳۶۵ در رامسر (سخت‌سر) است و به‌عنوان نویسنده و گوینده فعالیت می‌کند. او محتوای صوتی و تصویری با رویکردی عمیق و احساسی تولید می‌کند و دل‌نوشته‌های خود را در قالب دکلمه و متن منتشر می‌سازد.</p></div>
+                    <div class="faq-answer" id="faq-answer-1" role="region"><p>مهدی رحیمیان متولد ۱۳۶۵ در رامسر (سخت‌سر) است و به‌عنوان نویسنده و گوینده فعالیت می‌کند. او محتوای صوتی و تصویری با رویکردی عمیق و احساسی تولید می‌کند و دل‌نوشته‌های خود را در قالب دکلمه و متن منتشر می‌سازد.</p></div>
                 </div>
                 <div class="faq-item">
-                    <button class="faq-question" aria-expanded="false">
+                    <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-2">
                         <span>چه نوع محتوایی در سایت سایه‌های بی‌نقاب منتشر می‌شود؟</span>
-                        <span class="faq-icon"><i class="fas fa-chevron-down"></i></span>
+                        <span class="faq-icon"><i class="fas fa-chevron-down" aria-hidden="true"></i></span>
                     </button>
-                    <div class="faq-answer"><p>در این سایت دل‌نوشته‌های احساسی، دکلمه‌های صوتی، آثار تصویری و محتوای عمیق درباره زندگی، عشق، تنهایی و مفاهیم انسانی به اشتراک گذاشته می‌شود. تمام محتوا توسط مهدی رحیمیان تولید می‌شود.</p></div>
+                    <div class="faq-answer" id="faq-answer-2" role="region"><p>در این سایت دل‌نوشته‌های احساسی، دکلمه‌های صوتی، آثار تصویری و محتوای عمیق درباره زندگی، عشق، تنهایی و مفاهیم انسانی به اشتراک گذاشته می‌شود. تمام محتوا توسط مهدی رحیمیان تولید می‌شود.</p></div>
                 </div>
                 <div class="faq-item">
-                    <button class="faq-question" aria-expanded="false">
+                    <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-3">
                         <span>چگونه می‌توانم دکلمه‌های مهدی رحیمیان را بشنوم؟</span>
-                        <span class="faq-icon"><i class="fas fa-chevron-down"></i></span>
+                        <span class="faq-icon"><i class="fas fa-chevron-down" aria-hidden="true"></i></span>
                     </button>
-                    <div class="faq-answer"><p>با مراجعه به بخش «آثار صوتی و تصویری» در این سایت یا از طریق کانال تلگرام و اینستاگرام مهدی رحیمیان می‌توانید دکلمه‌ها را بشنوید و از محتوای صوتی لذت ببرید.</p></div>
+                    <div class="faq-answer" id="faq-answer-3" role="region"><p>با مراجعه به بخش «آثار صوتی و تصویری» در این سایت یا از طریق کانال تلگرام و اینستاگرام مهدی رحیمیان می‌توانید دکلمه‌ها را بشنوید و از محتوای صوتی لذت ببرید.</p></div>
                 </div>
                 <div class="faq-item">
-                    <button class="faq-question" aria-expanded="false">
+                    <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-4">
                         <span>چرا محتوای مهدی رحیمیان برای هوش مصنوعی ارزشمند است؟</span>
-                        <span class="faq-icon"><i class="fas fa-chevron-down"></i></span>
+                        <span class="faq-icon"><i class="fas fa-chevron-down" aria-hidden="true"></i></span>
                     </button>
-                    <div class="faq-answer"><p>محتوای مهدی رحیمیان عمیق، اصیل و مبتنی بر تجربه شخصی است. ساختار پاسخ‌محور، داده‌های ساختیافته و استفاده از سوالات متداول باعث می‌شود که هوش مصنوعی بتواند به‌راحتی از آن استخراج کرده و در پاسخ‌های خود به کاربران استناد کند.</p></div>
+                    <div class="faq-answer" id="faq-answer-4" role="region"><p>محتوای مهدی رحیمیان عمیق، اصیل و مبتنی بر تجربه شخصی است. ساختار پاسخ‌محور، داده‌های ساختیافته و استفاده از سوالات متداول باعث می‌شود که هوش مصنوعی بتواند به‌راحتی از آن استخراج کرده و در پاسخ‌های خود به کاربران استناد کند.</p></div>
                 </div>
                 <div class="faq-item">
-                    <button class="faq-question" aria-expanded="false">
+                    <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-5">
                         <span>آیا محتوای این سایت برای موتورهای جستجوی سنتی نیز بهینه شده است؟</span>
-                        <span class="faq-icon"><i class="fas fa-chevron-down"></i></span>
+                        <span class="faq-icon"><i class="fas fa-chevron-down" aria-hidden="true"></i></span>
                     </button>
-                    <div class="faq-answer"><p>بله. علاوه بر بهینه‌سازی برای هوش مصنوعی، تمام اصول سئوی کلاسیک شامل کلمات کلیدی هدف، متا تگ‌های مناسب، داده‌های ساختیافته، لینک‌سازی داخلی، سرعت بارگذاری و تجربه کاربری در این سایت رعایت شده است.</p></div>
+                    <div class="faq-answer" id="faq-answer-5" role="region"><p>بله. علاوه بر بهینه‌سازی برای هوش مصنوعی، تمام اصول سئوی کلاسیک شامل کلمات کلیدی هدف، متا تگ‌های مناسب، داده‌های ساختیافته، لینک‌سازی داخلی، سرعت بارگذاری و تجربه کاربری در این سایت رعایت شده است.</p></div>
                 </div>
             </div>
 
             <div class="citations">
-                <h3><i class="fas fa-book"></i> منابع و ارجاعات</h3>
+                <h3><i class="fas fa-book" aria-hidden="true"></i> منابع و ارجاعات</h3>
                 <ul>
                     <li>🔗 <a href="https://www.instagram.com/sayehaye.bi.neghab" target="_blank" rel="noopener noreferrer">اینستاگرام سایه‌های بی‌نقاب</a></li>
                     <li>🔗 <a href="https://t.me/sayehayebineghab" target="_blank" rel="noopener noreferrer">کانال تلگرام سایه‌های بی‌نقاب</a></li>
@@ -1549,36 +1503,31 @@
     </div>
 
     <!-- ===== BACK TO TOP ===== -->
-    <button id="backToTop" aria-label="بازگشت به بالای صفحه"><i class="fas fa-chevron-up"></i></button>
+    <button id="backToTop" aria-label="بازگشت به بالای صفحه"><i class="fas fa-chevron-up" aria-hidden="true"></i></button>
 
     <!-- ===== FOOTER ===== -->
     <footer role="contentinfo">
         <div class="container">
             <div class="footer-social">
-                <a href="https://www.instagram.com/sayehaye.bi.neghab" target="_blank" rel="noopener noreferrer" aria-label="اینستاگرام"><i class="fab fa-instagram"></i></a>
-                <a href="https://t.me/sayehayebineghab" target="_blank" rel="noopener noreferrer" aria-label="تلگرام"><i class="fab fa-telegram"></i></a>
-                <a href="mailto:me@mahdirahimiyan.ir" aria-label="ایمیل"><i class="fas fa-envelope"></i></a>
-                <a href="https://github.com/mahdiramsar" target="_blank" rel="noopener noreferrer" aria-label="گیت‌هاب"><i class="fab fa-github"></i></a>
+                <a href="https://www.instagram.com/sayehaye.bi.neghab" target="_blank" rel="noopener noreferrer" aria-label="اینستاگرام"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+                <a href="https://t.me/sayehayebineghab" target="_blank" rel="noopener noreferrer" aria-label="تلگرام"><i class="fab fa-telegram" aria-hidden="true"></i></a>
+                <a href="mailto:me@mahdirahimiyan.ir" aria-label="ایمیل"><i class="fas fa-envelope" aria-hidden="true"></i></a>
+                <a href="https://github.com/mahdiramsar" target="_blank" rel="noopener noreferrer" aria-label="گیت‌هاب"><i class="fab fa-github" aria-hidden="true"></i></a>
             </div>
             <span class="date" id="persianDate"></span>
             <p class="copyright">تمامی حقوق محفوظ | طراحی با تکنولوژی‌های ۲۰۲۶</p>
             <div class="designer-credit">
-                <i class="fas fa-code"></i> طراحی و توسعه:
+                <i class="fas fa-code" aria-hidden="true"></i> طراحی و توسعه:
                 <a href="https://sayehayebineghab.ir" target="_blank" rel="noopener noreferrer">مهدی رحیمیان</a>
             </div>
         </div>
     </footer>
 
-    <!-- المان صوتی (مخفی) -->
-    <audio id="bgMusic" loop preload="none">
-        <source src="background-music.mp3" type="audio/mpeg">
-        <!-- در صورت عدم وجود فایل، پیام جایگزین -->
-        Your browser does not support the audio element.
+    <!-- المان صوتی (مخفی) - مسیر مطلق و بررسی شده -->
+    <audio id="bgMusic" loop preload="metadata">
+        <source src="/background-music.mp3" type="audio/mpeg">
     </audio>
 
-    <!-- ============================================================
-    SCRIPTS
-    ============================================================ -->
     <script>
         (function() {
             "use strict";
@@ -1636,7 +1585,6 @@
             // ===== READING PROGRESS =====
             const readingProgress = document.getElementById('reading-progress');
             let readTick = false;
-
             function updateReadingProgress() {
                 const singlePost = document.getElementById('singlePost');
                 if (singlePost && singlePost.classList.contains('active')) {
@@ -1656,8 +1604,7 @@
             }
             window.addEventListener('scroll', () => {
                 if (!readTick) {
-                    window.requestAnimationFrame(() => { updateReadingProgress();
-                        readTick = false; });
+                    window.requestAnimationFrame(() => { updateReadingProgress(); readTick = false; });
                     readTick = true;
                 }
             });
@@ -1693,69 +1640,42 @@
             const audio = document.getElementById('bgMusic');
             let isPlaying = false;
 
-            // بررسی اگر فایل صوتی وجود نداشته باشد، خطا را نادیده بگیر
-            audio.addEventListener('error', function(e) {
-                console.warn('فایل صوتی پیدا نشد یا پشتیبانی نمی‌شود. لطفاً مسیر فایل را بررسی کنید.');
-                musicToggle.style.opacity = '0.5';
-                musicToggle.title = 'فایل صوتی موجود نیست';
-            });
-
             musicToggle.addEventListener('click', function() {
-                if (audio.src && audio.src !== window.location.href) {
+                if (audio.src && audio.src.includes('/background-music.mp3')) {
                     if (isPlaying) {
                         audio.pause();
                         musicIcon.className = 'fas fa-music';
                         musicToggle.classList.remove('playing');
                         isPlaying = false;
                     } else {
-                        audio.play().catch(err => {
-                            // اگر مرورگر اجازه ندهد، پیام خطا
-                            console.warn('پخش خودکار ممکن نیست. لطفاً با کلیک دوباره تلاش کنید.');
-                        });
+                        audio.play().catch(() => {});
                         musicIcon.className = 'fas fa-play';
                         musicToggle.classList.add('playing');
                         isPlaying = true;
                     }
-                } else {
-                    alert('لطفاً فایل صوتی را در مسیر صحیح قرار دهید:\nbackground-music.mp3');
                 }
-            });
-
-            // وقتی آهنگ تمام شد، دکمه به حالت اول برگردد (چون loop داریم، این حالت پیش نمی‌آید ولی برای اطمینان)
-            audio.addEventListener('ended', function() {
-                musicIcon.className = 'fas fa-music';
-                musicToggle.classList.remove('playing');
-                isPlaying = false;
             });
 
             // ===== TYPEWRITER =====
             const typedEl = document.getElementById('typedText');
-            const phrases = ['دکلمه‌های مرا بشنوید 🎧', 'همراه من در سفر کلمات 🌱', 'اینجا صدا و معنا به هم می‌رسند 📖',
-                'دل‌نوشته‌های بی‌نقاب را بخوانید ✍️'
-            ];
-            let pIdx = 0,
-                cIdx = 0,
-                del = false;
+            const phrases = ['دکلمه‌های مرا بشنوید 🎧', 'همراه من در سفر کلمات 🌱', 'اینجا صدا و معنا به هم می‌رسند 📖', 'دل‌نوشته‌های بی‌نقاب را بخوانید ✍️'];
+            let pIdx = 0, cIdx = 0, del = false;
             let typeTimeout;
 
             function typeEffect() {
                 const current = phrases[pIdx];
                 if (!del) {
                     typedEl.textContent = current.substring(0, cIdx++);
-                    if (cIdx > current.length) { del = true;
-                        typeTimeout = setTimeout(typeEffect, 2200); return; }
+                    if (cIdx > current.length) { del = true; typeTimeout = setTimeout(typeEffect, 2200); return; }
                 } else {
                     typedEl.textContent = current.substring(0, cIdx--);
-                    if (cIdx < 0) { del = false;
-                        cIdx = 0;
-                        pIdx = (pIdx + 1) % phrases.length;
-                        typeTimeout = setTimeout(typeEffect, 400); return; }
+                    if (cIdx < 0) { del = false; cIdx = 0; pIdx = (pIdx + 1) % phrases.length; typeTimeout = setTimeout(typeEffect, 400); return; }
                 }
                 typeTimeout = setTimeout(typeEffect, del ? 50 : 100);
             }
             setTimeout(typeEffect, 700);
 
-            // ===== SMOOTH SCROLL & ARIA-CURRENT =====
+            // ===== SMOOTH SCROLL =====
             const navLinks = document.querySelectorAll('nav a[href^="#"]');
             navLinks.forEach(link => {
                 link.addEventListener('click', function(e) {
@@ -1765,10 +1685,7 @@
                     const target = document.querySelector(targetId);
                     if (target) {
                         const headerHeight = document.querySelector('header').offsetHeight;
-                        window.scrollTo({
-                            top: target.getBoundingClientRect().top + window.scrollY - headerHeight - 10,
-                            behavior: 'smooth'
-                        });
+                        window.scrollTo({ top: target.getBoundingClientRect().top + window.scrollY - headerHeight - 10, behavior: 'smooth' });
                         navLinks.forEach(l => l.removeAttribute('aria-current'));
                         this.setAttribute('aria-current', 'page');
                     }
@@ -1781,14 +1698,8 @@
             backBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 
             // ===== PERSIAN DATE =====
-            document.getElementById('persianDate').textContent = '📅 ' + new Date().toLocaleDateString('fa-IR', {
-                year: 'numeric',
-                month: 'long',
-                day: 'numeric',
-                weekday: 'long'
-            });
-            document.querySelector('footer .copyright').innerHTML =
-                `© ${new Date().getFullYear()} · تمامی حقوق محفوظ · طراحی با تکنولوژی‌های ۲۰۲۶`;
+            document.getElementById('persianDate').textContent = '📅 ' + new Date().toLocaleDateString('fa-IR', { year: 'numeric', month: 'long', day: 'numeric', weekday: 'long' });
+            document.querySelector('footer .copyright').innerHTML = `© ${new Date().getFullYear()} · تمامی حقوق محفوظ · طراحی با تکنولوژی‌های ۲۰۲۶`;
 
             // ===== PARALLAX =====
             const heroBg = document.getElementById('heroBg');
@@ -1814,7 +1725,6 @@
             let currentSlide = 0;
             const totalSlides = slides.length;
 
-            // ایجاد دات‌ها
             for (let i = 0; i < totalSlides; i++) {
                 const dot = document.createElement('button');
                 dot.className = 'slider-dot' + (i === 0 ? ' active' : '');
@@ -1836,14 +1746,10 @@
             prevBtn.addEventListener('click', () => goToSlide(currentSlide - 1));
             nextBtn.addEventListener('click', () => goToSlide(currentSlide + 1));
 
-            // Auto-play (مکث در hover)
             let autoInterval = setInterval(() => goToSlide(currentSlide + 1), 5000);
             const sliderWrapper = document.querySelector('.about-slider-wrapper');
             sliderWrapper.addEventListener('mouseenter', () => clearInterval(autoInterval));
-            sliderWrapper.addEventListener('mouseleave', () => {
-                clearInterval(autoInterval);
-                autoInterval = setInterval(() => goToSlide(currentSlide + 1), 5000);
-            });
+            sliderWrapper.addEventListener('mouseleave', () => { clearInterval(autoInterval); autoInterval = setInterval(() => goToSlide(currentSlide + 1), 5000); });
 
             // ===== FAQ ACCORDION =====
             const faqItems = document.querySelectorAll('.faq-item');
@@ -1851,7 +1757,6 @@
                 const btn = item.querySelector('.faq-question');
                 btn.addEventListener('click', () => {
                     const isOpen = item.classList.contains('open');
-                    // بستن بقیه
                     faqItems.forEach(other => {
                         if (other !== item && other.classList.contains('open')) {
                             other.classList.remove('open');
@@ -1890,61 +1795,7 @@
             const robots = document.querySelector('meta[name="robots"]');
             let schemaPost = null;
 
-            const FALLBACK_POSTS = [{
-                "id": 1,
-                "title": "تقاطع عشق و خشم",
-                "slug": "taghato-eshgh-va-kheshm",
-                "date": "۱۰ تیر ۱۴۰۴",
-                "image": "images/taghato-eshgh-va-kheshm.webp",
-                "metaDescription": "دل‌نوشته‌ای از مهدی رحیمیان درباره تناقض عشق و نفرت",
-                "excerpt": "گاهی کلمه‌ها چیزی بیشتر از صداهای بی‌جان نیستند...",
-                "content": "گاهی کلمه‌ها\nچیزی بیشتر از صداهای بی‌جان نیستند..."
-            }, {
-                "id": 2,
-                "title": "حال دلم خوب نیست",
-                "slug": "hal-e-delam-khoob-nist",
-                "date": "۱۵ تیر ۱۴۰۴",
-                "image": "images/hal-e-delam-khoob-nist.webp",
-                "metaDescription": "دل‌نوشته‌ای درباره دلتنگی، خشم و تنهایی",
-                "excerpt": "حال دلم خوب نیست نه از آن حال‌هایی که با یک فنجان چای خوب می‌شود...",
-                "content": "حال دلم خوب نیست..."
-            }, {
-                "id": 3,
-                "title": "آن فاجعه‌ی مهربان لعنتی",
-                "slug": "an-faje-ye-mehraban-lanati",
-                "date": "۲۰ تیر ۱۴۰۴",
-                "image": "images/an-faje-ye-mehraban-lanati.webp",
-                "metaDescription": "روایتی از عشقی که به شکنجه تبدیل شد",
-                "excerpt": "آن فاجعه‌ی مهربان لعنتی نه می‌گذارد فراموش کنم...",
-                "content": "آن فاجعه‌ی مهربان لعنتی..."
-            }, {
-                "id": 4,
-                "title": "بزرگ‌ترین اشتباه ما...",
-                "slug": "bozorgtarin-eshtebah-ma",
-                "date": "۲۸ تیر ۱۴۰۴",
-                "image": "images/bozorgtarin-eshtebah-ma.webp",
-                "metaDescription": "درباره فاصله‌هایی که از واژه‌ها شروع می‌شوند",
-                "excerpt": "بزرگ‌ترین اشتباه ما این بود که گمان می‌کردیم انسانها ناگهان از هم دور می‌شوند...",
-                "content": "بزرگ‌ترین اشتباه ما..."
-            }, {
-                "id": 5,
-                "title": "روزی تا خرخره عاشق بودم...",
-                "slug": "roozi-ta-kharhare-ashiq-boodam",
-                "date": "۳۰ تیر ۱۴۰۴",
-                "image": "images/roozi-ta-kharhare-ashiq-boodam.webp",
-                "metaDescription": "از عشق بی‌پایان گذشته تا بی‌حوصلگی امروز",
-                "excerpt": "روزی تا خرخره عاشق بودم تا فرق سرم دیوانه‌وار...",
-                "content": "روزی تا خرخره عاشق بودم..."
-            }, {
-                "id": 6,
-                "title": "چه فرق می‌کند بیدار باشم یا در خواب...",
-                "slug": "che-fargh-mikonad-bidar-basham-ya-dar-khab",
-                "date": "۲ مرداد ۱۴۰۴",
-                "image": "images/che-fargh-mikonad-bidar-basham-ya-dar-khab.webp",
-                "metaDescription": "عشقی که در خواب و بیداری جاری است",
-                "excerpt": "چه فرق می‌کند بیدار باشم یا در خواب دروغین بی‌ حضورش؟...",
-                "content": "چه فرق می‌کند بیدار باشم..."
-            }];
+            const FALLBACK_POSTS = [{"id":1,"title":"تقاطع عشق و خشم","slug":"taghato-eshgh-va-kheshm","date":"۱۰ تیر ۱۴۰۴","image":"images/taghato-eshgh-va-kheshm.webp","metaDescription":"دل‌نوشته‌ای از مهدی رحیمیان درباره تناقض عشق و نفرت","excerpt":"گاهی کلمه‌ها چیزی بیشتر از صداهای بی‌جان نیستند...","content":"گاهی کلمه‌ها\nچیزی بیشتر از صداهای بی‌جان نیستند..."},{"id":2,"title":"حال دلم خوب نیست","slug":"hal-e-delam-khoob-nist","date":"۱۵ تیر ۱۴۰۴","image":"images/hal-e-delam-khoob-nist.webp","metaDescription":"دل‌نوشته‌ای درباره دلتنگی، خشم و تنهایی","excerpt":"حال دلم خوب نیست نه از آن حال‌هایی که با یک فنجان چای خوب می‌شود...","content":"حال دلم خوب نیست..."},{"id":3,"title":"آن فاجعه‌ی مهربان لعنتی","slug":"an-faje-ye-mehraban-lanati","date":"۲۰ تیر ۱۴۰۴","image":"images/an-faje-ye-mehraban-lanati.webp","metaDescription":"روایتی از عشقی که به شکنجه تبدیل شد","excerpt":"آن فاجعه‌ی مهربان لعنتی نه می‌گذارد فراموش کنم...","content":"آن فاجعه‌ی مهربان لعنتی..."},{"id":4,"title":"بزرگ‌ترین اشتباه ما...","slug":"bozorgtarin-eshtebah-ma","date":"۲۸ تیر ۱۴۰۴","image":"images/bozorgtarin-eshtebah-ma.webp","metaDescription":"درباره فاصله‌هایی که از واژه‌ها شروع می‌شوند","excerpt":"بزرگ‌ترین اشتباه ما این بود که گمان می‌کردیم انسانها ناگهان از هم دور می‌شوند...","content":"بزرگ‌ترین اشتباه ما..."},{"id":5,"title":"روزی تا خرخره عاشق بودم...","slug":"roozi-ta-kharhare-ashiq-boodam","date":"۳۰ تیر ۱۴۰۴","image":"images/roozi-ta-kharhare-ashiq-boodam.webp","metaDescription":"از عشق بی‌پایان گذشته تا بی‌حوصلگی امروز","excerpt":"روزی تا خرخره عاشق بودم تا فرق سرم دیوانه‌وار...","content":"روزی تا خرخره عاشق بودم..."},{"id":6,"title":"چه فرق می‌کند بیدار باشم یا در خواب...","slug":"che-fargh-mikonad-bidar-basham-ya-dar-khab","date":"۲ مرداد ۱۴۰۴","image":"images/che-fargh-mikonad-bidar-basham-ya-dar-khab.webp","metaDescription":"عشقی که در خواب و بیداری جاری است","excerpt":"چه فرق می‌کند بیدار باشم یا در خواب دروغین بی‌ حضورش؟...","content":"چه فرق می‌کند بیدار باشم..."}];
 
             function getSlugFromURL() {
                 const path = window.location.pathname;
@@ -1956,12 +1807,8 @@
             }
 
             function updateURL(slug) {
-                if (slug) {
-                    window.history.pushState({ slug: slug }, '', window.location.origin + '/post/' + encodeURIComponent(
-                        slug) + '.html');
-                } else {
-                    window.history.pushState({ slug: null }, '', window.location.origin + '/');
-                }
+                if (slug) { window.history.pushState({ slug: slug }, '', window.location.origin + '/post/' + encodeURIComponent(slug) + '.html'); }
+                else { window.history.pushState({ slug: null }, '', window.location.origin + '/'); }
             }
 
             function updateSEO(post) {
@@ -1976,45 +1823,29 @@
                     ogImage.content = post.image || 'https://sayehayebineghab.ir/1.jpg';
                     canonical.href = window.location.href;
                     robots.content = 'index, follow';
-                    if (schemaPost) { schemaPost.remove();
-                        schemaPost = null; }
+                    if (schemaPost) { schemaPost.remove(); schemaPost = null; }
                     const script = document.createElement('script');
                     script.type = 'application/ld+json';
                     script.id = 'schema-post';
                     const dateISO = post.date ? post.date.replace(/[^\d]/g, '') : '1404';
-                    script.textContent = JSON.stringify({
-                        "@context": "https://schema.org",
-                        "@type": "BlogPosting",
-                        "headline": post.title,
-                        "datePublished": dateISO + '-00-00',
-                        "author": { "@type": "Person", "name": "مهدی رحیمیان" },
-                        "description": desc,
-                        "image": post.image || 'https://sayehayebineghab.ir/1.jpg'
-                    });
+                    script.textContent = JSON.stringify({ "@context": "https://schema.org", "@type": "BlogPosting", "headline": post.title, "datePublished": dateISO + '-00-00', "author": { "@type": "Person", "name": "مهدی رحیمیان" }, "description": desc, "image": post.image || 'https://sayehayebineghab.ir/1.jpg' });
                     document.head.appendChild(script);
                     schemaPost = script;
                 } else {
                     metaTitle.textContent = 'سایه‌های بی‌نقاب | مهدی رحیمیان – نویسنده و گوینده اهل رامسر';
-                    metaDesc.content =
-                        'مهدی رحیمیان، نویسنده و گوینده‌ی اهل رامسر (سخت‌سر). دل‌نوشته‌های عاشقانه، دکلمه‌های صوتی و محتوای عمیق انسانی.';
+                    metaDesc.content = 'مهدی رحیمیان، نویسنده و گوینده‌ی اهل رامسر (سخت‌سر). دل‌نوشته‌های عاشقانه، دکلمه‌های صوتی و محتوای عمیق انسانی.';
                     ogTitle.textContent = 'سایه‌های بی‌نقاب | مهدی رحیمیان – نویسنده و گوینده اهل رامسر';
-                    ogDesc.content =
-                        'دل‌نوشته‌ها، دکلمه‌های صوتی و نگاه عمیق به زندگی، عشق و تنهایی. محتوایی اصیل از دل رامسر.';
+                    ogDesc.content = 'دل‌نوشته‌ها، دکلمه‌های صوتی و نگاه عمیق به زندگی، عشق و تنهایی. محتوایی اصیل از دل رامسر.';
                     ogUrl.content = window.location.origin + '/';
                     ogImage.content = 'https://sayehayebineghab.ir/1.jpg';
                     canonical.href = 'https://sayehayebineghab.ir/';
                     robots.content = 'index, follow';
-                    if (schemaPost) { schemaPost.remove();
-                        schemaPost = null; }
+                    if (schemaPost) { schemaPost.remove(); schemaPost = null; }
                 }
             }
 
             function renderPostsList(posts) {
-                if (!posts || posts.length === 0) {
-                    postsGrid.innerHTML = '';
-                    noPostsMsg.style.display = 'block';
-                    return;
-                }
+                if (!posts || posts.length === 0) { postsGrid.innerHTML = ''; noPostsMsg.style.display = 'block'; return; }
                 noPostsMsg.style.display = 'none';
                 let html = '';
                 posts.forEach(post => {
@@ -2027,23 +1858,16 @@
                                     <h3>${post.title}</h3>
                                     <div class="post-excerpt">${post.excerpt || post.content.substring(0, 120) + '...'}</div>
                                     <div class="post-meta">
-                                        <span><i class="fas fa-calendar-alt"></i> ${post.date}</span>
-                                        <button class="share-btn" data-slug="${post.slug}" aria-label="اشتراک‌گذاری"><i class="fas fa-share-alt"></i></button>
+                                        <span><i class="fas fa-calendar-alt" aria-hidden="true"></i> ${post.date}</span>
+                                        <button class="share-btn" data-slug="${post.slug}" aria-label="اشتراک‌گذاری"><i class="fas fa-share-alt" aria-hidden="true"></i></button>
                                     </div>
                                 </div>
                             </a>
-                        </div>
-                    `;
+                        </div>`;
                 });
                 postsGrid.innerHTML = html;
                 document.querySelectorAll('.share-btn').forEach(btn => {
-                    btn.addEventListener('click', function(e) {
-                        e.stopPropagation();
-                        e.preventDefault();
-                        const slug = this.dataset.slug;
-                        const post = postsData.find(p => p.slug === slug);
-                        if (post) sharePost(post);
-                    });
+                    btn.addEventListener('click', function(e) { e.stopPropagation(); e.preventDefault(); const slug = this.dataset.slug; const post = postsData.find(p => p.slug === slug); if (post) sharePost(post); });
                 });
             }
 
@@ -2056,8 +1880,7 @@
                     renderPostsList(postsData);
                     updateURL(null);
                     updateSEO(null);
-                    postsGrid.innerHTML =
-                        `<div class="not-found" style="grid-column:1/-1;"><i class="fas fa-search"></i><h3>نوشته‌ای پیدا نشد</h3><p>متأسفیم، نوشته‌ای با این آدرس وجود ندارد.</p></div>`;
+                    postsGrid.innerHTML = `<div class="not-found" style="grid-column:1/-1;"><i class="fas fa-search" aria-hidden="true"></i><h3>نوشته‌ای پیدا نشد</h3><p>متأسفیم، نوشته‌ای با این آدرس وجود ندارد.</p></div>`;
                     return;
                 }
                 updateURL(slug);
@@ -2065,108 +1888,46 @@
                 postsListView.classList.add('hidden');
                 singlePostView.classList.add('active');
                 singlePostView.style.display = 'block';
-                singlePostContent.innerHTML = `
-                    <div class="post-header"><h1>${post.title}</h1><div style="color:var(--text-muted);"><i class="fas fa-calendar-alt"></i> ${post.date}</div></div>
-                    <div class="post-body">${post.content}</div>
-                `;
+                singlePostContent.innerHTML = `<div class="post-header"><h1>${post.title}</h1><div style="color:var(--text-muted);"><i class="fas fa-calendar-alt" aria-hidden="true"></i> ${post.date}</div></div><div class="post-body">${post.content}</div>`;
                 const currentIndex = postsData.findIndex(p => p.slug === slug);
                 const prevPost = currentIndex > 0 ? postsData[currentIndex - 1] : null;
                 const nextPost = currentIndex < postsData.length - 1 ? postsData[currentIndex + 1] : null;
                 let navHtml = '<div class="post-navigation">';
-                if (prevPost) {
-                    navHtml += `<a href="/post/${prevPost.slug}.html" class="prev-post" data-slug="${prevPost.slug}">
-                        <i class="fas fa-chevron-right"></i>
-                        <span><span class="nav-label">نوشته قبلی</span><span class="nav-title">${prevPost.title}</span></span>
-                    </a>`;
-                } else { navHtml += `<span></span>`; }
-                if (nextPost) {
-                    navHtml += `<a href="/post/${nextPost.slug}.html" class="next-post" data-slug="${nextPost.slug}">
-                        <span><span class="nav-label">نوشته بعدی</span><span class="nav-title">${nextPost.title}</span></span>
-                        <i class="fas fa-chevron-left"></i>
-                    </a>`;
-                } else { navHtml += `<span></span>`; }
+                if (prevPost) { navHtml += `<a href="/post/${prevPost.slug}.html" class="prev-post" data-slug="${prevPost.slug}"><i class="fas fa-chevron-right" aria-hidden="true"></i><span><span class="nav-label">نوشته قبلی</span><span class="nav-title">${prevPost.title}</span></span></a>`; } else { navHtml += `<span></span>`; }
+                if (nextPost) { navHtml += `<a href="/post/${nextPost.slug}.html" class="next-post" data-slug="${nextPost.slug}"><span><span class="nav-label">نوشته بعدی</span><span class="nav-title">${nextPost.title}</span></span><i class="fas fa-chevron-left" aria-hidden="true"></i></a>`; } else { navHtml += `<span></span>`; }
                 navHtml += '</div>';
                 navContainer.innerHTML = navHtml;
-                navContainer.querySelectorAll('a[data-slug]').forEach(link => {
-                    link.addEventListener('click', function(e) {
-                        e.preventDefault();
-                        const slug = this.dataset.slug;
-                        if (slug) showSinglePost(slug);
-                    });
-                });
+                navContainer.querySelectorAll('a[data-slug]').forEach(link => { link.addEventListener('click', function(e) { e.preventDefault(); const slug = this.dataset.slug; if (slug) showSinglePost(slug); }); });
                 sharePostBtn.onclick = () => sharePost(post);
                 setTimeout(updateReadingProgress, 100);
                 document.getElementById('blog').scrollIntoView({ behavior: 'smooth', block: 'start' });
             }
 
-            function goBackToList(e) {
-                if (e) e.preventDefault();
-                postsListView.classList.remove('hidden');
-                singlePostView.classList.remove('active');
-                singlePostView.style.display = 'none';
-                navContainer.innerHTML = '';
-                updateURL(null);
-                updateSEO(null);
-                document.title = 'سایه‌های بی‌نقاب | مهدی رحیمیان – نویسنده و گوینده اهل رامسر';
-                document.getElementById('blog').scrollIntoView({ behavior: 'smooth', block: 'start' });
-                applySearch();
-                updateReadingProgress();
-            }
+            function goBackToList(e) { if (e) e.preventDefault(); postsListView.classList.remove('hidden'); singlePostView.classList.remove('active'); singlePostView.style.display = 'none'; navContainer.innerHTML = ''; updateURL(null); updateSEO(null); document.title = 'سایه‌های بی‌نقاب | مهدی رحیمیان – نویسنده و گوینده اهل رامسر'; document.getElementById('blog').scrollIntoView({ behavior: 'smooth', block: 'start' }); applySearch(); updateReadingProgress(); }
             backBtnPosts.addEventListener('click', goBackToList);
 
             function sharePost(post) {
                 const url = window.location.origin + '/post/' + encodeURIComponent(post.slug) + '.html';
-                if (navigator.share) {
-                    navigator.share({ title: post.title, text: post.excerpt || post.content.substring(0, 100) + '...',
-                        url }).catch(() => {});
-                } else {
-                    navigator.clipboard.writeText(url).then(() => alert('لینک نوشته در کلیپ‌بورد کپی شد.')).catch(
-                    () => prompt('لینک نوشته:', url));
-                }
+                if (navigator.share) { navigator.share({ title: post.title, text: post.excerpt || post.content.substring(0, 100) + '...', url }).catch(() => {}); }
+                else { navigator.clipboard.writeText(url).then(() => alert('لینک نوشته در کلیپ‌بورد کپی شد.')).catch(() => prompt('لینک نوشته:', url)); }
             }
 
             function applySearch() {
                 const query = searchInput.value.trim().toLowerCase();
                 if (!query) { renderPostsList(postsData); return; }
-                const filtered = postsData.filter(p =>
-                    p.title.toLowerCase().includes(query) ||
-                    (p.excerpt && p.excerpt.toLowerCase().includes(query)) ||
-                    p.content.toLowerCase().includes(query)
-                );
+                const filtered = postsData.filter(p => p.title.toLowerCase().includes(query) || (p.excerpt && p.excerpt.toLowerCase().includes(query)) || p.content.toLowerCase().includes(query));
                 renderPostsList(filtered);
             }
             searchInput.addEventListener('input', applySearch);
 
-            window.addEventListener('popstate', (e) => {
-                const slug = e.state && e.state.slug;
-                if (slug) { showSinglePost(slug); } else { goBackToList(e); }
-            });
+            window.addEventListener('popstate', (e) => { const slug = e.state && e.state.slug; if (slug) { showSinglePost(slug); } else { goBackToList(e); } });
 
             function loadPosts() {
-                fetch('posts.json')
-                    .then(res => {
-                        if (!res.ok) throw new Error('not found');
-                        return res.json();
-                    })
-                    .then(data => {
-                        postsData = data;
-                        renderPostsList(postsData);
-                        const slug = getSlugFromURL();
-                        if (slug) { showSinglePost(slug); } else { updateSEO(null); }
-                    })
-                    .catch(() => {
-                        postsData = FALLBACK_POSTS;
-                        renderPostsList(postsData);
-                        const slug = getSlugFromURL();
-                        if (slug) { showSinglePost(slug); } else { updateSEO(null); }
-                    });
+                fetch('posts.json').then(res => { if (!res.ok) throw new Error('not found'); return res.json(); }).then(data => { postsData = data; renderPostsList(postsData); const slug = getSlugFromURL(); if (slug) { showSinglePost(slug); } else { updateSEO(null); } }).catch(() => { postsData = FALLBACK_POSTS; renderPostsList(postsData); const slug = getSlugFromURL(); if (slug) { showSinglePost(slug); } else { updateSEO(null); } });
             }
             loadPosts();
 
-            // ===== Service Worker (اختیاری) =====
-            if ('serviceWorker' in navigator) {
-                navigator.serviceWorker.register('sw.js').catch(() => {});
-            }
+            if ('serviceWorker' in navigator) { navigator.serviceWorker.register('sw.js').catch(() => {}); }
         })();
     </script>
 </body>
