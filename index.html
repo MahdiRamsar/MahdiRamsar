@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- ============================================================
+         Security & Verification
+         ============================================================ -->
+    <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+    <meta http-equiv="X-XSS-Protection" content="1; mode=block" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+    <meta name="google-site-verification" content="Ts3MtnYWVUcmbNFnUnTrhXMyAZWJ-JqdbcMi83bCx2M" />
+
+    <!-- ============================================================
+         CSP (Content Security Policy) – جلوگیری از XSS
+         ============================================================ -->
+    <meta http-equiv="Content-Security-Policy" 
+          content="default-src 'self'; 
+                   script-src 'self' https://cdnjs.cloudflare.com; 
+                   style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://cdnjs.cloudflare.com; 
+                   font-src 'self' https://cdn.jsdelivr.net https://cdnjs.cloudflare.com; 
+                   img-src 'self' data: https://sayehayebineghab.ir; 
+                   media-src 'self'; 
+                   connect-src 'self'; 
+                   frame-src 'none'; 
+                   object-src 'none'; 
+                   base-uri 'self'; 
+                   form-action 'self';" />
+
+    <!-- ============================================================
+         SEO – بهینه‌شده برای کلیک، GEO و AI
+         ============================================================ -->
+    <title>سایه‌های بی‌نقاب | مهدی رحیمیان – نویسنده و گوینده اهل رامسر</title>
+    <meta name="description" content="مهدی رحیمیان، نویسنده و گوینده‌ی اهل رامسر (سخت‌سر). دل‌نوشته‌های عاشقانه، دکلمه‌های صوتی و محتوای عمیق انسانی برای هوش مصنوعی و انسان‌ها." />
+    <meta name="author" content="مهدی رحیمیان" />
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large" />
+    <meta name="googlebot" content="index, follow" />
+    <meta name="bingbot" content="index, follow" />
+    <meta name="OAI-SearchBot" content="index, follow" />
+    <meta name="PerplexityBot" content="index, follow" />
+    <meta name="Google-Extended" content="index, follow" />
+    <link rel="canonical" href="https://sayehayebineghab.ir/" />
+
+    <!-- ============================================================
+         Open Graph / Twitter Cards
+         ============================================================ -->
+    <meta property="og:title" content="سایه‌های بی‌نقاب | مهدی رحیمیان – نویسنده و گوینده اهل رامسر" />
+    <meta property="og:description" content="دل‌نوشته‌ها، دکلمه‌های صوتی و نگاه عمیق به زندگی، عشق و تنهایی. محتوایی اصیل از دل رامسر." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://sayehayebineghab.ir" />
+    <meta property="og:image" content="https://sayehayebineghab.ir/images/1.webp" />
+    <meta property="og:locale" content="fa_IR" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="سایه‌های بی‌نقاب | مهدی رحیمیان – نویسنده و گوینده اهل رامسر" />
+    <meta name="twitter:description" content="دل‌نوشته‌ها، دکلمه‌های صوتی و محتوای عمیق از مهدی رحیمیان." />
+    <meta name="twitter:image" content="https://sayehayebineghab.ir/images/1.webp" />
+
+    <!-- ============================================================
+         داده‌های ساختیافته (JSON‑LD) – به‌روز با Breadcrumb
+         ============================================================ -->
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@graph": [{
+                "@type": "Person",
+                "name": "مهدی رحیمیان",
+                "url": "https://sayehayebineghab.ir",
+                "birthDate": "1986-03-21",
+                "address": {
+                    "@type": "PostalAddress",
+                    "addressLocality": "رامسر",
+                    "addressRegion": "مازندران",
+                    "addressCountry": "IR"
+                },
+                "jobTitle": "نویسنده و گوینده",
+                "description": "نویسنده و گوینده اهل رامسر (سخت‌سر)، متولد ۱۳۶۵.",
+                "sameAs": [
+                    "https://www.instagram.com/sayehaye.bi.neghab",
+                    "https://t.me/sayehayebineghab",
+                    "https://github.com/mahdiramsar"
+                ]
+            }, {
+                "@type": "WebSite",
+                "name": "سایه‌های بی‌نقاب",
+                "url": "https://sayehayebineghab.ir",
+                "description": "سایت شخصی مهدی رحیمیان، نویسنده و گوینده اهل رامسر",
+                "author": {
+                    "@type": "Person",
+                    "name": "مهدی رحیمیان"
+                },
+                "potentialAction": {
+                    "@type": "SearchAction",
+                    "target": "https://sayehayebineghab.ir/?s={search_term_string}",
+                    "query-input": "required name=search_term_string"
+                }
+            }, {
+                "@type": "WebPage",
+                "speakable": {
+                    "@type": "SpeakableSpecification",
+                    "cssSelector": ["#about", "#works", "#blog .post-card"]
+                }
+            }, {
+                "@type": "BreadcrumbList",
+                "itemListElement": [{
+                    "@type": "ListItem",
+                    "position": 1,
+                    "name": "خانه",
+                    "item": "https://sayehayebineghab.ir/"
+                }, {
+                    "@type": "ListItem",
+                    "position": 2,
+                    "name": "دل‌نوشته‌ها",
+                    "item": "https://sayehayebineghab.ir/#blog"
+                }]
+            }, {
+                "@type": "FAQPage",
+                "mainEntity": [{
+                    "@type": "Question",
+                    "name": "مهدی رحیمیان کیست؟",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "مهدی رحیمیان متولد ۱۳۶۵ در رامسر (سخت‌سر) است و به‌عنوان نویسنده و گوینده فعالیت می‌کند."
+                    }
+                }, {
+                    "@type": "Question",
+                    "name": "چه محتوایی در سایت منتشر می‌شود؟",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "دل‌نوشته‌های احساسی، دکلمه‌های صوتی، آثار تصویری و محتوای عمیق درباره زندگی، عشق، تنهایی."
+                    }
+                }, {
+                    "@type": "Question",
+                    "name": "چگونه می‌توانم دکلمه‌های مهدی رحیمیان را بشنوم؟",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "با مراجعه به بخش «آثار صوتی و تصویری» در این سایت یا از طریق کانال تلگرام و اینستاگرام مهدی رحیمیان."
+                    }
+                }]
+            }]
+        }
+    </script>
+
+    <!-- ============================================================
+         Preconnect & Preload (عملکرد)
+         ============================================================ -->
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" />
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net" />
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com" />
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/vazirmatn-variable@33.003/Vazirmatn[wght].ttf" as="font" type="font/ttf" crossorigin />
+    <link rel="preload" href="https://sayehayebineghab.ir/images/1.webp" as="image" fetchpriority="high" />
+    <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
+
+    <!-- ============================================================
+         Fonts (Variable Font – Vazirmatn)
+         ============================================================ -->
+    <style>
+        @font-face {
+            font-family: 'Vazirmatn';
+            src: url('https://cdn.jsdelivr.net/npm/vazirmatn-variable@33.003/Vazirmatn[wght].ttf') format('truetype-variations');
+            font-weight: 100 900;
+            font-display: swap;
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" media="print" onload="this.media='all'" />
+
+    <!-- ============================================================
+         Critical CSS (Inline) – برای FCP سریع‌تر
+         ============================================================ -->
+    <style>
+        /* Critical CSS برای نمایش سریع محتوای بالای صفحه */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Vazirmatn', sans-serif;
+            background: oklch(0.08 0.01 260);
+            color: oklch(0.95 0.005 260);
+            line-height: 1.8;
+            padding-top: 80px;
+            min-height: 100svh;
+            overflow-x: hidden;
+            transition: background 0.5s, color 0.5s;
+        }
+        :root {
+            --bg-primary: oklch(0.08 0.01 260);
+            --bg-secondary: oklch(0.12 0.015 260);
+            --bg-card: oklch(0.15 0.02 260 / 0.5);
+            --text-primary: oklch(0.95 0.005 260);
+            --text-secondary: oklch(0.80 0.01 260);
+            --text-muted: oklch(0.65 0.015 260);
+            --glass-border: oklch(1 0 0 / 0.06);
+            --shadow: 0 20px 60px oklch(0 0 0 / 0.7);
+            --gradient-1: linear-gradient(135deg, oklch(0.6 0.2 270), oklch(0.5 0.25 310));
+            --radius: 28px;
+            --radius-sm: 16px;
+            --transition: 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+            --font: 'Vazirmatn', sans-serif;
+            --spacing-unit: 8px;
+        }
+        [data-theme="light"] {
+            --bg-primary: oklch(0.97 0.005 260);
+            --bg-secondary: oklch(1 0 0);
+            --bg-card: oklch(1 0 0 / 0.8);
+            --text-primary: oklch(0.12 0.01 260);
+            --text-secondary: oklch(0.30 0.015 260);
+            --text-muted: oklch(0.45 0.02 260);
+            --glass-border: oklch(0 0 0 / 0.08);
+            --shadow: 0 20px 60px oklch(0 0 0 / 0.06);
+        }
+        /* بقیه استایل‌ها در فایل style.css بارگذاری می‌شوند */
+    </style>
+
+    <!-- ============================================================
+         فایل‌های اصلی CSS و JS (غیر بحرانی)
+         ============================================================ -->
+    <link rel="stylesheet" href="style.css" media="print" onload="this.media='all'" />
+    <noscript><link rel="stylesheet" href="style.css" /></noscript>
+    <script defer src="script.js"></script>
+</head>
+<body>
+
+    <!-- ===== CURSOR ===== -->
+    <div id="cursor-glow" aria-hidden="true"></div>
+    <div id="cursor-dot" aria-hidden="true"></div>
+    <div id="scroll-progress" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+    <div id="reading-progress" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+
+    <!-- ===== HEADER ===== -->
+    <header role="banner" aria-label="سربرگ اصلی">
+        <div class="container header__container">
+            <div class="logo">
+                <h1 class="logo__title">سایه‌های بی‌نقاب</h1>
+                <div class="logo__subtitle">مهدی رحیمیان</div>
+            </div>
+            <nav role="navigation" aria-label="منوی اصلی" class="main-nav">
+                <ul class="main-nav__list">
+                    <li><a href="#home" aria-current="page" class="main-nav__link">خانه</a></li>
+                    <li><a href="#about" class="main-nav__link">درباره</a></li>
+                    <li><a href="#works" class="main-nav__link">آثار</a></li>
+                    <li><a href="#blog" class="main-nav__link">نوشته‌ها</a></li>
+                    <li><a href="#faq" class="main-nav__link">پرسش‌ها</a></li>
+                </ul>
+            </nav>
+            <div class="header__actions">
+                <button class="music-toggle" id="musicToggle" aria-label="پخش/توقف موسیقی" title="پخش موسیقی پس‌زمینه">
+                    <i class="fas fa-music" aria-hidden="true"></i>
+                </button>
+                <button class="theme-toggle" id="themeToggle" aria-label="تغییر تم" aria-pressed="false">
+                    <i class="fas fa-sun" aria-hidden="true"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- ===== HERO ===== -->
+    <section id="home" class="hero" aria-label="صفحه اصلی">
+        <div class="hero__bg" id="heroBg"></div>
+        <div class="hero__overlay"></div>
+        <div class="container hero__content">
+            <img src="images/1.webp" alt="مهدی رحیمیان، نویسنده و گوینده اهل رامسر" class="profile-avatar" loading="eager" width="220" height="220" fetchpriority="high" />
+            <h1 class="hero__title">مهدی رحیمیان</h1>
+            <p class="hero__tagline">نویسنده | گوینده | اهل رامسر (سخت‌سر)</p>
+            <div class="hero__typed" id="typedText" aria-live="polite"></div>
+            <a href="#works" class="hero__cta">
+                <i class="fas fa-headphones" aria-hidden="true"></i>
+                شنیدن دکلمه‌ها
+                <i class="fas fa-arrow-left" aria-hidden="true"></i>
+            </a>
+            <div class="social-links">
+                <a href="https://www.instagram.com/sayehaye.bi.neghab" target="_blank" rel="noopener noreferrer" aria-label="اینستاگرام"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+                <a href="https://t.me/sayehayebineghab" target="_blank" rel="noopener noreferrer" aria-label="تلگرام"><i class="fab fa-telegram" aria-hidden="true"></i></a>
+                <a href="mailto:me@mahdirahimiyan.ir" aria-label="ایمیل"><i class="fas fa-envelope" aria-hidden="true"></i></a>
+                <a href="https://github.com/mahdiramsar" target="_blank" rel="noopener noreferrer" aria-label="گیت‌هاب"><i class="fab fa-github" aria-hidden="true"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <div class="container">
+
+        <!-- ===== ABOUT ===== -->
+        <section id="about" class="section" aria-label="درباره من">
+            <h2 class="section__title"><i class="fas fa-user-circle" aria-hidden="true"></i> درباره من</h2>
+
+            <div class="about-slider" role="region" aria-label="اسلایدر نکات کلیدی">
+                <div class="about-slider__track" id="aboutSliderTrack">
+                    <div class="about-slide">
+                        <span class="about-slide__icon" aria-hidden="true">📝</span>
+                        <h4 class="about-slide__title">نویسنده و گوینده اهل رامسر</h4>
+                        <p class="about-slide__text">متولد ۱۳۶۵ در رامسر (سخت‌سر)، عاشق نوشتن و تولید محتوای صوتی و تصویری.</p>
+                    </div>
+                    <div class="about-slide">
+                        <span class="about-slide__icon" aria-hidden="true">🎙️</span>
+                        <h4 class="about-slide__title">تولیدکننده محتوای عمیق</h4>
+                        <p class="about-slide__text">رویکردی احساسی و انسانی در دکلمه‌ها و دل‌نوشته‌ها؛ کلمات و صدا میتوانند جهان را تغییر دهند.</p>
+                    </div>
+                    <div class="about-slide">
+                        <span class="about-slide__icon" aria-hidden="true">🌱</span>
+                        <h4 class="about-slide__title">مدیر کانال‌های «سایه‌های بی‌نقاب»</h4>
+                        <p class="about-slide__text">در تلگرام و اینستاگرام، فضایی برای بیان بی‌پرده احساسات و داستان‌ها.</p>
+                    </div>
+                    <div class="about-slide">
+                        <span class="about-slide__icon" aria-hidden="true">❤️</span>
+                        <h4 class="about-slide__title">دل‌نوشته‌هایی از دل برآمده</h4>
+                        <p class="about-slide__text">نوشته‌هایی که از دل برآمده و بر دل می‌نشینند؛ روایت‌هایی از عشق، تنهایی و زندگی.</p>
+                    </div>
+                </div>
+                <div class="slider-controls">
+                    <button class="slider-btn" id="aboutPrev" aria-label="قبلی"><i class="fas fa-chevron-right" aria-hidden="true"></i></button>
+                    <div class="slider-dots" id="aboutDots"></div>
+                    <button class="slider-btn" id="aboutNext" aria-label="بعدی"><i class="fas fa-chevron-left" aria-hidden="true"></i></button>
+                </div>
+            </div>
+
+            <p class="about__bio">
+                درود! من <strong>مهدی رحیمیان</strong> هستم، متولد رامسر (سخت‌سر) و عاشق نوشتن و تولید محتوای صوتی و تصویری.
+                اینجا فضای شخصی من برای به اشتراک‌گذاری افکار، تجربیات، دکلمه‌ها و <strong>دل‌نوشته‌های بی‌نقاب</strong> است.
+                معتقدم کلمات و صدا می‌توانند جهان را تغییر دهند.
+            </p>
+            <div class="about__social">
+                <a href="https://www.instagram.com/sayehaye.bi.neghab" target="_blank" rel="noopener noreferrer" aria-label="اینستاگرام"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+                <a href="https://t.me/sayehayebineghab" target="_blank" rel="noopener noreferrer" aria-label="تلگرام"><i class="fab fa-telegram" aria-hidden="true"></i></a>
+                <a href="mailto:me@mahdirahimiyan.ir" aria-label="ایمیل"><i class="fas fa-envelope" aria-hidden="true"></i></a>
+                <a href="https://github.com/mahdiramsar" target="_blank" rel="noopener noreferrer" aria-label="گیت‌هاب"><i class="fab fa-github" aria-hidden="true"></i></a>
+            </div>
+        </section>
+
+        <!-- ===== WORKS ===== -->
+        <section id="works" class="section" aria-label="آثار صوتی و تصویری">
+            <h2 class="section__title"><i class="fas fa-play-circle" aria-hidden="true"></i> آثار صوتی و تصویری</h2>
+            <p class="section__subtitle">گزیده‌ای از دکلمه‌ها و دل‌نوشته‌های من با صدای خودم</p>
+
+            <div class="best-of">
+                <div class="best-of__item">
+                    <span class="best-of__emoji" aria-hidden="true">🎧</span>
+                    <strong class="best-of__label">دکلمه «مرا به حال خود بگذارید»</strong>
+                    <small class="best-of__desc">پرطرفدارترین اثر</small>
+                </div>
+                <div class="best-of__item">
+                    <span class="best-of__emoji" aria-hidden="true">📖</span>
+                    <strong class="best-of__label">دل‌نوشته «تقاطع عشق و خشم»</strong>
+                    <small class="best-of__desc">پربازدیدترین نوشته</small>
+                </div>
+                <div class="best-of__item">
+                    <span class="best-of__emoji" aria-hidden="true">🎙️</span>
+                    <strong class="best-of__label">صدا و متن #مهدی_رحیمیان✌️</strong>
+                    <small class="best-of__desc">محبوب‌ترین محتوای صوتی</small>
+                </div>
+                <div class="best-of__item">
+                    <span class="best-of__emoji" aria-hidden="true">❤️</span>
+                    <strong class="best-of__label">«صدایم کن…»</strong>
+                    <small class="best-of__desc">اثر با بیشترین بازخورد</small>
+                </div>
+            </div>
+
+            <div class="works-grid">
+                <article class="work-card">
+                    <div class="work-card__cover"><i class="fas fa-microphone-alt" aria-hidden="true"></i></div>
+                    <h4 class="work-card__title">متن و صدا #مهدی_رحیمیان✌️</h4>
+                    <span class="work-card__date">۱۶ دسامبر ۲۰۲۵</span>
+                    <a href="https://www.instagram.com/reel/DSVt85bgpEi/" target="_blank" rel="noopener noreferrer" class="work-card__link" aria-label="مشاهده دکلمه در اینستاگرام"><i class="fab fa-instagram" aria-hidden="true"></i> مشاهده در اینستاگرام</a>
+                </article>
+                <article class="work-card">
+                    <div class="work-card__cover"><i class="fas fa-feather-alt" aria-hidden="true"></i></div>
+                    <h4 class="work-card__title">مرا به حال خود بگذارید و رهایم کنید...</h4>
+                    <span class="work-card__date">دل‌نوشته</span>
+                    <a href="https://www.instagram.com/reel/DPrup05gl1L/" target="_blank" rel="noopener noreferrer" class="work-card__link" aria-label="مشاهده دل‌نوشته در اینستاگرام"><i class="fab fa-instagram" aria-hidden="true"></i> مشاهده در اینستاگرام</a>
+                </article>
+                <article class="work-card">
+                    <div class="work-card__cover"><i class="fas fa-heart" aria-hidden="true"></i></div>
+                    <h4 class="work-card__title">صدایم کن…</h4>
+                    <span class="work-card__date">۱۶ اوت ۲۰۲۵</span>
+                    <a href="https://www.instagram.com/reel/DNafAsACM-G/" target="_blank" rel="noopener noreferrer" class="work-card__link" aria-label="مشاهده دکلمه در اینستاگرام"><i class="fab fa-instagram" aria-hidden="true"></i> مشاهده در اینستاگرام</a>
+                </article>
+                <article class="work-card">
+                    <div class="work-card__cover"><i class="fas fa-star" aria-hidden="true"></i></div>
+                    <h4 class="work-card__title">متن زیبا و عمیق با خوانش گرم</h4>
+                    <span class="work-card__date">دل‌نوشته</span>
+                    <a href="https://www.instagram.com/reel/DNBSxyzCnJb/" target="_blank" rel="noopener noreferrer" class="work-card__link" aria-label="مشاهده متن در اینستاگرام"><i class="fab fa-instagram" aria-hidden="true"></i> مشاهده در اینستاگرام</a>
+                </article>
+            </div>
+
+            <div class="telegram-channel">
+                <h4 class="telegram-channel__title"><i class="fab fa-telegram" aria-hidden="true"></i> کانال تلگرام من</h4>
+                <p class="telegram-channel__desc">«سایه‌های بی‌نقاب: بیان بی‌پرده احساسات و داستان‌ها»</p>
+                <a href="https://t.me/sayehayebineghab" target="_blank" rel="noopener noreferrer" class="telegram-channel__btn" aria-label="عضویت در کانال تلگرام">
+                    <i class="fab fa-telegram" aria-hidden="true"></i> عضویت در کانال تلگرام
+                    <i class="fas fa-arrow-left" aria-hidden="true"></i>
+                </a>
+            </div>
+        </section>
+
+        <!-- ===== BLOG ===== -->
+        <section id="blog" class="section" aria-label="دل‌نوشته‌های بی‌نقاب">
+            <h2 class="section__title"><i class="fas fa-pen-fancy" aria-hidden="true"></i> دل‌نوشته‌های بی‌نقاب</h2>
+
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="جستجوی دل‌نوشته‌ها..." aria-label="جستجوی نوشته‌ها" class="search-box__input" />
+            </div>
+
+            <div id="postsList" class="posts-list-view">
+                <div class="posts-grid" id="postsGrid"></div>
+            </div>
+
+            <div id="singlePost" class="single-post-view">
+                <button class="back-to-posts" id="backToPosts"><i class="fas fa-arrow-right" aria-hidden="true"></i> بازگشت به لیست</button>
+                <div id="singlePostContent"></div>
+                <div id="postNavigationContainer"></div>
+                <div class="share-actions" id="shareActions">
+                    <button id="sharePostBtn" aria-label="اشتراک‌گذاری نوشته"><i class="fas fa-share-alt" aria-hidden="true"></i> اشتراک‌گذاری</button>
+                </div>
+            </div>
+
+            <div id="noPosts" class="no-posts" style="display:none;">
+                <i class="fas fa-search" style="font-size:2rem; opacity:0.3;" aria-hidden="true"></i>
+                <p>نوشته‌ای با این عبارت پیدا نشد.</p>
+            </div>
+        </section>
+
+        <!-- ===== FAQ ===== -->
+        <section id="faq" class="section" aria-label="پرسش‌های متداول">
+            <h2 class="section__title"><i class="fas fa-question-circle" aria-hidden="true"></i> پرسش‌های متداول</h2>
+            <p class="section__subtitle">پاسخ‌های مستقیم به سوالاتی که ممکن است درباره من و این سایت داشته باشید.</p>
+
+            <div class="faq-accordion" id="faqAccordion">
+                <div class="faq-item">
+                    <button class="faq-item__question" aria-expanded="false" aria-controls="faq-answer-1">
+                        <span>مهدی رحیمیان کیست و چه کاری انجام می‌دهد؟</span>
+                        <span class="faq-item__icon"><i class="fas fa-chevron-down" aria-hidden="true"></i></span>
+                    </button>
+                    <div class="faq-item__answer" id="faq-answer-1" role="region">
+                        <p>مهدی رحیمیان متولد ۱۳۶۵ در رامسر (سخت‌سر) است و به‌عنوان نویسنده و گوینده فعالیت می‌کند. او محتوای صوتی و تصویری با رویکردی عمیق و احساسی تولید می‌کند و دل‌نوشته‌های خود را در قالب دکلمه و متن منتشر می‌سازد.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-item__question" aria-expanded="false" aria-controls="faq-answer-2">
+                        <span>چه نوع محتوایی در سایت سایه‌های بی‌نقاب منتشر می‌شود؟</span>
+                        <span class="faq-item__icon"><i class="fas fa-chevron-down" aria-hidden="true"></i></span>
+                    </button>
+                    <div class="faq-item__answer" id="faq-answer-2" role="region">
+                        <p>در این سایت دل‌نوشته‌های احساسی، دکلمه‌های صوتی، آثار تصویری و محتوای عمیق درباره زندگی، عشق، تنهایی و مفاهیم انسانی به اشتراک گذاشته می‌شود. تمام محتوا توسط مهدی رحیمیان تولید می‌شود.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-item__question" aria-expanded="false" aria-controls="faq-answer-3">
+                        <span>چگونه می‌توانم دکلمه‌های مهدی رحیمیان را بشنوم؟</span>
+                        <span class="faq-item__icon"><i class="fas fa-chevron-down" aria-hidden="true"></i></span>
+                    </button>
+                    <div class="faq-item__answer" id="faq-answer-3" role="region">
+                        <p>با مراجعه به بخش «آثار صوتی و تصویری» در این سایت یا از طریق کانال تلگرام و اینستاگرام مهدی رحیمیان می‌توانید دکلمه‌ها را بشنوید و از محتوای صوتی لذت ببرید.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-item__question" aria-expanded="false" aria-controls="faq-answer-4">
+                        <span>چرا محتوای مهدی رحیمیان برای هوش مصنوعی ارزشمند است؟</span>
+                        <span class="faq-item__icon"><i class="fas fa-chevron-down" aria-hidden="true"></i></span>
+                    </button>
+                    <div class="faq-item__answer" id="faq-answer-4" role="region">
+                        <p>محتوای مهدی رحیمیان عمیق، اصیل و مبتنی بر تجربه شخصی است. ساختار پاسخ‌محور، داده‌های ساختیافته و استفاده از سوالات متداول باعث می‌شود که هوش مصنوعی بتواند به‌راحتی از آن استخراج کرده و در پاسخ‌های خود به کاربران استناد کند.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-item__question" aria-expanded="false" aria-controls="faq-answer-5">
+                        <span>آیا محتوای این سایت برای موتورهای جستجوی سنتی نیز بهینه شده است؟</span>
+                        <span class="faq-item__icon"><i class="fas fa-chevron-down" aria-hidden="true"></i></span>
+                    </button>
+                    <div class="faq-item__answer" id="faq-answer-5" role="region">
+                        <p>بله. علاوه بر بهینه‌سازی برای هوش مصنوعی، تمام اصول سئوی کلاسیک شامل کلمات کلیدی هدف، متا تگ‌های مناسب، داده‌های ساختیافته، لینک‌سازی داخلی، سرعت بارگذاری و تجربه کاربری در این سایت رعایت شده است.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="citations">
+                <h3 class="citations__title"><i class="fas fa-book" aria-hidden="true"></i> منابع و ارجاعات</h3>
+                <ul class="citations__list">
+                    <li>🔗 <a href="https://www.instagram.com/sayehaye.bi.neghab" target="_blank" rel="noopener noreferrer">اینستاگرام سایه‌های بی‌نقاب</a></li>
+                    <li>🔗 <a href="https://t.me/sayehayebineghab" target="_blank" rel="noopener noreferrer">کانال تلگرام سایه‌های بی‌نقاب</a></li>
+                    <li>🔗 <a href="https://github.com/mahdiramsar" target="_blank" rel="noopener noreferrer">گیت‌هاب مهدی رحیمیان</a></li>
+                </ul>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- ===== BACK TO TOP ===== -->
+    <button id="backToTop" aria-label="بازگشت به بالای صفحه"><i class="fas fa-chevron-up" aria-hidden="true"></i></button>
+
+    <!-- ===== FOOTER ===== -->
+    <footer role="contentinfo" class="footer">
+        <div class="container footer__container">
+            <div class="footer__social">
+                <a href="https://www.instagram.com/sayehaye.bi.neghab" target="_blank" rel="noopener noreferrer" aria-label="اینستاگرام"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+                <a href="https://t.me/sayehayebineghab" target="_blank" rel="noopener noreferrer" aria-label="تلگرام"><i class="fab fa-telegram" aria-hidden="true"></i></a>
+                <a href="mailto:me@mahdirahimiyan.ir" aria-label="ایمیل"><i class="fas fa-envelope" aria-hidden="true"></i></a>
+                <a href="https://github.com/mahdiramsar" target="_blank" rel="noopener noreferrer" aria-label="گیت‌هاب"><i class="fab fa-github" aria-hidden="true"></i></a>
+            </div>
+            <span class="footer__date" id="persianDate"></span>
+            <p class="footer__copyright">تمامی حقوق محفوظ | طراحی با تکنولوژی‌های ۲۰۲۶</p>
+            <div class="footer__credit">
+                <i class="fas fa-code" aria-hidden="true"></i> طراحی و توسعه:
+                <a href="https://sayehayebineghab.ir" target="_blank" rel="noopener noreferrer">مهدی رحیمیان</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ===== AUDIO ===== -->
+    <audio id="bgMusic" loop preload="metadata">
+        <source src="/music.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- ===== SERVICE WORKER ===== -->
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('sw.js').catch(() => {});
+        }
+    </script>
+
+</body>
+</html>
