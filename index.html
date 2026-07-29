@@ -580,43 +580,48 @@
             -webkit-text-fill-color: oklch(0.6 0.2 270);
         }
 
-        /* ===== ABOUT SLIDER ===== */
-        .about-slider-wrapper {
-            position: relative;
-            overflow: hidden;
-            border-radius: var(--radius-sm);
-            margin-bottom: calc(var(--spacing-unit) * 3);
-            background: var(--bg-secondary);
-            padding: calc(var(--spacing-unit) * 1.25) 0;
-        }
-        .about-slider-track {
-            display: flex;
-            transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
-            will-change: transform;
-        }
-        .about-slide {
-            min-width: 100%;
-            padding: calc(var(--spacing-unit) * 3) calc(var(--spacing-unit) * 3.5);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-            gap: calc(var(--spacing-unit) * 1);
-        }
-        .about-slide .slide-icon {
-            font-size: 2.8rem;
-            color: oklch(0.6 0.2 270);
-        }
-        .about-slide h4 {
-            font-size: 1.2rem;
-            font-weight: 800;
-            color: var(--text-primary);
-        }
-        .about-slide p {
-            color: var(--text-secondary);
-            font-size: 0.95rem;
-            max-width: 90%;
-        }
+       /* ===== ABOUT SLIDER ===== */
+.about-slider-wrapper {
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--radius-sm);
+    margin-bottom: calc(var(--spacing-unit) * 3);
+    background: var(--bg-secondary);
+    padding: calc(var(--spacing-unit) * 1.25) 0;
+}
+.about-slider-track {
+    display: flex;
+    flex-wrap: nowrap;
+    transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+    will-change: transform;
+    width: 100%;
+}
+.about-slide {
+    min-width: 100%;
+    flex-shrink: 0;
+    padding: calc(var(--spacing-unit) * 3) calc(var(--spacing-unit) * 3.5);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: calc(var(--spacing-unit) * 1);
+    background: var(--bg-secondary);
+    border-radius: var(--radius-sm);
+}
+.about-slide .slide-icon {
+    font-size: 2.8rem;
+    color: oklch(0.6 0.2 270);
+}
+.about-slide h4 {
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: var(--text-primary);
+}
+.about-slide p {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    max-width: 90%;
+}
         .slider-controls {
             display: flex;
             justify-content: center;
