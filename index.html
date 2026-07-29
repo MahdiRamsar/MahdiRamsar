@@ -1523,9 +1523,9 @@
         </div>
     </footer>
 
-    <!-- المان صوتی (مخفی) - مسیر مطلق و بررسی شده -->
+    <!-- المان صوتی (مخفی) - مسیر مطلق به نام جدید -->
     <audio id="bgMusic" loop preload="metadata">
-        <source src="/background-music.mp3" type="audio/mpeg">
+        <source src="/music.mp3" type="audio/mpeg">
     </audio>
 
     <script>
@@ -1634,25 +1634,38 @@
                 }
             });
 
-            // ===== MUSIC PLAYER =====
+            // ===== MUSIC PLAYER (اصلاح شده با لاگ خطا) =====
             const musicToggle = document.getElementById('musicToggle');
             const musicIcon = musicToggle.querySelector('i');
             const audio = document.getElementById('bgMusic');
             let isPlaying = false;
 
+            // اگر فایل بارگذاری نشد، علت دقیق را به کنسول مرورگر می‌فرستد
+            audio.addEventListener('error', function(e) {
+                console.error('خطا در بارگذاری فایل صوتی. کد خطا:', e.target.error ? e.target.error.code : 'Unknown');
+                // اگر فایل پیدا نشد، آیکون را غیرفعال می‌کنیم
+                musicToggle.style.opacity = '0.5';
+                musicToggle.title = 'فایل صوتی موجود نیست';
+            });
+
             musicToggle.addEventListener('click', function() {
-                if (audio.src && audio.src.includes('/background-music.mp3')) {
+                // بررسی میکنیم آیا آدرس فایل معتبر است
+                if (audio.src && audio.src.includes('/music.mp3')) {
                     if (isPlaying) {
                         audio.pause();
                         musicIcon.className = 'fas fa-music';
                         musicToggle.classList.remove('playing');
                         isPlaying = false;
                     } else {
-                        audio.play().catch(() => {});
+                        audio.play().catch((err) => {
+                            console.error('مشکل در پخش صدا:', err);
+                        });
                         musicIcon.className = 'fas fa-play';
                         musicToggle.classList.add('playing');
                         isPlaying = true;
                     }
+                } else {
+                    console.warn('فایل صوتی در مسیر /music.mp3 پیدا نشد.');
                 }
             });
 
