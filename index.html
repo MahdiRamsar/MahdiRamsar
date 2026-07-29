@@ -13,7 +13,7 @@
     <meta name="google-site-verification" content="Ts3MtnYWVUcmbNFnUnTrhXMyAZWJ-JqdbcMi83bCx2M" />
 
     <!-- ============================================================
-         CSP (Content Security Policy) – با دسترسی به CDNها
+         CSP (Content Security Policy)
          ============================================================ -->
     <meta http-equiv="Content-Security-Policy" 
           content="default-src 'self'; 
@@ -29,12 +29,14 @@
                    form-action 'self';" />
 
     <!-- ============================================================
-         SEO
+         SEO & Theme
          ============================================================ -->
     <title>سایه‌های بی‌نقاب | مهدی رحیمیان – نویسنده و گوینده اهل رامسر</title>
     <meta name="description" content="مهدی رحیمیان، نویسنده و گوینده‌ی اهل رامسر (سخت‌سر). دل‌نوشته‌های عاشقانه، دکلمه‌های صوتی و محتوای عمیق انسانی." />
     <meta name="author" content="مهدی رحیمیان" />
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large" />
+    <meta name="theme-color" content="#07080b" />
+    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f5f5f7" />
     <link rel="canonical" href="https://sayehayebineghab.ir/" />
 
     <!-- Open Graph -->
@@ -145,7 +147,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 
     <!-- ============================================================
-         تمام CSS در اینجا (جایگزین style.css)
+         تمام CSS
          ============================================================ -->
     <style>
         /* ===== RESET & VARIABLES ===== */
@@ -227,6 +229,24 @@
             overflow: hidden !important;
             clip: rect(0, 0, 0, 0) !important;
             border: 0 !important;
+        }
+
+        /* ===== KEYBOARD FOCUS ===== */
+        a:focus-visible,
+        button:focus-visible,
+        input:focus-visible,
+        .post-card:focus-visible,
+        .work-card:focus-visible,
+        .faq-question:focus-visible {
+            outline: 3px solid oklch(0.6 0.2 270);
+            outline-offset: 3px;
+            border-radius: 4px;
+        }
+        a:focus,
+        button:focus,
+        input:focus {
+            outline: 2px solid oklch(0.6 0.2 270);
+            outline-offset: 2px;
         }
 
         /* ===== CURSOR ===== */
@@ -346,7 +366,8 @@
             gap: calc(var(--spacing-unit) * 1.5);
         }
         .theme-toggle,
-        .music-toggle {
+        .music-toggle,
+        .music-stop {
             background: var(--bg-card);
             border: 1px solid var(--glass-border);
             border-radius: 50%;
@@ -360,11 +381,9 @@
             align-items: center;
             justify-content: center;
         }
-        .theme-toggle:hover {
-            transform: rotate(45deg) scale(1.1);
-            border-color: oklch(0.6 0.2 270);
-        }
-        .music-toggle:hover {
+        .theme-toggle:hover,
+        .music-toggle:hover,
+        .music-stop:hover {
             transform: scale(1.1);
             border-color: oklch(0.6 0.2 270);
         }
@@ -379,6 +398,37 @@
             50% {
                 box-shadow: 0 0 0 12px oklch(0.6 0.2 270 / 0);
             }
+        }
+
+        /* ===== MUSIC PLAYER WRAPPER ===== */
+        .music-player-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .music-timer {
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            direction: ltr;
+            min-width: 80px;
+            text-align: center;
+            background: var(--bg-card);
+            padding: 4px 8px;
+            border-radius: 20px;
+            border: 1px solid var(--glass-border);
+            display: none;
+        }
+        .music-timer.visible {
+            display: inline-block;
+        }
+        .music-stop {
+            display: none;
+            width: 36px;
+            height: 36px;
+            font-size: 0.9rem;
+        }
+        .music-stop.visible {
+            display: flex;
         }
 
         /* ===== HERO ===== */
@@ -580,48 +630,48 @@
             -webkit-text-fill-color: oklch(0.6 0.2 270);
         }
 
-       /* ===== ABOUT SLIDER ===== */
-.about-slider-wrapper {
-    position: relative;
-    overflow: hidden;
-    border-radius: var(--radius-sm);
-    margin-bottom: calc(var(--spacing-unit) * 3);
-    background: var(--bg-secondary);
-    padding: calc(var(--spacing-unit) * 1.25) 0;
-}
-.about-slider-track {
-    display: flex;
-    flex-wrap: nowrap;
-    transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
-    will-change: transform;
-    width: 100%;
-}
-.about-slide {
-    min-width: 100%;
-    flex-shrink: 0;
-    padding: calc(var(--spacing-unit) * 3) calc(var(--spacing-unit) * 3.5);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    gap: calc(var(--spacing-unit) * 1);
-    background: var(--bg-secondary);
-    border-radius: var(--radius-sm);
-}
-.about-slide .slide-icon {
-    font-size: 2.8rem;
-    color: oklch(0.6 0.2 270);
-}
-.about-slide h4 {
-    font-size: 1.2rem;
-    font-weight: 800;
-    color: var(--text-primary);
-}
-.about-slide p {
-    color: var(--text-secondary);
-    font-size: 0.95rem;
-    max-width: 90%;
-}
+        /* ===== ABOUT SLIDER ===== */
+        .about-slider-wrapper {
+            position: relative;
+            overflow: hidden;
+            border-radius: var(--radius-sm);
+            margin-bottom: calc(var(--spacing-unit) * 3);
+            background: var(--bg-secondary);
+            padding: calc(var(--spacing-unit) * 1.25) 0;
+        }
+        .about-slider-track {
+            display: flex;
+            flex-wrap: nowrap;
+            transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+            will-change: transform;
+            width: 100%;
+        }
+        .about-slide {
+            min-width: 100%;
+            flex-shrink: 0;
+            padding: calc(var(--spacing-unit) * 3) calc(var(--spacing-unit) * 3.5);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: calc(var(--spacing-unit) * 1);
+            background: var(--bg-secondary);
+            border-radius: var(--radius-sm);
+        }
+        .about-slide .slide-icon {
+            font-size: 2.8rem;
+            color: oklch(0.6 0.2 270);
+        }
+        .about-slide h4 {
+            font-size: 1.2rem;
+            font-weight: 800;
+            color: var(--text-primary);
+        }
+        .about-slide p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            max-width: 90%;
+        }
         .slider-controls {
             display: flex;
             justify-content: center;
@@ -633,8 +683,8 @@
             background: var(--bg-card);
             border: 1px solid var(--glass-border);
             border-radius: 50%;
-            width: 40px;
-            height: 40px;
+            width: 44px;
+            height: 44px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -1275,6 +1325,8 @@
             }
             .header-actions {
                 align-self: center;
+                flex-wrap: wrap;
+                justify-content: center;
             }
         }
         @container (max-width: 480px) {
@@ -1284,6 +1336,11 @@
             }
             .best-of {
                 grid-template-columns: 1fr 1fr;
+            }
+            .music-timer {
+                font-size: 0.6rem;
+                min-width: 60px;
+                padding: 2px 6px;
             }
         }
         @media (max-width: 768px) {
@@ -1300,6 +1357,8 @@
             }
             .header-actions {
                 align-self: center;
+                flex-wrap: wrap;
+                justify-content: center;
             }
             .hero {
                 min-height: 90vh;
@@ -1337,6 +1396,11 @@
             }
             .best-of {
                 grid-template-columns: 1fr 1fr;
+            }
+            .music-timer {
+                font-size: 0.6rem;
+                min-width: 60px;
+                padding: 2px 6px;
             }
         }
         @media (prefers-reduced-motion: reduce) {
@@ -1381,9 +1445,18 @@
                     </ul>
                 </nav>
                 <div class="header-actions">
-                    <button class="music-toggle" id="musicToggle" aria-label="پخش/توقف موسیقی" title="پخش موسیقی پس‌زمینه">
-                        <i class="fas fa-music" aria-hidden="true"></i>
-                    </button>
+                    <!-- ===== MUSIC PLAYER ===== -->
+                    <div class="music-player-wrapper">
+                        <button class="music-toggle" id="musicToggle" aria-label="پخش/توقف موسیقی" title="پخش موسیقی پس‌زمینه">
+                            <i class="fas fa-music" aria-hidden="true"></i>
+                        </button>
+                        <div class="music-timer" id="musicTimer">
+                            <span id="currentTime">00:00</span> / <span id="totalTime">00:00</span>
+                        </div>
+                        <button class="music-stop" id="musicStop" aria-label="قطع موسیقی" title="قطع کامل موسیقی">
+                            <i class="fas fa-stop" aria-hidden="true"></i>
+                        </button>
+                    </div>
                     <button class="theme-toggle" id="themeToggle" aria-label="تغییر تم" aria-pressed="false">
                         <i class="fas fa-sun" aria-hidden="true"></i>
                     </button>
@@ -1648,7 +1721,7 @@
     </audio>
 
     <!-- ============================================================
-         تمام جاوااسکریپت در اینجا (جایگزین script.js)
+         تمام جاوااسکریپت (با پلیر کامل)
          ============================================================ -->
     <script>
         (function() {
@@ -1769,38 +1842,134 @@
                 }
             });
 
-            // ===== MUSIC PLAYER =====
+            // ==========================================================
+            // MUSIC PLAYER – نسخه کامل با تایمر، استپ و پشتیبانی موبایل
+            // ==========================================================
             const musicToggle = document.getElementById('musicToggle');
             const musicIcon = musicToggle.querySelector('i');
+            const musicStopBtn = document.getElementById('musicStop');
+            const timerDisplay = document.getElementById('musicTimer');
+            const currentTimeEl = document.getElementById('currentTime');
+            const totalTimeEl = document.getElementById('totalTime');
             const audio = document.getElementById('bgMusic');
             let isPlaying = false;
 
-            audio.addEventListener('error', function(e) {
-                console.error('خطا در بارگذاری فایل صوتی. کد خطا:', e.target.error ? e.target.error.code :
-                'Unknown');
-                musicToggle.style.opacity = '0.5';
-                musicToggle.title = 'فایل صوتی موجود نیست';
+            // تبدیل ثانیه به MM:SS
+            function formatTime(seconds) {
+                if (isNaN(seconds) || seconds === Infinity || seconds < 0) return '00:00';
+                const mins = Math.floor(seconds / 60);
+                const secs = Math.floor(seconds % 60);
+                return `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+            }
+
+            // نمایش/مخفی کردن تایمر و دکمه‌ی استپ
+            function showTimer(show) {
+                timerDisplay.classList.toggle('visible', show);
+                musicStopBtn.classList.toggle('visible', show);
+            }
+
+            // به‌روزرسانی تایمر
+            function updateTimer() {
+                if (!audio.duration || isNaN(audio.duration) || !isFinite(audio.duration)) return;
+                currentTimeEl.textContent = formatTime(audio.currentTime);
+                totalTimeEl.textContent = formatTime(audio.duration);
+            }
+
+            // وقتی متادیتا بارگذاری شد
+            audio.addEventListener('loadedmetadata', function() {
+                if (audio.duration && isFinite(audio.duration)) {
+                    totalTimeEl.textContent = formatTime(audio.duration);
+                    showTimer(true);
+                    // اگر فایل در حال پخش است، تایمر را فعال نگه دار
+                    if (isPlaying) {
+                        timerDisplay.classList.add('visible');
+                    }
+                }
             });
 
-            musicToggle.addEventListener('click', function() {
-                if (audio.src && audio.src.includes('/music.mp3')) {
-                    if (isPlaying) {
-                        audio.pause();
-                        musicIcon.className = 'fas fa-music';
-                        musicToggle.classList.remove('playing');
-                        isPlaying = false;
-                    } else {
-                        audio.play().catch((err) => {
-                            console.error('مشکل در پخش صدا:', err);
-                        });
+            // به‌روزرسانی هنگام پخش
+            audio.addEventListener('timeupdate', updateTimer);
+
+            // پایان پخش (اتوماتیک قطع)
+            audio.addEventListener('ended', function() {
+                musicIcon.className = 'fas fa-music';
+                musicToggle.classList.remove('playing');
+                isPlaying = false;
+                currentTimeEl.textContent = '00:00';
+                if (audio.duration && isFinite(audio.duration)) {
+                    totalTimeEl.textContent = formatTime(audio.duration);
+                }
+                showTimer(true);
+            });
+
+            // خطا در بارگذاری فایل
+            audio.addEventListener('error', function(e) {
+                console.error('خطا در بارگذاری فایل صوتی:', e.target.error ? e.target.error.code : 'Unknown');
+                musicToggle.style.opacity = '0.5';
+                musicToggle.title = 'فایل صوتی موجود نیست';
+                showTimer(false);
+            });
+
+            // ===== دکمه‌ی پخش/توقف (پشتیبانی از کلیک و لمسی) =====
+            function togglePlay(e) {
+                if (e) e.preventDefault();
+                if (!audio.src || !audio.src.includes('/music.mp3')) {
+                    console.warn('فایل صوتی در مسیر /music.mp3 پیدا نشد.');
+                    return;
+                }
+                if (isPlaying) {
+                    audio.pause();
+                    musicIcon.className = 'fas fa-music';
+                    musicToggle.classList.remove('playing');
+                    isPlaying = false;
+                } else {
+                    audio.play().then(() => {
                         musicIcon.className = 'fas fa-play';
                         musicToggle.classList.add('playing');
                         isPlaying = true;
-                    }
-                } else {
-                    console.warn('فایل صوتی در مسیر /music.mp3 پیدا نشد.');
+                        if (audio.duration && isFinite(audio.duration)) {
+                            showTimer(true);
+                            totalTimeEl.textContent = formatTime(audio.duration);
+                        }
+                    }).catch((err) => {
+                        console.error('مشکل در پخش صدا:', err);
+                        // در موبایل ممکن است نیاز به تعامل کاربر باشد
+                        alert('برای پخش موسیقی، لطفاً ابتدا روی صفحه کلیک کنید.');
+                    });
+                }
+            }
+
+            // رویدادهای کلیک و لمسی (برای موبایل)
+            musicToggle.addEventListener('click', togglePlay);
+            musicToggle.addEventListener('touchstart', function(e) {
+                // فقط اگر click قبلاً اجرا نشده باشد (جلوگیری از دوبار اجرا)
+                if (!this._clickHandled) {
+                    this._clickHandled = true;
+                    togglePlay(e);
+                    setTimeout(() => { this._clickHandled = false; }, 300);
                 }
             });
+
+            // ===== دکمه‌ی قطع کامل (استپ) =====
+            musicStopBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                audio.pause();
+                audio.currentTime = 0;
+                musicIcon.className = 'fas fa-music';
+                musicToggle.classList.remove('playing');
+                isPlaying = false;
+                currentTimeEl.textContent = '00:00';
+                if (audio.duration && isFinite(audio.duration)) {
+                    totalTimeEl.textContent = formatTime(audio.duration);
+                }
+                showTimer(true);
+            });
+
+            // اگر فایل از قبل بارگذاری شده بود، تایمر را نشان بده
+            if (audio.readyState >= 1 && audio.duration && isFinite(audio.duration)) {
+                showTimer(true);
+                totalTimeEl.textContent = formatTime(audio.duration);
+            }
 
             // ===== TYPEWRITER =====
             const typedEl = document.getElementById('typedText');
@@ -1882,7 +2051,7 @@
             const copyrightEl = document.querySelector('.copyright');
             if (copyrightEl) {
                 copyrightEl.innerHTML =
-                `© ${new Date().getFullYear()} · تمامی حقوق محفوظ · طراحی با تکنولوژی‌های ۲۰۲۶`;
+                    `© ${new Date().getFullYear()} · تمامی حقوق محفوظ · طراحی با تکنولوژی‌های ۲۰۲۶`;
             }
 
             // ===== PARALLAX =====
@@ -1893,7 +2062,7 @@
                     if (!paraTick) {
                         window.requestAnimationFrame(() => {
                             heroBg.style.transform =
-                            `scale(1.1) translateY(${window.scrollY * 0.15}px)`;
+                                `scale(1.1) translateY(${window.scrollY * 0.15}px)`;
                             paraTick = false;
                         });
                         paraTick = true;
@@ -2080,7 +2249,7 @@
                         'مهدی رحیمیان، نویسنده و گوینده‌ی اهل رامسر (سخت‌سر). دل‌نوشته‌های عاشقانه، دکلمه‌های صوتی و محتوای عمیق انسانی.';
                     ogTitle.textContent = 'سایه‌های بی‌نقاب | مهدی رحیمیان – نویسنده و گوینده اهل رامسر';
                     ogDesc.content =
-                    'دل‌نوشته‌ها، دکلمه‌های صوتی و نگاه عمیق به زندگی، عشق و تنهایی. محتوایی اصیل از دل رامسر.';
+                        'دل‌نوشته‌ها، دکلمه‌های صوتی و نگاه عمیق به زندگی، عشق و تنهایی. محتوایی اصیل از دل رامسر.';
                     ogUrl.content = window.location.origin + '/';
                     ogImage.content = 'https://sayehayebineghab.ir/images/1.webp';
                     canonical.href = 'https://sayehayebineghab.ir/';
@@ -2113,6 +2282,18 @@
                     const thumb = document.createElement('div');
                     thumb.className = 'post-thumb';
                     thumb.style.backgroundImage = 'url(' + imgSrc + ')';
+                    // Lazy loading با Intersection Observer برای تصاویر پس‌زمینه
+                    if ('IntersectionObserver' in window) {
+                        const observer = new IntersectionObserver((entries) => {
+                            entries.forEach(entry => {
+                                if (entry.isIntersecting) {
+                                    thumb.style.backgroundImage = 'url(' + imgSrc + ')';
+                                    observer.unobserve(thumb);
+                                }
+                            });
+                        }, { rootMargin: '100px' });
+                        observer.observe(thumb);
+                    }
 
                     const info = document.createElement('div');
                     info.className = 'post-info';
