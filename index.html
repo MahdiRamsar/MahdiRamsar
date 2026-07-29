@@ -20,7 +20,6 @@
     <!-- Security Headers (تنظیم در سرور اولویت دارد) -->
     <meta http-equiv="X-Content-Type-Options" content="nosniff" />
     <meta name="referrer" content="strict-origin-when-cross-origin" />
-    <!-- HSTS و XSS Protection از طریق هدرهای HTTP ارسال شوند -->
 
     <!-- ============================================================
          SEO – بهینه‌شده برای کلیک و GEO
@@ -328,6 +327,38 @@
             border-color: oklch(0.6 0.2 270);
         }
 
+        /* ===== MUSIC PLAYER BUTTON (در هدر) ===== */
+        .music-toggle {
+            background: var(--bg-card);
+            border: 1px solid var(--glass-border);
+            border-radius: 50%;
+            width: 44px;
+            height: 44px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            color: var(--text-primary);
+            transition: all var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+        .music-toggle:hover {
+            transform: scale(1.1);
+            border-color: oklch(0.6 0.2 270);
+        }
+        .music-toggle.playing {
+            animation: pulseMusic 1.5s ease-in-out infinite;
+        }
+        @keyframes pulseMusic {
+            0%,
+            100% {
+                box-shadow: 0 0 0 0 oklch(0.6 0.2 270 / 0.4);
+            }
+            50% {
+                box-shadow: 0 0 0 12px oklch(0.6 0.2 270 / 0);
+            }
+        }
         /* ===== HERO ===== */
         .hero {
             position: relative;
@@ -1287,6 +1318,10 @@
                     </ul>
                 </nav>
                 <div class="header-actions">
+                    <!-- دکمه پخش موسیقی -->
+                    <button class="music-toggle" id="musicToggle" aria-label="پخش/توقف موسیقی" title="پخش موسیقی پس‌زمینه">
+                        <i class="fas fa-music"></i>
+                    </button>
                     <button class="theme-toggle" id="themeToggle" aria-label="تغییر تم" aria-pressed="false">
                         <i class="fas fa-sun"></i>
                     </button>
@@ -1534,6 +1569,13 @@
         </div>
     </footer>
 
+    <!-- المان صوتی (مخفی) -->
+    <audio id="bgMusic" loop preload="none">
+        <source src="background-music.mp3" type="audio/mpeg">
+        <!-- در صورت عدم وجود فایل، پیام جایگزین -->
+        Your browser does not support the audio element.
+    </audio>
+
     <!-- ============================================================
     SCRIPTS
     ============================================================ -->
@@ -1643,6 +1685,47 @@
                     icon.classList.replace('fa-moon', 'fa-sun');
                     toggle.setAttribute('aria-pressed', 'false');
                 }
+            });
+
+            // ===== MUSIC PLAYER =====
+            const musicToggle = document.getElementById('musicToggle');
+            const musicIcon = musicToggle.querySelector('i');
+            const audio = document.getElementById('bgMusic');
+            let isPlaying = false;
+
+            // بررسی اگر فایل صوتی وجود نداشته باشد، خطا را نادیده بگیر
+            audio.addEventListener('error', function(e) {
+                console.warn('فایل صوتی پیدا نشد یا پشتیبانی نمی‌شود. لطفاً مسیر فایل را بررسی کنید.');
+                musicToggle.style.opacity = '0.5';
+                musicToggle.title = 'فایل صوتی موجود نیست';
+            });
+
+            musicToggle.addEventListener('click', function() {
+                if (audio.src && audio.src !== window.location.href) {
+                    if (isPlaying) {
+                        audio.pause();
+                        musicIcon.className = 'fas fa-music';
+                        musicToggle.classList.remove('playing');
+                        isPlaying = false;
+                    } else {
+                        audio.play().catch(err => {
+                            // اگر مرورگر اجازه ندهد، پیام خطا
+                            console.warn('پخش خودکار ممکن نیست. لطفاً با کلیک دوباره تلاش کنید.');
+                        });
+                        musicIcon.className = 'fas fa-play';
+                        musicToggle.classList.add('playing');
+                        isPlaying = true;
+                    }
+                } else {
+                    alert('لطفاً فایل صوتی را در مسیر صحیح قرار دهید:\nbackground-music.mp3');
+                }
+            });
+
+            // وقتی آهنگ تمام شد، دکمه به حالت اول برگردد (چون loop داریم، این حالت پیش نمی‌آید ولی برای اطمینان)
+            audio.addEventListener('ended', function() {
+                musicIcon.className = 'fas fa-music';
+                musicToggle.classList.remove('playing');
+                isPlaying = false;
             });
 
             // ===== TYPEWRITER =====
