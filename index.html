@@ -13,11 +13,11 @@
     <meta name="google-site-verification" content="Ts3MtnYWVUcmbNFnUnTrhXMyAZWJ-JqdbcMi83bCx2M" />
 
     <!-- ============================================================
-         CSP (Content Security Policy)
+         CSP (اصلاح شده برای Cloudflare Insights)
          ============================================================ -->
     <meta http-equiv="Content-Security-Policy" 
           content="default-src 'self'; 
-                   script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com; 
+                   script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://static.cloudflareinsights.com; 
                    style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://cdnjs.cloudflare.com; 
                    font-src 'self' https://cdn.jsdelivr.net https://cdnjs.cloudflare.com; 
                    img-src 'self' data: https://sayehayebineghab.ir; 
@@ -134,7 +134,7 @@
     <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
 
     <!-- ============================================================
-         Fonts (Variable Font – Vazirmatn)
+         Fonts (Variable Font – Vazirmatn) – مسیر اصلاح‌شده
          ============================================================ -->
     <style>
         @font-face {
@@ -147,7 +147,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 
     <!-- ============================================================
-         تمام CSS
+         تمام CSS (بدون تغییر)
          ============================================================ -->
     <style>
         /* ===== RESET & VARIABLES ===== */
@@ -198,9 +198,7 @@
             cursor: none;
         }
         @media (hover: none) {
-            body {
-                cursor: auto;
-            }
+            body { cursor: auto; }
         }
         @media (prefers-reduced-motion: reduce) {
             *,
@@ -391,16 +389,11 @@
             animation: pulseMusic 1.5s ease-in-out infinite;
         }
         @keyframes pulseMusic {
-            0%,
-            100% {
-                box-shadow: 0 0 0 0 oklch(0.6 0.2 270 / 0.4);
-            }
-            50% {
-                box-shadow: 0 0 0 12px oklch(0.6 0.2 270 / 0);
-            }
+            0%, 100% { box-shadow: 0 0 0 0 oklch(0.6 0.2 270 / 0.4); }
+            50% { box-shadow: 0 0 0 12px oklch(0.6 0.2 270 / 0); }
         }
 
-        /* ===== MUSIC PLAYER WRAPPER ===== */
+        /* ===== MUSIC PLAYER ===== */
         .music-player-wrapper {
             display: flex;
             align-items: center;
@@ -410,7 +403,7 @@
             font-size: 0.7rem;
             color: var(--text-muted);
             direction: ltr;
-            min-width: 80px;
+            min-width: 70px;
             text-align: center;
             background: var(--bg-card);
             padding: 4px 8px;
@@ -485,18 +478,11 @@
             aspect-ratio: 1/1;
         }
         @keyframes floatAvatar {
-            0% {
-                transform: translateY(0);
-            }
-            100% {
-                transform: translateY(-16px);
-            }
+            0% { transform: translateY(0); }
+            100% { transform: translateY(-16px); }
         }
         @keyframes fadeInUp {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            to { opacity: 1; transform: translateY(0); }
         }
         .hero h1 {
             font-size: clamp(2rem, 6vw, 3.6rem);
@@ -1288,133 +1274,45 @@
                 padding: calc(var(--spacing-unit) * 3.5) calc(var(--spacing-unit) * 2.25);
                 margin: calc(var(--spacing-unit) * 3) 0;
             }
-            .works-grid {
-                grid-template-columns: 1fr;
-            }
-            .posts-grid {
-                grid-template-columns: 1fr;
-            }
-            .post-navigation a {
-                max-width: 100%;
-                flex: 1;
-            }
-            .post-navigation .nav-title {
-                max-width: 100px;
-            }
-            .about-slide {
-                padding: calc(var(--spacing-unit) * 2);
-            }
-            .hero {
-                min-height: 90vh;
-                padding: 60px 16px 40px;
-            }
-            .hero-cta {
-                padding: calc(var(--spacing-unit) * 1.75) calc(var(--spacing-unit) * 3.5);
-                font-size: 1rem;
-            }
-            .header-content {
-                flex-direction: column;
-                align-items: stretch;
-                gap: calc(var(--spacing-unit) * 0.75);
-            }
-            .logo {
-                text-align: center;
-            }
-            nav ul {
-                justify-content: center;
-            }
-            .header-actions {
-                align-self: center;
-                flex-wrap: wrap;
-                justify-content: center;
-            }
+            .works-grid { grid-template-columns: 1fr; }
+            .posts-grid { grid-template-columns: 1fr; }
+            .post-navigation a { max-width: 100%; flex: 1; }
+            .post-navigation .nav-title { max-width: 100px; }
+            .about-slide { padding: calc(var(--spacing-unit) * 2); }
+            .hero { min-height: 90vh; padding: 60px 16px 40px; }
+            .hero-cta { padding: calc(var(--spacing-unit) * 1.75) calc(var(--spacing-unit) * 3.5); font-size: 1rem; }
+            .header-content { flex-direction: column; align-items: stretch; gap: calc(var(--spacing-unit) * 0.75); }
+            .logo { text-align: center; }
+            nav ul { justify-content: center; }
+            .header-actions { align-self: center; flex-wrap: wrap; justify-content: center; }
         }
         @container (max-width: 480px) {
-            nav a {
-                font-size: 0.75rem;
-                padding: calc(var(--spacing-unit) * 0.75) calc(var(--spacing-unit) * 1.5);
-            }
-            .best-of {
-                grid-template-columns: 1fr 1fr;
-            }
-            .music-timer {
-                font-size: 0.6rem;
-                min-width: 60px;
-                padding: 2px 6px;
-            }
+            nav a { font-size: 0.75rem; padding: calc(var(--spacing-unit) * 0.75) calc(var(--spacing-unit) * 1.5); }
+            .best-of { grid-template-columns: 1fr 1fr; }
+            .music-timer { font-size: 0.6rem; min-width: 60px; padding: 2px 6px; }
         }
         @media (max-width: 768px) {
-            .header-content {
-                flex-direction: column;
-                align-items: stretch;
-                gap: calc(var(--spacing-unit) * 0.75);
-            }
-            .logo {
-                text-align: center;
-            }
-            nav ul {
-                justify-content: center;
-            }
-            .header-actions {
-                align-self: center;
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-            .hero {
-                min-height: 90vh;
-                padding: 60px 16px 40px;
-            }
-            .hero-cta {
-                padding: calc(var(--spacing-unit) * 1.75) calc(var(--spacing-unit) * 3.5);
-                font-size: 1rem;
-            }
-            section:not(.hero) {
-                padding: calc(var(--spacing-unit) * 3.5) calc(var(--spacing-unit) * 2.25);
-                margin: calc(var(--spacing-unit) * 3) 0;
-            }
-            .works-grid {
-                grid-template-columns: 1fr;
-            }
-            .posts-grid {
-                grid-template-columns: 1fr;
-            }
-            .post-navigation a {
-                max-width: 100%;
-                flex: 1;
-            }
-            .post-navigation .nav-title {
-                max-width: 100px;
-            }
-            .about-slide {
-                padding: calc(var(--spacing-unit) * 2);
-            }
+            .header-content { flex-direction: column; align-items: stretch; gap: calc(var(--spacing-unit) * 0.75); }
+            .logo { text-align: center; }
+            nav ul { justify-content: center; }
+            .header-actions { align-self: center; flex-wrap: wrap; justify-content: center; }
+            .hero { min-height: 90vh; padding: 60px 16px 40px; }
+            .hero-cta { padding: calc(var(--spacing-unit) * 1.75) calc(var(--spacing-unit) * 3.5); font-size: 1rem; }
+            section:not(.hero) { padding: calc(var(--spacing-unit) * 3.5) calc(var(--spacing-unit) * 2.25); margin: calc(var(--spacing-unit) * 3) 0; }
+            .works-grid { grid-template-columns: 1fr; }
+            .posts-grid { grid-template-columns: 1fr; }
+            .post-navigation a { max-width: 100%; flex: 1; }
+            .post-navigation .nav-title { max-width: 100px; }
+            .about-slide { padding: calc(var(--spacing-unit) * 2); }
         }
         @media (max-width: 480px) {
-            nav a {
-                font-size: 0.75rem;
-                padding: calc(var(--spacing-unit) * 0.75) calc(var(--spacing-unit) * 1.5);
-            }
-            .best-of {
-                grid-template-columns: 1fr 1fr;
-            }
-            .music-timer {
-                font-size: 0.6rem;
-                min-width: 60px;
-                padding: 2px 6px;
-            }
+            nav a { font-size: 0.75rem; padding: calc(var(--spacing-unit) * 0.75) calc(var(--spacing-unit) * 1.5); }
+            .best-of { grid-template-columns: 1fr 1fr; }
+            .music-timer { font-size: 0.6rem; min-width: 60px; padding: 2px 6px; }
         }
         @media (prefers-reduced-motion: reduce) {
-            .profile-avatar {
-                animation: none;
-            }
-            .hero h1,
-            .hero .tagline,
-            .hero .typed-text,
-            .hero-cta,
-            .social-links {
-                animation: none;
-                opacity: 1;
-            }
+            .profile-avatar { animation: none; }
+            .hero h1, .hero .tagline, .hero .typed-text, .hero-cta, .social-links { animation: none; opacity: 1; }
         }
     </style>
 
@@ -1447,13 +1345,13 @@
                 <div class="header-actions">
                     <!-- ===== MUSIC PLAYER ===== -->
                     <div class="music-player-wrapper">
-                        <button class="music-toggle" id="musicToggle" aria-label="پخش/توقف موسیقی" title="پخش موسیقی پس‌زمینه">
-                            <i class="fas fa-music" aria-hidden="true"></i>
+                        <button class="music-toggle" id="playPauseBtn" aria-label="پخش/توقف موسیقی">
+                            <i class="fas fa-play" aria-hidden="true"></i>
                         </button>
-                        <div class="music-timer" id="musicTimer">
+                        <span class="music-timer" id="timerDisplay">
                             <span id="currentTime">00:00</span> / <span id="totalTime">00:00</span>
-                        </div>
-                        <button class="music-stop" id="musicStop" aria-label="قطع موسیقی" title="قطع کامل موسیقی">
+                        </span>
+                        <button class="music-stop" id="stopBtn" aria-label="قطع موسیقی">
                             <i class="fas fa-stop" aria-hidden="true"></i>
                         </button>
                     </div>
@@ -1721,7 +1619,7 @@
     </audio>
 
     <!-- ============================================================
-         تمام جاوااسکریپت (با پلیر کامل)
+         تمام جاوااسکریپت (با پلیر ساده و تضمینی)
          ============================================================ -->
     <script>
         (function() {
@@ -1843,18 +1741,18 @@
             });
 
             // ==========================================================
-            // MUSIC PLAYER – نسخه کامل با تایمر، استپ و پشتیبانی موبایل
+            // MUSIC PLAYER – نسخه ساده و تضمینی
             // ==========================================================
-            const musicToggle = document.getElementById('musicToggle');
-            const musicIcon = musicToggle.querySelector('i');
-            const musicStopBtn = document.getElementById('musicStop');
-            const timerDisplay = document.getElementById('musicTimer');
+            const audio = document.getElementById('bgMusic');
+            const playPauseBtn = document.getElementById('playPauseBtn');
+            const playIcon = playPauseBtn.querySelector('i');
+            const stopBtn = document.getElementById('stopBtn');
+            const timerDisplay = document.getElementById('timerDisplay');
             const currentTimeEl = document.getElementById('currentTime');
             const totalTimeEl = document.getElementById('totalTime');
-            const audio = document.getElementById('bgMusic');
+
             let isPlaying = false;
 
-            // تبدیل ثانیه به MM:SS
             function formatTime(seconds) {
                 if (isNaN(seconds) || seconds === Infinity || seconds < 0) return '00:00';
                 const mins = Math.floor(seconds / 60);
@@ -1862,15 +1760,8 @@
                 return `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
             }
 
-            // نمایش/مخفی کردن تایمر و دکمه‌ی استپ
-            function showTimer(show) {
-                timerDisplay.classList.toggle('visible', show);
-                musicStopBtn.classList.toggle('visible', show);
-            }
-
-            // به‌روزرسانی تایمر
             function updateTimer() {
-                if (!audio.duration || isNaN(audio.duration) || !isFinite(audio.duration)) return;
+                if (!audio.duration || isNaN(audio.duration)) return;
                 currentTimeEl.textContent = formatTime(audio.currentTime);
                 totalTimeEl.textContent = formatTime(audio.duration);
             }
@@ -1879,95 +1770,72 @@
             audio.addEventListener('loadedmetadata', function() {
                 if (audio.duration && isFinite(audio.duration)) {
                     totalTimeEl.textContent = formatTime(audio.duration);
-                    showTimer(true);
-                    // اگر فایل در حال پخش است، تایمر را فعال نگه دار
-                    if (isPlaying) {
-                        timerDisplay.classList.add('visible');
-                    }
+                    timerDisplay.style.display = 'inline-block';
+                    stopBtn.style.display = 'flex';
                 }
             });
 
-            // به‌روزرسانی هنگام پخش
             audio.addEventListener('timeupdate', updateTimer);
 
-            // پایان پخش (اتوماتیک قطع)
             audio.addEventListener('ended', function() {
-                musicIcon.className = 'fas fa-music';
-                musicToggle.classList.remove('playing');
+                playIcon.className = 'fas fa-play';
+                playPauseBtn.classList.remove('playing');
                 isPlaying = false;
                 currentTimeEl.textContent = '00:00';
-                if (audio.duration && isFinite(audio.duration)) {
-                    totalTimeEl.textContent = formatTime(audio.duration);
-                }
-                showTimer(true);
+                if (audio.duration) totalTimeEl.textContent = formatTime(audio.duration);
             });
 
-            // خطا در بارگذاری فایل
             audio.addEventListener('error', function(e) {
                 console.error('خطا در بارگذاری فایل صوتی:', e.target.error ? e.target.error.code : 'Unknown');
-                musicToggle.style.opacity = '0.5';
-                musicToggle.title = 'فایل صوتی موجود نیست';
-                showTimer(false);
+                playPauseBtn.style.opacity = '0.5';
+                playPauseBtn.title = 'فایل صوتی موجود نیست';
             });
 
-            // ===== دکمه‌ی پخش/توقف (پشتیبانی از کلیک و لمسی) =====
-            function togglePlay(e) {
-                if (e) e.preventDefault();
+            // ===== دکمه‌ی پلی/توقف =====
+            playPauseBtn.addEventListener('click', function(e) {
+                e.preventDefault();
                 if (!audio.src || !audio.src.includes('/music.mp3')) {
-                    console.warn('فایل صوتی در مسیر /music.mp3 پیدا نشد.');
+                    alert('فایل موسیقی در مسیر /music.mp3 پیدا نشد.');
                     return;
                 }
                 if (isPlaying) {
                     audio.pause();
-                    musicIcon.className = 'fas fa-music';
-                    musicToggle.classList.remove('playing');
+                    playIcon.className = 'fas fa-play';
+                    playPauseBtn.classList.remove('playing');
                     isPlaying = false;
                 } else {
                     audio.play().then(() => {
-                        musicIcon.className = 'fas fa-play';
-                        musicToggle.classList.add('playing');
+                        playIcon.className = 'fas fa-pause';
+                        playPauseBtn.classList.add('playing');
                         isPlaying = true;
                         if (audio.duration && isFinite(audio.duration)) {
-                            showTimer(true);
+                            timerDisplay.style.display = 'inline-block';
+                            stopBtn.style.display = 'flex';
                             totalTimeEl.textContent = formatTime(audio.duration);
                         }
                     }).catch((err) => {
                         console.error('مشکل در پخش صدا:', err);
-                        // در موبایل ممکن است نیاز به تعامل کاربر باشد
-                        alert('برای پخش موسیقی، لطفاً ابتدا روی صفحه کلیک کنید.');
+                        alert('برای پخش موسیقی، ابتدا روی صفحه کلیک کنید (در موبایل).');
                     });
-                }
-            }
-
-            // رویدادهای کلیک و لمسی (برای موبایل)
-            musicToggle.addEventListener('click', togglePlay);
-            musicToggle.addEventListener('touchstart', function(e) {
-                // فقط اگر click قبلاً اجرا نشده باشد (جلوگیری از دوبار اجرا)
-                if (!this._clickHandled) {
-                    this._clickHandled = true;
-                    togglePlay(e);
-                    setTimeout(() => { this._clickHandled = false; }, 300);
                 }
             });
 
-            // ===== دکمه‌ی قطع کامل (استپ) =====
-            musicStopBtn.addEventListener('click', function(e) {
+            // ===== دکمه‌ی استپ =====
+            stopBtn.addEventListener('click', function(e) {
                 e.preventDefault();
                 audio.pause();
                 audio.currentTime = 0;
-                musicIcon.className = 'fas fa-music';
-                musicToggle.classList.remove('playing');
+                playIcon.className = 'fas fa-play';
+                playPauseBtn.classList.remove('playing');
                 isPlaying = false;
                 currentTimeEl.textContent = '00:00';
-                if (audio.duration && isFinite(audio.duration)) {
-                    totalTimeEl.textContent = formatTime(audio.duration);
-                }
-                showTimer(true);
+                if (audio.duration) totalTimeEl.textContent = formatTime(audio.duration);
             });
 
-            // اگر فایل از قبل بارگذاری شده بود، تایمر را نشان بده
+            // اگر فایل از قبل بارگذاری شده بود
             if (audio.readyState >= 1 && audio.duration && isFinite(audio.duration)) {
-                showTimer(true);
+                timerDisplay.style.display = 'inline-block';
+                stopBtn.style.display = 'flex';
                 totalTimeEl.textContent = formatTime(audio.duration);
             }
 
@@ -2282,7 +2150,6 @@
                     const thumb = document.createElement('div');
                     thumb.className = 'post-thumb';
                     thumb.style.backgroundImage = 'url(' + imgSrc + ')';
-                    // Lazy loading با Intersection Observer برای تصاویر پس‌زمینه
                     if ('IntersectionObserver' in window) {
                         const observer = new IntersectionObserver((entries) => {
                             entries.forEach(entry => {
