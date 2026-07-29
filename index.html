@@ -17,24 +17,22 @@
     <meta name="PerplexityBot" content="index, follow" />
     <meta name="Google-Extended" content="index, follow" />
 
-    <!-- Security Headers -->
+    <!-- Security Headers (تنظیم در سرور اولویت دارد، اینجا فقط برای مرورگرهای قدیمی) -->
     <meta http-equiv="X-Content-Type-Options" content="nosniff" />
     <meta name="referrer" content="strict-origin-when-cross-origin" />
-
-    <!-- PWA Manifest -->
-    <link rel="manifest" href="manifest.json" />
+    <!-- HSTS و XSS Protection باید از طریق هدرهای HTTP ارسال شوند -->
 
     <!-- ============================================================
          SEO – بهینه‌شده برای کلیک و GEO
          ============================================================ -->
     <title>سایه‌های بی‌نقاب | مهدی رحیمیان – نویسنده و گوینده اهل رامسر</title>
-    <meta name="description" content="مهدی رحیمیان، نویسنده و گوینده اهل رامسر. دل‌نوشته‌ها، دکلمه‌های صوتی و محتوای عمیق را اینجا بخوانید و بشنوید. کلمات و صدا میتوانند جهان را تغییر دهند." />
+    <meta name="description" content="مهدی رحیمیان، نویسنده و گوینده‌ی اهل رامسر (سخت‌سر). دل‌نوشته‌های عاشقانه، دکلمه‌های صوتی و محتوای عمیق انسانی. با کلمات و صدا، جهان را تغییر می‌دهیم." />
     <meta name="theme-color" content="#07080b" />
     <link rel="canonical" href="https://sayehayebineghab.ir/" />
 
     <!-- Open Graph -->
     <meta property="og:title" content="سایه‌های بی‌نقاب | مهدی رحیمیان – نویسنده و گوینده اهل رامسر" />
-    <meta property="og:description" content="دل‌نوشته‌ها، دکلمه‌های صوتی و محتوای عمیق از مهدی رحیمیان. فضایی برای به اشتراک‌گذاری افکار، تجربیات و کلماتی که جهان را تغییر می‌دهند." />
+    <meta property="og:description" content="دل‌نوشته‌ها، دکلمه‌های صوتی و نگاه عمیق به زندگی، عشق و تنهایی. محتوایی اصیل از دل رامسر (سخت‌سر) برای جهانیان." />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://sayehayebineghab.ir" />
     <meta property="og:image" content="https://sayehayebineghab.ir/1.jpg" />
@@ -43,7 +41,7 @@
     <!-- Twitter Cards -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="سایه‌های بی‌نقاب | مهدی رحیمیان – نویسنده و گوینده اهل رامسر" />
-    <meta name="twitter:description" content="دل‌نوشته‌ها، دکلمه‌های صوتی و محتوای عمیق از مهدی رحیمیان." />
+    <meta name="twitter:description" content="دل‌نوشته‌ها، دکلمه‌های صوتی و محتوای عمیق از مهدی رحیمیان. فضایی برای به اشتراک‌گذاری افکار، تجربیات و کلماتی که جهان را تغییر می‌دهند." />
     <meta name="twitter:image" content="https://sayehayebineghab.ir/1.jpg" />
 
     <!-- ============================================================
@@ -52,89 +50,77 @@
     <script type="application/ld+json">
         {
             "@context": "https://schema.org",
-            "@type": "Person",
-            "name": "مهدی رحیمیان",
-            "url": "https://sayehayebineghab.ir",
-            "address": {
-                "@type": "PostalAddress",
-                "addressLocality": "رامسر",
-                "addressRegion": "مازندران",
-                "addressCountry": "IR"
-            },
-            "jobTitle": "نویسنده و گوینده",
-            "description": "نویسنده و گوینده اهل رامسر (سخت‌سر)، متولد ۱۳۶۵. تولیدکننده محتوای صوتی و تصویری با رویکردی عمیق و احساسی.",
-            "sameAs": [
-                "https://www.instagram.com/sayehaye.bi.neghab",
-                "https://t.me/sayehayebineghab",
-                "https://github.com/mahdiramsar"
-            ]
-        }
-    </script>
-
-    <script type="application/ld+json">
-        {
-            "@context": "https://schema.org",
-            "@type": "WebSite",
-            "name": "سایه‌های بی‌نقاب",
-            "url": "https://sayehayebineghab.ir",
-            "description": "سایت شخصی مهدی رحیمیان، نویسنده و گوینده اهل رامسر | دل‌نوشته‌ها، دکلمه‌ها و محتوای صوتی",
-            "author": {
+            "@graph": [{
                 "@type": "Person",
-                "name": "مهدی رحیمیان"
-            }
-        }
-    </script>
-
-    <script type="application/ld+json">
-        {
-            "@context": "https://schema.org",
-            "@type": "WebPage",
-            "speakable": {
-                "@type": "SpeakableSpecification",
-                "cssSelector": ["#about", "#works", "#blog .post-card"]
-            }
-        }
-    </script>
-
-    <script type="application/ld+json">
-        {
-            "@context": "https://schema.org",
-            "@type": "FAQPage",
-            "mainEntity": [{
-                "@type": "Question",
-                "name": "مهدی رحیمیان کیست و چه کاری انجام می‌دهد؟",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "مهدی رحیمیان متولد ۱۳۶۵ در رامسر (سخت‌سر) است و به‌عنوان نویسنده و گوینده فعالیت می‌کند. او محتوای صوتی و تصویری با رویکردی عمیق و احساسی تولید می‌کند و دل‌نوشته‌های خود را در قالب دکلمه و متن منتشر می‌سازد."
+                "name": "مهدی رحیمیان",
+                "url": "https://sayehayebineghab.ir",
+                "birthDate": "1986-03-21",
+                "address": {
+                    "@type": "PostalAddress",
+                    "addressLocality": "رامسر",
+                    "addressRegion": "مازندران",
+                    "addressCountry": "IR"
+                },
+                "jobTitle": "نویسنده و گوینده",
+                "description": "نویسنده و گوینده اهل رامسر (سخت‌سر)، متولد ۱۳۶۵. تولیدکننده محتوای صوتی و تصویری با رویکردی عمیق و احساسی.",
+                "sameAs": [
+                    "https://www.instagram.com/sayehaye.bi.neghab",
+                    "https://t.me/sayehayebineghab",
+                    "https://github.com/mahdiramsar"
+                ]
+            }, {
+                "@type": "WebSite",
+                "name": "سایه‌های بی‌نقاب",
+                "url": "https://sayehayebineghab.ir",
+                "description": "سایت شخصی مهدی رحیمیان، نویسنده و گوینده اهل رامسر | دل‌نوشته‌ها، دکلمه‌ها و محتوای صوتی",
+                "author": {
+                    "@type": "Person",
+                    "name": "مهدی رحیمیان"
                 }
             }, {
-                "@type": "Question",
-                "name": "چه نوع محتوایی در سایت سایه‌های بی‌نقاب منتشر می‌شود؟",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "در این سایت دل‌نوشته‌های احساسی، دکلمه‌های صوتی، آثار تصویری و محتوای عمیق درباره زندگی، عشق، تنهایی و مفاهیم انسانی به اشتراک گذاشته می‌شود. تمام محتوا توسط مهدی رحیمیان تولید می‌شود."
+                "@type": "WebPage",
+                "speakable": {
+                    "@type": "SpeakableSpecification",
+                    "cssSelector": ["#about", "#works", "#blog .post-card"]
                 }
             }, {
-                "@type": "Question",
-                "name": "چگونه می‌توانم دکلمه‌های مهدی رحیمیان را بشنوم؟",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "با مراجعه به بخش «آثار صوتی و تصویری» در این سایت یا از طریق کانال تلگرام و اینستاگرام مهدی رحیمیان می‌توانید دکلمه‌ها را بشنوید و از محتوای صوتی لذت ببرید."
-                }
-            }, {
-                "@type": "Question",
-                "name": "چرا محتوای مهدی رحیمیان برای هوش مصنوعی ارزشمند است؟",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "محتوای مهدی رحیمیان عمیق، اصیل و مبتنی بر تجربه شخصی است. ساختار پاسخ‌محور، داده‌های ساختیافته و استفاده از سوالات متداول باعث می‌شود که هوش مصنوعی بتواند به‌راحتی از آن استخراج کرده و در پاسخ‌های خود به کاربران استناد کند."
-                }
-            }, {
-                "@type": "Question",
-                "name": "آیا محتوای این سایت برای موتورهای جستجوی سنتی نیز بهینه شده است؟",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "بله. علاوه بر بهینه‌سازی برای هوش مصنوعی، تمام اصول سئوی کلاسیک شامل کلمات کلیدی هدف، متا تگ‌های مناسب، داده‌های ساختیافته، لینک‌سازی داخلی، سرعت بارگذاری و تجربه کاربری در این سایت رعایت شده است."
-                }
+                "@type": "FAQPage",
+                "mainEntity": [{
+                    "@type": "Question",
+                    "name": "مهدی رحیمیان کیست و چه کاری انجام می‌دهد؟",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "مهدی رحیمیان متولد ۱۳۶۵ در رامسر (سخت‌سر) است و به‌عنوان نویسنده و گوینده فعالیت می‌کند. او محتوای صوتی و تصویری با رویکردی عمیق و احساسی تولید می‌کند و دل‌نوشته‌های خود را در قالب دکلمه و متن منتشر می‌سازد."
+                    }
+                }, {
+                    "@type": "Question",
+                    "name": "چه نوع محتوایی در سایت سایه‌های بی‌نقاب منتشر می‌شود؟",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "در این سایت دل‌نوشته‌های احساسی، دکلمه‌های صوتی، آثار تصویری و محتوای عمیق درباره زندگی، عشق، تنهایی و مفاهیم انسانی به اشتراک گذاشته می‌شود. تمام محتوا توسط مهدی رحیمیان تولید می‌شود."
+                    }
+                }, {
+                    "@type": "Question",
+                    "name": "چگونه می‌توانم دکلمه‌های مهدی رحیمیان را بشنوم؟",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "با مراجعه به بخش «آثار صوتی و تصویری» در این سایت یا از طریق کانال تلگرام و اینستاگرام مهدی رحیمیان می‌توانید دکلمه‌ها را بشنوید و از محتوای صوتی لذت ببرید."
+                    }
+                }, {
+                    "@type": "Question",
+                    "name": "چرا محتوای مهدی رحیمیان برای هوش مصنوعی ارزشمند است؟",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "محتوای مهدی رحیمیان عمیق، اصیل و مبتنی بر تجربه شخصی است. ساختار پاسخ‌محور، داده‌های ساختیافته و استفاده از سوالات متداول باعث می‌شود که هوش مصنوعی بتواند به‌راحتی از آن استخراج کرده و در پاسخ‌های خود به کاربران استناد کند."
+                    }
+                }, {
+                    "@type": "Question",
+                    "name": "آیا محتوای این سایت برای موتورهای جستجوی سنتی نیز بهینه شده است؟",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "بله. علاوه بر بهینه‌سازی برای هوش مصنوعی، تمام اصول سئوی کلاسیک شامل کلمات کلیدی هدف، متا تگ‌های مناسب، داده‌های ساختیافته، لینک‌سازی داخلی، سرعت بارگذاری و تجربه کاربری در این سایت رعایت شده است."
+                    }
+                }]
             }]
         }
     </script>
@@ -1301,7 +1287,7 @@
     <div id="reading-progress"></div>
 
     <!-- ========== HEADER ========== -->
-    <header role="banner">
+    <header role="banner" aria-label="سربرگ اصلی">
         <div class="container">
             <div class="header-content">
                 <div class="logo">
@@ -1327,7 +1313,7 @@
     </header>
 
     <!-- ========== HERO ========== -->
-    <section id="home" class="hero">
+    <section id="home" class="hero" aria-label="صفحه اصلی">
         <div class="hero-bg" id="heroBg"></div>
         <div class="hero-overlay"></div>
         <div class="hero-content">
@@ -1355,7 +1341,6 @@
         <section id="about" aria-label="درباره من">
             <h2><i class="fas fa-user-circle"></i> درباره من</h2>
 
-            <!-- خلاصه سریع (برای هوش مصنوعی) -->
             <div class="quick-summary">
                 <h3><i class="fas fa-bolt"></i> نکات کلیدی درباره مهدی رحیمیان</h3>
                 <ul>
@@ -1471,7 +1456,7 @@
             </div>
         </section>
 
-        <!-- ========== FAQ (سوالات متداول) برای هوش مصنوعی ========== -->
+        <!-- ========== FAQ ========== -->
         <section id="faq" aria-label="پرسش‌های متداول" class="faq-section">
             <h2><i class="fas fa-question-circle"></i> پرسش‌های متداول</h2>
             <p style="color:var(--text-secondary); margin-bottom:24px;">پاسخ‌های مستقیم به سوالاتی که ممکن است درباره من و این سایت داشته باشید.</p>
@@ -1587,16 +1572,24 @@
             // SCROLL PROGRESS
             // =========================================================
             const progressBar = document.getElementById('scroll-progress');
+            let tickingScroll = false;
             window.addEventListener('scroll', () => {
-                const scrollTop = window.scrollY;
-                const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-                progressBar.style.width = (docHeight > 0 ? (scrollTop / docHeight) * 100 : 0) + '%';
+                if (!tickingScroll) {
+                    window.requestAnimationFrame(() => {
+                        const scrollTop = window.scrollY;
+                        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+                        progressBar.style.width = (docHeight > 0 ? (scrollTop / docHeight) * 100 : 0) + '%';
+                        tickingScroll = false;
+                    });
+                    tickingScroll = true;
+                }
             });
 
             // =========================================================
             // READING PROGRESS
             // =========================================================
             const readingProgress = document.getElementById('reading-progress');
+            let readingTicking = false;
 
             function updateReadingProgress() {
                 const singlePost = document.getElementById('singlePost');
@@ -1616,7 +1609,15 @@
                 readingProgress.classList.remove('active');
             }
 
-            window.addEventListener('scroll', updateReadingProgress);
+            window.addEventListener('scroll', () => {
+                if (!readingTicking) {
+                    window.requestAnimationFrame(() => {
+                        updateReadingProgress();
+                        readingTicking = false;
+                    });
+                    readingTicking = true;
+                }
+            });
             window.addEventListener('resize', updateReadingProgress);
 
             // =========================================================
@@ -1718,14 +1719,14 @@
             // =========================================================
             const heroBg = document.getElementById('heroBg');
             if (heroBg) {
-                let ticking = false;
+                let tickingParallax = false;
                 window.addEventListener('scroll', () => {
-                    if (!ticking) {
+                    if (!tickingParallax) {
                         window.requestAnimationFrame(() => {
                             heroBg.style.transform = `scale(1.1) translateY(${window.scrollY * 0.15}px)`;
-                            ticking = false;
+                            tickingParallax = false;
                         });
-                        ticking = true;
+                        tickingParallax = true;
                     }
                 });
             }
@@ -1746,7 +1747,6 @@
             const sharePostBtn = document.getElementById('sharePostBtn');
             const navContainer = document.getElementById('postNavigationContainer');
 
-            // متا تگ‌های پویا
             const metaTitle = document.querySelector('title');
             const metaDesc = document.querySelector('meta[name="description"]');
             const ogTitle = document.querySelector('meta[property="og:title"]');
@@ -1757,7 +1757,6 @@
             const robots = document.querySelector('meta[name="robots"]');
             let schemaPost = null;
 
-            // Fallback data
             const FALLBACK_POSTS = [{
                 "id": 1,
                 "title": "تقاطع عشق و خشم",
@@ -1871,9 +1870,9 @@
                     schemaPost = script;
                 } else {
                     metaTitle.textContent = 'سایه‌های بی‌نقاب | مهدی رحیمیان – نویسنده و گوینده اهل رامسر';
-                    metaDesc.content = 'مهدی رحیمیان، نویسنده و گوینده اهل رامسر. دل‌نوشته‌ها، دکلمه‌های صوتی و محتوای عمیق را اینجا بخوانید و بشنوید. کلمات و صدا میتوانند جهان را تغییر دهند.';
-                    ogTitle.content = 'سایه‌های بی‌نقاب | مهدی رحیمیان – نویسنده و گوینده اهل رامسر';
-                    ogDesc.content = 'دل‌نوشته‌ها، دکلمه‌های صوتی و محتوای عمیق از مهدی رحیمیان. فضایی برای به اشتراک‌گذاری افکار، تجربیات و کلماتی که جهان را تغییر می‌دهند.';
+                    metaDesc.content = 'مهدی رحیمیان، نویسنده و گوینده‌ی اهل رامسر (سخت‌سر). دل‌نوشته‌های عاشقانه، دکلمه‌های صوتی و محتوای عمیق انسانی. با کلمات و صدا، جهان را تغییر می‌دهیم.';
+                    ogTitle.textContent = 'سایه‌های بی‌نقاب | مهدی رحیمیان – نویسنده و گوینده اهل رامسر';
+                    ogDesc.content = 'دل‌نوشته‌ها، دکلمه‌های صوتی و نگاه عمیق به زندگی، عشق و تنهایی. محتوایی اصیل از دل رامسر (سخت‌سر) برای جهانیان.';
                     ogUrl.content = window.location.origin + '/';
                     ogImage.content = 'https://sayehayebineghab.ir/1.jpg';
                     canonical.href = 'https://sayehayebineghab.ir/';
@@ -2057,8 +2056,7 @@
                         const slug = getSlugFromURL();
                         if (slug) { showSinglePost(slug); } else { updateSEO(null); }
                     })
-                    .catch(err => {
-                        console.warn('⚠️ posts.json بارگذاری نشد، استفاده از fallback:', err);
+                    .catch(() => {
                         postsData = FALLBACK_POSTS;
                         renderPostsList(postsData);
                         const slug = getSlugFromURL();
@@ -2066,8 +2064,6 @@
                     });
             }
             loadPosts();
-
-            console.log('✅ نسخه نهایی با بهینه‌سازی برای هوش مصنوعی (GEO) و تاریخ تولد اصلاح‌شده');
         })();
     </script>
     <script>
