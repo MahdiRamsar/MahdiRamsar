@@ -406,6 +406,11 @@
             position: absolute;
             inset: 0;
             z-index: 0;
+            /* عکس پس‌زمینه */
+            background-image: url('images/1.webp');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
         }
         
         .hero-bg::before {
@@ -417,6 +422,15 @@
                 radial-gradient(ellipse at 80% 70%, rgba(201, 168, 76, 0.15) 0%, transparent 50%),
                 radial-gradient(ellipse at 50% 50%, rgba(124, 58, 237, 0.1) 0%, transparent 70%);
             animation: heroGlow 15s ease-in-out infinite alternate;
+            z-index: 2; /* بالای لایه تیره */
+        }
+        
+        .hero-bg::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.55); /* لایه تیره برای خوانایی */
+            z-index: 1;
         }
         
         @keyframes heroGlow {
@@ -428,6 +442,7 @@
             position: absolute;
             inset: 0;
             overflow: hidden;
+            z-index: 3; /* بالای همه */
         }
         
         .particle {
@@ -450,7 +465,7 @@
         
         .hero-content {
             position: relative;
-            z-index: 2;
+            z-index: 4;
             text-align: center;
             max-width: 900px;
         }
@@ -2015,7 +2030,7 @@
             dateISO: '2025-07-01',
             excerpt: 'گاهی عشق و خشم در یک نقطه به هم می‌رسند و ما را در تقاطعی غریب رها می‌کنند...',
             image: 'https://image.qwenlm.ai/public_source/d53410dc-26d6-453c-adbd-8f5184b5d6ad/165735976-c56b-4411-974c-1b833db903ec.png',
-            content: `گاهی عشق و خشم در یک نقطه به هم می‌رسند و ما را در تقاطعی غریب رها می‌کنند. نقطه‌ای که نه می‌توانی دوست بداربی و نه می‌توانی متنفر باشی. فقط می‌ایستی و تماشا می‌کنی که چگونه احساساتت در هم می‌آمیزند و تصویری تازه می‌سازند.
+            content: `گاهی عشق و خشم در یک نقطه به هم می‌رسند و ما را در تقاطعی غریب رها می‌کنند. نقطه‌ای که نه می‌توانی دوست داربی و نه می‌توانی متنفر باشی. فقط می‌ایستی و تماشا می‌کنی که چگونه احساساتت در هم می‌آمیزند و تصویری تازه می‌سازند.
 
 من بارها در این تقاطع ایستاده‌ام. روزهایی که دوست داشتن به خشم تبدیل می‌شد و خشم به عشقی عمیق‌تر. روزهایی که نمی‌دانستم باید بخندم یا گریه کنم. روزهایی که قلبم همزمان هم می‌تپید و هم می‌شکست.
 
