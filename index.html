@@ -715,7 +715,6 @@
             position: relative;
         }
         
-        /* Decorative ambient glow */
         #blog::before {
             content: '';
             position: absolute;
@@ -742,7 +741,6 @@
         
         #blog .section-inner { position: relative; z-index: 1; }
         
-        /* Search bar with new design */
         .blog-search {
             max-width: 700px;
             margin: 0 auto 2rem;
@@ -777,7 +775,6 @@
             color: var(--text-muted);
         }
         
-        /* View Toggle */
         .blog-view-controls {
             display: flex;
             justify-content: center;
@@ -814,7 +811,7 @@
             color: var(--text-primary);
         }
         
-        /* ===== FEATURED POST (Cinematic Hero) ===== */
+        /* ===== FEATURED POST ===== */
         .featured-post {
             position: relative;
             border-radius: 28px;
@@ -912,9 +909,7 @@
             gap: 0.5rem;
         }
         
-        .featured-meta-item i {
-            color: var(--gold);
-        }
+        .featured-meta-item i { color: var(--gold); }
         
         .featured-read-btn {
             display: inline-flex;
@@ -941,7 +936,7 @@
             gap: 1rem;
         }
         
-        /* ===== BLOG GRID (New Magazine Style) ===== */
+        /* ===== BLOG GRID ===== */
         .blog-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -960,7 +955,6 @@
             cursor: pointer;
             display: flex;
             flex-direction: column;
-            transform-style: preserve-3d;
         }
         
         .blog-card:hover {
@@ -969,7 +963,6 @@
             box-shadow: 0 25px 60px rgba(124, 58, 237, 0.3);
         }
         
-        /* Post number */
         .blog-card-number {
             position: absolute;
             top: 1.5rem;
@@ -1103,17 +1096,10 @@
             transition: all 0.3s;
         }
         
-        .read-more i {
-            transition: transform 0.3s;
-        }
+        .read-more i { transition: transform 0.3s; }
         
-        .blog-card:hover .read-more {
-            color: var(--gold);
-        }
-        
-        .blog-card:hover .read-more i {
-            transform: translateX(-5px);
-        }
+        .blog-card:hover .read-more { color: var(--gold); }
+        .blog-card:hover .read-more i { transform: translateX(-5px); }
         
         .blog-card-stats {
             display: flex;
@@ -1206,7 +1192,6 @@
             transform: translateY(0) scale(1);
         }
         
-        /* ===== NO RESULTS ===== */
         .no-results {
             text-align: center;
             padding: 4rem 2rem;
@@ -1219,101 +1204,121 @@
             border-radius: 20px;
         }
         
-        /* ===== SINGLE POST VIEW ===== */
-        .single-post {
+        /* ===== MODAL POST VIEW - NEW DESIGN ===== */
+        .post-modal {
             display: none;
-            max-width: 900px;
-            margin: 0 auto;
+            position: fixed;
+            inset: 0;
+            z-index: 10000;
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            animation: modalFadeIn 0.4s var(--ease-cinematic);
         }
         
-        .single-post.active {
-            display: block;
-            animation: fadeIn 0.6s var(--ease-cinematic);
-        }
-        
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        
-        .back-btn {
-            display: inline-flex;
+        .post-modal.active {
+            display: flex;
             align-items: center;
-            gap: 0.5rem;
-            color: var(--purple-light);
-            text-decoration: none;
-            font-weight: 600;
-            margin-bottom: 2rem;
-            transition: all 0.3s;
-            cursor: pointer;
-            background: none;
-            border: none;
-            font-family: var(--font-main);
-            font-size: 1rem;
+            justify-content: center;
+            padding: 2rem;
         }
         
-        .back-btn:hover { color: var(--gold); gap: 0.8rem; }
+        @keyframes modalFadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
         
-        .single-post-header { margin-bottom: 2rem; text-align: center; }
-        
-        .single-post-img {
-            width: 100%;
+        .post-modal-content {
+            background: var(--black-card);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
             max-width: 800px;
-            height: auto;
-            max-height: 450px;
-            object-fit: cover;
-            border-radius: 20px;
-            margin: 0 auto 2rem;
-            display: block;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            animation: modalSlideUp 0.5s var(--ease-cinematic);
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5);
         }
         
-        .single-post-title {
-            font-size: clamp(1.8rem, 4vw, 2.5rem);
+        @keyframes modalSlideUp {
+            from { opacity: 0; transform: translateY(50px) scale(0.95); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
+        }
+        
+        .post-modal-close {
+            position: absolute;
+            top: 1.5rem;
+            left: 1.5rem;
+            width: 44px;
+            height: 44px;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 50%;
+            color: var(--text-primary);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            transition: all 0.3s;
+            z-index: 10;
+        }
+        
+        .post-modal-close:hover {
+            background: var(--purple);
+            border-color: var(--purple);
+            transform: rotate(90deg);
+        }
+        
+        .post-modal-header {
+            padding: 3rem 3rem 2rem;
+            border-bottom: 1px solid var(--glass-border);
+        }
+        
+        .post-modal-title {
+            font-size: clamp(1.5rem, 3vw, 2rem);
             font-weight: 800;
-            margin-bottom: 1rem;
             color: var(--text-primary);
             line-height: 1.4;
-            text-align: center;
+            margin-bottom: 1rem;
         }
         
-        .single-post-meta {
+        .post-modal-meta {
             display: flex;
-            justify-content: center;
             gap: 1.5rem;
             color: var(--text-muted);
-            font-size: 0.9rem;
-            margin-bottom: 2rem;
+            font-size: 0.85rem;
             flex-wrap: wrap;
         }
         
-        .single-post-meta span {
+        .post-modal-meta span {
             display: inline-flex;
             align-items: center;
             gap: 0.4rem;
         }
         
-        .single-post-content {
-            color: var(--text-secondary);
-            font-size: 1.05rem;
-            line-height: 2;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 0 1rem;
+        .post-modal-meta i {
+            color: var(--gold);
         }
         
-        .single-post-content p { margin-bottom: 1.5rem; }
+        .post-modal-body {
+            padding: 2.5rem 3rem;
+            color: var(--text-secondary);
+            font-size: 1rem;
+            line-height: 2;
+        }
         
-        .post-nav {
+        .post-modal-body p {
+            margin-bottom: 1.3rem;
+        }
+        
+        .post-modal-footer {
+            padding: 2rem 3rem;
+            border-top: 1px solid var(--glass-border);
             display: flex;
             justify-content: space-between;
             gap: 1rem;
-            margin-top: 3rem;
-            padding-top: 2rem;
-            border-top: 1px solid var(--glass-border);
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
         }
         
         .post-nav-btn {
@@ -1323,16 +1328,42 @@
             border: 1px solid var(--glass-border);
             border-radius: 12px;
             color: var(--text-primary);
-            text-decoration: none;
             transition: all 0.3s;
             cursor: pointer;
             font-family: var(--font-main);
             text-align: right;
         }
         
-        .post-nav-btn:hover { border-color: var(--purple); background: var(--glass-hover); }
-        .post-nav-btn:disabled { opacity: 0.3; cursor: not-allowed; }
-        .post-nav-btn small { display: block; color: var(--text-muted); font-size: 0.8rem; margin-bottom: 0.3rem; }
+        .post-nav-btn:hover {
+            border-color: var(--purple);
+            background: var(--glass-hover);
+        }
+        
+        .post-nav-btn:disabled {
+            opacity: 0.3;
+            cursor: not-allowed;
+        }
+        
+        .post-nav-btn small {
+            display: block;
+            color: var(--text-muted);
+            font-size: 0.75rem;
+            margin-bottom: 0.3rem;
+        }
+        
+        /* Scrollbar styling for modal */
+        .post-modal-content::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        .post-modal-content::-webkit-scrollbar-track {
+            background: var(--black-velvet);
+        }
+        
+        .post-modal-content::-webkit-scrollbar-thumb {
+            background: var(--purple);
+            border-radius: 4px;
+        }
         
         /* ===== FAQ SECTION ===== */
         #faq { background: var(--black-velvet); }
@@ -1657,14 +1688,18 @@
             
             section { padding: 4rem 1rem; }
             .slider-viewport, .slide { padding: 2rem 1.5rem; }
-            .single-post-img { max-height: 300px; }
-            .single-post-content { padding: 0; }
             
             .featured-post-content { padding: 2rem; min-height: 400px; }
             .featured-post { min-height: 400px; }
             .featured-title { font-size: 1.6rem; }
             .featured-excerpt { font-size: 0.95rem; }
             .blog-card-number { font-size: 3rem; }
+            
+            .post-modal.active { padding: 1rem; }
+            .post-modal-header { padding: 2rem 1.5rem 1.5rem; }
+            .post-modal-body { padding: 1.5rem; }
+            .post-modal-footer { padding: 1.5rem; flex-direction: column; }
+            .post-modal-close { top: 1rem; left: 1rem; }
         }
     </style>
 </head>
@@ -1846,7 +1881,7 @@
         </div>
     </section>
     
-    <!-- Blog Section - NEW CINEMATIC LAYOUT -->
+    <!-- Blog Section -->
     <section id="blog" aria-labelledby="blog-title">
         <div class="section-inner">
             <div class="section-header">
@@ -1877,15 +1912,18 @@
                     نوشته‌ای با این عبارت پیدا نشد.
                 </div>
             </div>
-            
-            <div class="single-post" id="single-post" role="article">
-                <button class="back-btn" id="back-to-list" aria-label="بازگشت به لیست نوشته‌ها">
-                    <i class="fas fa-arrow-right"></i> بازگشت به لیست
-                </button>
-                <div id="single-post-content"></div>
-            </div>
         </div>
     </section>
+    
+    <!-- Post Modal -->
+    <div class="post-modal" id="post-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+        <div class="post-modal-content">
+            <button class="post-modal-close" id="post-modal-close" aria-label="بستن">
+                <i class="fas fa-times"></i>
+            </button>
+            <div id="post-modal-inner"></div>
+        </div>
+    </div>
     
     <!-- FAQ Section -->
     <section id="faq" aria-labelledby="faq-title">
@@ -2419,12 +2457,24 @@
         }
     };
     
-    // ===== BLOG MANAGER - NEW CINEMATIC LAYOUT =====
+    // ===== BLOG MANAGER - MODAL VIEW =====
     const BlogManager = {
         init() {
             this.loadPosts();
             $('#blog-search').addEventListener('input', (e) => this.search(e.target.value));
-            $('#back-to-list').addEventListener('click', () => this.showList());
+            
+            // Modal close
+            $('#post-modal-close').addEventListener('click', () => this.closeModal());
+            $('#post-modal').addEventListener('click', (e) => {
+                if (e.target === $('#post-modal')) this.closeModal();
+            });
+            
+            // ESC key to close modal
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && $('#post-modal').classList.contains('active')) {
+                    this.closeModal();
+                }
+            });
             
             // View toggle
             $$('.view-toggle-btn').forEach(btn => {
@@ -2468,7 +2518,7 @@
             
             noResults.style.display = 'none';
             
-            // Featured post (first one)
+            // Featured post
             const featured = posts[0];
             const wordCount = featured.content.split(/\s+/).length;
             const readTime = Math.ceil(wordCount / 200);
@@ -2496,13 +2546,12 @@
                 </article>
             `;
             
-            // Attach featured post click
             const featuredEl = featuredContainer.querySelector('.featured-post');
             if (featuredEl) {
-                featuredEl.addEventListener('click', () => this.showPost(featured.slug));
+                featuredEl.addEventListener('click', () => this.showPostModal(featured.slug));
             }
             
-            // Rest of posts in grid
+            // Rest of posts
             const restPosts = posts.slice(1);
             grid.innerHTML = restPosts.map((post, index) => {
                 const wordCount = post.content.split(/\s+/).length;
@@ -2544,14 +2593,14 @@
             $$('.blog-card').forEach(card => {
                 card.addEventListener('click', (e) => {
                     if (e.target.closest('.share-btn') || e.target.closest('.read-more')) return;
-                    this.showPost(card.dataset.slug);
+                    this.showPostModal(card.dataset.slug);
                 });
             });
             
             $$('.read-more').forEach(link => {
                 link.addEventListener('click', (e) => {
                     e.preventDefault();
-                    this.showPost(link.dataset.slug);
+                    this.showPostModal(link.dataset.slug);
                 });
             });
             
@@ -2577,33 +2626,32 @@
             this.renderList(filtered);
         },
         
-        showPost(slug) {
+        showPostModal(slug) {
             const post = state.posts.find(p => p.slug === slug);
             if (!post) return;
             
             state.currentPost = post;
-            const content = $('#single-post-content');
             const postIndex = state.posts.findIndex(p => p.slug === slug);
             const prevPost = state.posts[postIndex - 1];
             const nextPost = state.posts[postIndex + 1];
             const wordCount = post.content.split(/\s+/).length;
             const readTime = Math.ceil(wordCount / 200);
             
-            content.innerHTML = `
-                <header class="single-post-header">
-                    <img src="${post.image}" alt="${post.title}" class="single-post-img" loading="lazy">
-                    <h1 class="single-post-title">${post.title}</h1>
-                    <div class="single-post-meta">
+            const modalInner = $('#post-modal-inner');
+            modalInner.innerHTML = `
+                <header class="post-modal-header">
+                    <h2 class="post-modal-title" id="modal-title">${post.title}</h2>
+                    <div class="post-modal-meta">
                         <span><i class="far fa-calendar"></i> ${post.date}</span>
                         <span><i class="far fa-user"></i> مهدی رحیمیان</span>
                         <span><i class="far fa-clock"></i> ${toPersianDigits(readTime)} دقیقه مطالعه</span>
                         ${post.tag ? `<span><i class="fas fa-tag"></i> ${post.tag}</span>` : ''}
                     </div>
                 </header>
-                <div class="single-post-content">
+                <div class="post-modal-body">
                     ${post.content.split('\n\n').map(p => `<p>${p}</p>`).join('')}
                 </div>
-                <div class="post-nav">
+                <footer class="post-modal-footer">
                     <button class="post-nav-btn" ${!prevPost ? 'disabled' : ''} data-slug="${prevPost ? prevPost.slug : ''}">
                         <small>نوشته قبلی</small>
                         ${prevPost ? prevPost.title : '—'}
@@ -2612,30 +2660,25 @@
                         <small>نوشته بعدی</small>
                         ${nextPost ? nextPost.title : '—'}
                     </button>
-                </div>
+                </footer>
             `;
             
             $$('.post-nav-btn').forEach(btn => {
-                if (!btn.disabled) btn.addEventListener('click', () => this.showPost(btn.dataset.slug));
+                if (!btn.disabled) {
+                    btn.addEventListener('click', () => this.showPostModal(btn.dataset.slug));
+                }
             });
             
-            $('#blog-list-view').style.display = 'none';
-            $('.blog-view-controls').style.display = 'none';
-            $('.blog-search').style.display = 'none';
-            $('#single-post').classList.add('active');
-            $('#reading-progress').classList.add('active');
+            $('#post-modal').classList.add('active');
+            document.body.style.overflow = 'hidden';
             
-            window.scrollTo({ top: $('#blog').offsetTop - 100, behavior: 'smooth' });
             history.pushState({ post: slug }, post.title, `#post/${slug}`);
             this.updateMetaTags(post);
         },
         
-        showList() {
-            $('#single-post').classList.remove('active');
-            $('#blog-list-view').style.display = 'block';
-            $('.blog-view-controls').style.display = 'flex';
-            $('.blog-search').style.display = 'block';
-            $('#reading-progress').classList.remove('active');
+        closeModal() {
+            $('#post-modal').classList.remove('active');
+            document.body.style.overflow = '';
             state.currentPost = null;
             history.pushState({}, 'نوشته‌ها', '#blog');
             this.resetMetaTags();
@@ -2756,26 +2799,13 @@
         }
     };
     
-    // ===== READING PROGRESS =====
-    const ReadingProgress = {
-        init() {
-            window.addEventListener('scroll', () => {
-                if (!state.currentPost) return;
-                const post = $('#single-post-content');
-                if (!post) return;
-                const rect = post.getBoundingClientRect();
-                const totalHeight = rect.height - window.innerHeight;
-                const scrolled = -rect.top;
-                const progress = Math.max(0, Math.min(100, (scrolled / totalHeight) * 100));
-                $('#reading-progress').style.width = `${progress}%`;
-            }, { passive: true });
-        }
-    };
-    
     // ===== POPSTATE HANDLER =====
     window.addEventListener('popstate', (e) => {
-        if (e.state && e.state.post) BlogManager.showPost(e.state.post);
-        else BlogManager.showList();
+        if (e.state && e.state.post) {
+            BlogManager.showPostModal(e.state.post);
+        } else {
+            BlogManager.closeModal();
+        }
     });
     
     // ===== INITIALIZE =====
@@ -2789,14 +2819,13 @@
         MusicPlayer.init();
         BlogManager.init();
         FAQManager.init();
-        ReadingProgress.init();
         
         $('#footer-year').textContent = new Date().getFullYear();
         
         const hash = window.location.hash;
         if (hash.startsWith('#post/')) {
             const slug = hash.replace('#post/', '');
-            setTimeout(() => BlogManager.showPost(slug), 500);
+            setTimeout(() => BlogManager.showPostModal(slug), 500);
         }
     });
     </script>
