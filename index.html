@@ -101,16 +101,11 @@
     </script>
     
     <style>
-        /* ==========================================================
-           FIX #3: Override Vazirmatn font-display to swap
-           Prevents FOIT and layout reflow on mobile
-           ========================================================== */
         @font-face {
             font-family: 'Vazirmatn';
             font-display: swap;
         }
         
-        /* ===== CSS VARIABLES & RESET ===== */
         :root {
             --purple: #7c3aed;
             --purple-light: #a78bfa;
@@ -148,10 +143,6 @@
         
         html { scroll-behavior: smooth; font-size: 16px; }
         
-        /* ==========================================================
-           FIX #2: Added padding-bottom to prevent player overlap
-           with footer and FAQ content on mobile
-           ========================================================== */
         body {
             font-family: var(--font-main);
             background: var(--black-velvet);
@@ -160,8 +151,8 @@
             overflow-x: hidden;
             transition: background var(--transition-smooth), color var(--transition-smooth);
             min-height: 100vh;
-            min-height: 100dvh; /* Dynamic viewport height for mobile */
-            padding-bottom: var(--player-height); /* Space for floating player */
+            min-height: 100dvh;
+            padding-bottom: var(--player-height);
         }
         
         @media (prefers-reduced-motion: reduce) {
@@ -179,7 +170,6 @@
             border-radius: 4px;
         }
         
-        /* ===== SCROLL PROGRESS BAR ===== */
         #scroll-progress {
             position: fixed;
             top: 0;
@@ -205,7 +195,6 @@
         
         #reading-progress.active { opacity: 1; }
         
-        /* ===== HEADER & NAVIGATION ===== */
         header {
             position: fixed;
             top: 0;
@@ -311,14 +300,8 @@
         
         .menu-toggle { display: none; }
         
-        /* ===== HERO SECTION ===== */
         #home {
             position: relative;
-            /* ==========================================================
-               FIX #1: Changed height: 100vh to min-height: 100dvh
-               Dynamic viewport height prevents content cutoff on mobile
-               when browser address bar collapses/expands
-               ========================================================== */
             min-height: 100vh;
             min-height: 100dvh;
             display: flex;
@@ -450,7 +433,6 @@
         
         .social-links a:hover { transform: translateY(-8px) scale(1.08); background: rgba(255,255,255,0.25); }
         
-        /* ===== SECTIONS COMMON ===== */
         section { padding: 6rem 2rem; position: relative; }
         .section-inner { max-width: 1200px; margin: 0 auto; }
         .section-header { text-align: center; margin-bottom: 4rem; }
@@ -475,7 +457,6 @@
             border-radius: 2px;
         }
         
-        /* ===== ABOUT SLIDER ===== */
         #about { background: linear-gradient(180deg, var(--black-velvet) 0%, var(--black-soft) 100%); }
         
         .slider-container { position: relative; max-width: 900px; margin: 0 auto; min-height: 400px; }
@@ -606,7 +587,6 @@
             to { transform: scale(1); }
         }
         
-        /* ===== WORKS SECTION ===== */
         #works { background: var(--black-soft); }
         
         .works-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; }
@@ -681,7 +661,6 @@
         
         .work-link:hover { color: var(--gold); gap: 0.8rem; }
         
-        /* ===== TELEGRAM CTA ===== */
         .telegram-cta {
             background: linear-gradient(135deg, rgba(124, 58, 237, 0.15), rgba(201, 168, 76, 0.1));
             border: 1px solid var(--glass-border);
@@ -729,7 +708,6 @@
         
         .telegram-btn:hover { transform: translateY(-3px); box-shadow: 0 15px 40px rgba(0, 136, 204, 0.6); }
         
-        /* ===== BLOG SECTION ===== */
         #blog {
             background: linear-gradient(180deg, var(--black-soft) 0%, var(--black-velvet) 100%);
             position: relative;
@@ -831,7 +809,6 @@
             color: var(--text-primary);
         }
         
-        /* ===== FEATURED POST ===== */
         .featured-post {
             position: relative;
             border-radius: 28px;
@@ -956,7 +933,6 @@
             gap: 1rem;
         }
         
-        /* ===== BLOG GRID ===== */
         .blog-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -1156,7 +1132,6 @@
             transform: rotate(15deg);
         }
         
-        /* ===== LIST VIEW ===== */
         .blog-grid.list-view {
             grid-template-columns: 1fr;
             gap: 1.5rem;
@@ -1189,7 +1164,6 @@
             transform: translateY(-50%);
         }
         
-        /* ===== STAGGERED REVEAL ANIMATION ===== */
         .blog-card.reveal {
             opacity: 0;
             transform: translateY(40px);
@@ -1224,7 +1198,6 @@
             border-radius: 20px;
         }
         
-        /* ===== MODAL POST VIEW ===== */
         .post-modal {
             display: none;
             position: fixed;
@@ -1252,7 +1225,7 @@
             max-width: 820px;
             width: 100%;
             max-height: 90vh;
-            max-height: 90dvh; /* Dynamic viewport for mobile */
+            max-height: 90dvh;
             overflow-y: auto;
             position: relative;
             box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6);
@@ -1341,8 +1314,6 @@
         }
         
         .post-modal-body p { margin-bottom: 1.3rem; }
-        .post-modal-body ul { padding-right: 1.5rem; margin-bottom: 1.3rem; }
-        .post-modal-body li { margin-bottom: 0.4rem; }
         
         .post-modal-footer {
             padding: 1.5rem 2.5rem 2.5rem;
@@ -1379,7 +1350,6 @@
         .post-modal-content::-webkit-scrollbar-track { background: var(--black-velvet); border-radius: 0 0 24px 0; }
         .post-modal-content::-webkit-scrollbar-thumb { background: var(--purple); border-radius: 4px; }
         
-        /* ===== FAQ SECTION ===== */
         #faq { background: var(--black-velvet); }
         
         .faq-list { max-width: 800px; margin: 0 auto; }
@@ -1429,7 +1399,6 @@
         .faq-item.active .faq-answer { max-height: 500px; padding: 0 1.5rem 1.5rem; }
         .faq-answer p { color: var(--text-secondary); line-height: 1.9; }
         
-        /* ===== REFERENCES ===== */
         .references {
             max-width: 800px;
             margin: 4rem auto 0;
@@ -1456,7 +1425,6 @@
         
         .references a:hover { color: var(--gold); }
         
-        /* ===== FOOTER ===== */
         footer { background: var(--black-soft); padding: 3rem 2rem 1.5rem; border-top: 1px solid var(--glass-border); }
         .footer-inner { max-width: 1200px; margin: 0 auto; text-align: center; }
         
@@ -1489,14 +1457,12 @@
         .footer-text a:hover { color: var(--gold); }
         
         /* ==========================================================
-           MUSIC PLAYER - ENHANCED WITH PREV/NEXT
-           FIX #2: Solid background + proper z-index
+           MUSIC PLAYER - FIXED FOR ALL MOBILE BROWSERS
            ========================================================== */
         .music-player {
             position: fixed;
             bottom: 20px;
             left: 20px;
-            /* Solid background to prevent content showing through */
             background: rgba(10, 10, 20, 0.95);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
@@ -1506,7 +1472,7 @@
             display: flex;
             align-items: center;
             gap: 0.5rem;
-            z-index: 9999; /* High z-index to stay above content */
+            z-index: 9999;
             box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
             transition: all 0.3s;
         }
@@ -1543,7 +1509,6 @@
         
         .play-btn:hover { transform: scale(1.1); }
         
-        /* Prev/Next Track Buttons */
         .track-nav-btn {
             width: 34px;
             height: 34px;
@@ -1566,8 +1531,6 @@
             border-color: var(--purple);
             transform: scale(1.1);
         }
-        
-        .track-nav-btn:active { transform: scale(0.95); }
         
         .player-info { 
             display: flex; 
@@ -1643,6 +1606,28 @@
         
         .stop-btn:hover { color: var(--gold); }
         
+        /* Loading indicator */
+        .player-loading {
+            position: absolute;
+            top: -3px;
+            right: -3px;
+            width: 14px;
+            height: 14px;
+            border: 2px solid transparent;
+            border-top-color: var(--gold);
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+            display: none;
+        }
+        
+        .play-btn.loading .player-loading {
+            display: block;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        
         .player-error {
             position: absolute;
             bottom: 100%;
@@ -1674,7 +1659,6 @@
             font-weight: 600;
         }
         
-        /* ===== BACK TO TOP ===== */
         .back-to-top {
             position: fixed;
             bottom: 100px;
@@ -1699,7 +1683,6 @@
         .back-to-top.show { opacity: 1; visibility: visible; }
         .back-to-top:hover { transform: translateY(-5px); }
         
-        /* ===== MOUSE LIGHT ===== */
         .mouse-light {
             position: fixed;
             width: 400px;
@@ -1712,7 +1695,6 @@
             transition: opacity 0.3s;
         }
         
-        /* ===== TOAST ===== */
         .toast {
             position: fixed;
             bottom: 100px;
@@ -1738,7 +1720,6 @@
         .toast.success { border-color: #10b981; }
         .toast.success i { color: #10b981; }
         
-        /* ===== RESPONSIVE ===== */
         @media (max-width: 968px) {
             .blog-grid { grid-template-columns: 1fr; }
             
@@ -1766,7 +1747,6 @@
             nav ul.open { transform: translateY(0); opacity: 1; visibility: visible; }
             .menu-toggle { display: flex; }
             
-            /* Mobile player adjustments */
             .music-player { 
                 left: 10px; 
                 right: 10px;
@@ -1781,13 +1761,11 @@
             .track-nav-btn { width: 30px; height: 30px; font-size: 0.7rem; }
             .play-btn { width: 40px; height: 40px; }
             
-            /* Adjust back-to-top to not overlap with player */
             .back-to-top {
                 bottom: 80px;
                 left: 10px;
             }
             
-            /* Adjust toast position */
             .toast {
                 bottom: 80px;
                 right: 10px;
@@ -1814,10 +1792,6 @@
             .post-modal-close { top: 0.8rem; left: 0.8rem; width: 38px; height: 38px; font-size: 1rem; }
         }
         
-        /* ==========================================================
-           FIX #2: Extra mobile padding for safe-area (notch devices)
-           and smaller player height
-           ========================================================== */
         @supports (padding-bottom: env(safe-area-inset-bottom)) {
             body {
                 padding-bottom: calc(var(--player-height) + env(safe-area-inset-bottom));
@@ -1842,14 +1816,11 @@
     </style>
 </head>
 <body>
-    <!-- Scroll Progress -->
     <div id="scroll-progress" role="progressbar" aria-label="پیشرفت اسکرول صفحه"></div>
     <div id="reading-progress" role="progressbar" aria-label="پیشرفت مطالعه"></div>
     
-    <!-- Mouse Light Effect -->
     <div class="mouse-light" id="mouse-light" aria-hidden="true"></div>
     
-    <!-- Header -->
     <header id="main-header" role="banner">
         <div class="header-inner">
             <a href="#home" class="logo" aria-label="صفحه اصلی سایه‌های بی‌نقاب">
@@ -1874,7 +1845,6 @@
         </div>
     </header>
     
-    <!-- Hero Section -->
     <section id="home" aria-labelledby="hero-title">
         <div class="hero-bg" aria-hidden="true">
             <div class="hero-particles" id="hero-particles"></div>
@@ -1897,7 +1867,6 @@
         </div>
     </section>
     
-    <!-- About Section -->
     <section id="about" aria-labelledby="about-title">
         <div class="section-inner">
             <div class="section-header">
@@ -1961,7 +1930,6 @@
         </div>
     </section>
     
-    <!-- Works Section -->
     <section id="works" aria-labelledby="works-title">
         <div class="section-inner">
             <div class="section-header">
@@ -2019,7 +1987,6 @@
         </div>
     </section>
     
-    <!-- Blog Section -->
     <section id="blog" aria-labelledby="blog-title">
         <div class="section-inner">
             <div class="section-header">
@@ -2053,7 +2020,6 @@
         </div>
     </section>
     
-    <!-- Post Modal -->
     <div class="post-modal" id="post-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
         <div class="post-modal-content">
             <button class="post-modal-close" id="post-modal-close" aria-label="بستن">
@@ -2083,7 +2049,6 @@
         </div>
     </div>
     
-    <!-- FAQ Section -->
     <section id="faq" aria-labelledby="faq-title">
         <div class="section-inner">
             <div class="section-header">
@@ -2142,7 +2107,6 @@
         </div>
     </section>
     
-    <!-- Footer -->
     <footer role="contentinfo">
         <div class="footer-inner">
             <div class="footer-social">
@@ -2154,51 +2118,44 @@
         </div>
     </footer>
     
-    <!-- Music Player - ENHANCED WITH PREV/NEXT -->
+    <!-- Music Player -->
     <div class="music-player" role="region" aria-label="پخش‌کننده موسیقی">
         <div class="player-error" id="player-error" role="alert">
-            <span>خطا در بارگذاری</span>
+            <span id="player-error-msg">خطا در بارگذاری</span>
             <button class="retry-btn" id="retry-btn">تلاش مجدد</button>
         </div>
         
-        <!-- Previous Track -->
         <button class="track-nav-btn" id="prev-track-btn" aria-label="آهنگ قبلی">
             <i class="fas fa-step-forward"></i>
         </button>
         
-        <!-- Play/Pause -->
         <button class="play-btn" id="play-btn" aria-label="پخش موسیقی">
             <i class="fas fa-play" id="play-icon"></i>
+            <span class="player-loading"></span>
         </button>
         
-        <!-- Next Track -->
         <button class="track-nav-btn" id="next-track-btn" aria-label="آهنگ بعدی">
             <i class="fas fa-step-backward"></i>
         </button>
         
-        <!-- Info -->
         <div class="player-info">
             <span class="player-title" id="player-title">موسیقی پس‌زمینه</span>
             <span class="player-time" id="player-time">00:00 / 00:00</span>
             <span class="track-indicator" id="track-indicator">۱ از ۲</span>
         </div>
         
-        <!-- Volume -->
         <div class="volume-control">
             <i class="fas fa-volume-up" id="volume-icon" aria-hidden="true"></i>
             <input type="range" class="volume-slider" id="volume-slider" min="0" max="1" step="0.05" value="0.7" aria-label="کنترل حجم صدا">
         </div>
         
-        <!-- Stop -->
         <button class="stop-btn" id="stop-btn" aria-label="توقف و ریست">
             <i class="fas fa-stop"></i>
         </button>
     </div>
     
-    <!-- Back to Top -->
     <button class="back-to-top" id="back-to-top" aria-label="بازگشت به بالا"><i class="fas fa-chevron-up"></i></button>
     
-    <!-- Toast -->
     <div class="toast" id="toast" role="status" aria-live="polite">
         <i class="fas fa-check-circle"></i>
         <span id="toast-message"></span>
@@ -2355,7 +2312,6 @@
         }
     ];
     
-    // ===== APPLICATION STATE =====
     const state = {
         posts: [],
         currentPost: null,
@@ -2368,7 +2324,6 @@
         currentTrackIndex: 0
     };
     
-    // ===== UTILITY FUNCTIONS =====
     const $ = (selector) => document.querySelector(selector);
     const $$ = (selector) => document.querySelectorAll(selector);
     
@@ -2392,7 +2347,25 @@
         return num.toString().replace(/\d/g, d => persianDigits[d]);
     };
     
-    // ===== THEME MANAGEMENT =====
+    // ==========================================================
+    // DETECT BROWSER & DEVICE
+    // ==========================================================
+    const DeviceDetector = {
+        isIOS: /iPad|iPhone|iPod/.test(navigator.userAgent) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1),
+        isSafari: /^((?!chrome|android).)*safari/i.test(navigator.userAgent),
+        isMobile: /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent),
+        isFirefox: /Firefox/i.test(navigator.userAgent),
+        isChrome: /Chrome/i.test(navigator.userAgent) && !/Edg/i.test(navigator.userAgent),
+        
+        needsSpecialHandling() {
+            // iOS Safari and some mobile browsers need special audio handling
+            return this.isIOS || this.isSafari || this.isMobile;
+        }
+    };
+    
+    // ==========================================================
+    // THEME MANAGEMENT
+    // ==========================================================
     const ThemeManager = {
         init() {
             const saved = localStorage.getItem('theme');
@@ -2412,7 +2385,6 @@
         }
     };
     
-    // ===== MOBILE MENU =====
     const MenuManager = {
         init() {
             $('#menu-toggle').addEventListener('click', () => $('#nav-menu').classList.toggle('open'));
@@ -2422,7 +2394,6 @@
         }
     };
     
-    // ===== SCROLL EFFECTS =====
     const ScrollManager = {
         init() {
             window.addEventListener('scroll', () => {
@@ -2460,7 +2431,6 @@
         }
     };
     
-    // ===== MOUSE LIGHT =====
     const MouseLight = {
         init() {
             if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
@@ -2472,7 +2442,6 @@
         }
     };
     
-    // ===== HERO PARTICLES =====
     const Particles = {
         init() {
             const container = $('#hero-particles');
@@ -2487,7 +2456,6 @@
         }
     };
     
-    // ===== ABOUT SLIDER =====
     const Slider = {
         init() {
             this.slides = $$('.slide');
@@ -2547,50 +2515,178 @@
         resetAutoPlay() { this.pause(); this.play(); }
     };
     
-    // ===== MUSIC PLAYER =====
+    // ==========================================================
+    // MUSIC PLAYER - UNIVERSAL COMPATIBILITY
+    // ==========================================================
     const MusicPlayer = {
+        // فقط از MP3 استفاده می‌کنیم - بیشترین سازگاری با همه مرورگرها
         tracks: [
             {
                 name: 'موسیقی پس‌زمینه ۱',
-                sources: [
-                    { src: 'music.mp3', type: 'audio/mpeg' },
-                    { src: 'music.ogg', type: 'audio/ogg' },
-                    { src: 'music.m4a', type: 'audio/mp4' },
-                    { src: 'music.wav', type: 'audio/wav' }
-                ]
+                src: 'music.mp3'
             },
             {
                 name: 'موسیقی پس‌زمینه ۲',
-                sources: [
-                    { src: 'music2.mp3', type: 'audio/mpeg' },
-                    { src: 'music2.ogg', type: 'audio/ogg' },
-                    { src: 'music2.m4a', type: 'audio/mp4' },
-                    { src: 'music2.wav', type: 'audio/wav' }
-                ]
+                src: 'music2.mp3'
             }
         ],
         
+        audio: null,
+        audioContext: null,
+        retryCount: 0,
+        maxRetries: 3,
+        isPreparing: false,
+        userInteracted: false,
+        
         init() {
+            // ساخت Audio element با تنظیمات سازگار
             this.audio = new Audio();
+            this.audio.preload = 'auto';
             this.audio.volume = 0.7;
             
-            $('#play-btn').addEventListener('click', () => this.toggle());
+            // playsinline برای iOS - پخش درون صفحه
+            this.audio.setAttribute('playsinline', '');
+            this.audio.setAttribute('webkit-playsinline', '');
+            // جلوگیری از خطای CORS
+            this.audio.crossOrigin = 'anonymous';
+            
+            // ثبت event listeners
+            this.setupEventListeners();
+            this.setupAudioEvents();
+            
+            // بارگذاری ترک اول
+            this.loadCurrentTrack();
+            this.updateTrackUI();
+            
+            // ثبت user interaction برای iOS Safari
+            this.registerUserInteraction();
+        },
+        
+        // ==========================================================
+        // iOS Safari نیاز به AudioContext resume دارد
+        // ==========================================================
+        initAudioContext() {
+            if (this.audioContext) return;
+            
+            try {
+                const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+                if (AudioContextClass) {
+                    this.audioContext = new AudioContextClass();
+                    
+                    // iOS Safari: AudioContext در حالت suspended شروع می‌شود
+                    // باید با کلیک کاربر resume شود
+                    if (this.audioContext.state === 'suspended') {
+                        this.resumeAudioContext();
+                    }
+                }
+            } catch (e) {
+                console.warn('AudioContext not supported:', e);
+            }
+        },
+        
+        resumeAudioContext() {
+            if (this.audioContext && this.audioContext.state === 'suspended') {
+                this.audioContext.resume().then(() => {
+                    console.log('AudioContext resumed');
+                }).catch(err => {
+                    console.warn('AudioContext resume failed:', err);
+                });
+            }
+        },
+        
+        // ==========================================================
+        // ثبت user interaction - ضروری برای iOS
+        // ==========================================================
+        registerUserInteraction() {
+            const unlockAudio = () => {
+                if (this.userInteracted) return;
+                this.userInteracted = true;
+                
+                // برای iOS Safari: پخش و توقف یک صدای بی‌صدا
+                // این کار AudioContext را unlock می‌کند
+                this.initAudioContext();
+                
+                // یک بار پخش و توقف برای unlock کردن
+                const silentPlay = this.audio.play();
+                if (silentPlay !== undefined) {
+                    silentPlay.then(() => {
+                        this.audio.pause();
+                        this.audio.currentTime = 0;
+                    }).catch(() => {
+                        // خطا طبیعی است - مهم unlock شدن است
+                    });
+                }
+                
+                // حذف listener بعد از اولین تعامل
+                document.removeEventListener('touchstart', unlockAudio);
+                document.removeEventListener('touchend', unlockAudio);
+                document.removeEventListener('click', unlockAudio);
+            };
+            
+            // iOS فقط با touch events unlock می‌شود
+            document.addEventListener('touchstart', unlockAudio, { passive: true });
+            document.addEventListener('touchend', unlockAudio, { passive: true });
+            document.addEventListener('click', unlockAudio, { passive: true });
+        },
+        
+        setupEventListeners() {
+            $('#play-btn').addEventListener('click', (e) => {
+                e.preventDefault();
+                this.toggle();
+            });
+            
             $('#stop-btn').addEventListener('click', () => this.stop());
             $('#prev-track-btn').addEventListener('click', () => this.prevTrack());
             $('#next-track-btn').addEventListener('click', () => this.nextTrack());
             
             $('#volume-slider').addEventListener('input', (e) => {
-                this.audio.volume = e.target.value;
+                this.audio.volume = parseFloat(e.target.value);
                 this.updateVolumeIcon();
             });
             
             $('#retry-btn').addEventListener('click', () => this.retry());
             
+            // ==========================================================
+            // مدیریت visibility change - وقتی کاربر تب را عوض می‌کند
+            // ==========================================================
+            document.addEventListener('visibilitychange', () => {
+                if (document.hidden && this.isPlaying) {
+                    // در برخی مرورگرها بهتر است پخش ادامه یابد
+                    // اما اگر مشکل داشت، می‌توان pause کرد
+                }
+            });
+        },
+        
+        setupAudioEvents() {
+            // ==========================================================
+            // event های اصلی
+            // ==========================================================
             this.audio.addEventListener('timeupdate', () => this.updateTime());
             this.audio.addEventListener('loadedmetadata', () => this.updateTime());
             
+            // وقتی metadata لود شد - آماده برای نمایش زمان
+            this.audio.addEventListener('loadeddata', () => {
+                this.updateTime();
+                $('#play-btn').classList.remove('loading');
+            });
+            
+            // وقتی برای پخش کامل آماده شد
+            this.audio.addEventListener('canplay', () => {
+                $('#play-btn').classList.remove('loading');
+                this.isPreparing = false;
+            });
+            
+            this.audio.addEventListener('canplaythrough', () => {
+                $('#play-btn').classList.remove('loading');
+                this.isPreparing = false;
+            });
+            
+            // ==========================================================
+            // پایان آهنگ - پخش خودکار بعدی
+            // ==========================================================
             this.audio.addEventListener('ended', () => {
                 if (this.tracks.length > 1) {
+                    // پخش خودکار ترک بعدی
                     this.nextTrack(true);
                 } else {
                     this.isPlaying = false;
@@ -2599,21 +2695,55 @@
                 }
             });
             
-            this.audio.addEventListener('error', () => this.handleError());
+            // ==========================================================
+            // مدیریت خطا - بهبود یافته
+            // ==========================================================
+            this.audio.addEventListener('error', (e) => this.handleError(e));
             
-            this.loadCurrentTrack();
-            this.updateTrackUI();
+            // ==========================================================
+            // مدیریت stalled - وقتی buffer خالی می‌شود
+            // ==========================================================
+            this.audio.addEventListener('stalled', () => {
+                // اگر پخش متوقف شد، سعی در ادامه
+                if (this.isPlaying) {
+                    setTimeout(() => {
+                        if (this.audio.paused && this.isPlaying) {
+                            this.audio.play().catch(() => {});
+                        }
+                    }, 500);
+                }
+            });
+            
+            // ==========================================================
+            // مدیریت waiting - وقتی buffer نیاز به پر شدن دارد
+            // ==========================================================
+            this.audio.addEventListener('waiting', () => {
+                $('#play-btn').classList.add('loading');
+            });
+            
+            this.audio.addEventListener('playing', () => {
+                $('#play-btn').classList.remove('loading');
+            });
         },
         
+        // ==========================================================
+        // بارگذاری ترک - فقط از MP3 استفاده می‌کنیم
+        // ==========================================================
         loadCurrentTrack() {
             const track = this.tracks[state.currentTrackIndex];
-            this.audio.innerHTML = '';
-            track.sources.forEach(s => {
-                const source = document.createElement('source');
-                source.src = s.src;
-                source.type = s.type;
-                this.audio.appendChild(source);
-            });
+            
+            // پاک کردن source های قبلی
+            this.audio.pause();
+            this.audio.removeAttribute('src');
+            this.audio.load();
+            
+            // تنظیم source جدید - فقط mp3
+            this.audio.src = track.src;
+            
+            // preload برای شروع سریع‌تر
+            this.audio.preload = 'auto';
+            
+            // بارگذاری مجدد
             this.audio.load();
         },
         
@@ -2631,38 +2761,234 @@
             indicatorEl.textContent = `${toPersianDigits(state.currentTrackIndex + 1)} از ${toPersianDigits(this.tracks.length)}`;
         },
         
+        // ==========================================================
+        // Toggle Play/Pause - بهبود یافته برای همه مرورگرها
+        // ==========================================================
         toggle() {
+            // اطمینان از user interaction
+            this.initAudioContext();
+            this.resumeAudioContext();
+            
             if (this.isPlaying) {
+                // Pause
                 this.audio.pause();
                 this.isPlaying = false;
                 $('#play-icon').className = 'fas fa-play';
                 $('#play-btn').classList.remove('playing');
+                $('#play-btn').classList.remove('loading');
             } else {
-                const playPromise = this.audio.play();
-                if (playPromise !== undefined) {
-                    playPromise.then(() => {
-                        this.isPlaying = true;
-                        $('#play-icon').className = 'fas fa-pause';
-                        $('#play-btn').classList.add('playing');
-                        $('#player-error').classList.remove('show');
-                    }).catch(() => this.handleError());
-                }
+                // Play
+                this.playAudio();
             }
         },
         
+        // ==========================================================
+        // پخش با مدیریت کامل خطاها
+        // ==========================================================
+        playAudio() {
+            // نمایش loading
+            $('#play-btn').classList.add('loading');
+            this.isPreparing = true;
+            
+            // تلاش برای پخش
+            const playPromise = this.audio.play();
+            
+            if (playPromise !== undefined) {
+                playPromise
+                    .then(() => {
+                        // موفقیت
+                        this.isPlaying = true;
+                        $('#play-icon').className = 'fas fa-pause';
+                        $('#play-btn').classList.add('playing');
+                        $('#play-btn').classList.remove('loading');
+                        $('#player-error').classList.remove('show');
+                        this.retryCount = 0;
+                    })
+                    .catch((error) => {
+                        // ==========================================================
+                        // تشخیص نوع خطا و برخورد مناسب
+                        // ==========================================================
+                        this.handlePlayError(error);
+                    });
+            } else {
+                // مرورگرهای قدیمی که Promise برنمی‌گردانند
+                this.isPlaying = true;
+                $('#play-icon').className = 'fas fa-pause';
+                $('#play-btn').classList.add('playing');
+                $('#play-btn').classList.remove('loading');
+            }
+        },
+        
+        // ==========================================================
+        // مدیریت خطای play() - قلب رفع باگ
+        // ==========================================================
+        handlePlayError(error) {
+            const errorName = error ? error.name : '';
+            const errorMsg = error ? error.message : '';
+            
+            $('#play-btn').classList.remove('loading');
+            this.isPreparing = false;
+            
+            // ==========================================================
+            // NotAllowedError - محدودیت autoplay مرورگر
+            // این خطا در iOS Safari و Chrome موبایل رایج است
+            // ==========================================================
+            if (errorName === 'NotAllowedError' || errorName === 'SecurityError') {
+                console.warn('Autoplay blocked - waiting for user interaction');
+                
+                // Silent retry - بدون نمایش خطا
+                // کاربر باید دوباره کلیک کند
+                if (this.retryCount < this.maxRetries) {
+                    this.retryCount++;
+                    
+                    // کمی صبر کن و دوباره تلاش کن
+                    setTimeout(() => {
+                        this.resumeAudioContext();
+                        this.playAudio();
+                    }, 100);
+                } else {
+                    // بعد از چند تلاش، به کاربر اطلاع بده
+                    this.showUserFriendlyError('برای پخش، یک بار دیگر روی دکمه بزنید');
+                }
+                return;
+            }
+            
+            // ==========================================================
+            // AbortError - پخش قبل از اتمام قبلی متوقف شد
+            // این خطا طبیعی است و نباید نمایش داده شود
+            // ==========================================================
+            if (errorName === 'AbortError') {
+                console.log('Play aborted - normal behavior');
+                return;
+            }
+            
+            // ==========================================================
+            // خطاهای مرتبط با source - فایل پیدا نشد
+            // ==========================================================
+            if (errorName === 'NotFoundError' || errorMsg.includes('Failed to load')) {
+                console.error('Audio file not found:', this.tracks[state.currentTrackIndex].src);
+                this.showUserFriendlyError('فایل صوتی در دسترس نیست');
+                return;
+            }
+            
+            // ==========================================================
+            // خطاهای دیگر - تلاش مجدد خودکار
+            // ==========================================================
+            if (this.retryCount < this.maxRetries) {
+                this.retryCount++;
+                console.warn(`Play failed, retrying (${this.retryCount}/${this.maxRetries}):`, error);
+                
+                setTimeout(() => {
+                    this.loadCurrentTrack();
+                    setTimeout(() => this.playAudio(), 200);
+                }, 300);
+            } else {
+                this.showUserFriendlyError('خطا در پخش - لطفاً دوباره تلاش کنید');
+            }
+        },
+        
+        // ==========================================================
+        // مدیریت خطای audio element
+        // ==========================================================
+        handleError(e) {
+            // اگر در حال تغییر ترک هستیم، خطا را نادیده بگیر
+            if (this.isPreparing) return;
+            
+            const error = this.audio.error;
+            if (!error) return;
+            
+            // ==========================================================
+            // MEDIA_ERR_NETWORK - خطای شبکه
+            // ==========================================================
+            if (error.code === MediaError.MEDIA_ERR_NETWORK) {
+                console.warn('Network error - will retry');
+                if (this.retryCount < this.maxRetries) {
+                    this.retryCount++;
+                    setTimeout(() => {
+                        this.loadCurrentTrack();
+                        if (this.isPlaying) {
+                            this.playAudio();
+                        }
+                    }, 1000);
+                } else {
+                    this.showUserFriendlyError('خطای شبکه - اتصال اینترنت را بررسی کنید');
+                }
+                return;
+            }
+            
+            // ==========================================================
+            // MEDIA_ERR_DECODE - فایل خراب یا فرمت نامعتبر
+            // ==========================================================
+            if (error.code === MediaError.MEDIA_ERR_DECODE) {
+                console.error('Decode error - file may be corrupted');
+                this.showUserFriendlyError('فایل صوتی قابل پخش نیست');
+                return;
+            }
+            
+            // ==========================================================
+            // MEDIA_ERR_SRC_NOT_SUPPORTED - فرمت پشتیبانی نمی‌شود
+            // ==========================================================
+            if (error.code === MediaError.MEDIA_ERR_SRC_NOT_SUPPORTED) {
+                console.error('Format not supported');
+                this.showUserFriendlyError('فرمت فایل پشتیبانی نمی‌شود');
+                return;
+            }
+            
+            // ==========================================================
+            // خطای نامشخص
+            // ==========================================================
+            if (this.retryCount < this.maxRetries) {
+                this.retryCount++;
+                setTimeout(() => {
+                    this.loadCurrentTrack();
+                    if (this.isPlaying) {
+                        this.playAudio();
+                    }
+                }, 1000);
+            }
+        },
+        
+        showUserFriendlyError(message) {
+            $('#player-error-msg').textContent = message;
+            $('#player-error').classList.add('show');
+            this.isPlaying = false;
+            $('#play-icon').className = 'fas fa-play';
+            $('#play-btn').classList.remove('playing');
+            $('#play-btn').classList.remove('loading');
+            
+            // مخفی کردن خودکار بعد از 5 ثانیه
+            setTimeout(() => {
+                $('#player-error').classList.remove('show');
+            }, 5000);
+        },
+        
+        // ==========================================================
+        // تغییر ترک - بهبود یافته
+        // ==========================================================
         nextTrack(autoPlay = false) {
-            const wasPlaying = this.isPlaying;
+            const wasPlaying = this.isPlaying || autoPlay;
+            
+            // تغییر index
             state.currentTrackIndex = (state.currentTrackIndex + 1) % this.tracks.length;
+            
+            // بارگذاری ترک جدید
             this.loadCurrentTrack();
             this.updateTrackUI();
             
-            if (wasPlaying || autoPlay) {
-                this.audio.addEventListener('canplay', function playOnce() {
-                    MusicPlayer.audio.play().catch(() => {});
-                    MusicPlayer.audio.removeEventListener('canplay', playOnce);
-                });
-                this.isPlaying = false;
-                this.toggle();
+            // اگر در حال پخش بود، بعد از آماده شدن پخش کن
+            if (wasPlaying) {
+                this.retryCount = 0;
+                this.audio.addEventListener('canplay', this._playOnce = () => {
+                    this.playAudio();
+                    this.audio.removeEventListener('canplay', this._playOnce);
+                }, { once: true });
+                
+                // Fallback: اگر canplay fire نشد، بعد از 1 ثانیه تلاش کن
+                setTimeout(() => {
+                    if (!this.isPlaying && wasPlaying) {
+                        this.playAudio();
+                    }
+                }, 1000);
             }
             
             showToast(`🎵 ${this.tracks[state.currentTrackIndex].name}`);
@@ -2670,17 +2996,24 @@
         
         prevTrack() {
             const wasPlaying = this.isPlaying;
+            
             state.currentTrackIndex = (state.currentTrackIndex - 1 + this.tracks.length) % this.tracks.length;
+            
             this.loadCurrentTrack();
             this.updateTrackUI();
             
             if (wasPlaying) {
-                this.audio.addEventListener('canplay', function playOnce() {
-                    MusicPlayer.audio.play().catch(() => {});
-                    MusicPlayer.audio.removeEventListener('canplay', playOnce);
-                });
-                this.isPlaying = false;
-                this.toggle();
+                this.retryCount = 0;
+                this.audio.addEventListener('canplay', this._playOncePrev = () => {
+                    this.playAudio();
+                    this.audio.removeEventListener('canplay', this._playOncePrev);
+                }, { once: true });
+                
+                setTimeout(() => {
+                    if (!this.isPlaying && wasPlaying) {
+                        this.playAudio();
+                    }
+                }, 1000);
             }
             
             showToast(`🎵 ${this.tracks[state.currentTrackIndex].name}`);
@@ -2690,23 +3023,25 @@
             this.audio.pause();
             this.audio.currentTime = 0;
             this.isPlaying = false;
+            this.retryCount = 0;
             $('#play-icon').className = 'fas fa-play';
             $('#play-btn').classList.remove('playing');
+            $('#play-btn').classList.remove('loading');
             $('#player-time').textContent = '00:00 / 00:00';
+            $('#player-error').classList.remove('show');
         },
         
         retry() {
             $('#player-error').classList.remove('show');
-            this.audio.error = null;
+            this.retryCount = 0;
+            
+            // بارگذاری مجدد
             this.loadCurrentTrack();
-            setTimeout(() => this.toggle(), 100);
-        },
-        
-        handleError() {
-            $('#player-error').classList.add('show');
-            this.isPlaying = false;
-            $('#play-icon').className = 'fas fa-play';
-            $('#play-btn').classList.remove('playing');
+            
+            // کمی صبر کن و سپس پخش
+            setTimeout(() => {
+                this.playAudio();
+            }, 200);
         },
         
         updateTime() {
@@ -2724,7 +3059,9 @@
         }
     };
     
-    // ===== BLOG MANAGER =====
+    // ==========================================================
+    // BLOG MANAGER
+    // ==========================================================
     const BlogManager = {
         init() {
             this.loadPosts();
@@ -3055,7 +3392,6 @@
         }
     };
     
-    // ===== FAQ ACCORDION =====
     const FAQManager = {
         init() {
             $$('.faq-question').forEach(btn => {
@@ -3075,7 +3411,6 @@
         }
     };
     
-    // ===== POPSTATE HANDLER =====
     window.addEventListener('popstate', (e) => {
         if (e.state && e.state.post) {
             BlogManager.showPostModal(e.state.post);
@@ -3084,17 +3419,12 @@
         }
     });
     
-    // ==========================================================
-    // FIX #3: Force layout recalculation after fonts load
-    // Prevents FOIT/reflow issues on mobile
-    // ==========================================================
     window.addEventListener('load', function() {
         setTimeout(function() {
             window.dispatchEvent(new Event('resize'));
         }, 400);
     });
     
-    // Also handle document.fonts API for modern browsers
     if (document.fonts && document.fonts.ready) {
         document.fonts.ready.then(function() {
             setTimeout(function() {
@@ -3103,21 +3433,6 @@
         });
     }
     
-    // ==========================================================
-    // FIX #1: Update viewport height on resize/orientation change
-    // For browsers that don't support dvh
-    // ==========================================================
-    (function() {
-        function setVH() {
-            const vh = window.innerHeight * 0.01;
-            document.documentElement.style.setProperty('--vh', `${vh}px`);
-        }
-        setVH();
-        window.addEventListener('resize', setVH);
-        window.addEventListener('orientationchange', setVH);
-    })();
-    
-    // ===== INITIALIZE =====
     document.addEventListener('DOMContentLoaded', () => {
         ThemeManager.init();
         MenuManager.init();
