@@ -1,35 +1,46 @@
-# ==========================================================
-# مدیریت ربات‌های هوش مصنوعی (AI Crawlers) - 2026
-# ==========================================================
+# robots.txt برای sayehayebineghab.ir
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /api/
+Disallow: /private/
 
-# جلوگیری از خزش محتوا توسط ربات‌های آموزش‌دهنده‌ی AI
+# جلوگیری از کرال پارامترهای URL
+Disallow: /*?*
+Disallow: /*utm_
+
+# کرال تصاویر و فایل‌های مهم
+User-agent: Googlebot-Image
+Allow: /images/
+Allow: *.jpg
+Allow: *.png
+Allow: *.webp
+
+User-agent: Googlebot
+Allow: /*.css$
+Allow: /*.js$
+Crawl-delay: 0
+
+# Bing و سایر موتورهای جستجو
+User-agent: Bingbot
+Crawl-delay: 1
+
+# اجازه کرال به GPTBot برای AI Search
 User-agent: GPTBot
-Disallow: /
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
 
 User-agent: Google-Extended
-Disallow: /
+Allow: /
 
 User-agent: ClaudeBot
-Disallow: /
-
-User-agent: PerplexityBot
-Disallow: /
-
-# اجازه‌ی خزش به ربات‌های جستجوگر سنتی
-User-agent: *
-Allow: /
-Disallow: /assets/
-Crawl-delay: 1# همه‌ی ربات‌های موتور جستجو
-User-agent: *
-
-# اجازه‌ی خزش کامل تمام صفحات
 Allow: /
 
-# جلوگیری از خزش پوشه‌های غیرضروری (اختیاری)
-Disallow: /assets/
-
-# معرفی نقشه‌ی سایت
+# Sitemap
 Sitemap: https://sayehayebineghab.ir/sitemap.xml
+Sitemap: https://sayehayebineghab.ir/sitemap-index.xml
 
-# تأخیر بین درخواست‌ها (برای ربات‌های سنگین)
-Crawl-delay: 1
+# Host
+Host: https://sayehayebineghab.ir
