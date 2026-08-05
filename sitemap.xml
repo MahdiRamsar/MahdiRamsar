@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     
-    <!-- ===== صفحه اصلی ===== -->
+    <!-- ========================================================== -->
+    <!-- صفحه اصلی                                                  -->
+    <!-- ========================================================== -->
     <url>
         <loc>https://sayehayebineghab.ir/</loc>
         <lastmod>2026-08-05</lastmod>
@@ -9,9 +11,11 @@
         <priority>1.0</priority>
     </url>
 
-    <!-- ===== نوشته‌های وبلاگ (پوشه post/) ===== -->
+    <!-- ========================================================== -->
+    <!-- نوشته‌های وبلاگ (پوشه‌ی post/)                             -->
+    <!-- ========================================================== -->
 
-    <!-- ۱. تقاطع عشق و خشم -->
+    <!-- 1. تقاطع عشق و خشم -->
     <url>
         <loc>https://sayehayebineghab.ir/post/taghato-eshgh-va-kheshm.html</loc>
         <lastmod>2025-07-01</lastmod>
@@ -19,7 +23,7 @@
         <priority>0.8</priority>
     </url>
 
-    <!-- ۲. حال دلم خوب نیست -->
+    <!-- 2. حال دلم خوب نیست -->
     <url>
         <loc>https://sayehayebineghab.ir/post/hal-e-delam-khoob-nist.html</loc>
         <lastmod>2025-06-15</lastmod>
@@ -27,7 +31,7 @@
         <priority>0.8</priority>
     </url>
 
-    <!-- ۳. آن فاجعه‌ی مهربان لعنتی -->
+    <!-- 3. آن فاجعه‌ی مهربان لعنتی -->
     <url>
         <loc>https://sayehayebineghab.ir/post/an-faje-ye-mehraban-lanati.html</loc>
         <lastmod>2025-05-05</lastmod>
@@ -35,7 +39,7 @@
         <priority>0.8</priority>
     </url>
 
-    <!-- ۴. بزرگ‌ترین اشتباه ما... -->
+    <!-- 4. بزرگ‌ترین اشتباه ما... -->
     <url>
         <loc>https://sayehayebineghab.ir/post/bozorgtarin-eshtebah-ma.html</loc>
         <lastmod>2025-04-25</lastmod>
@@ -43,7 +47,7 @@
         <priority>0.8</priority>
     </url>
 
-    <!-- ۵. روزی تا خرخره عاشق بودم... -->
+    <!-- 5. روزی تا خرخره عاشق بودم... -->
     <url>
         <loc>https://sayehayebineghab.ir/post/roozi-ta-kharhare-ashiq-boodam.html</loc>
         <lastmod>2025-04-09</lastmod>
@@ -51,7 +55,7 @@
         <priority>0.8</priority>
     </url>
 
-    <!-- ۶. چه فرق می‌کند بیدار باشم یا در خواب... -->
+    <!-- 6. چه فرق می‌کند بیدار باشم یا در خواب... -->
     <url>
         <loc>https://sayehayebineghab.ir/post/che-fargh-mikonad-bidar-basham-ya-dar-khab.html</loc>
         <lastmod>2025-03-21</lastmod>
@@ -59,7 +63,7 @@
         <priority>0.8</priority>
     </url>
 
-    <!-- ۷. ویرانه‌ای که خانه شد -->
+    <!-- 7. ویرانه‌ای که خانه شد -->
     <url>
         <loc>https://sayehayebineghab.ir/post/viraneyi-ke-khane-shod.html</loc>
         <lastmod>2026-08-03</lastmod>
