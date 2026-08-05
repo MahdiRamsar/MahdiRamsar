@@ -1,4 +1,25 @@
-# همه‌ی ربات‌های موتور جستجو
+# ==========================================================
+# مدیریت ربات‌های هوش مصنوعی (AI Crawlers) - 2026
+# ==========================================================
+
+# جلوگیری از خزش محتوا توسط ربات‌های آموزش‌دهنده‌ی AI
+User-agent: GPTBot
+Disallow: /
+
+User-agent: Google-Extended
+Disallow: /
+
+User-agent: ClaudeBot
+Disallow: /
+
+User-agent: PerplexityBot
+Disallow: /
+
+# اجازه‌ی خزش به ربات‌های جستجوگر سنتی
+User-agent: *
+Allow: /
+Disallow: /assets/
+Crawl-delay: 1# همه‌ی ربات‌های موتور جستجو
 User-agent: *
 
 # اجازه‌ی خزش کامل تمام صفحات
