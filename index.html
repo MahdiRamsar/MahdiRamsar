@@ -22,7 +22,6 @@
 <meta property="og:url" content="https://sayehayebineghab.ir/">
 <meta property="og:site_name" content="سایه‌های بی‌نقاب">
 <meta property="og:locale" content="fa_IR">
-<!-- ⚠️ تصویر OG را روی هاست خودتان آپلود کنید و آدرس را جایگزین کنید -->
 <meta property="og:image" content="images/og-image.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -45,24 +44,18 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" media="print" onload="this.media='all'">
 <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
 
-<!-- ═══════════════════ JSON-LD Structured Data ═══════════════════ -->
+<!-- ═══════════════════ JSON-LD Global ═══════════════════ -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "Person",
   "name": "مهدی رحیمیان",
   "alternateName": "Mehdi Rahimian",
-  "description": "نویسنده و گوینده اهل رامسر (سخت‌سر)، متولد ۱۳۶۵ (۱۹۸۶ میلادی)",
-  "birthPlace": {
-    "@type": "Place",
-    "name": "رامسر (سخت‌سر)، ایران"
-  },
+  "description": "نویسنده و گوینده اهل رامسر (سخت‌سر)، متولد ۱۳۶۵",
+  "birthPlace": { "@type": "Place", "name": "رامسر (سخت‌سر)، ایران" },
   "jobTitle": ["نویسنده", "گوینده"],
   "url": "https://sayehayebineghab.ir",
-  "sameAs": [
-    "https://www.instagram.com/sayehaye.bi.neghab",
-    "https://t.me/sayehayebineghab"
-  ],
+  "sameAs": ["https://www.instagram.com/sayehaye.bi.neghab", "https://t.me/sayehayebineghab"],
   "knowsAbout": ["دکلمه", "دل‌نوشته", "تولید محتوای صوتی", "نویسندگی"]
 }
 </script>
@@ -73,8 +66,7 @@
   "name": "سایه‌های بی‌نقاب",
   "url": "https://sayehayebineghab.ir",
   "author": { "@type": "Person", "name": "مهدی رحیمیان" },
-  "inLanguage": "fa-IR",
-  "description": "وب‌سایت شخصی مهدی رحیمیان برای به اشتراک‌گذاری دکلمه‌ها و دل‌نوشته‌های بی‌نقاب"
+  "inLanguage": "fa-IR"
 }
 </script>
 <script type="application/ld+json">
@@ -90,28 +82,15 @@
   ]
 }
 </script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {"@type": "Question", "name": "مهدی رحیمیان کیست و چه کاری انجام می‌دهد؟", "acceptedAnswer": {"@type": "Answer", "text": "مهدی رحیمیان متولد ۱۳۶۵ در رامسر (سخت‌سر) است و به‌عنوان نویسنده و گوینده فعالیت می‌کند. او محتوای صوتی و تصویری با رویکردی عمیق و احساسی تولید می‌کند و دل‌نوشته‌های خود را در قالب دکلمه و متن منتشر می‌سازد."}},
-    {"@type": "Question", "name": "چه نوع محتوایی در سایت سایه‌های بی‌نقاب منتشر می‌شود؟", "acceptedAnswer": {"@type": "Answer", "text": "در این سایت دل‌نوشته‌های احساسی، دکلمه‌های صوتی، آثار تصویری و محتوای عمیق درباره زندگی، عشق، تنهایی و مفاهیم انسانی به اشتراک گذاشته می‌شود. تمام محتوا توسط مهدی رحیمیان تولید می‌شود."}},
-    {"@type": "Question", "name": "چگونه می‌توانم دکلمه‌های مهدی رحیمیان را بشنوم؟", "acceptedAnswer": {"@type": "Answer", "text": "با مراجعه به بخش «آثار صوتی و تصویری» در این سایت یا از طریق کانال تلگرام و اینستاگرام مهدی رحیمیان می‌توانید دکلمه‌ها را بشنوید و از محتوای صوتی لذت ببرید."}},
-    {"@type": "Question", "name": "آیا محتوای این سایت برای موتورهای جستجو و هوش مصنوعی بهینه شده است؟", "acceptedAnswer": {"@type": "Answer", "text": "بله. ساختار پاسخ‌محور، داده‌های ساختاریافته (Schema.org)، سوالات متداول، متاتگ‌های کامل، سرعت بارگذاری بالا و تجربه کاربری مناسب در این سایت رعایت شده است."}}
-  ]
-}
-</script>
 
-<!-- ═══════════════════ Styles ═══════════════════ -->
 <style>
+/* ── Reset & Root ── */
 :root {
   --purple: #7c3aed;
   --purple-light: #a78bfa;
   --purple-dark: #5b21b6;
   --gold: #c9a84c;
   --gold-light: #e0c068;
-  --silver: #c0c0c0;
   --black-velvet: #0a0a14;
   --black-soft: #13131f;
   --black-card: #1a1a2e;
@@ -125,7 +104,6 @@
   --transition-smooth: 0.5s var(--ease-cinematic);
   --font-main: 'Vazirmatn', 'Tahoma', 'Segoe UI', sans-serif;
   --player-height: 80px;
-  --focus-ring: 3px solid var(--purple);
 }
 [data-theme="light"] {
   --black-velvet: #f0f0f5;
@@ -137,15 +115,8 @@
   --glass-bg: rgba(255, 255, 255, 0.7);
   --glass-border: rgba(124, 58, 237, 0.15);
 }
-
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-
-html {
-  scroll-behavior: smooth;
-  font-size: 16px;
-  -webkit-text-size-adjust: 100%;
-}
-
+html { scroll-behavior: smooth; font-size: 16px; }
 body {
   font-family: var(--font-main);
   background: var(--black-velvet);
@@ -156,56 +127,29 @@ body {
   min-height: 100vh;
   min-height: 100dvh;
   padding-bottom: var(--player-height);
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
-
 @media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
-  }
-  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
 }
-
-:focus-visible {
-  outline: var(--focus-ring);
-  outline-offset: 3px;
-  border-radius: 4px;
-}
-
+:focus-visible { outline: 3px solid var(--purple); outline-offset: 3px; border-radius: 4px; }
 ::selection { background: var(--purple); color: #fff; }
-
-/* ── Skip Link (دسترسی‌پذیری) ── */
 .skip-link {
-  position: fixed;
-  top: -100px;
-  right: 1rem;
-  z-index: 100000;
-  background: var(--purple);
-  color: #fff;
-  padding: 0.8rem 1.5rem;
-  border-radius: 0 0 12px 12px;
-  text-decoration: none;
-  font-weight: 700;
+  position: fixed; top: -100px; right: 1rem; z-index: 100000;
+  background: var(--purple); color: #fff; padding: 0.8rem 1.5rem;
+  border-radius: 0 0 12px 12px; text-decoration: none; font-weight: 700;
   transition: top 0.3s;
 }
 .skip-link:focus { top: 0; }
 
-/* ── Progress Bars ── */
 #scroll-progress {
   position: fixed; top: 0; right: 0; height: 3px;
   background: linear-gradient(90deg, var(--purple), var(--gold));
   width: 0%; z-index: 10000;
-  transition: width 0.1s linear;
 }
 #reading-progress {
   position: fixed; top: 3px; right: 0; height: 2px;
   background: var(--gold); width: 0%; z-index: 10000;
-  opacity: 0; transition: width 0.1s linear, opacity 0.3s;
+  opacity: 0; transition: opacity 0.3s;
 }
 #reading-progress.active { opacity: 1; }
 
@@ -215,7 +159,6 @@ header {
   padding: 1rem 2rem;
   background: rgba(10, 10, 20, 0.7);
   backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
   border-bottom: 1px solid var(--glass-border);
   transition: all var(--transition-smooth);
 }
@@ -223,53 +166,27 @@ header {
 header.scrolled { padding: 0.6rem 2rem; background: rgba(10, 10, 20, 0.9); }
 [data-theme="light"] header.scrolled { background: rgba(255,255,255,0.9); }
 
-.header-inner {
-  max-width: 1400px; margin: 0 auto;
-  display: flex; justify-content: space-between; align-items: center; gap: 1rem;
-}
-.logo {
-  display: flex; align-items: center; gap: 0.7rem;
-  font-size: 1.3rem; font-weight: 700;
-  color: var(--text-primary); text-decoration: none;
-}
-.logo-icon {
-  width: 40px; height: 40px;
-  background: linear-gradient(135deg, var(--purple), var(--gold));
-  border-radius: 50%; display: flex; align-items: center; justify-content: center;
-  font-size: 1.1rem; color: white;
-  box-shadow: 0 0 20px rgba(124, 58, 237, 0.5);
-}
-.logo-text {
-  background: linear-gradient(135deg, var(--purple-light), var(--gold));
-  -webkit-background-clip: text; background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
+.header-inner { max-width: 1400px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 1rem; }
+.logo { display: flex; align-items: center; gap: 0.7rem; font-size: 1.3rem; font-weight: 700; color: var(--text-primary); text-decoration: none; }
+.logo-icon { width: 40px; height: 40px; background: linear-gradient(135deg, var(--purple), var(--gold)); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; color: white; box-shadow: 0 0 20px rgba(124, 58, 237, 0.5); }
+.logo-text { background: linear-gradient(135deg, var(--purple-light), var(--gold)); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
 nav ul { display: flex; list-style: none; gap: 2rem; }
-nav a {
-  color: var(--text-secondary); text-decoration: none;
-  font-size: 0.95rem; font-weight: 500;
-  position: relative; padding: 0.3rem 0;
-  transition: color 0.3s;
-}
-nav a::after {
-  content: ''; position: absolute; bottom: 0; right: 0;
-  width: 0; height: 2px;
-  background: linear-gradient(90deg, var(--purple), var(--gold));
-  transition: width 0.3s var(--ease-cinematic);
-}
+nav a { color: var(--text-secondary); text-decoration: none; font-size: 0.95rem; font-weight: 500; position: relative; padding: 0.3rem 0; transition: color 0.3s; }
+nav a::after { content: ''; position: absolute; bottom: 0; right: 0; width: 0; height: 2px; background: linear-gradient(90deg, var(--purple), var(--gold)); transition: width 0.3s var(--ease-cinematic); }
 nav a:hover, nav a.active { color: var(--text-primary); }
 nav a:hover::after, nav a.active::after { width: 100%; }
-
 .header-actions { display: flex; gap: 0.8rem; align-items: center; }
-.theme-toggle, .menu-toggle {
-  background: var(--glass-bg); border: 1px solid var(--glass-border);
-  color: var(--text-primary); width: 40px; height: 40px;
-  border-radius: 50%; cursor: pointer;
-  display: flex; align-items: center; justify-content: center;
-  transition: all 0.3s; font-size: 1rem;
-}
+.theme-toggle, .menu-toggle { background: var(--glass-bg); border: 1px solid var(--glass-border); color: var(--text-primary); width: 40px; height: 40px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.3s; font-size: 1rem; }
 .theme-toggle:hover, .menu-toggle:hover { background: var(--glass-hover); transform: rotate(15deg); }
 .menu-toggle { display: none; }
+
+/* ── Sections ── */
+section { padding: 6rem 2rem; position: relative; }
+.section-inner { max-width: 1200px; margin: 0 auto; }
+.section-header { text-align: center; margin-bottom: 4rem; }
+.section-title { font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 800; margin-bottom: 1rem; background: linear-gradient(135deg, var(--text-primary), var(--purple-light)); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+.section-subtitle { color: var(--text-secondary); font-size: 1.05rem; }
+.section-divider { width: 80px; height: 3px; background: linear-gradient(90deg, var(--purple), var(--gold)); margin: 1.5rem auto; border-radius: 2px; }
 
 /* ── Hero ── */
 #home {
@@ -277,779 +194,273 @@ nav a:hover::after, nav a.active::after { width: 100%; }
   display: flex; align-items: center; justify-content: center;
   overflow: hidden; padding: 6rem 2rem 4rem;
 }
-.hero-bg {
-  position: absolute; inset: 0; z-index: 0;
-  background-image: url('images/1.webp');
-  background-size: cover; background-position: center; background-repeat: no-repeat;
-}
-.hero-bg::before {
-  content: ''; position: absolute; inset: 0;
-  background:
-    radial-gradient(ellipse at 20% 30%, rgba(124,58,237,0.25) 0%, transparent 50%),
-    radial-gradient(ellipse at 80% 70%, rgba(201,168,76,0.15) 0%, transparent 50%),
-    radial-gradient(ellipse at 50% 50%, rgba(124,58,237,0.1) 0%, transparent 70%);
-  animation: heroGlow 15s ease-in-out infinite alternate;
-  z-index: 2;
-}
-.hero-bg::after {
-  content: ''; position: absolute; inset: 0;
-  background: rgba(0,0,0,0.55); z-index: 1;
-}
-@keyframes heroGlow {
-  0% { opacity: 0.7; transform: scale(1); }
-  100% { opacity: 1; transform: scale(1.1); }
-}
+.hero-bg { position: absolute; inset: 0; z-index: 0; background-image: url('images/1.webp'); background-size: cover; background-position: center; background-repeat: no-repeat; }
+.hero-bg::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 20% 30%, rgba(124,58,237,0.25) 0%, transparent 50%), radial-gradient(ellipse at 80% 70%, rgba(201,168,76,0.15) 0%, transparent 50%), radial-gradient(ellipse at 50% 50%, rgba(124,58,237,0.1) 0%, transparent 70%); animation: heroGlow 15s ease-in-out infinite alternate; z-index: 2; }
+.hero-bg::after { content: ''; position: absolute; inset: 0; background: rgba(0,0,0,0.55); z-index: 1; }
+@keyframes heroGlow { 0% { opacity: 0.7; transform: scale(1); } 100% { opacity: 1; transform: scale(1.1); } }
 .hero-particles { position: absolute; inset: 0; overflow: hidden; z-index: 3; }
-.particle {
-  position: absolute; width: 4px; height: 4px;
-  background: var(--gold); border-radius: 50%; opacity: 0;
-  animation: float 8s infinite;
-  box-shadow: 0 0 10px var(--gold);
-}
-@keyframes float {
-  0% { transform: translateY(100vh) translateX(0); opacity: 0; }
-  10% { opacity: 0.8; }
-  90% { opacity: 0.8; }
-  100% { transform: translateY(-100px) translateX(100px); opacity: 0; }
-}
+.particle { position: absolute; width: 4px; height: 4px; background: var(--gold); border-radius: 50%; opacity: 0; animation: float 8s infinite; box-shadow: 0 0 10px var(--gold); }
+@keyframes float { 0% { transform: translateY(100vh); opacity: 0; } 10% { opacity: 0.8; } 90% { opacity: 0.8; } 100% { transform: translateY(-100px) translateX(100px); opacity: 0; } }
 .hero-content { position: relative; z-index: 4; text-align: center; max-width: 900px; }
-.hero-title {
-  font-size: clamp(2.5rem, 6vw, 5rem); font-weight: 900; line-height: 1.2;
-  margin-bottom: 1rem;
-  background: linear-gradient(135deg, var(--text-primary) 0%, var(--purple-light) 50%, var(--gold) 100%);
-  -webkit-background-clip: text; background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: titleReveal 1.2s var(--ease-cinematic) both;
-}
-@keyframes titleReveal {
-  from { opacity: 0; transform: translateY(30px); filter: blur(10px); }
-  to { opacity: 1; transform: translateY(0); filter: blur(0); }
-}
-.hero-subtitle {
-  font-size: clamp(1rem, 2vw, 1.3rem); color: var(--text-secondary);
-  margin-bottom: 2rem;
-  animation: titleReveal 1.2s var(--ease-cinematic) 0.2s both;
-}
+.hero-title { font-size: clamp(2.5rem, 6vw, 5rem); font-weight: 900; line-height: 1.2; margin-bottom: 1rem; background: linear-gradient(135deg, var(--text-primary) 0%, var(--purple-light) 50%, var(--gold) 100%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; animation: titleReveal 1.2s var(--ease-cinematic) both; }
+@keyframes titleReveal { from { opacity: 0; transform: translateY(30px); filter: blur(10px); } to { opacity: 1; transform: translateY(0); filter: blur(0); } }
+.hero-subtitle { font-size: clamp(1rem, 2vw, 1.3rem); color: var(--text-secondary); margin-bottom: 2rem; animation: titleReveal 1.2s var(--ease-cinematic) 0.2s both; }
 .hero-subtitle strong { color: var(--gold); font-weight: 700; }
-.hero-cta {
-  display: inline-flex; align-items: center; gap: 0.7rem;
-  padding: 1rem 2.5rem;
-  background: linear-gradient(135deg, var(--purple), var(--purple-dark));
-  color: white; text-decoration: none; border-radius: 50px;
-  font-weight: 600; font-size: 1rem;
-  transition: all 0.4s var(--ease-cinematic);
-  box-shadow: 0 10px 40px rgba(124,58,237,0.4);
-  animation: titleReveal 1.2s var(--ease-cinematic) 0.4s both;
-}
+.hero-cta { display: inline-flex; align-items: center; gap: 0.7rem; padding: 1rem 2.5rem; background: linear-gradient(135deg, var(--purple), var(--purple-dark)); color: white; text-decoration: none; border-radius: 50px; font-weight: 600; font-size: 1rem; transition: all 0.4s var(--ease-cinematic); box-shadow: 0 10px 40px rgba(124,58,237,0.4); animation: titleReveal 1.2s var(--ease-cinematic) 0.4s both; }
 .hero-cta:hover { transform: translateY(-3px); box-shadow: 0 15px 50px rgba(124,58,237,0.6); }
 .hero-cta i { transition: transform 0.3s; }
 .hero-cta:hover i { transform: translateX(-5px); }
-
 .social-links { display: flex; justify-content: center; gap: 1.5rem; margin-top: 2.5rem; flex-wrap: wrap; }
-.social-links a {
-  color: #fff; background: rgba(255,255,255,0.12);
-  backdrop-filter: blur(4px);
-  width: clamp(50px, 8vw, 60px); height: clamp(50px, 8vw, 60px);
-  border-radius: 50%; display: flex; align-items: center; justify-content: center;
-  font-size: clamp(1.3rem, 2.5vw, 1.7rem);
-  transition: all var(--transition-smooth);
-  border: 1px solid rgba(255,255,255,0.15);
-}
+.social-links a { color: #fff; background: rgba(255,255,255,0.12); backdrop-filter: blur(4px); width: clamp(50px, 8vw, 60px); height: clamp(50px, 8vw, 60px); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: clamp(1.3rem, 2.5vw, 1.7rem); transition: all var(--transition-smooth); border: 1px solid rgba(255,255,255,0.15); }
 .social-links a:hover { transform: translateY(-8px) scale(1.08); background: rgba(255,255,255,0.25); }
-
-/* ── Sections ── */
-section { padding: 6rem 2rem; position: relative; }
-.section-inner { max-width: 1200px; margin: 0 auto; }
-.section-header { text-align: center; margin-bottom: 4rem; }
-.section-title {
-  font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 800; margin-bottom: 1rem;
-  background: linear-gradient(135deg, var(--text-primary), var(--purple-light));
-  -webkit-background-clip: text; background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-.section-subtitle { color: var(--text-secondary); font-size: 1.05rem; }
-.section-divider {
-  width: 80px; height: 3px;
-  background: linear-gradient(90deg, var(--purple), var(--gold));
-  margin: 1.5rem auto; border-radius: 2px;
-}
 
 /* ── About / Slider ── */
 #about { background: linear-gradient(180deg, var(--black-velvet) 0%, var(--black-soft) 100%); }
 .slider-container { position: relative; max-width: 900px; margin: 0 auto; min-height: 400px; }
 .slider-controls-top { display: flex; justify-content: center; gap: 1rem; margin-bottom: 2rem; }
-.slider-mode-btn {
-  background: var(--glass-bg); border: 1px solid var(--glass-border);
-  color: var(--text-secondary); padding: 0.6rem 1.2rem;
-  border-radius: 30px; cursor: pointer;
-  font-family: var(--font-main); font-size: 0.9rem;
-  transition: all 0.3s; display: flex; align-items: center; gap: 0.5rem;
-}
-.slider-mode-btn.active {
-  background: linear-gradient(135deg, var(--purple), var(--gold));
-  color: white; border-color: transparent;
-}
-.slider-viewport {
-  position: relative; overflow: hidden; border-radius: 20px;
-  background: var(--glass-bg);
-  backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
-  border: 1px solid var(--glass-border);
-  padding: 3rem; min-height: 350px;
-}
-.slide {
-  position: absolute; inset: 0; padding: 3rem;
-  opacity: 0; transform: translateX(100px);
-  transition: all 0.8s var(--ease-cinematic);
-  display: flex; flex-direction: column; justify-content: center; align-items: center;
-  text-align: center;
-}
+.slider-mode-btn { background: var(--glass-bg); border: 1px solid var(--glass-border); color: var(--text-secondary); padding: 0.6rem 1.2rem; border-radius: 30px; cursor: pointer; font-family: var(--font-main); font-size: 0.9rem; transition: all 0.3s; display: flex; align-items: center; gap: 0.5rem; }
+.slider-mode-btn.active { background: linear-gradient(135deg, var(--purple), var(--gold)); color: white; border-color: transparent; }
+.slider-viewport { position: relative; overflow: hidden; border-radius: 20px; background: var(--glass-bg); backdrop-filter: blur(20px); border: 1px solid var(--glass-border); padding: 3rem; min-height: 350px; }
+.slide { position: absolute; inset: 0; padding: 3rem; opacity: 0; transform: translateX(100px); transition: all 0.8s var(--ease-cinematic); display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
 .slide.active { opacity: 1; transform: translateX(0); }
 .slide.fade-mode { transform: translateX(0) scale(0.95); }
 .slide.fade-mode.active { transform: translateX(0) scale(1); }
-.slide-icon {
-  width: 80px; height: 80px;
-  background: linear-gradient(135deg, var(--purple), var(--gold));
-  border-radius: 50%; display: flex; align-items: center; justify-content: center;
-  font-size: 2rem; color: white; margin-bottom: 1.5rem;
-  box-shadow: 0 10px 40px rgba(124,58,237,0.4);
-}
-.slide.active .slide-icon { animation: iconPulse 2s ease-in-out infinite; }
-@keyframes iconPulse { 0%,100%{transform:scale(1)} 50%{transform:scale(1.1)} }
+.slide-icon { width: 80px; height: 80px; background: linear-gradient(135deg, var(--purple), var(--gold)); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2rem; color: white; margin-bottom: 1.5rem; box-shadow: 0 10px 40px rgba(124,58,237,0.4); }
 .slide-title { font-size: 1.6rem; font-weight: 700; margin-bottom: 1rem; color: var(--text-primary); }
 .slide-text { color: var(--text-secondary); font-size: 1.05rem; line-height: 1.9; max-width: 600px; }
 .slider-nav { display: flex; justify-content: space-between; align-items: center; margin-top: 2rem; }
-.slider-btn {
-  background: var(--glass-bg); border: 1px solid var(--glass-border);
-  color: var(--text-primary); width: 50px; height: 50px;
-  border-radius: 50%; cursor: pointer; font-size: 1.1rem;
-  transition: all 0.3s; display: flex; align-items: center; justify-content: center;
-}
+.slider-btn { background: var(--glass-bg); border: 1px solid var(--glass-border); color: var(--text-primary); width: 50px; height: 50px; border-radius: 50%; cursor: pointer; font-size: 1.1rem; transition: all 0.3s; display: flex; align-items: center; justify-content: center; }
 .slider-btn:hover { background: var(--glass-hover); transform: scale(1.1); }
 .slider-dots { display: flex; gap: 0.6rem; }
-.slider-dot {
-  width: 12px; height: 12px; border-radius: 50%;
-  background: var(--text-muted); cursor: pointer;
-  position: relative; overflow: hidden;
-  transition: background 0.3s; border: none;
-}
+.slider-dot { width: 12px; height: 12px; border-radius: 50%; background: var(--text-muted); cursor: pointer; position: relative; overflow: hidden; transition: background 0.3s; border: none; }
 .slider-dot.active { background: transparent; }
-.slider-dot.active::after {
-  content: ''; position: absolute; inset: 0;
-  background: linear-gradient(135deg, var(--purple), var(--gold));
-  border-radius: 50%; animation: dotFill 5s linear;
-}
+.slider-dot.active::after { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, var(--purple), var(--gold)); border-radius: 50%; animation: dotFill 5s linear; }
 @keyframes dotFill { from{transform:scale(0)} to{transform:scale(1)} }
 
-/* ── Telegram CTA ── */
 .telegram-cta {
   background: linear-gradient(135deg, rgba(124,58,237,0.15), rgba(201,168,76,0.1));
-  border: 1px solid var(--glass-border);
-  border-radius: 24px; padding: 3rem; text-align: center;
+  border: 1px solid var(--glass-border); border-radius: 24px; padding: 3rem; text-align: center;
   margin-top: 4rem; position: relative; overflow: hidden;
 }
-.telegram-cta::before {
-  content: ''; position: absolute; top: -50%; right: -50%;
-  width: 200%; height: 200%;
-  background: radial-gradient(circle, rgba(124,58,237,0.1) 0%, transparent 70%);
-  animation: rotate 20s linear infinite;
-}
+.telegram-cta::before { content: ''; position: absolute; top: -50%; right: -50%; width: 200%; height: 200%; background: radial-gradient(circle, rgba(124,58,237,0.1) 0%, transparent 70%); animation: rotate 20s linear infinite; }
 @keyframes rotate { from{transform:rotate(0deg)} to{transform:rotate(360deg)} }
 .telegram-cta > * { position: relative; z-index: 1; }
 .telegram-cta h3 { font-size: 1.8rem; margin-bottom: 1rem; color: var(--text-primary); }
 .telegram-cta p { color: var(--text-secondary); margin-bottom: 2rem; font-size: 1.05rem; }
-.telegram-btn {
-  display: inline-flex; align-items: center; gap: 0.8rem;
-  padding: 1rem 2.5rem;
-  background: linear-gradient(135deg, #0088cc, #00a0e3);
-  color: white; text-decoration: none; border-radius: 50px;
-  font-weight: 600; transition: all 0.4s;
-  box-shadow: 0 10px 30px rgba(0,136,204,0.4);
-}
+.telegram-btn { display: inline-flex; align-items: center; gap: 0.8rem; padding: 1rem 2.5rem; background: linear-gradient(135deg, #0088cc, #00a0e3); color: white; text-decoration: none; border-radius: 50px; font-weight: 600; transition: all 0.4s; box-shadow: 0 10px 30px rgba(0,136,204,0.4); }
 .telegram-btn:hover { transform: translateY(-3px); box-shadow: 0 15px 40px rgba(0,136,204,0.6); }
 
 /* ── Works ── */
 #works { background: var(--black-soft); }
 .works-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; }
-.work-card {
-  background: var(--glass-bg);
-  backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
-  border: 1px solid var(--glass-border);
-  border-radius: 20px; padding: 2rem;
-  transition: all 0.5s var(--ease-cinematic);
-  position: relative; overflow: hidden;
-  contain: layout style;
-}
-.work-card::before {
-  content: ''; position: absolute; top: 0; right: 0;
-  width: 100%; height: 100%;
-  background: linear-gradient(135deg, var(--purple), var(--gold));
-  opacity: 0; transition: opacity 0.5s; z-index: 0;
-}
-.work-card:hover {
-  transform: translateY(-10px); border-color: var(--purple);
-  box-shadow: 0 20px 60px rgba(124,58,237,0.3);
-}
+.work-card { background: var(--glass-bg); backdrop-filter: blur(20px); border: 1px solid var(--glass-border); border-radius: 20px; padding: 2rem; transition: all 0.5s var(--ease-cinematic); position: relative; overflow: hidden; }
+.work-card::before { content: ''; position: absolute; top: 0; right: 0; width: 100%; height: 100%; background: linear-gradient(135deg, var(--purple), var(--gold)); opacity: 0; transition: opacity 0.5s; z-index: 0; }
+.work-card:hover { transform: translateY(-10px); border-color: var(--purple); box-shadow: 0 20px 60px rgba(124,58,237,0.3); }
 .work-card:hover::before { opacity: 0.05; }
 .work-card > * { position: relative; z-index: 1; }
-.work-badge {
-  display: inline-block; padding: 0.3rem 0.8rem;
-  background: linear-gradient(135deg, var(--purple), var(--gold));
-  color: white; border-radius: 20px;
-  font-size: 0.75rem; font-weight: 600; margin-bottom: 1rem;
-}
-.work-icon {
-  font-size: 2.5rem; margin-bottom: 1rem;
-  background: linear-gradient(135deg, var(--purple-light), var(--gold));
-  -webkit-background-clip: text; background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
+.work-badge { display: inline-block; padding: 0.3rem 0.8rem; background: linear-gradient(135deg, var(--purple), var(--gold)); color: white; border-radius: 20px; font-size: 0.75rem; font-weight: 600; margin-bottom: 1rem; }
+.work-icon { font-size: 2.5rem; margin-bottom: 1rem; background: linear-gradient(135deg, var(--purple-light), var(--gold)); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
 .work-title { font-size: 1.3rem; font-weight: 700; margin-bottom: 0.8rem; color: var(--text-primary); }
 .work-desc { color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 1.5rem; }
-.work-link {
-  display: inline-flex; align-items: center; gap: 0.5rem;
-  color: var(--purple-light); text-decoration: none;
-  font-weight: 600; font-size: 0.9rem; transition: all 0.3s;
-}
+.work-link { display: inline-flex; align-items: center; gap: 0.5rem; color: var(--purple-light); text-decoration: none; font-weight: 600; font-size: 0.9rem; transition: all 0.3s; }
 .work-link:hover { color: var(--gold); gap: 0.8rem; }
 
 /* ── Blog ── */
-#blog {
-  background: linear-gradient(180deg, var(--black-soft) 0%, var(--black-velvet) 100%);
-  position: relative;
-}
-#blog::before {
-  content: ''; position: absolute; top: 20%; right: -10%;
-  width: 500px; height: 500px;
-  background: radial-gradient(circle, rgba(124,58,237,0.08) 0%, transparent 70%);
-  pointer-events: none; z-index: 0;
-}
-#blog::after {
-  content: ''; position: absolute; bottom: 10%; left: -10%;
-  width: 500px; height: 500px;
-  background: radial-gradient(circle, rgba(201,168,76,0.06) 0%, transparent 70%);
-  pointer-events: none; z-index: 0;
-}
+#blog { background: linear-gradient(180deg, var(--black-soft) 0%, var(--black-velvet) 100%); position: relative; }
+#blog::before { content: ''; position: absolute; top: 20%; right: -10%; width: 500px; height: 500px; background: radial-gradient(circle, rgba(124,58,237,0.08) 0%, transparent 70%); pointer-events: none; z-index: 0; }
+#blog::after { content: ''; position: absolute; bottom: 10%; left: -10%; width: 500px; height: 500px; background: radial-gradient(circle, rgba(201,168,76,0.06) 0%, transparent 70%); pointer-events: none; z-index: 0; }
 #blog .section-inner { position: relative; z-index: 1; }
 
 .blog-search { max-width: 700px; margin: 0 auto 2rem; position: relative; }
-.blog-search input {
-  width: 100%; padding: 1.1rem 1.8rem 1.1rem 3.5rem;
-  background: var(--glass-bg);
-  backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
-  border: 1px solid var(--glass-border);
-  border-radius: 50px; color: var(--text-primary);
-  font-family: var(--font-main); font-size: 1rem;
-  transition: all 0.3s;
-}
-.blog-search input:focus {
-  outline: none; border-color: var(--purple);
-  box-shadow: 0 0 0 3px rgba(124,58,237,0.2);
-}
-.blog-search i {
-  position: absolute; left: 1.8rem; top: 50%;
-  transform: translateY(-50%); color: var(--text-muted);
-}
+.blog-search input { width: 100%; padding: 1.1rem 1.8rem 1.1rem 3.5rem; background: var(--glass-bg); backdrop-filter: blur(20px); border: 1px solid var(--glass-border); border-radius: 50px; color: var(--text-primary); font-family: var(--font-main); font-size: 1rem; transition: all 0.3s; }
+.blog-search input:focus { outline: none; border-color: var(--purple); box-shadow: 0 0 0 3px rgba(124,58,237,0.2); }
+.blog-search i { position: absolute; left: 1.8rem; top: 50%; transform: translateY(-50%); color: var(--text-muted); }
 
 .blog-view-controls { display: flex; justify-content: center; gap: 0.6rem; margin-bottom: 3rem; }
-.view-toggle-btn {
-  background: var(--glass-bg);
-  backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
-  border: 1px solid var(--glass-border);
-  color: var(--text-secondary); padding: 0.6rem 1.2rem;
-  border-radius: 30px; cursor: pointer;
-  font-family: var(--font-main); font-size: 0.9rem;
-  transition: all 0.3s; display: flex; align-items: center; gap: 0.5rem;
-}
-.view-toggle-btn.active {
-  background: linear-gradient(135deg, var(--purple), var(--gold));
-  color: white; border-color: transparent;
-  box-shadow: 0 5px 20px rgba(124,58,237,0.3);
-}
+.view-toggle-btn { background: var(--glass-bg); backdrop-filter: blur(20px); border: 1px solid var(--glass-border); color: var(--text-secondary); padding: 0.6rem 1.2rem; border-radius: 30px; cursor: pointer; font-family: var(--font-main); font-size: 0.9rem; transition: all 0.3s; display: flex; align-items: center; gap: 0.5rem; }
+.view-toggle-btn.active { background: linear-gradient(135deg, var(--purple), var(--gold)); color: white; border-color: transparent; box-shadow: 0 5px 20px rgba(124,58,237,0.3); }
 .view-toggle-btn:hover:not(.active) { background: var(--glass-hover); color: var(--text-primary); }
 
-.featured-post {
-  position: relative; border-radius: 28px; overflow: hidden;
-  margin-bottom: 4rem; min-height: 480px; cursor: pointer;
-  transition: all 0.6s var(--ease-cinematic);
-  background: var(--black-card);
-}
+.featured-post { position: relative; border-radius: 28px; overflow: hidden; margin-bottom: 4rem; min-height: 480px; cursor: pointer; transition: all 0.6s var(--ease-cinematic); background: var(--black-card); }
 .featured-post:hover { transform: translateY(-8px); box-shadow: 0 30px 80px rgba(124,58,237,0.35); }
-.featured-post-bg {
-  position: absolute; inset: 0;
-  background-size: cover; background-position: center;
-  transition: transform 1.2s var(--ease-cinematic);
-}
+.featured-post-bg { position: absolute; inset: 0; background-size: cover; background-position: center; transition: transform 1.2s var(--ease-cinematic); }
 .featured-post:hover .featured-post-bg { transform: scale(1.08); }
-.featured-post-overlay {
-  position: absolute; inset: 0;
-  background: linear-gradient(135deg, rgba(10,10,20,0.85) 0%, rgba(10,10,20,0.6) 40%, rgba(124,58,237,0.3) 100%);
-  z-index: 1;
-}
-.featured-post-content {
-  position: relative; z-index: 2; padding: 3.5rem;
-  display: flex; flex-direction: column; justify-content: flex-end;
-  height: 100%; min-height: 480px;
-}
-.featured-badge {
-  display: inline-flex; align-items: center; gap: 0.5rem;
-  padding: 0.5rem 1.2rem;
-  background: linear-gradient(135deg, var(--gold), var(--gold-light));
-  color: var(--black-velvet); border-radius: 30px;
-  font-size: 0.8rem; font-weight: 700; margin-bottom: 1.5rem;
-  width: fit-content; box-shadow: 0 5px 20px rgba(201,168,76,0.4);
-}
-.featured-title {
-  font-size: clamp(1.8rem, 4vw, 3rem); font-weight: 800;
-  color: white; line-height: 1.3; margin-bottom: 1rem;
-  max-width: 700px; text-shadow: 0 2px 20px rgba(0,0,0,0.5);
-}
-.featured-excerpt {
-  color: rgba(255,255,255,0.85); font-size: 1.1rem; line-height: 1.8;
-  max-width: 600px; margin-bottom: 2rem;
-}
-.featured-meta {
-  display: flex; align-items: center; gap: 2rem; flex-wrap: wrap;
-  color: rgba(255,255,255,0.7); font-size: 0.9rem;
-}
-.featured-meta-item { display: inline-flex; align-items: center; gap: 0.5rem; }
+.featured-post-overlay { position: absolute; inset: 0; background: linear-gradient(135deg, rgba(10,10,20,0.85) 0%, rgba(10,10,20,0.6) 40%, rgba(124,58,237,0.3) 100%); z-index: 1; }
+.featured-post-content { position: relative; z-index: 2; padding: 3.5rem; display: flex; flex-direction: column; justify-content: flex-end; height: 100%; min-height: 480px; }
+.featured-badge { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.5rem 1.2rem; background: linear-gradient(135deg, var(--gold), var(--gold-light)); color: var(--black-velvet); border-radius: 30px; font-size: 0.8rem; font-weight: 700; margin-bottom: 1.5rem; width: fit-content; box-shadow: 0 5px 20px rgba(201,168,76,0.4); }
+.featured-title { font-size: clamp(1.8rem, 4vw, 3rem); font-weight: 800; color: white; line-height: 1.3; margin-bottom: 1rem; max-width: 700px; text-shadow: 0 2px 20px rgba(0,0,0,0.5); }
+.featured-excerpt { color: rgba(255,255,255,0.85); font-size: 1.1rem; line-height: 1.8; max-width: 600px; margin-bottom: 2rem; }
+.featured-meta { display: flex; align-items: center; gap: 2rem; flex-wrap: wrap; color: rgba(255,255,255,0.7); font-size: 0.9rem; }
 .featured-meta-item i { color: var(--gold); }
-.featured-read-btn {
-  display: inline-flex; align-items: center; gap: 0.7rem;
-  padding: 0.8rem 1.8rem;
-  background: rgba(255,255,255,0.15);
-  backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255,255,255,0.25);
-  color: white; border-radius: 50px; font-weight: 600; font-size: 0.95rem;
-  width: fit-content; margin-top: 1.5rem;
-  transition: all 0.4s var(--ease-cinematic);
-}
-.featured-post:hover .featured-read-btn {
-  background: var(--gold); color: var(--black-velvet);
-  border-color: var(--gold); gap: 1rem;
-}
+.featured-read-btn { display: inline-flex; align-items: center; gap: 0.7rem; padding: 0.8rem 1.8rem; background: rgba(255,255,255,0.15); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.25); color: white; border-radius: 50px; font-weight: 600; font-size: 0.95rem; width: fit-content; margin-top: 1.5rem; transition: all 0.4s var(--ease-cinematic); }
+.featured-post:hover .featured-read-btn { background: var(--gold); color: var(--black-velvet); border-color: var(--gold); gap: 1rem; }
 
 .blog-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; }
-.blog-card {
-  position: relative;
-  background: var(--glass-bg);
-  backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
-  border: 1px solid var(--glass-border);
-  border-radius: 20px; overflow: hidden;
-  transition: all 0.5s var(--ease-cinematic);
-  cursor: pointer; display: flex; flex-direction: column;
-  contain: layout style;
-}
-.blog-card:hover {
-  transform: translateY(-10px); border-color: var(--purple);
-  box-shadow: 0 25px 60px rgba(124,58,237,0.3);
-}
-.blog-card-number {
-  position: absolute; top: 1.5rem; right: 1.5rem;
-  font-size: 4rem; font-weight: 900; line-height: 1;
-  background: linear-gradient(135deg, var(--purple-light), var(--gold));
-  -webkit-background-clip: text; background-clip: text;
-  -webkit-text-fill-color: transparent;
-  opacity: 0.25; z-index: 2; pointer-events: none;
-  font-family: 'Georgia', serif;
-  transition: all 0.5s var(--ease-cinematic);
-}
+.blog-card { position: relative; background: var(--glass-bg); backdrop-filter: blur(20px); border: 1px solid var(--glass-border); border-radius: 20px; overflow: hidden; transition: all 0.5s var(--ease-cinematic); cursor: pointer; display: flex; flex-direction: column; }
+.blog-card:hover { transform: translateY(-10px); border-color: var(--purple); box-shadow: 0 25px 60px rgba(124,58,237,0.3); }
+.blog-card-number { position: absolute; top: 1.5rem; right: 1.5rem; font-size: 4rem; font-weight: 900; line-height: 1; background: linear-gradient(135deg, var(--purple-light), var(--gold)); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; opacity: 0.25; z-index: 2; pointer-events: none; font-family: 'Georgia', serif; transition: all 0.5s var(--ease-cinematic); }
 .blog-card:hover .blog-card-number { opacity: 0.5; transform: scale(1.1) rotate(-5deg); }
 .blog-card-img-wrap { overflow: hidden; position: relative; height: 240px; aspect-ratio: 3/2; }
-.blog-card-img {
-  width: 100%; height: 100%; object-fit: cover;
-  transition: transform 0.8s var(--ease-cinematic);
-  background: var(--black-velvet);
-}
+.blog-card-img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.8s var(--ease-cinematic); background: var(--black-velvet); }
 .blog-card:hover .blog-card-img { transform: scale(1.1); }
-.blog-card-img-wrap::after {
-  content: ''; position: absolute; inset: 0;
-  background: linear-gradient(180deg, transparent 40%, rgba(10,10,20,0.9) 100%);
-  pointer-events: none;
-}
-.blog-card-tag {
-  position: absolute; top: 1.2rem; left: 1.2rem;
-  padding: 0.3rem 0.9rem;
-  background: rgba(10,10,20,0.75);
-  backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(201,168,76,0.3);
-  color: var(--gold); border-radius: 20px;
-  font-size: 0.75rem; font-weight: 600; z-index: 3;
-  display: inline-flex; align-items: center; gap: 0.4rem;
-}
-.blog-card-body {
-  padding: 1.8rem; flex: 1;
-  display: flex; flex-direction: column; position: relative;
-}
-.blog-card-date {
-  display: inline-flex; align-items: center; gap: 0.4rem;
-  font-size: 0.8rem; color: var(--gold);
-  margin-bottom: 0.8rem; font-weight: 600;
-}
-.blog-card-title {
-  font-size: 1.3rem; font-weight: 700; margin-bottom: 0.8rem;
-  color: var(--text-primary); line-height: 1.5; transition: color 0.3s;
-}
-.blog-card:hover .blog-card-title {
-  background: linear-gradient(135deg, var(--purple-light), var(--gold));
-  -webkit-background-clip: text; background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-.blog-card-excerpt {
-  color: var(--text-secondary); font-size: 0.92rem; line-height: 1.8;
-  margin-bottom: 1.5rem; flex: 1;
-  display: -webkit-box; -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical; overflow: hidden;
-}
-.blog-card-footer {
-  display: flex; justify-content: space-between; align-items: center;
-  padding-top: 1.2rem; border-top: 1px solid var(--glass-border); margin-top: auto;
-}
-.read-more {
-  color: var(--purple-light); text-decoration: none;
-  font-weight: 600; font-size: 0.9rem;
-  display: inline-flex; align-items: center; gap: 0.5rem;
-  transition: all 0.3s;
-}
+.blog-card-img-wrap::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 40%, rgba(10,10,20,0.9) 100%); pointer-events: none; }
+.blog-card-tag { position: absolute; top: 1.2rem; left: 1.2rem; padding: 0.3rem 0.9rem; background: rgba(10,10,20,0.75); backdrop-filter: blur(10px); border: 1px solid rgba(201,168,76,0.3); color: var(--gold); border-radius: 20px; font-size: 0.75rem; font-weight: 600; z-index: 3; display: inline-flex; align-items: center; gap: 0.4rem; }
+.blog-card-body { padding: 1.8rem; flex: 1; display: flex; flex-direction: column; position: relative; }
+.blog-card-date { display: inline-flex; align-items: center; gap: 0.4rem; font-size: 0.8rem; color: var(--gold); margin-bottom: 0.8rem; font-weight: 600; }
+.blog-card-title { font-size: 1.3rem; font-weight: 700; margin-bottom: 0.8rem; color: var(--text-primary); line-height: 1.5; transition: color 0.3s; }
+.blog-card:hover .blog-card-title { background: linear-gradient(135deg, var(--purple-light), var(--gold)); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+.blog-card-excerpt { color: var(--text-secondary); font-size: 0.92rem; line-height: 1.8; margin-bottom: 1.5rem; flex: 1; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+.blog-card-footer { display: flex; justify-content: space-between; align-items: center; padding-top: 1.2rem; border-top: 1px solid var(--glass-border); margin-top: auto; }
+.read-more { color: var(--purple-light); text-decoration: none; font-weight: 600; font-size: 0.9rem; display: inline-flex; align-items: center; gap: 0.5rem; transition: all 0.3s; }
 .read-more i { transition: transform 0.3s; }
 .blog-card:hover .read-more { color: var(--gold); }
 .blog-card:hover .read-more i { transform: translateX(-5px); }
 .blog-card-stats { display: flex; align-items: center; gap: 1rem; color: var(--text-muted); font-size: 0.8rem; }
 .blog-card-stats span { display: inline-flex; align-items: center; gap: 0.3rem; }
-.share-btn {
-  background: var(--glass-bg); border: 1px solid var(--glass-border);
-  color: var(--text-secondary); width: 36px; height: 36px;
-  border-radius: 50%; cursor: pointer; transition: all 0.3s;
-  display: flex; align-items: center; justify-content: center;
-}
+.share-btn { background: var(--glass-bg); border: 1px solid var(--glass-border); color: var(--text-secondary); width: 36px; height: 36px; border-radius: 50%; cursor: pointer; transition: all 0.3s; display: flex; align-items: center; justify-content: center; }
 .share-btn:hover { background: var(--purple); color: white; border-color: var(--purple); transform: rotate(15deg); }
-
 .blog-grid.list-view { grid-template-columns: 1fr; gap: 1.5rem; }
 .blog-grid.list-view .blog-card { flex-direction: row; align-items: stretch; }
 .blog-grid.list-view .blog-card-img-wrap { width: 280px; height: auto; min-height: 220px; flex-shrink: 0; }
 .blog-grid.list-view .blog-card-body { padding: 2rem; justify-content: center; }
 .blog-grid.list-view .blog-card-excerpt { -webkit-line-clamp: 2; }
 .blog-grid.list-view .blog-card-number { font-size: 5rem; top: 50%; transform: translateY(-50%); }
-
 .blog-card.reveal { opacity: 0; transform: translateY(40px); transition: opacity 0.8s var(--ease-cinematic), transform 0.8s var(--ease-cinematic); }
 .blog-card.reveal.visible { opacity: 1; transform: translateY(0); }
 .featured-post.reveal { opacity: 0; transform: translateY(40px) scale(0.98); transition: opacity 1s var(--ease-cinematic), transform 1s var(--ease-cinematic); }
 .featured-post.reveal.visible { opacity: 1; transform: translateY(0) scale(1); }
-
-.no-results {
-  text-align: center; padding: 4rem 2rem;
-  color: var(--text-muted); font-size: 1.1rem;
-  background: var(--glass-bg);
-  backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
-  border: 1px solid var(--glass-border); border-radius: 20px;
-}
+.no-results { text-align: center; padding: 4rem 2rem; color: var(--text-muted); font-size: 1.1rem; background: var(--glass-bg); backdrop-filter: blur(20px); border: 1px solid var(--glass-border); border-radius: 20px; }
 
 /* ── Post Modal ── */
-.post-modal {
-  display: none; position: fixed; inset: 0; z-index: 10000;
-  background: rgba(0,0,0,0.75);
-  backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
-  align-items: center; justify-content: center; padding: 2rem;
-  animation: modalFadeIn 0.3s ease;
-}
+.post-modal { display: none; position: fixed; inset: 0; z-index: 10000; background: rgba(0,0,0,0.75); backdrop-filter: blur(12px); align-items: center; justify-content: center; padding: 2rem; }
 .post-modal.active { display: flex; }
-@keyframes modalFadeIn { from{opacity:0} to{opacity:1} }
-.post-modal-content {
-  background: var(--black-card); border-radius: 24px;
-  max-width: 820px; width: 100%;
-  max-height: 90vh; max-height: 90dvh;
-  overflow-y: auto; overscroll-behavior: contain;
-  position: relative;
-  box-shadow: 0 30px 80px rgba(0,0,0,0.6);
-  animation: modalSlideUp 0.4s var(--ease-cinematic);
-  border: 1px solid var(--glass-border);
-}
-@keyframes modalSlideUp {
-  from { opacity: 0; transform: translateY(40px) scale(0.96); }
-  to { opacity: 1; transform: translateY(0) scale(1); }
-}
-.post-modal-close {
-  position: absolute; top: 1.2rem; left: 1.2rem;
-  width: 44px; height: 44px;
-  background: rgba(0,0,0,0.5);
-  backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
-  border: 1px solid rgba(255,255,255,0.15);
-  border-radius: 50%; color: #fff; cursor: pointer;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 1.2rem; transition: all 0.3s; z-index: 10;
-}
+.post-modal-content { background: var(--black-card); border-radius: 24px; max-width: 820px; width: 100%; max-height: 90vh; max-height: 90dvh; overflow-y: auto; position: relative; box-shadow: 0 30px 80px rgba(0,0,0,0.6); border: 1px solid var(--glass-border); }
+.post-modal-close { position: absolute; top: 1.2rem; left: 1.2rem; width: 44px; height: 44px; background: rgba(0,0,0,0.5); backdrop-filter: blur(8px); border: 1px solid rgba(255,255,255,0.15); border-radius: 50%; color: #fff; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; transition: all 0.3s; z-index: 10; }
 .post-modal-close:hover { background: var(--purple); transform: rotate(90deg); border-color: var(--purple); }
-.post-modal-img {
-  width: 100%; height: 320px; object-fit: cover;
-  border-radius: 24px 24px 0 0; display: block;
-  background: var(--black-velvet);
-}
+.post-modal-img { width: 100%; height: 320px; object-fit: cover; border-radius: 24px 24px 0 0; display: block; background: var(--black-velvet); }
 .post-modal-header { padding: 1.8rem 2.5rem 1rem; }
-.post-modal-tag {
-  display: inline-block; padding: 0.3rem 1rem;
-  background: linear-gradient(135deg, var(--purple), var(--gold));
-  color: #fff; border-radius: 30px;
-  font-size: 0.75rem; font-weight: 600; margin-bottom: 0.8rem;
-}
-.post-modal-title {
-  font-size: clamp(1.6rem, 3vw, 2.2rem); font-weight: 800;
-  color: var(--text-primary); line-height: 1.3; margin-bottom: 0.5rem;
-}
-.post-modal-meta {
-  display: flex; gap: 1.5rem; color: var(--text-muted);
-  font-size: 0.85rem; flex-wrap: wrap;
-}
+.post-modal-tag { display: inline-block; padding: 0.3rem 1rem; background: linear-gradient(135deg, var(--purple), var(--gold)); color: #fff; border-radius: 30px; font-size: 0.75rem; font-weight: 600; margin-bottom: 0.8rem; }
+.post-modal-title { font-size: clamp(1.6rem, 3vw, 2.2rem); font-weight: 800; color: var(--text-primary); line-height: 1.3; margin-bottom: 0.5rem; }
+.post-modal-meta { display: flex; gap: 1.5rem; color: var(--text-muted); font-size: 0.85rem; flex-wrap: wrap; }
 .post-modal-meta span { display: inline-flex; align-items: center; gap: 0.4rem; }
 .post-modal-meta i { color: var(--gold); }
-.post-modal-body {
-  padding: 0 2.5rem 2rem;
-  color: var(--text-secondary); font-size: 1rem; line-height: 2;
-}
+.post-modal-body { padding: 0 2.5rem 2rem; color: var(--text-secondary); font-size: 1rem; line-height: 2; }
+/* --- styles for rendered markdown --- */
+.post-modal-body h2 { font-size: 1.6rem; color: var(--text-primary); margin: 2rem 0 1rem 0; padding-right: 0.5rem; border-right: 4px solid var(--gold); }
+.post-modal-body h3 { font-size: 1.3rem; color: var(--text-primary); margin: 1.5rem 0 0.8rem 0; }
 .post-modal-body p { margin-bottom: 1.3rem; }
-.post-modal-footer {
-  padding: 1.5rem 2.5rem 2.5rem;
-  border-top: 1px solid var(--glass-border);
-  display: flex; gap: 1rem; flex-wrap: wrap;
-}
-.post-nav-btn {
-  flex: 1; min-width: 120px; padding: 0.8rem 1.2rem;
-  background: var(--glass-bg); border: 1px solid var(--glass-border);
-  border-radius: 12px; color: var(--text-primary);
-  transition: all 0.3s; cursor: pointer;
-  font-family: var(--font-main); text-align: right; font-size: 0.9rem;
-}
+.post-modal-body ul { list-style: none; padding: 0; margin: 1rem 0 1.5rem 0; }
+.post-modal-body ul li { position: relative; padding-right: 1.8rem; margin-bottom: 0.6rem; }
+.post-modal-body ul li::before { content: '▸'; position: absolute; right: 0; color: var(--gold); font-weight: bold; }
+.post-modal-body strong { color: var(--gold); font-weight: 700; }
+/* --- Related Posts --- */
+.related-posts-section { margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--glass-border); }
+.related-posts-section h3 { font-size: 1.3rem; color: var(--text-primary); margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.5rem; }
+.related-posts-section h3 i { color: var(--gold); }
+.related-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+.related-card { display: flex; gap: 1rem; padding: 1rem; background: var(--glass-bg); border-radius: 12px; text-decoration: none; color: var(--text-primary); transition: all 0.3s; border: 1px solid transparent; align-items: center; }
+.related-card:hover { border-color: var(--gold); transform: translateY(-2px); background: var(--glass-hover); }
+.related-card img { width: 70px; height: 70px; object-fit: cover; border-radius: 8px; flex-shrink: 0; background: var(--black-velvet); }
+.related-card .info { display: flex; flex-direction: column; gap: 0.2rem; overflow: hidden; }
+.related-card .info h4 { font-size: 0.95rem; font-weight: 600; margin: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.related-card .info p { font-size: 0.8rem; color: var(--text-muted); margin: 0; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+/* --- FAQ inside Post --- */
+.post-faq-section { margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--glass-border); }
+.post-faq-section h3 { font-size: 1.3rem; color: var(--text-primary); margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.5rem; }
+.post-faq-section h3 i { color: var(--gold); }
+.post-faq-item { margin: 1rem 0; padding: 1.2rem 1.5rem; background: var(--glass-bg); border-radius: 12px; border-right: 3px solid var(--purple); }
+.post-faq-item h4 { margin: 0 0 0.5rem 0; color: var(--gold); font-size: 1rem; }
+.post-faq-item p { margin: 0; color: var(--text-secondary); line-height: 1.8; font-size: 0.95rem; }
+
+.post-modal-footer { padding: 1.5rem 2.5rem 2.5rem; border-top: 1px solid var(--glass-border); display: flex; gap: 1rem; flex-wrap: wrap; }
+.post-nav-btn { flex: 1; min-width: 120px; padding: 0.8rem 1.2rem; background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: 12px; color: var(--text-primary); transition: all 0.3s; cursor: pointer; font-family: var(--font-main); text-align: right; font-size: 0.9rem; }
 .post-nav-btn:hover:not(:disabled) { border-color: var(--purple); background: var(--glass-hover); }
 .post-nav-btn:disabled { opacity: 0.3; cursor: not-allowed; }
 .post-nav-btn small { display: block; color: var(--text-muted); font-size: 0.75rem; margin-bottom: 0.2rem; }
 .post-modal-content::-webkit-scrollbar { width: 8px; }
 .post-modal-content::-webkit-scrollbar-track { background: var(--black-velvet); border-radius: 0 0 24px 0; }
 .post-modal-content::-webkit-scrollbar-thumb { background: var(--purple); border-radius: 4px; }
-.post-modal-content { scrollbar-width: thin; scrollbar-color: var(--purple) var(--black-velvet); }
 
-/* ── FAQ ── */
+/* ── FAQ Page ── */
 #faq { background: var(--black-velvet); }
 .faq-list { max-width: 800px; margin: 0 auto; }
-.faq-item {
-  background: var(--glass-bg);
-  backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
-  border: 1px solid var(--glass-border);
-  border-radius: 16px; margin-bottom: 1rem;
-  overflow: hidden; transition: all 0.3s;
-}
+.faq-item { background: var(--glass-bg); backdrop-filter: blur(20px); border: 1px solid var(--glass-border); border-radius: 16px; margin-bottom: 1rem; overflow: hidden; transition: all 0.3s; }
 .faq-item:hover { border-color: var(--purple); }
-.faq-question {
-  width: 100%; padding: 1.5rem; background: none; border: none;
-  color: var(--text-primary); font-family: var(--font-main);
-  font-size: 1.05rem; font-weight: 600; text-align: right;
-  cursor: pointer; display: flex; justify-content: space-between;
-  align-items: center; gap: 1rem; transition: color 0.3s;
-}
+.faq-question { width: 100%; padding: 1.5rem; background: none; border: none; color: var(--text-primary); font-family: var(--font-main); font-size: 1.05rem; font-weight: 600; text-align: right; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 1rem; transition: color 0.3s; }
 .faq-question:hover { color: var(--purple-light); }
 .faq-question i { transition: transform 0.4s var(--ease-cinematic); color: var(--purple-light); }
 .faq-item.active .faq-question i { transform: rotate(180deg); }
-.faq-answer {
-  max-height: 0; overflow: hidden;
-  transition: max-height 0.5s var(--ease-cinematic), padding 0.5s;
-  padding: 0 1.5rem;
-}
+.faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.5s var(--ease-cinematic), padding 0.5s; padding: 0 1.5rem; }
 .faq-item.active .faq-answer { max-height: 500px; padding: 0 1.5rem 1.5rem; }
 .faq-answer p { color: var(--text-secondary); line-height: 1.9; }
 
-.references {
-  max-width: 800px; margin: 4rem auto 0; padding: 2rem;
-  background: var(--glass-bg);
-  backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
-  border: 1px solid var(--glass-border); border-radius: 16px;
-}
+.references { max-width: 800px; margin: 4rem auto 0; padding: 2rem; background: var(--glass-bg); backdrop-filter: blur(20px); border: 1px solid var(--glass-border); border-radius: 16px; }
 .references h3 { font-size: 1.3rem; margin-bottom: 1rem; color: var(--text-primary); }
 .references ul { list-style: none; }
 .references li { margin-bottom: 0.6rem; }
-.references a {
-  color: var(--purple-light); text-decoration: none;
-  display: inline-flex; align-items: center; gap: 0.5rem;
-  transition: color 0.3s;
-}
+.references a { color: var(--purple-light); text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem; transition: color 0.3s; }
 .references a:hover { color: var(--gold); }
 
 /* ── Footer ── */
 footer { background: var(--black-soft); padding: 3rem 2rem 1.5rem; border-top: 1px solid var(--glass-border); }
 .footer-inner { max-width: 1200px; margin: 0 auto; text-align: center; }
 .footer-social { display: flex; justify-content: center; gap: 1rem; margin-bottom: 1.5rem; }
-.footer-social a {
-  width: 44px; height: 44px;
-  background: var(--glass-bg); border: 1px solid var(--glass-border);
-  border-radius: 50%; display: flex; align-items: center; justify-content: center;
-  color: var(--text-secondary); text-decoration: none;
-  transition: all 0.3s; font-size: 1.1rem;
-}
-.footer-social a:hover {
-  background: var(--purple); color: white;
-  border-color: var(--purple); transform: translateY(-3px);
-}
+.footer-social a { width: 44px; height: 44px; background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--text-secondary); text-decoration: none; transition: all 0.3s; font-size: 1.1rem; }
+.footer-social a:hover { background: var(--purple); color: white; border-color: var(--purple); transform: translateY(-3px); }
 .footer-text { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 0.5rem; }
 .footer-text a { color: var(--purple-light); text-decoration: none; }
 .footer-text a:hover { color: var(--gold); }
 
 /* ── Music Player ── */
-.music-player {
-  position: fixed; bottom: 20px; left: 20px;
-  background: rgba(10,10,20,0.95);
-  backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
-  border: 1px solid var(--glass-border);
-  border-radius: 50px; padding: 0.5rem 0.6rem;
-  display: flex; align-items: center; gap: 0.5rem;
-  z-index: 9999; box-shadow: 0 10px 40px rgba(0,0,0,0.5);
-  transition: all 0.3s;
-}
+.music-player { position: fixed; bottom: 20px; left: 20px; background: rgba(10,10,20,0.95); backdrop-filter: blur(20px); border: 1px solid var(--glass-border); border-radius: 50px; padding: 0.5rem 0.6rem; display: flex; align-items: center; gap: 0.5rem; z-index: 9999; box-shadow: 0 10px 40px rgba(0,0,0,0.5); transition: all 0.3s; }
 [data-theme="light"] .music-player { background: rgba(255,255,255,0.95); }
 .music-player:hover { border-color: var(--purple); }
-.play-btn {
-  width: 44px; height: 44px;
-  background: linear-gradient(135deg, var(--purple), var(--gold));
-  border: none; border-radius: 50%; color: white;
-  cursor: pointer; display: flex; align-items: center; justify-content: center;
-  font-size: 1rem; transition: all 0.3s;
-  position: relative; flex-shrink: 0;
-}
+.play-btn { width: 44px; height: 44px; background: linear-gradient(135deg, var(--purple), var(--gold)); border: none; border-radius: 50%; color: white; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 1rem; transition: all 0.3s; position: relative; flex-shrink: 0; }
 .play-btn.playing { animation: pulse 2s ease-in-out infinite; }
-@keyframes pulse {
-  0%,100% { box-shadow: 0 0 0 0 rgba(124,58,237,0.7); }
-  50% { box-shadow: 0 0 0 15px rgba(124,58,237,0); }
-}
+@keyframes pulse { 0%,100% { box-shadow: 0 0 0 0 rgba(124,58,237,0.7); } 50% { box-shadow: 0 0 0 15px rgba(124,58,237,0); } }
 .play-btn:hover { transform: scale(1.1); }
-.track-nav-btn {
-  width: 34px; height: 34px;
-  background: var(--glass-bg); border: 1px solid var(--glass-border);
-  border-radius: 50%; color: var(--text-secondary);
-  cursor: pointer; display: flex; align-items: center; justify-content: center;
-  font-size: 0.75rem; transition: all 0.3s; flex-shrink: 0;
-}
-.track-nav-btn:hover {
-  background: var(--glass-hover); color: var(--text-primary);
-  border-color: var(--purple); transform: scale(1.1);
-}
-.player-info {
-  display: flex; flex-direction: column;
-  min-width: 130px; max-width: 180px; overflow: hidden;
-}
-.player-title {
-  font-size: 0.78rem; color: var(--text-primary);
-  font-weight: 600; white-space: nowrap;
-  overflow: hidden; text-overflow: ellipsis;
-  transition: all 0.3s;
-}
+.track-nav-btn { width: 34px; height: 34px; background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: 50%; color: var(--text-secondary); cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; transition: all 0.3s; flex-shrink: 0; }
+.track-nav-btn:hover { background: var(--glass-hover); color: var(--text-primary); border-color: var(--purple); transform: scale(1.1); }
+.player-info { display: flex; flex-direction: column; min-width: 130px; max-width: 180px; overflow: hidden; }
+.player-title { font-size: 0.78rem; color: var(--text-primary); font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; transition: all 0.3s; }
 .player-title.track-switching { animation: trackSwitch 0.6s var(--ease-cinematic); }
-@keyframes trackSwitch {
-  0% { opacity: 1; transform: translateY(0); }
-  40% { opacity: 0; transform: translateY(-8px); }
-  60% { opacity: 0; transform: translateY(8px); }
-  100% { opacity: 1; transform: translateY(0); }
-}
+@keyframes trackSwitch { 0% { opacity: 1; transform: translateY(0); } 40% { opacity: 0; transform: translateY(-8px); } 60% { opacity: 0; transform: translateY(8px); } 100% { opacity: 1; transform: translateY(0); } }
 .player-time { font-size: 0.7rem; color: var(--text-muted); }
 .track-indicator { font-size: 0.65rem; color: var(--gold); font-weight: 600; margin-top: 0.1rem; }
 .volume-control { display: flex; align-items: center; gap: 0.4rem; }
 .volume-control i { color: var(--text-secondary); font-size: 0.9rem; cursor: pointer; }
-.volume-slider {
-  width: 60px; height: 4px;
-  -webkit-appearance: none; appearance: none;
-  background: var(--text-muted); border-radius: 2px; outline: none;
-}
-.volume-slider::-webkit-slider-thumb {
-  -webkit-appearance: none; appearance: none;
-  width: 12px; height: 12px;
-  background: var(--purple); border-radius: 50%; cursor: pointer;
-}
-.stop-btn {
-  background: none; border: none; color: var(--text-muted);
-  cursor: pointer; font-size: 0.9rem; padding: 0.4rem;
-  transition: color 0.3s; flex-shrink: 0;
-}
+.volume-slider { width: 60px; height: 4px; -webkit-appearance: none; appearance: none; background: var(--text-muted); border-radius: 2px; outline: none; }
+.volume-slider::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 12px; height: 12px; background: var(--purple); border-radius: 50%; cursor: pointer; }
+.stop-btn { background: none; border: none; color: var(--text-muted); cursor: pointer; font-size: 0.9rem; padding: 0.4rem; transition: color 0.3s; flex-shrink: 0; }
 .stop-btn:hover { color: var(--gold); }
-.player-loading {
-  position: absolute; top: -3px; right: -3px;
-  width: 14px; height: 14px;
-  border: 2px solid transparent; border-top-color: var(--gold);
-  border-radius: 50%; animation: spin 0.8s linear infinite;
-  display: none;
-}
+.player-loading { position: absolute; top: -3px; right: -3px; width: 14px; height: 14px; border: 2px solid transparent; border-top-color: var(--gold); border-radius: 50%; animation: spin 0.8s linear infinite; display: none; }
 .play-btn.loading .player-loading { display: block; }
 @keyframes spin { to { transform: rotate(360deg); } }
-.player-error {
-  position: absolute; bottom: 100%; left: 0; right: 0;
-  margin-bottom: 0.5rem;
-  background: rgba(220,38,38,0.95); color: white;
-  padding: 0.6rem 1rem; border-radius: 10px;
-  font-size: 0.8rem; display: none;
-  align-items: center; justify-content: space-between; gap: 0.5rem;
-}
+.player-error { position: absolute; bottom: 100%; left: 0; right: 0; margin-bottom: 0.5rem; background: rgba(220,38,38,0.95); color: white; padding: 0.6rem 1rem; border-radius: 10px; font-size: 0.8rem; display: none; align-items: center; justify-content: space-between; gap: 0.5rem; }
 .player-error.show { display: flex; }
-.retry-btn {
-  background: white; color: #dc2626; border: none;
-  padding: 0.3rem 0.8rem; border-radius: 15px;
-  cursor: pointer; font-family: var(--font-main);
-  font-size: 0.75rem; font-weight: 600;
-}
+.retry-btn { background: white; color: #dc2626; border: none; padding: 0.3rem 0.8rem; border-radius: 15px; cursor: pointer; font-family: var(--font-main); font-size: 0.75rem; font-weight: 600; }
 
-.back-to-top {
-  position: fixed; bottom: 100px; left: 20px;
-  width: 44px; height: 44px;
-  background: linear-gradient(135deg, var(--purple), var(--gold));
-  border: none; border-radius: 50%; color: white;
-  cursor: pointer; display: flex; align-items: center; justify-content: center;
-  opacity: 0; visibility: hidden; transition: all 0.4s;
-  z-index: 998; box-shadow: 0 5px 20px rgba(124,58,237,0.4);
-}
+.back-to-top { position: fixed; bottom: 100px; left: 20px; width: 44px; height: 44px; background: linear-gradient(135deg, var(--purple), var(--gold)); border: none; border-radius: 50%; color: white; cursor: pointer; display: flex; align-items: center; justify-content: center; opacity: 0; visibility: hidden; transition: all 0.4s; z-index: 998; box-shadow: 0 5px 20px rgba(124,58,237,0.4); }
 .back-to-top.show { opacity: 1; visibility: visible; }
 .back-to-top:hover { transform: translateY(-5px); }
 
-.mouse-light {
-  position: fixed; width: 400px; height: 400px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(124,58,237,0.08) 0%, transparent 70%);
-  pointer-events: none; z-index: 1;
-  transform: translate(-50%, -50%);
-  transition: opacity 0.3s;
-}
-
-.toast {
-  position: fixed; bottom: 100px; right: 20px;
-  background: var(--glass-bg);
-  backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
-  border: 1px solid var(--glass-border);
-  padding: 1rem 1.5rem; border-radius: 12px;
-  color: var(--text-primary); font-size: 0.9rem;
-  z-index: 10001; opacity: 0;
-  transform: translateY(20px);
-  transition: all 0.4s var(--ease-cinematic);
-  display: flex; align-items: center; gap: 0.6rem;
-}
+.mouse-light { position: fixed; width: 400px; height: 400px; border-radius: 50%; background: radial-gradient(circle, rgba(124,58,237,0.08) 0%, transparent 70%); pointer-events: none; z-index: 1; transform: translate(-50%, -50%); transition: opacity 0.3s; }
+.toast { position: fixed; bottom: 100px; right: 20px; background: var(--glass-bg); backdrop-filter: blur(20px); border: 1px solid var(--glass-border); padding: 1rem 1.5rem; border-radius: 12px; color: var(--text-primary); font-size: 0.9rem; z-index: 10001; opacity: 0; transform: translateY(20px); transition: all 0.4s var(--ease-cinematic); display: flex; align-items: center; gap: 0.6rem; }
 .toast.show { opacity: 1; transform: translateY(0); }
 .toast.success { border-color: #10b981; }
-.toast.success i { color: #10b981; }
 .toast.error { border-color: #ef4444; }
-.toast.error i { color: #ef4444; }
 
-/* ── Responsive ── */
 @media (max-width: 968px) {
   .blog-grid { grid-template-columns: 1fr; }
   .blog-grid.list-view .blog-card { flex-direction: column; }
   .blog-grid.list-view .blog-card-img-wrap { width: 100%; height: 220px; }
+  .related-grid { grid-template-columns: 1fr; }
 }
 @media (max-width: 768px) {
-  nav ul {
-    position: fixed; top: 70px; right: 0; left: 0;
-    background: rgba(10,10,20,0.95);
-    backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
-    flex-direction: column; padding: 2rem; gap: 1.5rem;
-    transform: translateY(-100%); opacity: 0; visibility: hidden;
-    transition: all 0.4s var(--ease-cinematic);
-  }
+  nav ul { position: fixed; top: 70px; right: 0; left: 0; background: rgba(10,10,20,0.95); backdrop-filter: blur(20px); flex-direction: column; padding: 2rem; gap: 1.5rem; transform: translateY(-100%); opacity: 0; visibility: hidden; transition: all 0.4s var(--ease-cinematic); }
   nav ul.open { transform: translateY(0); opacity: 1; visibility: visible; }
   .menu-toggle { display: flex; }
-  .music-player {
-    left: 10px; right: 10px; bottom: 10px;
-    padding: 0.4rem; gap: 0.3rem;
-    max-width: calc(100vw - 20px);
-  }
+  .music-player { left: 10px; right: 10px; bottom: 10px; padding: 0.4rem; gap: 0.3rem; max-width: calc(100vw - 20px); }
   .player-info { min-width: 70px; max-width: 120px; }
   .volume-control { display: none; }
   .track-indicator { display: none; }
@@ -1072,8 +483,9 @@ footer { background: var(--black-soft); padding: 3rem 2rem 1.5rem; border-top: 1
   .post-modal-footer { padding: 1rem 1.5rem 1.5rem; flex-direction: column; }
   .post-nav-btn { min-width: unset; }
   .post-modal-close { top: 0.8rem; left: 0.8rem; width: 38px; height: 38px; font-size: 1rem; }
+  .related-card { flex-direction: column; align-items: flex-start; }
+  .related-card img { width: 100%; height: 120px; }
 }
-
 @supports (padding-bottom: env(safe-area-inset-bottom)) {
   body { padding-bottom: calc(var(--player-height) + env(safe-area-inset-bottom)); }
   .music-player { bottom: calc(20px + env(safe-area-inset-bottom)); }
@@ -1088,514 +500,301 @@ footer { background: var(--black-soft); padding: 3rem 2rem 1.5rem; border-top: 1
 </head>
 <body>
 
-<!-- Skip Link -->
 <a href="#main-content" class="skip-link">پرش به محتوای اصلی</a>
-
-<!-- Progress -->
-<div id="scroll-progress" role="progressbar" aria-label="پیشرفت اسکرول صفحه" aria-valuemin="0" aria-valuemax="100"></div>
-<div id="reading-progress" role="progressbar" aria-label="پیشرفت مطالعه"></div>
-
-<!-- Mouse Light -->
+<div id="scroll-progress" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
+<div id="reading-progress" role="progressbar"></div>
 <div class="mouse-light" id="mouse-light" aria-hidden="true"></div>
 
-<!-- ═══════════════════ Header ═══════════════════ -->
 <header id="main-header" role="banner">
   <div class="header-inner">
-    <a href="#home" class="logo" aria-label="صفحه اصلی سایه‌های بی‌نقاب">
-      <div class="logo-icon" aria-hidden="true"><i class="fas fa-feather-alt"></i></div>
-      <span class="logo-text">سایه‌های بی‌نقاب</span>
-    </a>
-    <nav role="navigation" aria-label="منوی اصلی">
-      <ul id="nav-menu">
-        <li><a href="#home" class="active">خانه</a></li>
-        <li><a href="#about">درباره</a></li>
-        <li><a href="#works">آثار</a></li>
-        <li><a href="#blog">نوشته‌ها</a></li>
-        <li><a href="#faq">پرسش‌ها</a></li>
-      </ul>
-    </nav>
+    <a href="#home" class="logo"><div class="logo-icon"><i class="fas fa-feather-alt"></i></div><span class="logo-text">سایه‌های بی‌نقاب</span></a>
+    <nav><ul id="nav-menu">
+      <li><a href="#home" class="active">خانه</a></li>
+      <li><a href="#about">درباره</a></li>
+      <li><a href="#works">آثار</a></li>
+      <li><a href="#blog">نوشته‌ها</a></li>
+      <li><a href="#faq">پرسش‌ها</a></li>
+    </ul></nav>
     <div class="header-actions">
-      <button class="theme-toggle" id="theme-toggle" aria-label="تغییر تم روشن و تاریک"><i class="fas fa-moon" aria-hidden="true"></i></button>
-      <button class="menu-toggle" id="menu-toggle" aria-label="باز و بسته کردن منو" aria-expanded="false"><i class="fas fa-bars" aria-hidden="true"></i></button>
+      <button class="theme-toggle" id="theme-toggle" aria-label="تغییر تم"><i class="fas fa-moon"></i></button>
+      <button class="menu-toggle" id="menu-toggle" aria-label="باز و بسته کردن منو" aria-expanded="false"><i class="fas fa-bars"></i></button>
     </div>
   </div>
 </header>
 
 <main id="main-content">
 
-<!-- ═══════════════════ Hero ═══════════════════ -->
 <section id="home" aria-labelledby="hero-title">
-  <div class="hero-bg" aria-hidden="true">
-    <div class="hero-particles" id="hero-particles"></div>
-  </div>
+  <div class="hero-bg"><div class="hero-particles" id="hero-particles"></div></div>
   <div class="hero-content">
     <h1 id="hero-title" class="hero-title">سایه‌های بی‌نقاب</h1>
-    <p class="hero-subtitle">
-      <strong>مهدی رحیمیان</strong> | نویسنده | گوینده | اهل رامسر (سخت‌سر)
-    </p>
-    <a href="#works" class="hero-cta">
-      <i class="fas fa-headphones" aria-hidden="true"></i>
-      شنیدن دکلمه‌ها
-    </a>
+    <p class="hero-subtitle"><strong>مهدی رحیمیان</strong> | نویسنده | گوینده | اهل رامسر (سخت‌سر)</p>
+    <a href="#works" class="hero-cta"><i class="fas fa-headphones"></i> شنیدن دکلمه‌ها</a>
     <div class="social-links">
-      <a href="https://www.instagram.com/sayehaye.bi.neghab" target="_blank" rel="noopener noreferrer" aria-label="اینستاگرام"><i class="fab fa-instagram" aria-hidden="true"></i></a>
-      <a href="https://t.me/sayehayebineghab" target="_blank" rel="noopener noreferrer" aria-label="تلگرام"><i class="fab fa-telegram" aria-hidden="true"></i></a>
-      <a href="mailto:me@mahdirahimiyan.ir" aria-label="ایمیل"><i class="fas fa-envelope" aria-hidden="true"></i></a>
+      <a href="https://www.instagram.com/sayehaye.bi.neghab" target="_blank" rel="noopener" aria-label="اینستاگرام"><i class="fab fa-instagram"></i></a>
+      <a href="https://t.me/sayehayebineghab" target="_blank" rel="noopener" aria-label="تلگرام"><i class="fab fa-telegram"></i></a>
+      <a href="mailto:me@mahdirahimiyan.ir" aria-label="ایمیل"><i class="fas fa-envelope"></i></a>
     </div>
   </div>
 </section>
 
-<!-- ═══════════════════ About ═══════════════════ -->
 <section id="about" aria-labelledby="about-title">
   <div class="section-inner">
-    <div class="section-header">
-      <h2 id="about-title" class="section-title">درباره من</h2>
-      <div class="section-divider"></div>
-      <p class="section-subtitle">داستان من در چهار پرده</p>
-    </div>
-    <div class="slider-container" role="region" aria-label="اسلایدر معرفی" aria-roledescription="carousel">
+    <div class="section-header"><h2 id="about-title" class="section-title">درباره من</h2><div class="section-divider"></div><p class="section-subtitle">داستان من در چهار پرده</p></div>
+    <div class="slider-container">
       <div class="slider-controls-top">
-        <button class="slider-mode-btn active" data-mode="horizontal" aria-pressed="true">
-          <i class="fas fa-arrows-alt-h" aria-hidden="true"></i> افقی
-        </button>
-        <button class="slider-mode-btn" data-mode="fade" aria-pressed="false">
-          <i class="fas fa-adjust" aria-hidden="true"></i> محو
-        </button>
+        <button class="slider-mode-btn active" data-mode="horizontal" aria-pressed="true"><i class="fas fa-arrows-alt-h"></i> افقی</button>
+        <button class="slider-mode-btn" data-mode="fade" aria-pressed="false"><i class="fas fa-adjust"></i> محو</button>
       </div>
       <div class="slider-viewport" id="slider-viewport" tabindex="0">
-        <div class="slide active" role="group" aria-roledescription="slide" aria-label="اسلاید ۱ از ۴">
-          <div class="slide-icon" aria-hidden="true"><i class="fas fa-pen-fancy"></i></div>
-          <h3 class="slide-title">نویسنده و گوینده اهل رامسر</h3>
-          <p class="slide-text">متولد ۱۳۶۵ در رامسر (سخت‌سر)، عاشق نوشتن و تولید محتوای صوتی و تصویری. کلمات برای من تنها واژه نیستند؛ نفس‌هایی هستند که از دل برمی‌آیند و بر دل می‌نشینند.</p>
-        </div>
-        <div class="slide" role="group" aria-roledescription="slide" aria-label="اسلاید ۲ از ۴">
-          <div class="slide-icon" aria-hidden="true"><i class="fas fa-microphone-alt"></i></div>
-          <h3 class="slide-title">تولیدکننده محتوای عمیق</h3>
-          <p class="slide-text">رویکردی احساسی و انسانی در دکلمه‌ها و دل‌نوشته‌ها؛ معتقدم کلمات و صدا می‌توانند جهان را تغییر دهند. هر اثر من تکه‌ای از روح من است که با شما به اشتراک می‌گذارم.</p>
-        </div>
-        <div class="slide" role="group" aria-roledescription="slide" aria-label="اسلاید ۳ از ۴">
-          <div class="slide-icon" aria-hidden="true"><i class="fas fa-broadcast-tower"></i></div>
-          <h3 class="slide-title">مدیر کانال‌های «سایه‌های بی‌نقاب»</h3>
-          <p class="slide-text">در تلگرام و اینستاگرام، فضایی برای بیان بی‌پرده احساسات و داستان‌ها ساخته‌ام. جایی که نقاب‌ها کنار می‌روند و حقیقتِ احساس گفتگو می‌کند.</p>
-        </div>
-        <div class="slide" role="group" aria-roledescription="slide" aria-label="اسلاید ۴ از ۴">
-          <div class="slide-icon" aria-hidden="true"><i class="fas fa-heart"></i></div>
-          <h3 class="slide-title">دل‌نوشته‌هایی از دل برآمده</h3>
-          <p class="slide-text">نوشته‌هایی که از دل برآمده و بر دل می‌نشینند؛ روایت‌هایی از عشق، تنهایی و زندگی. هر کلمه‌ام قصه‌ای است که شاید قصه‌ی تو هم باشد.</p>
-        </div>
+        <div class="slide active"><div class="slide-icon"><i class="fas fa-pen-fancy"></i></div><h3 class="slide-title">نویسنده و گوینده اهل رامسر</h3><p class="slide-text">متولد ۱۳۶۵ در رامسر (سخت‌سر)، عاشق نوشتن و تولید محتوای صوتی و تصویری.</p></div>
+        <div class="slide"><div class="slide-icon"><i class="fas fa-microphone-alt"></i></div><h3 class="slide-title">تولیدکننده محتوای عمیق</h3><p class="slide-text">رویکردی احساسی و انسانی در دکلمه‌ها و دل‌نوشته‌ها؛ معتقدم کلمات و صدا می‌توانند جهان را تغییر دهند.</p></div>
+        <div class="slide"><div class="slide-icon"><i class="fas fa-broadcast-tower"></i></div><h3 class="slide-title">مدیر کانال‌های «سایه‌های بی‌نقاب»</h3><p class="slide-text">در تلگرام و اینستاگرام، فضایی برای بیان بی‌پرده احساسات و داستان‌ها ساخته‌ام.</p></div>
+        <div class="slide"><div class="slide-icon"><i class="fas fa-heart"></i></div><h3 class="slide-title">دل‌نوشته‌هایی از دل برآمده</h3><p class="slide-text">نوشته‌هایی که از دل برآمده و بر دل می‌نشینند؛ روایت‌هایی از عشق، تنهایی و زندگی.</p></div>
       </div>
       <div class="slider-nav">
-        <button class="slider-btn" id="prev-slide" aria-label="اسلاید قبلی"><i class="fas fa-chevron-right" aria-hidden="true"></i></button>
-        <div class="slider-dots" id="slider-dots" role="tablist" aria-label="انتخاب اسلاید">
-          <button class="slider-dot active" data-index="0" role="tab" aria-selected="true" aria-label="اسلاید ۱"></button>
-          <button class="slider-dot" data-index="1" role="tab" aria-selected="false" aria-label="اسلاید ۲"></button>
-          <button class="slider-dot" data-index="2" role="tab" aria-selected="false" aria-label="اسلاید ۳"></button>
-          <button class="slider-dot" data-index="3" role="tab" aria-selected="false" aria-label="اسلاید ۴"></button>
+        <button class="slider-btn" id="prev-slide"><i class="fas fa-chevron-right"></i></button>
+        <div class="slider-dots" id="slider-dots">
+          <button class="slider-dot active" data-index="0" role="tab" aria-selected="true"></button>
+          <button class="slider-dot" data-index="1" role="tab" aria-selected="false"></button>
+          <button class="slider-dot" data-index="2" role="tab" aria-selected="false"></button>
+          <button class="slider-dot" data-index="3" role="tab" aria-selected="false"></button>
         </div>
-        <button class="slider-btn" id="next-slide" aria-label="اسلاید بعدی"><i class="fas fa-chevron-left" aria-hidden="true"></i></button>
+        <button class="slider-btn" id="next-slide"><i class="fas fa-chevron-left"></i></button>
       </div>
     </div>
     <div class="telegram-cta reveal">
       <h3>درود! من مهدی رحیمیان هستم</h3>
-      <p>متولد رامسر (سخت‌سر) و عاشق نوشتن و تولید محتوای صوتی و تصویری. اینجا فضای شخصی من برای به اشتراک‌گذاری افکار، تجربیات، دکلمه‌ها و دل‌نوشته‌های بی‌نقاب است. معتقدم کلمات و صدا می‌توانند جهان را تغییر دهند.</p>
-      <a href="https://t.me/sayehayebineghab" class="telegram-btn" target="_blank" rel="noopener">
-        <i class="fab fa-telegram" aria-hidden="true"></i> عضویت در کانال تلگرام
-      </a>
+      <p>متولد رامسر (سخت‌سر) و عاشق نوشتن و تولید محتوای صوتی و تصویری. اینجا فضای شخصی من برای به اشتراک‌گذاری افکار، تجربیات و دل‌نوشته‌های بی‌نقاب است.</p>
+      <a href="https://t.me/sayehayebineghab" class="telegram-btn" target="_blank" rel="noopener"><i class="fab fa-telegram"></i> عضویت در کانال تلگرام</a>
     </div>
   </div>
 </section>
 
-<!-- ═══════════════════ Works ═══════════════════ -->
 <section id="works" aria-labelledby="works-title">
   <div class="section-inner">
-    <div class="section-header">
-      <h2 id="works-title" class="section-title">آثار صوتی و تصویری</h2>
-      <div class="section-divider"></div>
-      <p class="section-subtitle">گزیده‌ای از دکلمه‌ها و دل‌نوشته‌های من با صدای خودم</p>
-    </div>
+    <div class="section-header"><h2 id="works-title" class="section-title">آثار صوتی و تصویری</h2><div class="section-divider"></div><p class="section-subtitle">گزیده‌ای از دکلمه‌ها و دل‌نوشته‌های من با صدای خودم</p></div>
     <div class="works-grid">
-      <article class="work-card reveal">
-        <span class="work-badge">پرطرفدارترین اثر</span>
-        <div class="work-icon" aria-hidden="true"><i class="fas fa-headphones-alt"></i></div>
-        <h3 class="work-title">دکلمه «مرا به حال خود بگذارید»</h3>
-        <p class="work-desc">دکلمه‌ای عمیق از رهایی و تنهایی، با صدای خودم. یکی از محبوب‌ترین آثار صوتی من.</p>
-        <a href="https://www.instagram.com/reel/DSVt85bgpEi/" target="_blank" rel="noopener" class="work-link">
-          مشاهده در اینستاگرام <i class="fas fa-arrow-left" aria-hidden="true"></i>
-        </a>
-      </article>
-      <article class="work-card reveal">
-        <span class="work-badge">پربازدیدترین نوشته</span>
-        <div class="work-icon" aria-hidden="true"><i class="fas fa-book-open"></i></div>
-        <h3 class="work-title">دل‌نوشته «تقاطع عشق و خشم»</h3>
-        <p class="work-desc">روایتی از تقاطع احساسات متضاد؛ جایی که عشق و خشم در یک نقطه به هم می‌رسند.</p>
-        <a href="#blog" class="work-link">
-          مطالعه نوشته <i class="fas fa-arrow-left" aria-hidden="true"></i>
-        </a>
-      </article>
-      <article class="work-card reveal">
-        <span class="work-badge">محبوب‌ترین صوتی</span>
-        <div class="work-icon" aria-hidden="true"><i class="fas fa-microphone"></i></div>
-        <h3 class="work-title">«صدایم کن…»</h3>
-        <p class="work-desc">اثری با بیشترین بازخورد از مخاطبان. دعوتی به شنیدن صدای درون.</p>
-        <a href="https://www.instagram.com/reel/DNafAsACM-G/" target="_blank" rel="noopener" class="work-link">
-          مشاهده در اینستاگرام <i class="fas fa-arrow-left" aria-hidden="true"></i>
-        </a>
-      </article>
-      <article class="work-card reveal">
-        <span class="work-badge">دل‌نوشته</span>
-        <div class="work-icon" aria-hidden="true"><i class="fas fa-feather"></i></div>
-        <h3 class="work-title">متن زیبا و عمیق با خوانش گرم</h3>
-        <p class="work-desc">ترکیبی از متن ادبی و صدای گرم، برای لحظات تنهایی و تأمل.</p>
-        <a href="https://www.instagram.com/reel/DNBSxyzCnJb/" target="_blank" rel="noopener" class="work-link">
-          مشاهده در اینستاگرام <i class="fas fa-arrow-left" aria-hidden="true"></i>
-        </a>
-      </article>
+      <article class="work-card reveal"><span class="work-badge">پرطرفدارترین اثر</span><div class="work-icon"><i class="fas fa-headphones-alt"></i></div><h3 class="work-title">دکلمه «مرا به حال خود بگذارید»</h3><p class="work-desc">دکلمه‌ای عمیق از رهایی و تنهایی، با صدای خودم.</p><a href="https://www.instagram.com/reel/DSVt85bgpEi/" target="_blank" rel="noopener" class="work-link">مشاهده در اینستاگرام <i class="fas fa-arrow-left"></i></a></article>
+      <article class="work-card reveal"><span class="work-badge">پربازدیدترین نوشته</span><div class="work-icon"><i class="fas fa-book-open"></i></div><h3 class="work-title">دل‌نوشته «تقاطع عشق و خشم»</h3><p class="work-desc">روایتی از تقاطع احساسات متضاد؛ جایی که عشق و خشم در یک نقطه به هم می‌رسند.</p><a href="#blog" class="work-link">مطالعه نوشته <i class="fas fa-arrow-left"></i></a></article>
+      <article class="work-card reveal"><span class="work-badge">محبوب‌ترین صوتی</span><div class="work-icon"><i class="fas fa-microphone"></i></div><h3 class="work-title">«صدایم کن…»</h3><p class="work-desc">اثری با بیشترین بازخورد از مخاطبان. دعوتی به شنیدن صدای درون.</p><a href="https://www.instagram.com/reel/DNafAsACM-G/" target="_blank" rel="noopener" class="work-link">مشاهده در اینستاگرام <i class="fas fa-arrow-left"></i></a></article>
+      <article class="work-card reveal"><span class="work-badge">دل‌نوشته</span><div class="work-icon"><i class="fas fa-feather"></i></div><h3 class="work-title">متن زیبا و عمیق با خوانش گرم</h3><p class="work-desc">ترکیبی از متن ادبی و صدای گرم، برای لحظات تنهایی و تأمل.</p><a href="https://www.instagram.com/reel/DNBSxyzCnJb/" target="_blank" rel="noopener" class="work-link">مشاهده در اینستاگرام <i class="fas fa-arrow-left"></i></a></article>
     </div>
-    <div class="references reveal">
-      <h3>منابع و ارجاعات</h3>
-      <ul>
-        <li>🔗 <a href="https://www.instagram.com/sayehaye.bi.neghab" target="_blank" rel="noopener">اینستاگرام سایه‌های بی‌نقاب</a></li>
-        <li>🔗 <a href="https://t.me/sayehayebineghab" target="_blank" rel="noopener">کانال تلگرام سایه‌های بی‌نقاب</a></li>
-      </ul>
-    </div>
+    <div class="references reveal"><h3>منابع و ارجاعات</h3><ul><li>🔗 <a href="https://www.instagram.com/sayehaye.bi.neghab" target="_blank" rel="noopener">اینستاگرام سایه‌های بی‌نقاب</a></li><li>🔗 <a href="https://t.me/sayehayebineghab" target="_blank" rel="noopener">کانال تلگرام سایه‌های بی‌نقاب</a></li></ul></div>
   </div>
 </section>
 
-<!-- ═══════════════════ Blog ═══════════════════ -->
 <section id="blog" aria-labelledby="blog-title">
   <div class="section-inner">
-    <div class="section-header">
-      <h2 id="blog-title" class="section-title">دل‌نوشته‌های بی‌نقاب</h2>
-      <div class="section-divider"></div>
-      <p class="section-subtitle">فصل‌هایی از یک داستان بی‌پایان؛ روایت‌هایی از عشق، تنهایی و رهایی</p>
-    </div>
-    <div class="blog-search">
-      <input type="search" id="blog-search" placeholder="در میان نوشته‌ها جستجو کن..." aria-label="جستجو در نوشته‌ها" autocomplete="off">
-      <i class="fas fa-search" aria-hidden="true"></i>
-    </div>
-    <div class="blog-view-controls" role="group" aria-label="حالت نمایش نوشته‌ها">
-      <button class="view-toggle-btn active" data-view="grid" aria-pressed="true">
-        <i class="fas fa-th-large" aria-hidden="true"></i> شبکه‌ای
-      </button>
-      <button class="view-toggle-btn" data-view="list" aria-pressed="false">
-        <i class="fas fa-list" aria-hidden="true"></i> لیستی
-      </button>
-    </div>
+    <div class="section-header"><h2 id="blog-title" class="section-title">دل‌نوشته‌های بی‌نقاب</h2><div class="section-divider"></div><p class="section-subtitle">فصل‌هایی از یک داستان بی‌پایان؛ روایت‌هایی از عشق، تنهایی و رهایی</p></div>
+    <div class="blog-search"><input type="search" id="blog-search" placeholder="در میان نوشته‌ها جستجو کن..." aria-label="جستجو در نوشته‌ها" autocomplete="off"><i class="fas fa-search"></i></div>
+    <div class="blog-view-controls"><button class="view-toggle-btn active" data-view="grid"><i class="fas fa-th-large"></i> شبکه‌ای</button><button class="view-toggle-btn" data-view="list"><i class="fas fa-list"></i> لیستی</button></div>
     <div id="blog-list-view">
       <div id="featured-post-container"></div>
       <div class="blog-grid" id="blog-grid"></div>
-      <div class="no-results" id="no-results" style="display: none;">
-        <i class="fas fa-search" style="font-size: 3rem; color: var(--text-muted); margin-bottom: 1rem; display: block;" aria-hidden="true"></i>
-        نوشته‌ای با این عبارت پیدا نشد.
-      </div>
+      <div class="no-results" id="no-results" style="display: none;"><i class="fas fa-search" style="font-size: 3rem; color: var(--text-muted); margin-bottom: 1rem; display: block;"></i>نوشته‌ای با این عبارت پیدا نشد.</div>
     </div>
   </div>
 </section>
 
-<!-- ═══════════════════ Post Modal ═══════════════════ -->
-<div class="post-modal" id="post-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+<div class="post-modal" id="post-modal" role="dialog" aria-modal="true">
   <div class="post-modal-content" id="post-modal-content">
-    <button class="post-modal-close" id="post-modal-close" aria-label="بستن نوشته">
-      <i class="fas fa-times" aria-hidden="true"></i>
-    </button>
+    <button class="post-modal-close" id="post-modal-close"><i class="fas fa-times"></i></button>
     <img class="post-modal-img" id="modal-img" src="" alt="" loading="lazy" decoding="async">
     <div class="post-modal-header">
       <span class="post-modal-tag" id="modal-tag"></span>
       <h2 class="post-modal-title" id="modal-title"></h2>
-      <div class="post-modal-meta">
-        <span><i class="far fa-calendar" aria-hidden="true"></i> <span id="modal-date"></span></span>
-        <span><i class="far fa-user" aria-hidden="true"></i> مهدی رحیمیان</span>
-        <span><i class="far fa-clock" aria-hidden="true"></i> <span id="modal-readtime"></span> دقیقه مطالعه</span>
-      </div>
+      <div class="post-modal-meta"><span><i class="far fa-calendar"></i> <span id="modal-date"></span></span><span><i class="far fa-user"></i> مهدی رحیمیان</span><span><i class="far fa-clock"></i> <span id="modal-readtime"></span> دقیقه مطالعه</span></div>
     </div>
     <div class="post-modal-body" id="modal-body"></div>
     <footer class="post-modal-footer">
-      <button class="post-nav-btn" id="modal-prev" disabled>
-        <small>نوشته قبلی</small>
-        <span id="modal-prev-title">—</span>
-      </button>
-      <button class="post-nav-btn" id="modal-next" disabled>
-        <small>نوشته بعدی</small>
-        <span id="modal-next-title">—</span>
-      </button>
+      <button class="post-nav-btn" id="modal-prev" disabled><small>نوشته قبلی</small><span id="modal-prev-title">—</span></button>
+      <button class="post-nav-btn" id="modal-next" disabled><small>نوشته بعدی</small><span id="modal-next-title">—</span></button>
     </footer>
   </div>
 </div>
 
-<!-- ═══════════════════ FAQ ═══════════════════ -->
 <section id="faq" aria-labelledby="faq-title">
   <div class="section-inner">
-    <div class="section-header">
-      <h2 id="faq-title" class="section-title">پرسش‌های متداول</h2>
-      <div class="section-divider"></div>
-      <p class="section-subtitle">پاسخ‌های مستقیم به سوالاتی که ممکن است درباره من و این سایت داشته باشید</p>
-    </div>
+    <div class="section-header"><h2 id="faq-title" class="section-title">پرسش‌های متداول</h2><div class="section-divider"></div><p class="section-subtitle">پاسخ‌های مستقیم به سوالاتی که ممکن است درباره من و این سایت داشته باشید</p></div>
     <div class="faq-list">
-      <div class="faq-item">
-        <button class="faq-question" aria-expanded="false">
-          <span>مهدی رحیمیان کیست و چه کاری انجام می‌دهد؟</span>
-          <i class="fas fa-chevron-down" aria-hidden="true"></i>
-        </button>
-        <div class="faq-answer" role="region">
-          <p>مهدی رحیمیان متولد ۱۳۶۵ در رامسر (سخت‌سر) است و به‌عنوان نویسنده و گوینده فعالیت می‌کند. او محتوای صوتی و تصویری با رویکردی عمیق و احساسی تولید می‌کند و دل‌نوشته‌های خود را در قالب دکلمه و متن منتشر می‌سازد.</p>
-        </div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-question" aria-expanded="false">
-          <span>چه نوع محتوایی در سایت سایه‌های بی‌نقاب منتشر می‌شود؟</span>
-          <i class="fas fa-chevron-down" aria-hidden="true"></i>
-        </button>
-        <div class="faq-answer" role="region">
-          <p>در این سایت دل‌نوشته‌های احساسی، دکلمه‌های صوتی، آثار تصویری و محتوای عمیق درباره زندگی، عشق، تنهایی و مفاهیم انسانی به اشتراک گذاشته می‌شود. تمام محتوا توسط مهدی رحیمیان تولید می‌شود.</p>
-        </div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-question" aria-expanded="false">
-          <span>چگونه می‌توانم دکلمه‌های مهدی رحیمیان را بشنوم؟</span>
-          <i class="fas fa-chevron-down" aria-hidden="true"></i>
-        </button>
-        <div class="faq-answer" role="region">
-          <p>با مراجعه به بخش «آثار صوتی و تصویری» در این سایت یا از طریق کانال تلگرام و اینستاگرام مهدی رحیمیان می‌توانید دکلمه‌ها را بشنوید و از محتوای صوتی لذت ببرید.</p>
-        </div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-question" aria-expanded="false">
-          <span>آیا محتوای این سایت برای موتورهای جستجو و هوش مصنوعی بهینه شده است؟</span>
-          <i class="fas fa-chevron-down" aria-hidden="true"></i>
-        </button>
-        <div class="faq-answer" role="region">
-          <p>بله. ساختار پاسخ‌محور، داده‌های ساختاریافته (Schema.org)، سوالات متداول، متاتگ‌های کامل، سرعت بارگذاری بالا و تجربه کاربری مناسب در این سایت رعایت شده است.</p>
-        </div>
-      </div>
+      <div class="faq-item"><button class="faq-question" aria-expanded="false"><span>مهدی رحیمیان کیست و چه کاری انجام می‌دهد؟</span><i class="fas fa-chevron-down"></i></button><div class="faq-answer"><p>مهدی رحیمیان متولد ۱۳۶۵ در رامسر (سخت‌سر) است و به‌عنوان نویسنده و گوینده فعالیت می‌کند.</p></div></div>
+      <div class="faq-item"><button class="faq-question" aria-expanded="false"><span>چه نوع محتوایی در سایت سایه‌های بی‌نقاب منتشر می‌شود؟</span><i class="fas fa-chevron-down"></i></button><div class="faq-answer"><p>دل‌نوشته‌های احساسی، دکلمه‌های صوتی، آثار تصویری و محتوای عمیق درباره زندگی، عشق، تنهایی.</p></div></div>
+      <div class="faq-item"><button class="faq-question" aria-expanded="false"><span>چگونه می‌توانم دکلمه‌های مهدی رحیمیان را بشنوم؟</span><i class="fas fa-chevron-down"></i></button><div class="faq-answer"><p>با مراجعه به بخش «آثار صوتی و تصویری» یا از طریق کانال تلگرام و اینستاگرام.</p></div></div>
+      <div class="faq-item"><button class="faq-question" aria-expanded="false"><span>آیا محتوای این سایت برای موتورهای جستجو و هوش مصنوعی بهینه شده است؟</span><i class="fas fa-chevron-down"></i></button><div class="faq-answer"><p>بله. ساختار پاسخ‌محور، داده‌های ساختاریافته، متاتگ‌های کامل، سرعت بالا و تجربه کاربری مناسب.</p></div></div>
     </div>
   </div>
 </section>
 
 </main>
 
-<!-- ═══════════════════ Footer ═══════════════════ -->
 <footer role="contentinfo">
   <div class="footer-inner">
-    <div class="footer-social">
-      <a href="https://www.instagram.com/sayehaye.bi.neghab" target="_blank" rel="noopener" aria-label="اینستاگرام"><i class="fab fa-instagram" aria-hidden="true"></i></a>
-      <a href="https://t.me/sayehayebineghab" target="_blank" rel="noopener" aria-label="تلگرام"><i class="fab fa-telegram" aria-hidden="true"></i></a>
-    </div>
+    <div class="footer-social"><a href="https://www.instagram.com/sayehaye.bi.neghab" target="_blank" rel="noopener"><i class="fab fa-instagram"></i></a><a href="https://t.me/sayehayebineghab" target="_blank" rel="noopener"><i class="fab fa-telegram"></i></a></div>
     <p class="footer-text">تمامی حقوق محفوظ است © <span id="footer-year"></span> | طراحی با تکنولوژی‌های ۲۰۲۶</p>
     <p class="footer-text">طراحی و توسعه: <a href="https://sayehayebineghab.ir">مهدی رحیمیان</a></p>
   </div>
 </footer>
 
-<!-- ═══════════════════ Music Player ═══════════════════ -->
-<div class="music-player" role="region" aria-label="پخش‌کننده موسیقی">
-  <div class="player-error" id="player-error" role="alert">
-    <span id="player-error-msg">خطا در بارگذاری</span>
-    <button class="retry-btn" id="retry-btn">تلاش مجدد</button>
-  </div>
-  <button class="track-nav-btn" id="prev-track-btn" aria-label="آهنگ قبلی">
-    <i class="fas fa-step-forward" aria-hidden="true"></i>
-  </button>
-  <button class="play-btn" id="play-btn" aria-label="پخش موسیقی">
-    <i class="fas fa-play" id="play-icon" aria-hidden="true"></i>
-    <span class="player-loading"></span>
-  </button>
-  <button class="track-nav-btn" id="next-track-btn" aria-label="آهنگ بعدی">
-    <i class="fas fa-step-backward" aria-hidden="true"></i>
-  </button>
-  <div class="player-info">
-    <span class="player-title" id="player-title">موسیقی پس‌زمینه</span>
-    <span class="player-time" id="player-time">00:00 / 00:00</span>
-    <span class="track-indicator" id="track-indicator">۱ از ۲</span>
-  </div>
-  <div class="volume-control">
-    <i class="fas fa-volume-up" id="volume-icon" aria-hidden="true"></i>
-    <input type="range" class="volume-slider" id="volume-slider" min="0" max="1" step="0.05" value="0.7" aria-label="کنترل حجم صدا">
-  </div>
-  <button class="stop-btn" id="stop-btn" aria-label="توقف و ریست">
-    <i class="fas fa-stop" aria-hidden="true"></i>
-  </button>
+<div class="music-player">
+  <div class="player-error" id="player-error"><span id="player-error-msg">خطا در بارگذاری</span><button class="retry-btn" id="retry-btn">تلاش مجدد</button></div>
+  <button class="track-nav-btn" id="prev-track-btn"><i class="fas fa-step-forward"></i></button>
+  <button class="play-btn" id="play-btn"><i class="fas fa-play" id="play-icon"></i><span class="player-loading"></span></button>
+  <button class="track-nav-btn" id="next-track-btn"><i class="fas fa-step-backward"></i></button>
+  <div class="player-info"><span class="player-title" id="player-title">موسیقی پس‌زمینه</span><span class="player-time" id="player-time">00:00 / 00:00</span><span class="track-indicator" id="track-indicator">۱ از ۲</span></div>
+  <div class="volume-control"><i class="fas fa-volume-up" id="volume-icon"></i><input type="range" class="volume-slider" id="volume-slider" min="0" max="1" step="0.05" value="0.7" aria-label="کنترل حجم صدا"></div>
+  <button class="stop-btn" id="stop-btn"><i class="fas fa-stop"></i></button>
 </div>
 
-<button class="back-to-top" id="back-to-top" aria-label="بازگشت به بالا"><i class="fas fa-chevron-up" aria-hidden="true"></i></button>
+<button class="back-to-top" id="back-to-top"><i class="fas fa-chevron-up"></i></button>
+<div class="toast" id="toast"><i class="fas fa-check-circle"></i><span id="toast-message"></span></div>
 
-<div class="toast" id="toast" role="status" aria-live="polite">
-  <i class="fas fa-check-circle" aria-hidden="true"></i>
-  <span id="toast-message"></span>
-</div>
-
-<!-- ═══════════════════ JavaScript ═══════════════════ -->
 <script>
 'use strict';
 
 /* ═══════════════════════════════════════════
-   UTILITIES — Safe, reusable helpers
+   UTILITIES
 ═══════════════════════════════════════════ */
 const Utils = {
   $(sel, ctx = document) { return ctx.querySelector(sel); },
   $$(sel, ctx = document) { return Array.from(ctx.querySelectorAll(sel)); },
-
-  /** Prevent XSS by escaping HTML entities */
-  escapeHTML(str) {
-    if (typeof str !== 'string') return '';
-    const div = document.createElement('div');
-    div.textContent = str;
-    return div.innerHTML;
-  },
-
-  /** Validate URLs to prevent injection */
-  safeURL(url) {
-    try {
-      const u = new URL(url, window.location.href);
-      return ['http:', 'https:', 'data:'].includes(u.protocol) ? url : '';
-    } catch { return ''; }
-  },
-
-  toPersianDigits(num) {
-    const persianDigits = ['۰','۱','۲','۳','۴','۵','۶','۷','۸','۹'];
-    return String(num).replace(/[0-9]/g, d => persianDigits[parseInt(d, 10)]);
-  },
-
-  /** Format time with hours support */
-  formatTime(seconds) {
-    if (!isFinite(seconds) || isNaN(seconds)) return '00:00';
-    const total = Math.floor(seconds);
-    const h = Math.floor(total / 3600);
-    const m = Math.floor((total % 3600) / 60);
-    const s = total % 60;
-    if (h > 0) return `${h}:${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}`;
-    return `${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}`;
-  },
-
-  debounce(fn, delay) {
-    let timer;
-    return function(...args) {
-      clearTimeout(timer);
-      timer = setTimeout(() => fn.apply(this, args), delay);
-    };
-  },
-
-  throttleRAF(fn) {
-    let ticking = false;
-    return function(...args) {
-      if (ticking) return;
-      ticking = true;
-      requestAnimationFrame(() => { fn.apply(this, args); ticking = false; });
-    };
-  },
-
-  safeStorage: {
-    get(key) { try { return localStorage.getItem(key); } catch { return null; } },
-    set(key, val) { try { localStorage.setItem(key, val); return true; } catch { return false; } }
-  }
+  escapeHTML(str) { if (typeof str !== 'string') return ''; const d = document.createElement('div'); d.textContent = str; return d.innerHTML; },
+  safeURL(url) { try { const u = new URL(url, window.location.href); return ['http:', 'https:'].includes(u.protocol) ? url : ''; } catch { return ''; } },
+  toPersianDigits(num) { const d = ['۰','۱','۲','۳','۴','۵','۶','۷','۸','۹']; return String(num).replace(/[0-9]/g, m => d[parseInt(m)]); },
+  formatTime(sec) { if (!isFinite(sec)) return '00:00'; const m = Math.floor(sec/60), s = Math.floor(sec%60); return `${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}`; },
+  debounce(fn, d) { let t; return function(...a){ clearTimeout(t); t = setTimeout(()=>fn.apply(this,a), d); }; },
+  throttleRAF(fn) { let tick = false; return function(...a){ if(tick)return; tick=true; requestAnimationFrame(()=>{fn.apply(this,a); tick=false;}); }; },
+  safeStorage: { get(k){ try{ return localStorage.getItem(k); }catch{ return null; } }, set(k,v){ try{ localStorage.setItem(k,v); return true; }catch{ return false; } } }
 };
 
 /* ═══════════════════════════════════════════
-   FOCUS TRAP — Accessibility for modals
+   FOCUS TRAP
 ═══════════════════════════════════════════ */
 const FocusTrap = {
-  _handler: null,
-  _lastFocused: null,
-
+  _handler: null, _last: null,
   trap(container) {
-    this._lastFocused = document.activeElement;
-    const focusable = container.querySelectorAll(
-      'button:not(:disabled), [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
-    );
-    const first = focusable[0];
-    const last = focusable[focusable.length - 1];
-
+    this._last = document.activeElement;
+    const f = container.querySelectorAll('button:not(:disabled), [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
+    const first = f[0], last = f[f.length-1];
     this._handler = (e) => {
       if (e.key !== 'Tab') return;
-      if (e.shiftKey) {
-        if (document.activeElement === first) { e.preventDefault(); last.focus(); }
-      } else {
-        if (document.activeElement === last) { e.preventDefault(); first.focus(); }
-      }
+      if (e.shiftKey) { if (document.activeElement === first) { e.preventDefault(); last.focus(); } }
+      else { if (document.activeElement === last) { e.preventDefault(); first.focus(); } }
     };
     container.addEventListener('keydown', this._handler);
     if (first) first.focus();
   },
-
-  release(container) {
-    if (this._handler) {
-      container.removeEventListener('keydown', this._handler);
-      this._handler = null;
-    }
-    if (this._lastFocused) {
-      this._lastFocused.focus();
-      this._lastFocused = null;
-    }
-  }
+  release(container) { if (this._handler) { container.removeEventListener('keydown', this._handler); this._handler = null; } if (this._last) { this._last.focus(); this._last = null; } }
 };
 
 /* ═══════════════════════════════════════════
-   DEFAULT POSTS DATA
+   DEFAULT POSTS (ساختار پیشرفته با keywords, faq, relatedPosts)
 ═══════════════════════════════════════════ */
 const DEFAULT_POSTS = [
   {
     id: 1,
-    title: 'تقاطع عشق و خشم',
+    title: 'تقاطع عشق و خشم | چگونه با احساسات متضاد کنار بیاییم؟',
     slug: 'taghato-eshgh-va-kheshm',
     date: '۱۰ تیر ۱۴۰۴',
     dateISO: '2025-07-01',
-    excerpt: 'گاهی عشق و خشم در یک نقطه به هم می‌رسند و ما را در تقاطعی غریب رها می‌کنند...',
+    excerpt: 'گاهی عشق و خشم در یک نقطه به هم می‌رسند. در این مقاله یاد می‌گیرید چگونه با این احساسات متضاد کنار بیایید و از آن‌ها عبور کنید.',
     image: 'images/post-1.jpg',
-    tag: 'عشق و خشم',
-    content: 'گاهی عشق و خشم در یک نقطه به هم می‌رسند و ما را در تقاطعی غریب رها می‌کنند. نقطه‌ای که نه می‌توانی دوست داشته باشی و نه می‌توانی متنفر باشی. فقط می‌ایستی و تماشا می‌کنی که چگونه احساساتت در هم می‌آمیزند و تصویری تازه می‌سازند.\nمن بارها در این تقاطع ایستاده‌ام. روزهایی که دوست داشتن به خشم تبدیل می‌شد و خشم به عشقی عمیق‌تر. روزهایی که نمی‌دانستم باید بخندم یا گریه کنم. روزهایی که قلبم همزمان هم می‌تپید و هم می‌شکست.\nعشق واقعی هیچ‌گاه ساده نبوده است. همیشه با ترس آمیخته است، با خشم، با حسادت، با ناامیدی. اما همین آمیختگی است که آن را واقعی می‌کند. عشقی که هیچ‌گاه خشمگین نشود، عشقی سطحی است. عشقی که هیچ‌گاه نترسد، عشقی نپخته است.\nمن یاد گرفته‌ام که در این تقاطع نایستم. یاد گرفته‌ام که عبور کنم. یاد گرفته‌ام که هر دو احساس را بپذیرم و رهایشان کنم. چون تنها راه عبور از تقاطع، عبور است، نه ماندن.\nامروز وقتی به عقب نگاه می‌کنم، می‌بینم که تمام آن لحظات سخت، تمام آن خشم‌ها و عشق‌ها، مرا به کسی تبدیل کرده‌اند که امروز هستم. و برای همین از همه‌شان سپاسگزارم. حتی از آن‌هایی که دردناک بودند. حتی از آن‌هایی که ویرانم کردند.\nچون ویرانی گاهی آغاز ساختن است. و تقاطع عشق و خشم، آغاز فهمیدن است.'
+    tag: 'روانشناسی عشق',
+    keywords: ['عشق و خشم', 'احساسات متضاد', 'روانشناسی رابطه'],
+    readingTime: 8,
+    content: '## چرا عشق و خشم با هم می‌آیند؟\n\nگاهی عشق و خشم در یک نقطه به هم می‌رسند و ما را در تقاطعی غریب رها می‌کنند. نقطه‌ای که نه می‌توانی دوست داشته باشی و نه می‌توانی متنفر باشی.\n\nمن بارها در این تقاطع ایستاده‌ام. روزهایی که دوست داشتن به خشم تبدیل می‌شد و خشم به عشقی عمیق‌تر.\n\n### ریشه روانشناختی این تناقض\n\nعشق واقعی هیچ‌گاه ساده نبوده است. همیشه با ترس آمیخته است، با خشم، با حسادت، با ناامیدی.\n\n**نکات کلیدی:**\n- عشق عمیق همیشه با ترس از دست دادن همراه است\n- خشم ناشی از ناامیدی و انتظار برآورده نشده است\n- پذیرش این تناقض، اولین قدم برای عبور از آن است\n\n## چگونه از این تقاطع عبور کنیم؟\n\nمن یاد گرفته‌ام که در این تقاطع نایستم. یاد گرفته‌ام که عبور کنم.\n\n### ۴ گام عملی برای عبور\n\n**۱. پذیرش احساسات**\nامروز وقتی به عقب نگاه می‌کنم، می‌بینم که تمام آن لحظات سخت، مرا به کسی تبدیل کرده‌اند که امروز هستم.\n\n**۲. درک ریشه خشم**\nچون ویرانی گاهی آغاز ساختن است.\n\n**۳. رها کردن انتظار**\nیاد بگیرید که عشق بدون انتظار، آزادتر است.\n\n**۴. تمرکز بر رشد شخصی**\nهر رابطه‌ای درسی برای رشد شما دارد.\n\n## نتیجه‌گیری\n\nتقاطع عشق و خشم، نقطه‌ای نیست که در آن بمانید. این نقطه، دروازه‌ای است به سوی فهم عمیق‌تر از خود.',
+    faq: [
+      { question: 'چرا در عشق همزمان احساس خشم می‌کنیم؟', answer: 'خشم در عشق معمولاً ناشی از ناامیدی، ترس از دست دادن، یا انتظارات برآورده نشده است.' },
+      { question: 'آیا عشق واقعی با خشم همراه است؟', answer: 'بله، عشق عمیق همیشه با طیفی از احساسات از جمله خشم همراه است.' },
+      { question: 'چگونه با خشم در رابطه کنار بیاییم؟', answer: 'پذیرش احساسات، درک ریشه خشم، رها کردن انتظار، و تمرکز بر رشد شخصی.' }
+    ],
+    relatedPosts: [2, 3]
   },
   {
     id: 2,
-    title: 'حال دلم خوب نیست',
+    title: 'حال دلم خوب نیست | راه‌حل‌های عملی برای روزهای سخت',
     slug: 'hal-e-delam-khoob-nist',
     date: '۲۵ خرداد ۱۴۰۴',
     dateISO: '2025-06-15',
-    excerpt: 'بعضی روزها حال دلت خوب نیست و نمی‌دانی چرا. فقط می‌دانی که چیزی در درونت شکسته...',
+    excerpt: 'بعضی روزها حال دلت خوب نیست. در این مقاله یاد می‌گیرید چگونه با این احساس کنار بیایید و از آن عبور کنید.',
     image: 'images/post-2.jpg',
-    tag: 'تنهایی',
-    content: 'بعضی روزها حال دلت خوب نیست و نمی‌دانی چرا. فقط می‌دانی که چیزی در درونت شکسته. چیزی که نمی‌توانی نامش را بگذاری. چیزی که با هیچ کلمه‌ای توصیف نمی‌شود.\nصبح از خواب بیدار می‌شوی و احساس می‌کنی یک شبانه‌روز دیگر را باید تحمل کنی. نه با شوق، نه با امید، فقط با تحمل. قهوه‌ات را می‌نوشی و طعمش را حس نمی‌کنی. به آینه نگاه می‌کنی و چهره‌ات را نمی‌شناسی.\nاین حالت را همه تجربه کرده‌اند. روزهایی که دنیا رنگ باخته است. روزهایی که نفس کشیدن هم سخت است. روزهایی که تنها کاری که می‌توانی بکنی، نفس کشیدن است. و همین کافی است.\nمن نمی‌خواهم بگویم همه چیز درست می‌شود. نمی‌خواهم بگویم فردا روز بهتری است. چون گاهی فردا هم همین‌طور است. اما می‌خواهم بگویم که این حالت هم می‌گذرد. مثل تمام حالت‌های دیگر.\nدلتنگی می‌آید و می‌رود. غم می‌آید و می‌رود. تنهایی می‌آید و می‌رود. و تو می‌مانی. با تمام زخم‌هایت، با تمام خاطراتت، با تمام امیدهای کوچک و بزرگت.\nپس اگر امروز حال دلت خوب نیست، بدان که تنها نیستی. بدان که این هم می‌گذرد. و بدان که گاهی تنها کاری که می‌توانی بکنی، ادامه دادن است. و همین، شجاعت است.\nمن از روزهایی که حالم خوب نبود، بیشتر از روزهایی که حالم خوب بود یاد گرفته‌ام. چون در آن روزها با خودم روبرو شدم. با تمام ضعف‌هایم، با تمام ترس‌هایم، با تمام حقیقت‌هایی که معمولاً از آن‌ها فرار می‌کنم.\nو این روبرو شدن، هر چقدر هم دردناک، ارزشمند است.'
+    tag: 'افسردگی و تنهایی',
+    keywords: ['حال دلم خوب نیست', 'افسردگی', 'تنهایی'],
+    readingTime: 7,
+    content: '## چرا حال دلم خوب نیست؟\n\nبعضی روزها حال دلت خوب نیست و نمی‌دانی چرا. فقط می‌دانی که چیزی در درونت شکسته.\n\nصبح از خواب بیدار می‌شوی و احساس می‌کنی یک شبانه‌روز دیگر را باید تحمل کنی.\n\n### دلایل رایج این احساس\n\n- خستگی روحی و جسمی\n- فشارهای زندگی روزمره\n- کمبود ارتباطات معنادار\n\n## چگونه با این احساس کنار بیاییم؟\n\nمن نمی‌خواهم بگویم همه چیز درست می‌شود. اما می‌خواهم بگویم که این حالت هم می‌گذرد.\n\n### ۵ راهکار عملی\n\n**۱. پذیرش احساس**\nدلتنگی می‌آید و می‌رود. غم می‌آید و می‌رود.\n\n**۲. ارتباط با دیگران**\nپس اگر امروز حال دلت خوب نیست، بدان که تنها نیستی.\n\n**۳. فعالیت‌های کوچک**\nگاهی تنها کاری که می‌توانی بکنی، ادامه دادن است.\n\n**۴. مراقبت از خود**\nمن از روزهایی که حالم خوب نبود، بیشتر یاد گرفتم.\n\n**۵. کمک حرفه‌ای**\nاگر این احساس طولانی شد، با یک مشاور صحبت کنید.',
+    faq: [
+      { question: 'چرا گاهی بدون دلیل حال دلم خوب نیست؟', answer: 'این احساس می‌تواند ناشی از خستگی روحی، فشارهای پنهان زندگی، یا نیازهای برآورده نشده باشد.' },
+      { question: 'آیا این احساس طبیعی است؟', answer: 'بله، کاملاً طبیعی است. همه انسان‌ها روزهای سختی را تجربه می‌کنند.' }
+    ],
+    relatedPosts: [1, 5]
   },
   {
     id: 3,
-    title: 'آن فاجعه‌ی مهربان لعنتی',
+    title: 'آن فاجعه‌ی مهربان لعنتی | روایتی از عشق و ویرانی',
     slug: 'an-faje-ye-mehraban-lanati',
     date: '۱۵ اردیبهشت ۱۴۰۴',
     dateISO: '2025-05-05',
-    excerpt: 'بعضی آدم‌ها مثل فاجعه‌اند. می‌آیند و همه‌چیز را ویران می‌کنند، اما آن‌قدر مهربانند که...',
+    excerpt: 'بعضی آدم‌ها مثل فاجعه‌اند. می‌آیند و همه‌چیز را ویران می‌کنند، اما آن‌قدر مهربانند که نمی‌توانی از آن‌ها متنفر باشی.',
     image: 'images/post-3.jpg',
-    tag: 'عشق',
-    content: 'بعضی آدم‌ها مثل فاجعه‌اند. می‌آیند و همه‌چیز را ویران می‌کنند، اما آن‌قدر مهربانند که نمی‌توانی از آن‌ها متنفر باشی. آن‌قدر شیرین‌اند که زهرشان را هم با لذت می‌نوشی.\nمن چنین آدمی را شناخته‌ام. کسی که با یک لبخند می‌توانست تمام دیوارهایم را فرو بریزد. کسی که با یک نگاه می‌توانست تمام برنامه‌هایم را به هم بریزد. کسی که حضورش هم نجاتم می‌داد و هم ویرانم می‌کرد.\nاین تناقض را نمی‌فهمم. نمی‌فهمم چگونه می‌توان کسی را دوست داشت و از او ترسید. چگونه می‌توان کسی را خواست و از دست دادنش را آرزو کرد. چگونه می‌توان در آغوش کسی امن بود و همزمان احساس خطر کرد.\nاما زندگی پر از همین تناقض‌هاست. پر از آدم‌هایی که هم نجاتند هم فاجعه. پر از لحظه‌هایی که هم زیبا‌اند هم دردناک. پر از انتخاب‌هایی که هم درستند هم غلط.\nمن یاد گرفته‌ام که با این تناقض‌ها زندگی کنم. یاد گرفته‌ام که لازم نیست همه‌چیز را بفهمم. یاد گرفته‌ام که گاهی باید رها کرد، حتی وقتی رها کردن سخت‌ترین کار دنیاست.\nآن فاجعه‌ی مهربان لعنتی، هر که بود، هر چه بود، رفت. اما رد پایش ماند. در قلبم، در خاطراتم، در نوشته‌هایم. و شاید همین رد پا، زیباترین چیزی است که از او باقی مانده.\nچون فاجعه‌ها می‌روند، اما درس‌هایشان می‌مانند. و من از آن فاجعه، درس‌های زیادی گرفتم. درس‌هایی درباره عشق، درباره رهایی، درباره خودم.\nو برای همین، حتی از او هم سپاسگزارم. حتی از آن فاجعه‌ی مهربان لعنتی.'
+    tag: 'عشق و دلتنگی',
+    keywords: ['فاجعه مهربان', 'عشق ویرانگر', 'دلتنگی'],
+    readingTime: 6,
+    content: '## بعضی آدم‌ها مثل فاجعه‌اند\n\nمی‌آیند و همه‌چیز را ویران می‌کنند، اما آن‌قدر مهربانند که نمی‌توانی از آن‌ها متنفر باشی.\n\nمن چنین آدمی را شناخته‌ام. کسی که با یک لبخند می‌توانست تمام دیوارهایم را فرو بریزد.\n\n### تناقض بزرگ\n\nنمی‌فهمم چگونه می‌توان کسی را دوست داشت و از او ترسید.\n\n## زندگی با تناقض‌ها\n\nاما زندگی پر از همین تناقض‌هاست. پر از آدم‌هایی که هم نجاتند هم فاجعه.\n\nمن یاد گرفته‌ام که با این تناقض‌ها زندگی کنم. یاد گرفته‌ام که گاهی باید رها کرد.\n\nآن فاجعه‌ی مهربان لعنتی رفت. اما رد پایش ماند. در قلبم، در خاطراتم، در نوشته‌هایم.\n\nو برای همین، حتی از او هم سپاسگزارم.',
+    faq: [
+      { question: 'چرا بعضی آدم‌ها همزمان هم خوب و هم بد هستند؟', answer: 'انسان‌ها پیچیده‌اند. هر کسی هم ظرفیت عشق دارد و هم ظرفیت آسیب زدن.' }
+    ],
+    relatedPosts: [1, 4]
   },
   {
     id: 4,
-    title: 'بزرگ‌ترین اشتباه ما...',
+    title: 'بزرگ‌ترین اشتباه ما... | درس‌هایی از پذیرش در عشق',
     slug: 'bozorgtarin-eshtebah-ma',
     date: '۵ اردیبهشت ۱۴۰۴',
     dateISO: '2025-04-25',
-    excerpt: 'بزرگ‌ترین اشتباه ما این بود که فکر کردیم می‌توانیم کسی را تغییر دهیم. یا بدتر...',
+    excerpt: 'بزرگ‌ترین اشتباه ما این بود که فکر کردیم می‌توانیم کسی را تغییر دهیم. یا بدتر، فکر کردیم کسی می‌تواند ما را تغییر دهد.',
     image: 'images/post-4.jpg',
-    tag: 'پذیرش',
-    content: 'بزرگ‌ترین اشتباه ما این بود که فکر کردیم می‌توانیم کسی را تغییر دهیم. یا بدتر، فکر کردیم کسی می‌تواند ما را تغییر دهد. عاشق شدیم به امید اینکه طرف مقابل تبدیل به آن کسی شود که در ذهنمان ساخته‌ایم.\nاما آدم‌ها همان‌اند که هستند. با تمام نقص‌ها، با تمام زیبایی‌ها، با تمام پیچیدگی‌ها. و وقتی سعی می‌کنیم آن‌ها را تغییر دهیم، در واقع داریم به آن‌ها می‌گوییم که همان‌طور که هستند کافی نیستند.\nمن این اشتباه را کرده‌ام. بارها. سعی کرده‌ام کسی را آن‌طور که می‌خواهم ببینم، نه آن‌طور که هست. و هر بار شکست خورده‌ام. هر بار درد کشیده‌ام. هر بار فهمیده‌ام که عشق واقعی، عشق به همان کسی است که هست، نه به کسی که می‌تواند باشد.\nاین درس سختی بود. درسی که با درد آموختم. درسی که با اشک آموختم. درسی که با تنهایی آموختم. اما درسی ارزشمند.\nامروز وقتی عاشق می‌شوم، سعی می‌کنم طرف مقابل را همان‌طور که هست ببینم. با تمام نقص‌ها، با تمام خوبی‌ها. و اگر نتوانستم، می‌روم. چون ماندن در عشقی که بر اساس توهم ساخته شده، خیانت به خود است. خیانت به طرف مقابل. خیانت به عشق.\nبزرگ‌ترین اشتباه ما این بود که فکر کردیم عشق یعنی تغییر دادن. اما عشق واقعی یعنی پذیرفتن. یعنی دیدن. یعنی بودن. بدون نقاب، بدون توهم، بدون انتظار.\nو این، سخت‌ترین و زیباترین کار دنیاست.'
+    tag: 'خودشناسی',
+    keywords: ['اشتباه در عشق', 'تغییر دادن دیگران', 'پذیرش'],
+    readingTime: 5,
+    content: '## اشتباه بزرگ\n\nبزرگ‌ترین اشتباه ما این بود که فکر کردیم می‌توانیم کسی را تغییر دهیم.\n\nاما آدم‌ها همان‌اند که هستند. با تمام نقص‌ها، با تمام زیبایی‌ها.\n\n## درسی که آموختم\n\nمن این اشتباه را کرده‌ام. بارها. سعی کرده‌ام کسی را آن‌طور که می‌خواهم ببینم.\n\nامروز وقتی عاشق می‌شوم، سعی می‌کنم طرف مقابل را همان‌طور که هست ببینم.\n\nعشق واقعی یعنی پذیرفتن. یعنی دیدن. یعنی بودن. بدون نقاب، بدون توهم، بدون انتظار.\n\nو این، سخت‌ترین و زیباترین کار دنیاست.',
+    faq: [
+      { question: 'آیا می‌توان در رابطه افراد را تغییر داد؟', answer: 'خیر، تغییر باید از درون خود فرد باشد. شما فقط می‌توانید الهام‌بخش باشید.' }
+    ],
+    relatedPosts: [1, 2]
   },
   {
     id: 5,
-    title: 'روزی تا خرخره عاشق بودم...',
+    title: 'روزی تا خرخره عاشق بودم... | روایتی از رهایی و خودشناسی',
     slug: 'roozi-ta-kharhare-ashiq-boodam',
     date: '۲۰ فروردین ۱۴۰۴',
     dateISO: '2025-04-09',
-    excerpt: 'روزی تا خرخره عاشق بودم. آن‌قدر که فکر می‌کردم بدون او نمی‌توانم نفس بکشم...',
+    excerpt: 'روزی تا خرخره عاشق بودم. آن‌قدر که فکر می‌کردم بدون او نمی‌توانم نفس بکشم. اما روزی رسید که فهمیدم...',
     image: 'images/post-5.jpg',
-    tag: 'رهایی',
-    content: 'روزی تا خرخره عاشق بودم. آن‌قدر که فکر می‌کردم بدون او نمی‌توانم نفس بکشم. آن‌قدر که تمام دنیایم در چشمانش خلاصه می‌شد. آن‌قدر که نبودش پایان دنیا بود.\nاما دنیا پایان نیافت. من نفس کشیدم. من زنده ماندم. و فهمیدم که عشق، هر چقدر هم عمیق، تمام‌کننده نیست. عشق بخشی از زندگی است، نه تمام زندگی.\nاین فهمیدن دردناک بود. چون وقتی تا خرخره عاشقی، نمی‌خواهی بفهمی که زندگی بدون معشوق هم ممکن است. نمی‌خواهی بپذیری که قلبت، هر چقدر هم شکسته، باز هم می‌تپد.\nاما حقیقت همین است. قلب می‌تپد. نفس می‌آید. روزها می‌گذرند. و تو، آرام آرام، یاد می‌گیری که دوباره زندگی کنی. نه فراموش کنی، بلکه زندگی کنی.\nمن آن روزها را فراموش نکرده‌ام. هنوز هم گاهی به یاد آن عشق می‌افتم. هنوز هم گاهی دلتنگ می‌شوم. اما دیگر آن عشق مرا ویران نمی‌کند. دیگر آن عشق تمام دنیایم نیست.\nچون فهمیده‌ام که من، قبل از آن عشق، خودم بودم. و بعد از آن عشق، باز هم خودم هستم. با تجربه‌های بیشتر، با زخم‌های بیشتر، با فهمیدن‌های بیشتر.\nو این، شاید بزرگ‌ترین درس عشق باشد. اینکه بفهمی تو، مستقل از هر عشقی، کاملی. اینکه بفهمی هیچ کسی نمی‌تواند تو را کامل کند، چون تو از اول کامل بوده‌ای.\nروزی تا خرخره عاشق بودم. امروز تا خرخره خودم را دوست دارم. و این، عشق واقعی‌تر است.'
+    tag: 'رهایی و رشد',
+    keywords: ['عشق عمیق', 'خودشناسی', 'رهایی از عشق'],
+    readingTime: 5,
+    content: '## تا خرخره عاشق بودم\n\nروزی تا خرخره عاشق بودم. آن‌قدر که تمام دنیایم در چشمانش خلاصه می‌شد.\n\nاما دنیا پایان نیافت. من نفس کشیدم. من زنده ماندم.\n\n## فهمیدن دردناک\n\nاین فهمیدن دردناک بود. اما حقیقت همین است. قلب می‌تپد. نفس می‌آید.\n\nمن آن روزها را فراموش نکرده‌ام. هنوز هم گاهی دلتنگ می‌شوم. اما دیگر آن عشق مرا ویران نمی‌کند.\n\nچون فهمیده‌ام که من، قبل از آن عشق، خودم بودم. و بعد از آن عشق، باز هم خودم هستم.\n\nروزی تا خرخره عاشق بودم. امروز تا خرخره خودم را دوست دارم.',
+    faq: [
+      { question: 'آیا می‌توان بعد از یک عشق عمیق دوباره زندگی کرد؟', answer: 'بله، عشق عمیق پایان زندگی نیست. با گذشت زمان و خودشناسی، زندگی رنگ تازه‌ای می‌گیرد.' }
+    ],
+    relatedPosts: [3, 4]
   },
   {
     id: 6,
-    title: 'چه فرق می‌کند بیدار باشم یا در خواب...',
+    title: 'چه فرق می‌کند بیدار باشم یا در خواب... | فلسفه‌ای در دلتنگی',
     slug: 'che-fargh-mikonad-bidar-basham-ya-dar-khab',
     date: '۱ فروردین ۱۴۰۴',
     dateISO: '2025-03-21',
-    excerpt: 'چه فرق می‌کند بیدار باشم یا در خواب؟ در هر دو حالت، تو نیستی. و این، تنها حقیقتی است که...',
+    excerpt: 'چه فرق می‌کند بیدار باشم یا در خواب؟ در هر دو حالت، تو نیستی. و این، تنها حقیقتی است که می‌شناسم.',
     image: 'images/post-6.jpg',
-    tag: 'دلتنگی',
-    content: 'چه فرق می‌کند بیدار باشم یا در خواب؟ در هر دو حالت، تو نیستی. و این، تنها حقیقتی است که می‌شناسم. حقیقتی که با هر نفس تکرار می‌شود. حقیقتی که با هر ضربان قلب فریاد زده می‌شود.\nبیداری و خواب، هر دو، تو را به من نشان می‌دهند. در بیداری، در هر چهره‌ای، تو را می‌بینم. در خواب، در هر رویایی، تو را تجربه می‌کنم. و در هر دو حالت، تو نیستی. فقط سایه‌ای از تو هست. فقط خاطره‌ای از تو هست.\nاین حالت را نمی‌توان توصیف کرد. نمی‌توان گفت دلتنگی است، چون دلتنگی ساده‌تر از این است. نمی‌توان گفت غم است، چون غم موقت است. این حالت، حالتی است فراتر از همه احساسات. حالتی که در آن، نبودنِ تو، حضور دارد.\nمن با این حالت زندگی کرده‌ام. روزها، ماه‌ها، سال‌ها. و فهمیده‌ام که این حالت هم می‌گذرد. نه با فراموشی، نه با زمان، بلکه با پذیرش. با پذیرفتن اینکه تو نیستی و نخواهی بود. و من، با این حقیقت، زندگی می‌کنم.\nاین پذیرش، دردناک است. اما آزادهنده هم هست. چون وقتی می‌پذیری که کسی نیست، دیگر منتظرش نمی‌مانی. دیگر به در و دیوار نمی‌کوبی. دیگر در هر صدایی، صدایش را نمی‌شنوی.\nآرام می‌گیری. نه آرامشِ فراموشی، بلکه آرامشِ پذیرش. آرامشی که در آن، خاطرات هستند، اما آزارت نمی‌دهند. در آن، دلتنگی هست، اما ویرانت نمی‌کند.\nچه فرق می‌کند بیدار باشم یا در خواب؟ امروز می‌گویم: فرق می‌کند. چون در بیداری، من انتخاب می‌کنم که زندگی کنم. در خواب، انتخابی نیست. و من، انتخاب می‌کنم که بیدار باشم. که زندگی کنم. که با نبودنت، زندگی کنم.\nو این، شجاعت است.'
+    tag: 'فلسفه و دلتنگی',
+    keywords: ['دلتنگی', 'فلسفه عشق', 'نبودن معشوق'],
+    readingTime: 4,
+    content: '## چه فرق می‌کند؟\n\nچه فرق می‌کند بیدار باشم یا در خواب؟ در هر دو حالت، تو نیستی.\n\nبیداری و خواب، هر دو، تو را به من نشان می‌دهند. در بیداری، در هر چهره‌ای، تو را می‌بینم. در خواب، در هر رویایی، تو را تجربه می‌کنم.\n\n## حقیقت تلخ\n\nاین حالت را نمی‌توان توصیف کرد. حالتی فراتر از همه احساسات.\n\nمن با این حالت زندگی کرده‌ام. روزها، ماه‌ها. و فهمیده‌ام که این حالت هم می‌گذرد. نه با فراموشی، بلکه با پذیرش.\n\nچه فرق می‌کند بیدار باشم یا در خواب؟ امروز می‌گویم: فرق می‌کند. چون در بیداری، من انتخاب می‌کنم که زندگی کنم.',
+    faq: [
+      { question: 'چگونه دلتنگی را به پذیرش تبدیل کنیم؟', answer: 'با درک این که نبودن کسی، به معنای نبودن زندگی نیست.' }
+    ],
+    relatedPosts: [2, 5]
   }
 ];
 
@@ -1603,944 +802,281 @@ const DEFAULT_POSTS = [
    STATE
 ═══════════════════════════════════════════ */
 const state = {
-  posts: [],
-  currentPost: null,
-  sliderIndex: 0,
-  sliderMode: 'horizontal',
-  sliderInterval: null,
-  isPlaying: false,
-  theme: 'dark',
-  blogView: 'grid',
-  currentTrackIndex: 0
+  posts: [], currentPost: null, sliderIndex: 0, sliderMode: 'horizontal',
+  sliderInterval: null, isPlaying: false, theme: 'dark', blogView: 'grid', currentTrackIndex: 0
 };
 
 /* ═══════════════════════════════════════════
    TOAST
 ═══════════════════════════════════════════ */
-const showToast = (message, type = 'success') => {
-  const toast = Utils.$('#toast');
-  const toastMsg = Utils.$('#toast-message');
-  const icon = toast.querySelector('i');
-  toastMsg.textContent = message;
-  toast.className = `toast ${type} show`;
-  icon.className = type === 'success' ? 'fas fa-check-circle' : 'fas fa-exclamation-circle';
-  setTimeout(() => toast.classList.remove('show'), 3000);
+const showToast = (msg, type='success') => {
+  const t = Utils.$('#toast'), m = Utils.$('#toast-message');
+  m.textContent = msg; t.className = `toast ${type} show`;
+  setTimeout(() => t.classList.remove('show'), 3000);
 };
 
 /* ═══════════════════════════════════════════
-   DEVICE DETECTION
-═══════════════════════════════════════════ */
-const DeviceDetector = {
-  isIOS: /iPad|iPhone|iPod/.test(navigator.userAgent) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1),
-  isSafari: /^((?!chrome|android).)*safari/i.test(navigator.userAgent),
-  isMobile: /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent),
-  needsSpecialHandling() { return this.isIOS || this.isSafari || this.isMobile; }
-};
-
-/* ═══════════════════════════════════════════
-   THEME MANAGER — Safe localStorage
+   THEME
 ═══════════════════════════════════════════ */
 const ThemeManager = {
-  init() {
-    const saved = Utils.safeStorage.get('theme');
-    state.theme = saved || 'dark';
-    this.apply();
-    Utils.$('#theme-toggle').addEventListener('click', () => this.toggle());
-  },
-  apply() {
-    document.documentElement.setAttribute('data-theme', state.theme);
-    const icon = Utils.$('#theme-toggle i');
-    if (icon) icon.className = state.theme === 'dark' ? 'fas fa-moon' : 'fas fa-sun';
-  },
-  toggle() {
-    state.theme = state.theme === 'dark' ? 'light' : 'dark';
-    Utils.safeStorage.set('theme', state.theme);
-    this.apply();
-  }
+  init() { const s = Utils.safeStorage.get('theme'); state.theme = s || 'dark'; this.apply(); Utils.$('#theme-toggle').addEventListener('click', ()=>this.toggle()); },
+  apply() { document.documentElement.setAttribute('data-theme', state.theme); const i = Utils.$('#theme-toggle i'); if(i) i.className = state.theme === 'dark' ? 'fas fa-moon' : 'fas fa-sun'; },
+  toggle() { state.theme = state.theme === 'dark' ? 'light' : 'dark'; Utils.safeStorage.set('theme', state.theme); this.apply(); }
 };
 
 /* ═══════════════════════════════════════════
-   MENU MANAGER
+   MENU
 ═══════════════════════════════════════════ */
 const MenuManager = {
   init() {
-    const toggle = Utils.$('#menu-toggle');
-    const menu = Utils.$('#nav-menu');
-    toggle.addEventListener('click', () => {
-      const isOpen = menu.classList.toggle('open');
-      toggle.setAttribute('aria-expanded', String(isOpen));
-    });
-    Utils.$$('#nav-menu a').forEach(link => {
-      link.addEventListener('click', () => {
-        menu.classList.remove('open');
-        toggle.setAttribute('aria-expanded', 'false');
-      });
-    });
+    const toggle = Utils.$('#menu-toggle'), menu = Utils.$('#nav-menu');
+    toggle.addEventListener('click', ()=>{ const o = menu.classList.toggle('open'); toggle.setAttribute('aria-expanded', String(o)); });
+    Utils.$$('#nav-menu a').forEach(a => a.addEventListener('click', ()=>{ menu.classList.remove('open'); toggle.setAttribute('aria-expanded','false'); }));
   }
 };
 
 /* ═══════════════════════════════════════════
-   SCROLL MANAGER — RAF throttled
+   SCROLL
 ═══════════════════════════════════════════ */
 const ScrollManager = {
   init() {
-    const onScroll = Utils.throttleRAF(() => {
-      const scrollY = window.scrollY;
-      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-      const progress = docHeight > 0 ? (scrollY / docHeight) * 100 : 0;
-
-      const progressBar = Utils.$('#scroll-progress');
-      progressBar.style.width = `${progress}%`;
-      progressBar.setAttribute('aria-valuenow', Math.round(progress));
-
-      Utils.$('#main-header').classList.toggle('scrolled', scrollY > 100);
-      Utils.$('#back-to-top').classList.toggle('show', scrollY > 500);
-      this.updateActiveNav(scrollY);
+    const fn = Utils.throttleRAF(() => {
+      const y = window.scrollY, h = document.documentElement.scrollHeight - window.innerHeight;
+      const p = h > 0 ? (y/h)*100 : 0;
+      const bar = Utils.$('#scroll-progress'); bar.style.width = p+'%'; bar.setAttribute('aria-valuenow', Math.round(p));
+      Utils.$('#main-header').classList.toggle('scrolled', y > 100);
+      Utils.$('#back-to-top').classList.toggle('show', y > 500);
+      const sections = ['home','about','works','blog','faq']; const pos = y+200;
+      for(const id of sections) { const s = document.getElementById(id); if(!s) continue; const t = s.offsetTop, b = t+s.offsetHeight; const link = Utils.$(`nav a[href="#${id}"]`); if(link && pos >= t && pos < b) { Utils.$$('#nav-menu a').forEach(a=>a.classList.remove('active')); link.classList.add('active'); break; } }
     });
-
-    window.addEventListener('scroll', onScroll, { passive: true });
-    Utils.$('#back-to-top').addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
-  },
-
-  updateActiveNav(scrollY) {
-    const sections = ['home', 'about', 'works', 'blog', 'faq'];
-    const pos = scrollY + 200;
-    for (const id of sections) {
-      const section = document.getElementById(id);
-      if (!section) continue;
-      const top = section.offsetTop;
-      const bottom = top + section.offsetHeight;
-      const link = Utils.$(`nav a[href="#${id}"]`);
-      if (link && pos >= top && pos < bottom) {
-        Utils.$$('#nav-menu a').forEach(a => a.classList.remove('active'));
-        link.classList.add('active');
-        break;
-      }
-    }
+    window.addEventListener('scroll', fn, {passive: true});
+    Utils.$('#back-to-top').addEventListener('click', ()=>window.scrollTo({top:0,behavior:'smooth'}));
   }
 };
 
 /* ═══════════════════════════════════════════
-   MOUSE LIGHT — RAF throttled
+   MOUSE LIGHT & PARTICLES
 ═══════════════════════════════════════════ */
 const MouseLight = {
-  init() {
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-    const light = Utils.$('#mouse-light');
-    const onMove = Utils.throttleRAF((e) => {
-      light.style.left = `${e.clientX}px`;
-      light.style.top = `${e.clientY}px`;
-    });
-    document.addEventListener('mousemove', onMove, { passive: true });
-  }
+  init() { if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return; const l=Utils.$('#mouse-light'); const fn = Utils.throttleRAF(e=>{ l.style.left=e.clientX+'px'; l.style.top=e.clientY+'px'; }); document.addEventListener('mousemove', fn, {passive:true}); }
 };
-
-/* ═══════════════════════════════════════════
-   PARTICLES
-═══════════════════════════════════════════ */
 const Particles = {
-  init() {
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-    const container = Utils.$('#hero-particles');
-    const frag = document.createDocumentFragment();
-    for (let i = 0; i < 20; i++) {
-      const p = document.createElement('div');
-      p.className = 'particle';
-      p.style.left = `${Math.random() * 100}%`;
-      p.style.animationDelay = `${Math.random() * 8}s`;
-      p.style.animationDuration = `${6 + Math.random() * 6}s`;
-      frag.appendChild(p);
-    }
-    container.appendChild(frag);
-  }
+  init() { if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return; const c=Utils.$('#hero-particles'); const f=document.createDocumentFragment(); for(let i=0;i<20;i++){const p=document.createElement('div');p.className='particle';p.style.left=Math.random()*100+'%';p.style.animationDelay=Math.random()*8+'s';p.style.animationDuration=(6+Math.random()*6)+'s';f.appendChild(p);} c.appendChild(f); }
 };
 
 /* ═══════════════════════════════════════════
-   SLIDER — Keyboard accessible
+   SLIDER
 ═══════════════════════════════════════════ */
 const Slider = {
   init() {
-    this.slides = Utils.$$('.slide');
-    this.dots = Utils.$$('.slider-dot');
-    this.total = this.slides.length;
-
-    Utils.$('#prev-slide').addEventListener('click', () => this.prev());
-    Utils.$('#next-slide').addEventListener('click', () => this.next());
-    this.dots.forEach(dot => dot.addEventListener('click', () => this.goTo(parseInt(dot.dataset.index))));
-
-    Utils.$$('.slider-mode-btn').forEach(btn => {
-      btn.addEventListener('click', () => {
-        Utils.$$('.slider-mode-btn').forEach(b => {
-          b.classList.remove('active');
-          b.setAttribute('aria-pressed', 'false');
-        });
-        btn.classList.add('active');
-        btn.setAttribute('aria-pressed', 'true');
-        this.setMode(btn.dataset.mode);
-      });
-    });
-
-    const viewport = Utils.$('#slider-viewport');
-    viewport.addEventListener('mouseenter', () => this.pause());
-    viewport.addEventListener('mouseleave', () => this.play());
-    viewport.addEventListener('focus', () => this.pause());
-    viewport.addEventListener('blur', () => this.play());
-    viewport.addEventListener('keydown', (e) => {
-      if (e.key === 'ArrowLeft') this.next();
-      if (e.key === 'ArrowRight') this.prev();
-    });
-
+    this.slides = Utils.$$('.slide'); this.dots = Utils.$$('.slider-dot'); this.total = this.slides.length;
+    Utils.$('#prev-slide').addEventListener('click', ()=>this.prev());
+    Utils.$('#next-slide').addEventListener('click', ()=>this.next());
+    this.dots.forEach(d=>d.addEventListener('click', ()=>this.goTo(parseInt(d.dataset.index))));
+    Utils.$$('.slider-mode-btn').forEach(b=>b.addEventListener('click', ()=>{ Utils.$$('.slider-mode-btn').forEach(x=>{ x.classList.remove('active'); x.setAttribute('aria-pressed','false'); }); b.classList.add('active'); b.setAttribute('aria-pressed','true'); this.setMode(b.dataset.mode); }));
+    const vp = Utils.$('#slider-viewport'); vp.addEventListener('mouseenter', ()=>this.pause()); vp.addEventListener('mouseleave', ()=>this.play()); vp.addEventListener('focus', ()=>this.pause()); vp.addEventListener('blur', ()=>this.play());
+    vp.addEventListener('keydown', e=>{ if(e.key === 'ArrowLeft') this.next(); if(e.key === 'ArrowRight') this.prev(); });
     this.play();
   },
-
-  setMode(mode) {
-    state.sliderMode = mode;
-    this.slides.forEach(s => s.classList.toggle('fade-mode', mode === 'fade'));
-  },
-
-  goTo(index) {
-    this.slides[state.sliderIndex].classList.remove('active');
-    this.dots[state.sliderIndex].classList.remove('active');
-    this.dots[state.sliderIndex].setAttribute('aria-selected', 'false');
-    state.sliderIndex = (index + this.total) % this.total;
-    this.slides[state.sliderIndex].classList.add('active');
-    this.dots[state.sliderIndex].classList.add('active');
-    this.dots[state.sliderIndex].setAttribute('aria-selected', 'true');
-    this.resetAutoPlay();
-  },
-
-  next() { this.goTo(state.sliderIndex + 1); },
-  prev() { this.goTo(state.sliderIndex - 1); },
-
-  play() {
-    this.pause();
-    state.sliderInterval = setInterval(() => this.next(), 5000);
-  },
-  pause() {
-    if (state.sliderInterval) { clearInterval(state.sliderInterval); state.sliderInterval = null; }
-  },
+  setMode(m) { state.sliderMode = m; this.slides.forEach(s=>s.classList.toggle('fade-mode', m==='fade')); },
+  goTo(i) { this.slides[state.sliderIndex].classList.remove('active'); this.dots[state.sliderIndex].classList.remove('active'); this.dots[state.sliderIndex].setAttribute('aria-selected','false'); state.sliderIndex = (i + this.total) % this.total; this.slides[state.sliderIndex].classList.add('active'); this.dots[state.sliderIndex].classList.add('active'); this.dots[state.sliderIndex].setAttribute('aria-selected','true'); this.resetAutoPlay(); },
+  next() { this.goTo(state.sliderIndex+1); }, prev() { this.goTo(state.sliderIndex-1); },
+  play() { this.pause(); state.sliderInterval = setInterval(()=>this.next(), 5000); },
+  pause() { if(state.sliderInterval){ clearInterval(state.sliderInterval); state.sliderInterval = null; } },
   resetAutoPlay() { this.pause(); this.play(); }
 };
 
 /* ═══════════════════════════════════════════
-   MUSIC PLAYER — All bugs fixed
+   MUSIC PLAYER (فشرده و کامل)
 ═══════════════════════════════════════════ */
 const MusicPlayer = {
-  tracks: [
-    { name: 'موسیقی پس‌زمینه ۱', src: 'music.mp3' },
-    { name: 'موسیقی پس‌زمینه ۲', src: 'music2.mp3' }
-  ],
-  audio: null,
-  audioContext: null,
-  retryCount: 0,
-  maxRetries: 3,
-  isPreparing: false,
-  userInteracted: false,
-  wasPlayingBeforeHidden: false,
-
+  tracks: [{name:'موسیقی پس‌زمینه ۱',src:'music.mp3'},{name:'موسیقی پس‌زمینه ۲',src:'music2.mp3'}],
+  audio: null, audioContext: null, retryCount:0, maxRetries:3, isPreparing:false, userInteracted:false, wasPlayingBeforeHidden:false,
   init() {
-    this.audio = new Audio();
-    this.audio.preload = 'auto';
-    this.audio.volume = 0.7;
-    this.audio.setAttribute('playsinline', '');
-    this.audio.setAttribute('webkit-playsinline', '');
-    // ✅ FIX: crossOrigin only for external URLs
-    this.setupEventListeners();
-    this.setupAudioEvents();
-    this.loadCurrentTrack();
-    this.updateTrackUI();
-    this.registerUserInteraction();
+    this.audio = new Audio(); this.audio.preload='auto'; this.audio.volume=0.7; this.audio.setAttribute('playsinline',''); this.audio.setAttribute('webkit-playsinline','');
+    this.setupEvents(); this.loadCurrentTrack(); this.updateUI(); this.registerInteraction();
   },
-
-  /** ✅ FIX: Only set crossOrigin for cross-origin URLs */
-  setCrossOrigin() {
-    const track = this.tracks[state.currentTrackIndex];
-    try {
-      const url = new URL(track.src, window.location.href);
-      if (url.origin !== window.location.origin) {
-        this.audio.crossOrigin = 'anonymous';
-      } else {
-        this.audio.removeAttribute('crossorigin');
-      }
-    } catch {
-      this.audio.removeAttribute('crossorigin');
-    }
+  setCrossOrigin() { try { const u = new URL(this.tracks[state.currentTrackIndex].src, window.location.href); if(u.origin !== window.location.origin) this.audio.crossOrigin='anonymous'; else this.audio.removeAttribute('crossorigin'); } catch { this.audio.removeAttribute('crossorigin'); } },
+  initAudioContext() { if(this.audioContext) return; try { const AC = window.AudioContext || window.webkitAudioContext; if(AC){ this.audioContext = new AC(); if(this.audioContext.state === 'suspended') this.resumeAudioContext(); } } catch(e){} },
+  resumeAudioContext() { if(this.audioContext && this.audioContext.state === 'suspended') this.audioContext.resume().catch(()=>{}); },
+  registerInteraction() {
+    const fn = ()=>{ if(this.userInteracted) return; this.userInteracted=true; this.initAudioContext(); if(this.audio.src){ const p=this.audio.play(); if(p!==undefined) p.then(()=>{this.audio.pause(); this.audio.currentTime=0;}).catch(()=>{}); } document.removeEventListener('touchstart', fn); document.removeEventListener('touchend', fn); document.removeEventListener('click', fn); };
+    document.addEventListener('touchstart', fn, {passive:true}); document.addEventListener('touchend', fn, {passive:true}); document.addEventListener('click', fn, {passive:true});
   },
-
-  initAudioContext() {
-    if (this.audioContext) return;
-    try {
-      const AC = window.AudioContext || window.webkitAudioContext;
-      if (AC) {
-        this.audioContext = new AC();
-        if (this.audioContext.state === 'suspended') this.resumeAudioContext();
-      }
-    } catch (e) { console.warn('AudioContext not supported:', e); }
+  setupEvents() {
+    Utils.$('#play-btn').addEventListener('click', e=>{ e.preventDefault(); this.toggle(); });
+    Utils.$('#stop-btn').addEventListener('click', ()=>this.stop());
+    Utils.$('#prev-track-btn').addEventListener('click', ()=>this.prevTrack());
+    Utils.$('#next-track-btn').addEventListener('click', ()=>this.nextTrack());
+    Utils.$('#volume-slider').addEventListener('input', e=>{ this.audio.volume=parseFloat(e.target.value); this.updateVolumeIcon(); });
+    Utils.$('#retry-btn').addEventListener('click', ()=>this.retry());
+    document.addEventListener('visibilitychange', ()=>{ if(document.hidden && this.isPlaying) this.wasPlayingBeforeHidden=true; else if(!document.hidden && this.wasPlayingBeforeHidden){ this.wasPlayingBeforeHidden=false; if(this.audio.paused && this.isPlaying) this.audio.play().catch(()=>{}); } });
+    this.audio.addEventListener('timeupdate', ()=>this.updateTime());
+    this.audio.addEventListener('loadedmetadata', ()=>this.updateTime());
+    this.audio.addEventListener('loadeddata', ()=>{ this.updateTime(); Utils.$('#play-btn').classList.remove('loading'); });
+    this.audio.addEventListener('canplay', ()=>{ Utils.$('#play-btn').classList.remove('loading'); this.isPreparing=false; });
+    this.audio.addEventListener('canplaythrough', ()=>{ Utils.$('#play-btn').classList.remove('loading'); this.isPreparing=false; });
+    this.audio.addEventListener('ended', ()=>{ if(this.tracks.length>1) this.nextTrack(true); else { this.isPlaying=false; Utils.$('#play-icon').className='fas fa-play'; Utils.$('#play-btn').classList.remove('playing'); } });
+    this.audio.addEventListener('error', e=>this.handleError(e));
+    this.audio.addEventListener('stalled', ()=>{ if(this.isPlaying){ setTimeout(()=>{ if(this.audio.paused && this.isPlaying) this.audio.play().catch(()=>{}); },500); } });
+    this.audio.addEventListener('waiting', ()=>Utils.$('#play-btn').classList.add('loading'));
+    this.audio.addEventListener('playing', ()=>Utils.$('#play-btn').classList.remove('loading'));
   },
-
-  resumeAudioContext() {
-    if (this.audioContext && this.audioContext.state === 'suspended') {
-      this.audioContext.resume().catch(() => {});
-    }
-  },
-
-  registerUserInteraction() {
-    const unlockAudio = () => {
-      if (this.userInteracted) return;
-      this.userInteracted = true;
-      this.initAudioContext();
-      // ✅ FIX: Only attempt play if src is set
-      if (this.audio.src) {
-        const p = this.audio.play();
-        if (p !== undefined) {
-          p.then(() => { this.audio.pause(); this.audio.currentTime = 0; }).catch(() => {});
-        }
-      }
-      document.removeEventListener('touchstart', unlockAudio);
-      document.removeEventListener('touchend', unlockAudio);
-      document.removeEventListener('click', unlockAudio);
-    };
-    document.addEventListener('touchstart', unlockAudio, { passive: true });
-    document.addEventListener('touchend', unlockAudio, { passive: true });
-    document.addEventListener('click', unlockAudio, { passive: true });
-  },
-
-  setupEventListeners() {
-    Utils.$('#play-btn').addEventListener('click', (e) => { e.preventDefault(); this.toggle(); });
-    Utils.$('#stop-btn').addEventListener('click', () => this.stop());
-    Utils.$('#prev-track-btn').addEventListener('click', () => this.prevTrack());
-    Utils.$('#next-track-btn').addEventListener('click', () => this.nextTrack());
-    Utils.$('#volume-slider').addEventListener('input', (e) => {
-      this.audio.volume = parseFloat(e.target.value);
-      this.updateVolumeIcon();
-    });
-    Utils.$('#retry-btn').addEventListener('click', () => this.retry());
-
-    // ✅ Resume playback when tab becomes visible again
-    document.addEventListener('visibilitychange', () => {
-      if (document.hidden && this.isPlaying) {
-        this.wasPlayingBeforeHidden = true;
-      } else if (!document.hidden && this.wasPlayingBeforeHidden) {
-        this.wasPlayingBeforeHidden = false;
-        if (this.audio.paused && this.isPlaying) {
-          this.audio.play().catch(() => {});
-        }
-      }
-    });
-  },
-
-  setupAudioEvents() {
-    this.audio.addEventListener('timeupdate', () => this.updateTime());
-    this.audio.addEventListener('loadedmetadata', () => this.updateTime());
-    this.audio.addEventListener('loadeddata', () => {
-      this.updateTime();
-      Utils.$('#play-btn').classList.remove('loading');
-    });
-    this.audio.addEventListener('canplay', () => {
-      Utils.$('#play-btn').classList.remove('loading');
-      this.isPreparing = false;
-    });
-    this.audio.addEventListener('canplaythrough', () => {
-      Utils.$('#play-btn').classList.remove('loading');
-      this.isPreparing = false;
-    });
-    this.audio.addEventListener('ended', () => {
-      if (this.tracks.length > 1) this.nextTrack(true);
-      else {
-        this.isPlaying = false;
-        Utils.$('#play-icon').className = 'fas fa-play';
-        Utils.$('#play-btn').classList.remove('playing');
-      }
-    });
-    this.audio.addEventListener('error', (e) => this.handleError(e));
-    this.audio.addEventListener('stalled', () => {
-      if (this.isPlaying) {
-        setTimeout(() => {
-          if (this.audio.paused && this.isPlaying) this.audio.play().catch(() => {});
-        }, 500);
-      }
-    });
-    this.audio.addEventListener('waiting', () => Utils.$('#play-btn').classList.add('loading'));
-    this.audio.addEventListener('playing', () => Utils.$('#play-btn').classList.remove('loading'));
-  },
-
-  loadCurrentTrack() {
-    const track = this.tracks[state.currentTrackIndex];
-    this.audio.pause();
-    this.audio.removeAttribute('src');
-    this.audio.load();
-    this.setCrossOrigin();
-    this.audio.src = track.src;
-    this.audio.preload = 'auto';
-    this.audio.load();
-  },
-
-  updateTrackUI() {
-    const track = this.tracks[state.currentTrackIndex];
-    const titleEl = Utils.$('#player-title');
-    const indicatorEl = Utils.$('#track-indicator');
-    titleEl.classList.add('track-switching');
-    setTimeout(() => {
-      titleEl.textContent = track.name;
-      titleEl.classList.remove('track-switching');
-    }, 300);
-    indicatorEl.textContent = `${Utils.toPersianDigits(state.currentTrackIndex + 1)} از ${Utils.toPersianDigits(this.tracks.length)}`;
-  },
-
-  toggle() {
-    this.initAudioContext();
-    this.resumeAudioContext();
-    if (this.isPlaying) {
-      this.audio.pause();
-      this.isPlaying = false;
-      Utils.$('#play-icon').className = 'fas fa-play';
-      Utils.$('#play-btn').classList.remove('playing', 'loading');
-    } else {
-      this.playAudio();
-    }
-  },
-
-  playAudio() {
-    Utils.$('#play-btn').classList.add('loading');
-    this.isPreparing = true;
-    const playPromise = this.audio.play();
-    if (playPromise !== undefined) {
-      playPromise
-        .then(() => {
-          this.isPlaying = true;
-          Utils.$('#play-icon').className = 'fas fa-pause';
-          Utils.$('#play-btn').classList.add('playing');
-          Utils.$('#play-btn').classList.remove('loading');
-          Utils.$('#player-error').classList.remove('show');
-          this.retryCount = 0;
-        })
-        .catch((error) => this.handlePlayError(error));
-    } else {
-      this.isPlaying = true;
-      Utils.$('#play-icon').className = 'fas fa-pause';
-      Utils.$('#play-btn').classList.add('playing');
-      Utils.$('#play-btn').classList.remove('loading');
-    }
-  },
-
-  handlePlayError(error) {
-    const errorName = error ? error.name : '';
-    const errorMsg = error ? error.message : '';
-    Utils.$('#play-btn').classList.remove('loading');
-    this.isPreparing = false;
-
-    if (errorName === 'NotAllowedError' || errorName === 'SecurityError') {
-      if (this.retryCount < this.maxRetries) {
-        this.retryCount++;
-        setTimeout(() => { this.resumeAudioContext(); this.playAudio(); }, 100);
-      } else {
-        this.showUserFriendlyError('برای پخش، یک بار دیگر روی دکمه بزنید');
-      }
-      return;
-    }
-    if (errorName === 'AbortError') return;
-    if (errorName === 'NotFoundError' || errorMsg.includes('Failed to load')) {
-      this.showUserFriendlyError('فایل صوتی در دسترس نیست');
-      return;
-    }
-    if (this.retryCount < this.maxRetries) {
-      this.retryCount++;
-      setTimeout(() => {
-        this.loadCurrentTrack();
-        setTimeout(() => this.playAudio(), 200);
-      }, 300);
-    } else {
-      this.showUserFriendlyError('خطا در پخش - لطفاً دوباره تلاش کنید');
-    }
-  },
-
-  handleError(e) {
-    if (this.isPreparing) return;
-    const error = this.audio.error;
-    if (!error) return;
-
-    if (error.code === MediaError.MEDIA_ERR_NETWORK) {
-      if (this.retryCount < this.maxRetries) {
-        this.retryCount++;
-        setTimeout(() => {
-          this.loadCurrentTrack();
-          if (this.isPlaying) this.playAudio();
-        }, 1000);
-      } else {
-        this.showUserFriendlyError('خطای شبکه - اتصال اینترنت را بررسی کنید');
-      }
-      return;
-    }
-    if (error.code === MediaError.MEDIA_ERR_DECODE) {
-      this.showUserFriendlyError('فایل صوتی قابل پخش نیست');
-      return;
-    }
-    if (error.code === MediaError.MEDIA_ERR_SRC_NOT_SUPPORTED) {
-      this.showUserFriendlyError('فرمت فایل پشتیبانی نمی‌شود');
-      return;
-    }
-    if (this.retryCount < this.maxRetries) {
-      this.retryCount++;
-      setTimeout(() => {
-        this.loadCurrentTrack();
-        if (this.isPlaying) this.playAudio();
-      }, 1000);
-    }
-  },
-
-  showUserFriendlyError(message) {
-    Utils.$('#player-error-msg').textContent = message;
-    Utils.$('#player-error').classList.add('show');
-    this.isPlaying = false;
-    Utils.$('#play-icon').className = 'fas fa-play';
-    Utils.$('#play-btn').classList.remove('playing', 'loading');
-    setTimeout(() => Utils.$('#player-error').classList.remove('show'), 5000);
-  },
-
-  /** ✅ FIX: Race condition resolved with played flag */
-  nextTrack(autoPlay = false) {
-    const wasPlaying = this.isPlaying || autoPlay;
-    state.currentTrackIndex = (state.currentTrackIndex + 1) % this.tracks.length;
-    this.loadCurrentTrack();
-    this.updateTrackUI();
-
-    if (wasPlaying) {
-      this.retryCount = 0;
-      let played = false;
-      const tryPlay = () => {
-        if (played) return;
-        played = true;
-        this.playAudio();
-      };
-      this.audio.addEventListener('canplay', tryPlay, { once: true });
-      setTimeout(() => { if (!this.isPlaying && wasPlaying) tryPlay(); }, 1000);
-    }
-    showToast(`🎵 ${this.tracks[state.currentTrackIndex].name}`);
-  },
-
-  prevTrack() {
-    const wasPlaying = this.isPlaying;
-    state.currentTrackIndex = (state.currentTrackIndex - 1 + this.tracks.length) % this.tracks.length;
-    this.loadCurrentTrack();
-    this.updateTrackUI();
-
-    if (wasPlaying) {
-      this.retryCount = 0;
-      let played = false;
-      const tryPlay = () => {
-        if (played) return;
-        played = true;
-        this.playAudio();
-      };
-      this.audio.addEventListener('canplay', tryPlay, { once: true });
-      setTimeout(() => { if (!this.isPlaying && wasPlaying) tryPlay(); }, 1000);
-    }
-    showToast(`🎵 ${this.tracks[state.currentTrackIndex].name}`);
-  },
-
-  stop() {
-    this.audio.pause();
-    this.audio.currentTime = 0;
-    this.isPlaying = false;
-    this.retryCount = 0;
-    Utils.$('#play-icon').className = 'fas fa-play';
-    Utils.$('#play-btn').classList.remove('playing', 'loading');
-    Utils.$('#player-time').textContent = '00:00 / 00:00';
-    Utils.$('#player-error').classList.remove('show');
-  },
-
-  retry() {
-    Utils.$('#player-error').classList.remove('show');
-    this.retryCount = 0;
-    this.loadCurrentTrack();
-    setTimeout(() => this.playAudio(), 200);
-  },
-
-  updateTime() {
-    const current = this.audio.currentTime || 0;
-    const duration = this.audio.duration || 0;
-    Utils.$('#player-time').textContent = `${Utils.formatTime(current)} / ${Utils.formatTime(duration)}`;
-  },
-
-  updateVolumeIcon() {
-    const vol = this.audio.volume;
-    const icon = Utils.$('#volume-icon');
-    if (vol === 0) icon.className = 'fas fa-volume-mute';
-    else if (vol < 0.5) icon.className = 'fas fa-volume-down';
-    else icon.className = 'fas fa-volume-up';
-  }
+  loadCurrentTrack() { const t=this.tracks[state.currentTrackIndex]; this.audio.pause(); this.audio.removeAttribute('src'); this.audio.load(); this.setCrossOrigin(); this.audio.src=t.src; this.audio.preload='auto'; this.audio.load(); },
+  updateUI() { const t=this.tracks[state.currentTrackIndex]; const title=Utils.$('#player-title'); const ind=Utils.$('#track-indicator'); title.classList.add('track-switching'); setTimeout(()=>{ title.textContent=t.name; title.classList.remove('track-switching'); },300); ind.textContent=`${Utils.toPersianDigits(state.currentTrackIndex+1)} از ${Utils.toPersianDigits(this.tracks.length)}`; },
+  toggle(){ this.initAudioContext(); this.resumeAudioContext(); if(this.isPlaying){ this.audio.pause(); this.isPlaying=false; Utils.$('#play-icon').className='fas fa-play'; Utils.$('#play-btn').classList.remove('playing','loading'); } else { this.playAudio(); } },
+  playAudio(){ Utils.$('#play-btn').classList.add('loading'); this.isPreparing=true; const p=this.audio.play(); if(p!==undefined){ p.then(()=>{ this.isPlaying=true; Utils.$('#play-icon').className='fas fa-pause'; Utils.$('#play-btn').classList.add('playing'); Utils.$('#play-btn').classList.remove('loading'); Utils.$('#player-error').classList.remove('show'); this.retryCount=0; }).catch(err=>this.handlePlayError(err)); } else { this.isPlaying=true; Utils.$('#play-icon').className='fas fa-pause'; Utils.$('#play-btn').classList.add('playing'); Utils.$('#play-btn').classList.remove('loading'); } },
+  handlePlayError(err){ const name=err?err.name:''; const msg=err?err.message:''; Utils.$('#play-btn').classList.remove('loading'); this.isPreparing=false; if(name==='NotAllowedError'||name==='SecurityError'){ if(this.retryCount<this.maxRetries){ this.retryCount++; setTimeout(()=>{ this.resumeAudioContext(); this.playAudio(); },100); } else { this.showError('برای پخش، یک بار دیگر روی دکمه بزنید'); } return; } if(name==='AbortError') return; if(name==='NotFoundError'||msg.includes('Failed to load')){ this.showError('فایل صوتی در دسترس نیست'); return; } if(this.retryCount<this.maxRetries){ this.retryCount++; setTimeout(()=>{ this.loadCurrentTrack(); setTimeout(()=>this.playAudio(),200); },300); } else { this.showError('خطا در پخش - لطفاً دوباره تلاش کنید'); } },
+  handleError(e){ if(this.isPreparing) return; const err=this.audio.error; if(!err) return; if(err.code===MediaError.MEDIA_ERR_NETWORK){ if(this.retryCount<this.maxRetries){ this.retryCount++; setTimeout(()=>{ this.loadCurrentTrack(); if(this.isPlaying) this.playAudio(); },1000); } else { this.showError('خطای شبکه - اتصال اینترنت را بررسی کنید'); } return; } if(err.code===MediaError.MEDIA_ERR_DECODE){ this.showError('فایل صوتی قابل پخش نیست'); return; } if(err.code===MediaError.MEDIA_ERR_SRC_NOT_SUPPORTED){ this.showError('فرمت فایل پشتیبانی نمی‌شود'); return; } if(this.retryCount<this.maxRetries){ this.retryCount++; setTimeout(()=>{ this.loadCurrentTrack(); if(this.isPlaying) this.playAudio(); },1000); } },
+  showError(msg){ Utils.$('#player-error-msg').textContent=msg; Utils.$('#player-error').classList.add('show'); this.isPlaying=false; Utils.$('#play-icon').className='fas fa-play'; Utils.$('#play-btn').classList.remove('playing','loading'); setTimeout(()=>Utils.$('#player-error').classList.remove('show'),5000); },
+  nextTrack(auto=false){ const was=this.isPlaying||auto; state.currentTrackIndex=(state.currentTrackIndex+1)%this.tracks.length; this.loadCurrentTrack(); this.updateUI(); if(was){ this.retryCount=0; let played=false; const cb=()=>{ if(played) return; played=true; this.playAudio(); }; this.audio.addEventListener('canplay', cb, {once:true}); setTimeout(()=>{ if(!this.isPlaying && was) cb(); },1000); } showToast(`🎵 ${this.tracks[state.currentTrackIndex].name}`); },
+  prevTrack(){ const was=this.isPlaying; state.currentTrackIndex=(state.currentTrackIndex-1+this.tracks.length)%this.tracks.length; this.loadCurrentTrack(); this.updateUI(); if(was){ this.retryCount=0; let played=false; const cb=()=>{ if(played) return; played=true; this.playAudio(); }; this.audio.addEventListener('canplay', cb, {once:true}); setTimeout(()=>{ if(!this.isPlaying && was) cb(); },1000); } showToast(`🎵 ${this.tracks[state.currentTrackIndex].name}`); },
+  stop(){ this.audio.pause(); this.audio.currentTime=0; this.isPlaying=false; this.retryCount=0; Utils.$('#play-icon').className='fas fa-play'; Utils.$('#play-btn').classList.remove('playing','loading'); Utils.$('#player-time').textContent='00:00 / 00:00'; Utils.$('#player-error').classList.remove('show'); },
+  retry(){ Utils.$('#player-error').classList.remove('show'); this.retryCount=0; this.loadCurrentTrack(); setTimeout(()=>this.playAudio(),200); },
+  updateTime(){ const c=this.audio.currentTime||0, d=this.audio.duration||0; Utils.$('#player-time').textContent=`${Utils.formatTime(c)} / ${Utils.formatTime(d)}`; },
+  updateVolumeIcon(){ const v=this.audio.volume; const i=Utils.$('#volume-icon'); if(v===0) i.className='fas fa-volume-mute'; else if(v<0.5) i.className='fas fa-volume-down'; else i.className='fas fa-volume-up'; }
 };
 
 /* ═══════════════════════════════════════════
-   BLOG MANAGER — XSS-safe, event delegation
+   BLOG MANAGER (نسخه کامل با مارک‌داون، نوشته‌های مرتبط، FAQ)
 ═══════════════════════════════════════════ */
 const BlogManager = {
   _lastFocused: null,
-
   init() {
     this.loadPosts();
-    // ✅ FIX: Debounced search
-    const debouncedSearch = Utils.debounce((val) => this.search(val), 300);
-    Utils.$('#blog-search').addEventListener('input', (e) => debouncedSearch(e.target.value));
-
-    Utils.$('#post-modal-close').addEventListener('click', () => this.closeModal());
-    Utils.$('#post-modal').addEventListener('click', (e) => {
-      if (e.target === Utils.$('#post-modal')) this.closeModal();
-    });
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && Utils.$('#post-modal').classList.contains('active')) {
-        this.closeModal();
-      }
-    });
-
-    Utils.$$('.view-toggle-btn').forEach(btn => {
-      btn.addEventListener('click', () => {
-        Utils.$$('.view-toggle-btn').forEach(b => {
-          b.classList.remove('active');
-          b.setAttribute('aria-pressed', 'false');
-        });
-        btn.classList.add('active');
-        btn.setAttribute('aria-pressed', 'true');
-        this.setView(btn.dataset.view);
-      });
-    });
-
-    // ✅ FIX: Event delegation for modal nav buttons
-    Utils.$('#modal-prev').addEventListener('click', () => {
-      const slug = Utils.$('#modal-prev').dataset.slug;
-      if (slug) this.showPostModal(slug);
-    });
-    Utils.$('#modal-next').addEventListener('click', () => {
-      const slug = Utils.$('#modal-next').dataset.slug;
-      if (slug) this.showPostModal(slug);
-    });
+    const debounced = Utils.debounce((v) => this.search(v), 300);
+    Utils.$('#blog-search').addEventListener('input', e => debounced(e.target.value));
+    Utils.$('#post-modal-close').addEventListener('click', ()=>this.closeModal());
+    Utils.$('#post-modal').addEventListener('click', e=>{ if(e.target === Utils.$('#post-modal')) this.closeModal(); });
+    document.addEventListener('keydown', e=>{ if(e.key==='Escape' && Utils.$('#post-modal').classList.contains('active')) this.closeModal(); });
+    Utils.$$('.view-toggle-btn').forEach(b=>{ b.addEventListener('click', ()=>{ Utils.$$('.view-toggle-btn').forEach(x=>{ x.classList.remove('active'); x.setAttribute('aria-pressed','false'); }); b.classList.add('active'); b.setAttribute('aria-pressed','true'); this.setView(b.dataset.view); }); });
+    Utils.$('#modal-prev').addEventListener('click', ()=>{ const s=Utils.$('#modal-prev').dataset.slug; if(s) this.showPostModal(s); });
+    Utils.$('#modal-next').addEventListener('click', ()=>{ const s=Utils.$('#modal-next').dataset.slug; if(s) this.showPostModal(s); });
   },
-
-  setView(view) {
-    state.blogView = view;
-    Utils.$('#blog-grid').classList.toggle('list-view', view === 'list');
-  },
-
-  async loadPosts() {
-    try {
-      const response = await fetch('posts.json');
-      if (response.ok) state.posts = await response.json();
-      else state.posts = DEFAULT_POSTS;
-    } catch {
-      state.posts = DEFAULT_POSTS;
-    }
-    this.renderList(state.posts);
-  },
-
-  /** ✅ FIX: All user data escaped with Utils.escapeHTML */
+  setView(v){ state.blogView=v; Utils.$('#blog-grid').classList.toggle('list-view', v==='list'); },
+  async loadPosts(){ try { const r=await fetch('posts.json'); if(r.ok) state.posts=await r.json(); else state.posts=DEFAULT_POSTS; } catch { state.posts=DEFAULT_POSTS; } this.renderList(state.posts); },
   renderList(posts) {
-    const grid = Utils.$('#blog-grid');
-    const featuredContainer = Utils.$('#featured-post-container');
-    const noResults = Utils.$('#no-results');
+    const grid=Utils.$('#blog-grid'), feat=Utils.$('#featured-post-container'), no=Utils.$('#no-results');
+    if(posts.length===0){ grid.innerHTML=''; feat.innerHTML=''; no.style.display='block'; return; }
+    no.style.display='none';
+    const f=posts[0]; const fImg=Utils.safeURL(f.image);
+    feat.innerHTML=`<article class="featured-post reveal" data-slug="${Utils.escapeHTML(f.slug)}" role="article" tabindex="0"><div class="featured-post-bg" style="background-image: url('${fImg}')"></div><div class="featured-post-overlay"></div><div class="featured-post-content"><div class="featured-badge"><i class="fas fa-star"></i> نوشته‌ی ویژه</div><h3 class="featured-title">${Utils.escapeHTML(f.title)}</h3><p class="featured-excerpt">${Utils.escapeHTML(f.excerpt)}</p><div class="featured-meta"><span class="featured-meta-item"><i class="far fa-calendar"></i> ${Utils.escapeHTML(f.date)}</span><span class="featured-meta-item"><i class="far fa-clock"></i> ${Utils.toPersianDigits(f.readingTime||Math.ceil(f.content.split(/\s+/).length/200))} دقیقه مطالعه</span>${f.tag?`<span class="featured-meta-item"><i class="fas fa-tag"></i> ${Utils.escapeHTML(f.tag)}</span>`:''}</div><div class="featured-read-btn"><span>مطالعه‌ی نوشته</span><i class="fas fa-arrow-left"></i></div></div></article>`;
+    const el=feat.querySelector('.featured-post'); if(el){ el.addEventListener('click', ()=>this.showPostModal(f.slug)); el.addEventListener('keydown', e=>{ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); this.showPostModal(f.slug); }}); }
+    const rest=posts.slice(1);
+    grid.innerHTML=rest.map((p,i)=>{ const img=Utils.safeURL(p.image); const num=Utils.toPersianDigits(String(i+2).padStart(2,'0')); return `<article class="blog-card reveal" data-slug="${Utils.escapeHTML(p.slug)}" role="article" tabindex="0" style="transition-delay:${(i+1)*0.1}s"><div class="blog-card-number">${num}</div><div class="blog-card-img-wrap">${p.tag?`<span class="blog-card-tag"><i class="fas fa-tag"></i> ${Utils.escapeHTML(p.tag)}</span>`:''}<img src="${img}" alt="${Utils.escapeHTML(p.title)}" class="blog-card-img" loading="lazy" decoding="async" width="600" height="400"></div><div class="blog-card-body"><span class="blog-card-date"><i class="far fa-calendar"></i> ${Utils.escapeHTML(p.date)}</span><h3 class="blog-card-title">${Utils.escapeHTML(p.title)}</h3><p class="blog-card-excerpt">${Utils.escapeHTML(p.excerpt)}</p><div class="blog-card-footer"><a href="#post/${Utils.escapeHTML(p.slug)}" class="read-more" data-slug="${Utils.escapeHTML(p.slug)}">ادامه مطلب <i class="fas fa-arrow-left"></i></a><div class="blog-card-stats"><span><i class="far fa-clock"></i> ${Utils.toPersianDigits(p.readingTime||Math.ceil(p.content.split(/\s+/).length/200))} دقیقه</span><button class="share-btn" data-slug="${Utils.escapeHTML(p.slug)}" aria-label="اشتراک‌گذاری"><i class="fas fa-share-alt"></i></button></div></div></div></article>`; }).join('');
+    this.attachEvents(); this.observeReveal();
+  },
+  attachEvents() {
+    Utils.$$('.blog-card').forEach(c=>{ c.addEventListener('click', e=>{ if(e.target.closest('.share-btn')||e.target.closest('.read-more')) return; this.showPostModal(c.dataset.slug); }); c.addEventListener('keydown', e=>{ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); this.showPostModal(c.dataset.slug); } }); });
+    Utils.$$('.read-more').forEach(a=>a.addEventListener('click', e=>{ e.preventDefault(); this.showPostModal(a.dataset.slug); }));
+    Utils.$$('.share-btn').forEach(b=>b.addEventListener('click', e=>{ e.stopPropagation(); this.sharePost(b.dataset.slug); }));
+  },
+  search(q){ const s=q.toLowerCase().trim(); if(!s){ this.renderList(state.posts); return; } const f=state.posts.filter(p=>p.title.includes(s)||p.excerpt.includes(s)||p.content.includes(s)); this.renderList(f); },
 
-    if (posts.length === 0) {
-      grid.innerHTML = '';
-      featuredContainer.innerHTML = '';
-      noResults.style.display = 'block';
-      return;
+  /* ── Render Markdown ── */
+  renderMarkdown(content) {
+    const lines = content.split('\n');
+    let html = '', listBuffer = [];
+    const flushList = () => { if(listBuffer.length){ html += `<ul>${listBuffer.map(l=>`<li>${l}</li>`).join('')}</ul>`; listBuffer=[]; } };
+    for(let line of lines) {
+      line = line.trim();
+      if(!line) { flushList(); continue; }
+      line = line.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+      if(line.startsWith('## ')) { flushList(); html += `<h2>${line.substring(3)}</h2>`; }
+      else if(line.startsWith('### ')) { flushList(); html += `<h3>${line.substring(4)}</h3>`; }
+      else if(line.startsWith('- ')) { listBuffer.push(line.substring(2)); }
+      else if(/^\d+\.\s/.test(line)) { listBuffer.push(line.replace(/^\d+\.\s/, '')); }
+      else { flushList(); html += `<p>${line}</p>`; }
     }
-    noResults.style.display = 'none';
-
-    const featured = posts[0];
-    const fWordCount = featured.content.split(/\s+/).length;
-    const fReadTime = Math.ceil(fWordCount / 200);
-    const fImage = Utils.safeURL(featured.image);
-
-    featuredContainer.innerHTML = `
-      <article class="featured-post reveal" data-slug="${Utils.escapeHTML(featured.slug)}" role="article" aria-label="نوشته ویژه: ${Utils.escapeHTML(featured.title)}" tabindex="0">
-        <div class="featured-post-bg" style="background-image: url('${fImage}')"></div>
-        <div class="featured-post-overlay"></div>
-        <div class="featured-post-content">
-          <div class="featured-badge"><i class="fas fa-star" aria-hidden="true"></i> نوشته‌ی ویژه</div>
-          <h3 class="featured-title">${Utils.escapeHTML(featured.title)}</h3>
-          <p class="featured-excerpt">${Utils.escapeHTML(featured.excerpt)}</p>
-          <div class="featured-meta">
-            <span class="featured-meta-item"><i class="far fa-calendar" aria-hidden="true"></i> ${Utils.escapeHTML(featured.date)}</span>
-            <span class="featured-meta-item"><i class="far fa-clock" aria-hidden="true"></i> ${Utils.toPersianDigits(fReadTime)} دقیقه مطالعه</span>
-            ${featured.tag ? `<span class="featured-meta-item"><i class="fas fa-tag" aria-hidden="true"></i> ${Utils.escapeHTML(featured.tag)}</span>` : ''}
-          </div>
-          <div class="featured-read-btn"><span>مطالعه‌ی نوشته</span><i class="fas fa-arrow-left" aria-hidden="true"></i></div>
-        </div>
-      </article>
-    `;
-
-    const featuredEl = featuredContainer.querySelector('.featured-post');
-    if (featuredEl) {
-      featuredEl.addEventListener('click', () => this.showPostModal(featured.slug));
-      featuredEl.addEventListener('keydown', (e) => {
-        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); this.showPostModal(featured.slug); }
-      });
-    }
-
-    const restPosts = posts.slice(1);
-    grid.innerHTML = restPosts.map((post, index) => {
-      const wordCount = post.content.split(/\s+/).length;
-      const readTime = Math.ceil(wordCount / 200);
-      const postNumber = Utils.toPersianDigits(String(index + 2).padStart(2, '0'));
-      const imgSrc = Utils.safeURL(post.image);
-      return `
-        <article class="blog-card reveal" data-slug="${Utils.escapeHTML(post.slug)}" role="article" tabindex="0" style="transition-delay: ${(index + 1) * 0.1}s">
-          <div class="blog-card-number" aria-hidden="true">${postNumber}</div>
-          <div class="blog-card-img-wrap">
-            ${post.tag ? `<span class="blog-card-tag"><i class="fas fa-tag" aria-hidden="true"></i> ${Utils.escapeHTML(post.tag)}</span>` : ''}
-            <img src="${imgSrc}" alt="${Utils.escapeHTML(post.title)}" class="blog-card-img" loading="lazy" decoding="async" width="600" height="400">
-          </div>
-          <div class="blog-card-body">
-            <span class="blog-card-date"><i class="far fa-calendar" aria-hidden="true"></i> ${Utils.escapeHTML(post.date)}</span>
-            <h3 class="blog-card-title">${Utils.escapeHTML(post.title)}</h3>
-            <p class="blog-card-excerpt">${Utils.escapeHTML(post.excerpt)}</p>
-            <div class="blog-card-footer">
-              <a href="#post/${Utils.escapeHTML(post.slug)}" class="read-more" data-slug="${Utils.escapeHTML(post.slug)}">
-                ادامه مطلب <i class="fas fa-arrow-left" aria-hidden="true"></i>
-              </a>
-              <div class="blog-card-stats">
-                <span><i class="far fa-clock" aria-hidden="true"></i> ${Utils.toPersianDigits(readTime)} دقیقه</span>
-                <button class="share-btn" data-slug="${Utils.escapeHTML(post.slug)}" aria-label="اشتراک‌گذاری ${Utils.escapeHTML(post.title)}">
-                  <i class="fas fa-share-alt" aria-hidden="true"></i>
-                </button>
-              </div>
-            </div>
-          </div>
-        </article>
-      `;
-    }).join('');
-
-    this.attachCardEvents();
-    this.observeReveal();
+    flushList();
+    return html;
   },
 
-  attachCardEvents() {
-    Utils.$$('.blog-card').forEach(card => {
-      card.addEventListener('click', (e) => {
-        if (e.target.closest('.share-btn') || e.target.closest('.read-more')) return;
-        this.showPostModal(card.dataset.slug);
-      });
-      card.addEventListener('keydown', (e) => {
-        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); this.showPostModal(card.dataset.slug); }
-      });
-    });
-    Utils.$$('.read-more').forEach(link => {
-      link.addEventListener('click', (e) => { e.preventDefault(); this.showPostModal(link.dataset.slug); });
-    });
-    Utils.$$('.share-btn').forEach(btn => {
-      btn.addEventListener('click', (e) => { e.stopPropagation(); this.sharePost(btn.dataset.slug); });
-    });
+  /* ── Render Related Posts ── */
+  renderRelatedPosts(postIds) {
+    const related = state.posts.filter(p => postIds.includes(p.id));
+    if(!related.length) return '';
+    return `<div class="related-posts-section"><h3><i class="fas fa-link"></i> نوشته‌های مرتبط</h3><div class="related-grid">${related.map(p => `<a href="#post/${p.slug}" class="related-card" onclick="event.preventDefault(); BlogManager.showPostModal('${p.slug}')"><img src="${Utils.safeURL(p.image)}" alt="${Utils.escapeHTML(p.title)}" loading="lazy"><div class="info"><h4>${Utils.escapeHTML(p.title)}</h4><p>${Utils.escapeHTML(p.excerpt.substring(0,60))}...</p></div></a>`).join('')}</div></div>`;
   },
 
-  search(query) {
-    const q = query.toLowerCase().trim();
-    if (!q) { this.renderList(state.posts); return; }
-    const filtered = state.posts.filter(post =>
-      post.title.toLowerCase().includes(q) ||
-      post.excerpt.toLowerCase().includes(q) ||
-      post.content.toLowerCase().includes(q)
-    );
-    this.renderList(filtered);
+  /* ── Render Post FAQ ── */
+  renderPostFAQ(faq) {
+    if(!faq || !faq.length) return '';
+    return `<div class="post-faq-section"><h3><i class="fas fa-question-circle"></i> سوالات متداول</h3>${faq.map(item => `<div class="post-faq-item"><h4>${Utils.escapeHTML(item.question)}</h4><p>${Utils.escapeHTML(item.answer)}</p></div>`).join('')}</div>`;
   },
 
-  showPostModal(slug, skipHistory = false) {
-    const post = state.posts.find(p => p.slug === slug);
-    if (!post) return;
+  showPostModal(slug, skipHistory=false) {
+    const post = state.posts.find(p=>p.slug===slug); if(!post) return;
     state.currentPost = post;
+    const idx = state.posts.findIndex(p=>p.slug===slug);
+    const prev = state.posts[idx-1], next = state.posts[idx+1];
+    const rt = post.readingTime || Math.ceil(post.content.split(/\s+/).length/200);
 
-    const postIndex = state.posts.findIndex(p => p.slug === slug);
-    const prevPost = state.posts[postIndex - 1];
-    const nextPost = state.posts[postIndex + 1];
-    const wordCount = post.content.split(/\s+/).length;
-    const readTime = Math.ceil(wordCount / 200);
-
-    Utils.$('#modal-img').src = Utils.safeURL(post.image);
-    Utils.$('#modal-img').alt = post.title;
+    Utils.$('#modal-img').src = Utils.safeURL(post.image); Utils.$('#modal-img').alt = post.title;
     Utils.$('#modal-tag').textContent = post.tag || 'دل‌نوشته';
     Utils.$('#modal-title').textContent = post.title;
     Utils.$('#modal-date').textContent = post.date;
-    Utils.$('#modal-readtime').textContent = Utils.toPersianDigits(readTime);
+    Utils.$('#modal-readtime').textContent = Utils.toPersianDigits(rt);
 
-    // ✅ FIX: Proper paragraph splitting with '\n'
-    Utils.$('#modal-body').innerHTML = post.content
-      .split('\n')
-      .filter(p => p.trim().length > 0)
-      .map(p => `<p>${Utils.escapeHTML(p)}</p>`)
-      .join('');
+    let bodyHTML = this.renderMarkdown(post.content);
+    bodyHTML += this.renderRelatedPosts(post.relatedPosts || []);
+    bodyHTML += this.renderPostFAQ(post.faq || []);
+    Utils.$('#modal-body').innerHTML = bodyHTML;
 
-    const prevBtn = Utils.$('#modal-prev');
-    const nextBtn = Utils.$('#modal-next');
-    if (prevPost) {
-      prevBtn.disabled = false;
-      Utils.$('#modal-prev-title').textContent = prevPost.title;
-      prevBtn.dataset.slug = prevPost.slug;
-    } else {
-      prevBtn.disabled = true;
-      Utils.$('#modal-prev-title').textContent = '—';
-      prevBtn.dataset.slug = '';
-    }
-    if (nextPost) {
-      nextBtn.disabled = false;
-      Utils.$('#modal-next-title').textContent = nextPost.title;
-      nextBtn.dataset.slug = nextPost.slug;
-    } else {
-      nextBtn.disabled = true;
-      Utils.$('#modal-next-title').textContent = '—';
-      nextBtn.dataset.slug = '';
-    }
+    const pBtn=Utils.$('#modal-prev'), nBtn=Utils.$('#modal-next');
+    if(prev){ pBtn.disabled=false; Utils.$('#modal-prev-title').textContent=prev.title; pBtn.dataset.slug=prev.slug; } else { pBtn.disabled=true; Utils.$('#modal-prev-title').textContent='—'; pBtn.dataset.slug=''; }
+    if(next){ nBtn.disabled=false; Utils.$('#modal-next-title').textContent=next.title; nBtn.dataset.slug=next.slug; } else { nBtn.disabled=true; Utils.$('#modal-next-title').textContent='—'; nBtn.dataset.slug=''; }
 
-    const modal = Utils.$('#post-modal');
-    this._lastFocused = document.activeElement;
-    modal.classList.add('active');
-    document.body.style.overflow = 'hidden';
-
-    // ✅ FIX: Focus trap
-    FocusTrap.trap(Utils.$('#post-modal-content'));
-
-    if (!skipHistory) {
-      history.pushState({ post: slug }, '', `#post/${slug}`);
-    }
-    this.updateMetaTags(post);
+    const modal=Utils.$('#post-modal'); this._lastFocused=document.activeElement; modal.classList.add('active'); document.body.style.overflow='hidden'; FocusTrap.trap(Utils.$('#post-modal-content'));
+    if(!skipHistory) history.pushState({post: slug}, '', `#post/${slug}`);
+    this.updateMeta(post);
   },
 
-  closeModal(skipHistory = false) {
-    const modal = Utils.$('#post-modal');
-    if (!modal.classList.contains('active')) return;
-
-    modal.classList.remove('active');
-    document.body.style.overflow = '';
-    state.currentPost = null;
-
-    // ✅ FIX: Release focus trap
+  closeModal(skipHistory=false) {
+    const modal=Utils.$('#post-modal'); if(!modal.classList.contains('active')) return;
+    modal.classList.remove('active'); document.body.style.overflow=''; state.currentPost=null;
     FocusTrap.release(Utils.$('#post-modal-content'));
-    if (this._lastFocused) {
-      this._lastFocused.focus();
-      this._lastFocused = null;
-    }
-
-    this.resetMetaTags();
-
-    if (!skipHistory) {
-      if (window.location.hash.startsWith('#post/') && history.length > 1) {
-        history.back();
-      } else {
-        history.replaceState(null, '', window.location.pathname + window.location.search + '#blog');
-      }
-    }
+    if(this._lastFocused){ this._lastFocused.focus(); this._lastFocused=null; }
+    this.resetMeta();
+    if(!skipHistory){ if(window.location.hash.startsWith('#post/')) history.back(); else history.replaceState(null,'',window.location.pathname+window.location.search+'#blog'); }
   },
 
   async sharePost(slug) {
-    const post = state.posts.find(p => p.slug === slug);
-    if (!post) return;
-    const url = `${window.location.origin}${window.location.pathname}#post/${slug}`;
-    if (navigator.share) {
-      try {
-        await navigator.share({ title: post.title, text: post.excerpt, url });
-        showToast('اشتراک‌گذاری شد');
-      } catch (e) {
-        if (e.name !== 'AbortError') this.copyToClipboard(url);
-      }
-    } else {
-      this.copyToClipboard(url);
-    }
+    const p=state.posts.find(x=>x.slug===slug); if(!p) return;
+    const url=`${window.location.origin}${window.location.pathname}#post/${slug}`;
+    if(navigator.share){ try { await navigator.share({title:p.title,text:p.excerpt,url}); showToast('اشتراک‌گذاری شد'); } catch(e){ if(e.name!=='AbortError') this.copyToClipboard(url); } } else { this.copyToClipboard(url); }
   },
+  copyToClipboard(text){ if(navigator.clipboard&&navigator.clipboard.writeText){ navigator.clipboard.writeText(text).then(()=>showToast('لینک کپی شد')).catch(()=>this.fallbackCopy(text)); } else { this.fallbackCopy(text); } },
+  fallbackCopy(text){ const ta=document.createElement('textarea'); ta.value=text; ta.style.position='fixed'; ta.style.opacity='0'; document.body.appendChild(ta); ta.select(); try{ document.execCommand('copy'); showToast('لینک کپی شد'); } catch{ showToast('خطا در کپی لینک','error'); } document.body.removeChild(ta); },
 
-  copyToClipboard(text) {
-    if (navigator.clipboard && navigator.clipboard.writeText) {
-      navigator.clipboard.writeText(text)
-        .then(() => showToast('لینک کپی شد'))
-        .catch(() => this.fallbackCopy(text));
-    } else {
-      this.fallbackCopy(text);
-    }
-  },
-
-  fallbackCopy(text) {
-    const ta = document.createElement('textarea');
-    ta.value = text;
-    ta.style.position = 'fixed';
-    ta.style.opacity = '0';
-    document.body.appendChild(ta);
-    ta.select();
-    try {
-      document.execCommand('copy');
-      showToast('لینک کپی شد');
-    } catch {
-      showToast('خطا در کپی لینک', 'error');
-    }
-    document.body.removeChild(ta);
-  },
-
-  updateMetaTags(post) {
+  updateMeta(post) {
     document.title = `${post.title} | سایه‌های بی‌نقاب`;
-    const setMeta = (selector, attr, value) => {
-      const el = document.querySelector(selector);
-      if (el) el.setAttribute(attr, value);
-    };
-    setMeta('meta[name="description"]', 'content', post.excerpt);
-    setMeta('meta[property="og:title"]', 'content', post.title);
-    setMeta('meta[property="og:description"]', 'content', post.excerpt);
-    setMeta('meta[property="og:url"]', 'content', `${window.location.origin}${window.location.pathname}#post/${post.slug}`);
-    setMeta('meta[property="og:image"]', 'content', post.image);
-    this.updateJSONLD(post);
+    const set = (s,a,v)=>{ const el=document.querySelector(s); if(el) el.setAttribute(a,v); };
+    set('meta[name="description"]','content', post.excerpt);
+    set('meta[property="og:title"]','content', post.title);
+    set('meta[property="og:description"]','content', post.excerpt);
+    set('meta[property="og:url"]','content', `${window.location.origin}${window.location.pathname}#post/${post.slug}`);
+    set('meta[property="og:image"]','content', post.image);
+    // JSON-LD Article
+    let s=document.querySelector('script[data-blog-posting]');
+    if(!s){ s=document.createElement('script'); s.type='application/ld+json'; s.dataset.blogPosting='true'; document.head.appendChild(s); }
+    s.textContent=JSON.stringify({"@context":"https://schema.org","@type":"Article","headline":post.title,"description":post.excerpt,"image":post.image,"datePublished":post.dateISO,"author":{"@type":"Person","name":"مهدی رحیمیان"},"publisher":{"@type":"Organization","name":"سایه‌های بی‌نقاب","logo":{"@type":"ImageObject","url":"https://sayehayebineghab.ir/logo.png"}},"keywords":post.keywords?post.keywords.join(', '):'',"speakable":{"@type":"SpeakableSpecification","cssSelector":[".post-modal-title",".post-modal-body"]}});
+    // FAQ Schema
+    if(post.faq && post.faq.length>0){ let fs=document.querySelector('script[data-faq-post]'); if(!fs){ fs=document.createElement('script'); fs.type='application/ld+json'; fs.dataset.faqPost='true'; document.head.appendChild(fs); } fs.textContent=JSON.stringify({"@context":"https://schema.org","@type":"FAQPage","mainEntity":post.faq.map(f=>({"@type":"Question","name":f.question,"acceptedAnswer":{"@type":"Answer","text":f.answer}}))}); }
   },
-
-  resetMetaTags() {
-    document.title = 'سایه‌های بی‌نقاب | مهدی رحیمیان – نویسنده و گوینده اهل رامسر';
-    const setMeta = (selector, attr, value) => {
-      const el = document.querySelector(selector);
-      if (el) el.setAttribute(attr, value);
-    };
-    setMeta('meta[name="description"]', 'content', 'وب‌سایت رسمی مهدی رحیمیان، نویسنده و گوینده اهل رامسر (سخت‌سر). دکلمه‌های صوتی، دل‌نوشته‌های احساسی و محتوای عمیق درباره عشق، تنهایی و زندگی.');
-    setMeta('meta[property="og:title"]', 'content', 'سایه‌های بی‌نقاب | مهدی رحیمیان');
-    setMeta('meta[property="og:description"]', 'content', 'دکلمه‌های صوتی، دل‌نوشته‌های احساسی و محتوای عمیق از مهدی رحیمیان، نویسنده و گوینده اهل رامسر.');
-    setMeta('meta[property="og:url"]', 'content', 'https://sayehayebineghab.ir/');
-  },
-
-  updateJSONLD(post) {
-    let script = document.querySelector('script[data-blog-posting]');
-    if (!script) {
-      script = document.createElement('script');
-      script.type = 'application/ld+json';
-      script.dataset.blogPosting = 'true';
-      document.head.appendChild(script);
-    }
-    script.textContent = JSON.stringify({
-      "@context": "https://schema.org",
-      "@type": "BlogPosting",
-      "headline": post.title,
-      "description": post.excerpt,
-      "image": post.image,
-      "datePublished": post.dateISO,
-      "inLanguage": "fa",
-      "wordCount": post.content.split(/\s+/).length,
-      "author": { "@type": "Person", "name": "مهدی رحیمیان", "url": "https://sayehayebineghab.ir" },
-      "publisher": {
-        "@type": "Organization",
-        "name": "سایه‌های بی‌نقاب",
-        "logo": { "@type": "ImageObject", "url": "https://sayehayebineghab.ir/logo.png" }
-      },
-      "mainEntityOfPage": {
-        "@type": "WebPage",
-        "@id": `${window.location.origin}${window.location.pathname}#post/${post.slug}`
-      }
-    });
+  resetMeta() {
+    document.title='سایه‌های بی‌نقاب | مهدی رحیمیان – نویسنده و گوینده اهل رامسر';
+    const set = (s,a,v)=>{ const el=document.querySelector(s); if(el) el.setAttribute(a,v); };
+    set('meta[name="description"]','content','وب‌سایت رسمی مهدی رحیمیان، نویسنده و گوینده اهل رامسر (سخت‌سر). دکلمه‌های صوتی، دل‌نوشته‌های احساسی و محتوای عمیق درباره عشق، تنهایی و زندگی.');
+    set('meta[property="og:title"]','content','سایه‌های بی‌نقاب | مهدی رحیمیان');
+    set('meta[property="og:description"]','content','دکلمه‌های صوتی، دل‌نوشته‌های احساسی و محتوای عمیق از مهدی رحیمیان، نویسنده و گوینده اهل رامسر.');
+    set('meta[property="og:url"]','content','https://sayehayebineghab.ir/');
   },
 
   observeReveal() {
-    if (!('IntersectionObserver' in window)) {
-      Utils.$$('.reveal').forEach(el => el.classList.add('visible'));
-      return;
-    }
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.1 });
-    Utils.$$('.reveal').forEach(el => observer.observe(el));
+    if(!('IntersectionObserver' in window)){ Utils.$$('.reveal').forEach(el=>el.classList.add('visible')); return; }
+    const obs = new IntersectionObserver(e=>{ e.forEach(entry=>{ if(entry.isIntersecting){ entry.target.classList.add('visible'); obs.unobserve(entry.target); } }); }, {threshold:0.1});
+    Utils.$$('.reveal').forEach(el=>obs.observe(el));
   }
 };
 
@@ -2549,69 +1085,25 @@ const BlogManager = {
 ═══════════════════════════════════════════ */
 const FAQManager = {
   init() {
-    Utils.$$('.faq-question').forEach(btn => {
-      btn.addEventListener('click', () => {
-        const item = btn.parentElement;
-        const isActive = item.classList.contains('active');
-        Utils.$$('.faq-item').forEach(i => {
-          i.classList.remove('active');
-          i.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
-        });
-        if (!isActive) {
-          item.classList.add('active');
-          btn.setAttribute('aria-expanded', 'true');
-        }
+    Utils.$$('.faq-question').forEach(b=>{
+      b.addEventListener('click', ()=>{
+        const item=b.parentElement; const isActive=item.classList.contains('active');
+        Utils.$$('.faq-item').forEach(i=>{ i.classList.remove('active'); i.querySelector('.faq-question').setAttribute('aria-expanded','false'); });
+        if(!isActive){ item.classList.add('active'); b.setAttribute('aria-expanded','true'); }
       });
     });
   }
 };
 
 /* ═══════════════════════════════════════════
-   HISTORY & POPSTATE
+   HISTORY & INIT
 ═══════════════════════════════════════════ */
-window.addEventListener('popstate', (e) => {
-  if (e.state && e.state.post) {
-    BlogManager.showPostModal(e.state.post, true);
-  } else {
-    BlogManager.closeModal(true);
-  }
-});
+window.addEventListener('popstate', e=>{ if(e.state&&e.state.post) BlogManager.showPostModal(e.state.post,true); else BlogManager.closeModal(true); });
 
-/* ═══════════════════════════════════════════
-   INITIALIZATION
-═══════════════════════════════════════════ */
-window.addEventListener('load', function() {
-  setTimeout(() => window.dispatchEvent(new Event('resize')), 400);
-});
-
-if (document.fonts && document.fonts.ready) {
-  document.fonts.ready.then(() => {
-    setTimeout(() => window.dispatchEvent(new Event('resize')), 100);
-  });
-}
-
-document.addEventListener('DOMContentLoaded', () => {
-  try {
-    ThemeManager.init();
-    MenuManager.init();
-    ScrollManager.init();
-    MouseLight.init();
-    Particles.init();
-    Slider.init();
-    MusicPlayer.init();
-    BlogManager.init();
-    FAQManager.init();
-    Utils.$('#footer-year').textContent = new Date().getFullYear();
-
-    // Open post from URL hash
-    const hash = window.location.hash;
-    if (hash.startsWith('#post/')) {
-      const slug = hash.replace('#post/', '');
-      setTimeout(() => BlogManager.showPostModal(slug, true), 500);
-    }
-  } catch (err) {
-    console.error('Initialization error:', err);
-  }
+document.addEventListener('DOMContentLoaded', ()=>{
+  ThemeManager.init(); MenuManager.init(); ScrollManager.init(); MouseLight.init(); Particles.init(); Slider.init(); MusicPlayer.init(); BlogManager.init(); FAQManager.init();
+  Utils.$('#footer-year').textContent = new Date().getFullYear();
+  const hash=window.location.hash; if(hash.startsWith('#post/')){ const slug=hash.replace('#post/',''); setTimeout(()=>BlogManager.showPostModal(slug,true),500); }
 });
 </script>
 </body>
