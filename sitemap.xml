@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-    
-    <!-- ========================================================== -->
-    <!-- صفحه اصلی                                                  -->
-    <!-- ========================================================== -->
+<urlset 
+    xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+    xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+    xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+    <!-- ============================================================ -->
+    <!-- صفحه اصلی - بالاترین اولویت                                  -->
+    <!-- ============================================================ -->
     <url>
         <loc>https://sayehayebineghab.ir/</loc>
         <lastmod>2026-08-05</lastmod>
@@ -11,64 +14,123 @@
         <priority>1.0</priority>
     </url>
 
-    <!-- ========================================================== -->
-    <!-- نوشته‌های وبلاگ (پوشه‌ی post/)                             -->
-    <!-- ========================================================== -->
-
-    <!-- 1. تقاطع عشق و خشم -->
+    <!-- ============================================================ -->
+    <!-- صفحات اصلی سایت                                              -->
+    <!-- ============================================================ -->
     <url>
-        <loc>https://sayehayebineghab.ir/post/taghato-eshgh-va-kheshm.html</loc>
+        <loc>https://sayehayebineghab.ir/#about</loc>
+        <lastmod>2026-08-05</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <url>
+        <loc>https://sayehayebineghab.ir/#works</loc>
+        <lastmod>2026-08-05</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>https://sayehayebineghab.ir/#blog</loc>
+        <lastmod>2026-08-05</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+
+    <url>
+        <loc>https://sayehayebineghab.ir/#faq</loc>
+        <lastmod>2026-08-05</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.5</priority>
+    </url>
+
+    <!-- ============================================================ -->
+    <!-- پست‌های وبلاگ - با تصویر و متادیتا                           -->
+    <!-- ============================================================ -->
+
+    <url>
+        <loc>https://sayehayebineghab.ir/#post/taghato-eshgh-va-kheshm</loc>
         <lastmod>2025-07-01</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
+        <image:image>
+            <image:loc>https://sayehayebineghab.ir/images/post-1.jpg</image:loc>
+            <image:title>تقاطع عشق و خشم</image:title>
+            <image:caption>دل‌نوشته‌ای درباره تقاطع احساسات متضاد عشق و خشم</image:caption>
+        </image:image>
     </url>
 
-    <!-- 2. حال دلم خوب نیست -->
     <url>
-        <loc>https://sayehayebineghab.ir/post/hal-e-delam-khoob-nist.html</loc>
+        <loc>https://sayehayebineghab.ir/#post/hal-e-delam-khoob-nist</loc>
         <lastmod>2025-06-15</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
+        <image:image>
+            <image:loc>https://sayehayebineghab.ir/images/post-2.jpg</image:loc>
+            <image:title>حال دلم خوب نیست</image:title>
+            <image:caption>درباره روزهای سخت و احساس تنهایی</image:caption>
+        </image:image>
     </url>
 
-    <!-- 3. آن فاجعه‌ی مهربان لعنتی -->
     <url>
-        <loc>https://sayehayebineghab.ir/post/an-faje-ye-mehraban-lanati.html</loc>
+        <loc>https://sayehayebineghab.ir/#post/an-faje-ye-mehraban-lanati</loc>
         <lastmod>2025-05-05</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
+        <image:image>
+            <image:loc>https://sayehayebineghab.ir/images/post-3.jpg</image:loc>
+            <image:title>آن فاجعه‌ی مهربان لعنتی</image:title>
+            <image:caption>درباره آدم‌های هم‌نجات و هم‌فاجعه در زندگی</image:caption>
+        </image:image>
     </url>
 
-    <!-- 4. بزرگ‌ترین اشتباه ما... -->
     <url>
-        <loc>https://sayehayebineghab.ir/post/bozorgtarin-eshtebah-ma.html</loc>
+        <loc>https://sayehayebineghab.ir/#post/bozorgtarin-eshtebah-ma</loc>
         <lastmod>2025-04-25</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
+        <image:image>
+            <image:loc>https://sayehayebineghab.ir/images/post-4.jpg</image:loc>
+            <image:title>بزرگ‌ترین اشتباه ما</image:title>
+            <image:caption>درباره تلاش برای تغییر دیگران در روابط عاطفی</image:caption>
+        </image:image>
     </url>
 
-    <!-- 5. روزی تا خرخره عاشق بودم... -->
     <url>
-        <loc>https://sayehayebineghab.ir/post/roozi-ta-kharhare-ashiq-boodam.html</loc>
+        <loc>https://sayehayebineghab.ir/#post/roozi-ta-kharhare-ashiq-boodam</loc>
         <lastmod>2025-04-09</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
+        <image:image>
+            <image:loc>https://sayehayebineghab.ir/images/post-5.jpg</image:loc>
+            <image:title>روزی تا خرخره عاشق بودم</image:title>
+            <image:caption>درباره رهایی و خودشناسی بعد از عشق عمیق</image:caption>
+        </image:image>
     </url>
 
-    <!-- 6. چه فرق می‌کند بیدار باشم یا در خواب... -->
     <url>
-        <loc>https://sayehayebineghab.ir/post/che-fargh-mikonad-bidar-basham-ya-dar-khab.html</loc>
+        <loc>https://sayehayebineghab.ir/#post/che-fargh-mikonad-bidar-basham-ya-dar-khab</loc>
         <lastmod>2025-03-21</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
+        <image:image>
+            <image:loc>https://sayehayebineghab.ir/images/post-6.jpg</image:loc>
+            <image:title>چه فرق می‌کند بیدار باشم یا در خواب</image:title>
+            <image:caption>دل‌نوشته‌ای درباره دلتنگی و پذیرش</image:caption>
+        </image:image>
     </url>
 
-    <!-- 7. ویرانه‌ای که خانه شد -->
     <url>
-        <loc>https://sayehayebineghab.ir/post/viraneyi-ke-khane-shod.html</loc>
+        <loc>https://sayehayebineghab.ir/#post/viraneyi-ke-khane-shod</loc>
         <lastmod>2026-08-03</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
+        <image:image>
+            <image:loc>https://sayehayebineghab.ir/images/post-7.jpg</image:loc>
+            <image:title>ویرانه‌ای که خانه شد</image:title>
+            <image:caption>درباره ساختن زندگی از میان ویرانی‌ها</image:caption>
+        </image:image>
     </url>
 
 </urlset>
