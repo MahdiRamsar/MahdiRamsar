@@ -641,7 +641,7 @@ footer { background: var(--black-soft); padding: 3rem 2rem 1.5rem; border-top: 1
   <button class="track-nav-btn" id="prev-track-btn"><i class="fas fa-step-forward"></i></button>
   <button class="play-btn" id="play-btn"><i class="fas fa-play" id="play-icon"></i><span class="player-loading"></span></button>
   <button class="track-nav-btn" id="next-track-btn"><i class="fas fa-step-backward"></i></button>
-  <div class="player-info"><span class="player-title" id="player-title">موسیقی پس‌زمینه</span><span class="player-time" id="player-time">00:00 / 00:00</span><span class="track-indicator" id="track-indicator">۱ از ۲</span></div>
+  <div class="player-info"><span class="player-title" id="player-title">دکلمه‌ها</span><span class="player-time" id="player-time">00:00 / 00:00</span><span class="track-indicator" id="track-indicator">۱ از ۲</span></div>
   <div class="volume-control"><i class="fas fa-volume-up" id="volume-icon"></i><input type="range" class="volume-slider" id="volume-slider" min="0" max="1" step="0.05" value="0.7" aria-label="کنترل حجم صدا"></div>
   <button class="stop-btn" id="stop-btn"><i class="fas fa-stop"></i></button>
 </div>
@@ -890,7 +890,7 @@ const Slider = {
    MUSIC PLAYER (فشرده و کامل)
 ═══════════════════════════════════════════ */
 const MusicPlayer = {
-  tracks: [{name:'موسیقی پس‌زمینه ۱',src:'music.mp3'},{name:'موسیقی پس‌زمینه ۲',src:'music2.mp3'}],
+  tracks: [{name:'دکلمه‌ها ۱',src:'music.mp3'},{name:'دکلمه‌ها ۲',src:'music2.mp3'}],
   audio: null, audioContext: null, retryCount:0, maxRetries:3, isPreparing:false, userInteracted:false, wasPlayingBeforeHidden:false,
   init() {
     this.audio = new Audio(); this.audio.preload='auto'; this.audio.volume=0.7; this.audio.setAttribute('playsinline',''); this.audio.setAttribute('webkit-playsinline','');
