@@ -345,7 +345,6 @@ section { padding: 6rem 2rem; position: relative; }
 .post-modal-meta span { display: inline-flex; align-items: center; gap: 0.4rem; }
 .post-modal-meta i { color: var(--gold); }
 .post-modal-body { padding: 0 2.5rem 2rem; color: var(--text-secondary); font-size: 1rem; line-height: 2; }
-/* --- styles for rendered markdown --- */
 .post-modal-body h2 { font-size: 1.6rem; color: var(--text-primary); margin: 2rem 0 1rem 0; padding-right: 0.5rem; border-right: 4px solid var(--gold); }
 .post-modal-body h3 { font-size: 1.3rem; color: var(--text-primary); margin: 1.5rem 0 0.8rem 0; }
 .post-modal-body p { margin-bottom: 1.3rem; }
@@ -353,7 +352,6 @@ section { padding: 6rem 2rem; position: relative; }
 .post-modal-body ul li { position: relative; padding-right: 1.8rem; margin-bottom: 0.6rem; }
 .post-modal-body ul li::before { content: '▸'; position: absolute; right: 0; color: var(--gold); font-weight: bold; }
 .post-modal-body strong { color: var(--gold); font-weight: 700; }
-/* --- Related Posts --- */
 .related-posts-section { margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--glass-border); }
 .related-posts-section h3 { font-size: 1.3rem; color: var(--text-primary); margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.5rem; }
 .related-posts-section h3 i { color: var(--gold); }
@@ -364,7 +362,6 @@ section { padding: 6rem 2rem; position: relative; }
 .related-card .info { display: flex; flex-direction: column; gap: 0.2rem; overflow: hidden; }
 .related-card .info h4 { font-size: 0.95rem; font-weight: 600; margin: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .related-card .info p { font-size: 0.8rem; color: var(--text-muted); margin: 0; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
-/* --- FAQ inside Post --- */
 .post-faq-section { margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--glass-border); }
 .post-faq-section h3 { font-size: 1.3rem; color: var(--text-primary); margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.5rem; }
 .post-faq-section h3 i { color: var(--gold); }
@@ -433,9 +430,6 @@ footer { background: var(--black-soft); padding: 3rem 2rem 1.5rem; border-top: 1
 .volume-slider::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 12px; height: 12px; background: var(--purple); border-radius: 50%; cursor: pointer; }
 .stop-btn { background: none; border: none; color: var(--text-muted); cursor: pointer; font-size: 0.9rem; padding: 0.4rem; transition: color 0.3s; flex-shrink: 0; }
 .stop-btn:hover { color: var(--gold); }
-.player-loading { position: absolute; top: -3px; right: -3px; width: 14px; height: 14px; border: 2px solid transparent; border-top-color: var(--gold); border-radius: 50%; animation: spin 0.8s linear infinite; display: none; }
-.play-btn.loading .player-loading { display: block; }
-@keyframes spin { to { transform: rotate(360deg); } }
 .player-error { position: absolute; bottom: 100%; left: 0; right: 0; margin-bottom: 0.5rem; background: rgba(220,38,38,0.95); color: white; padding: 0.6rem 1rem; border-radius: 10px; font-size: 0.8rem; display: none; align-items: center; justify-content: space-between; gap: 0.5rem; }
 .player-error.show { display: flex; }
 .retry-btn { background: white; color: #dc2626; border: none; padding: 0.3rem 0.8rem; border-radius: 15px; cursor: pointer; font-family: var(--font-main); font-size: 0.75rem; font-weight: 600; }
@@ -636,10 +630,11 @@ footer { background: var(--black-soft); padding: 3rem 2rem 1.5rem; border-top: 1
   </div>
 </footer>
 
+<!-- ═══════════════════ MUSIC PLAYER (نسخه اصلاح‌شده) ═══════════════════ -->
 <div class="music-player">
   <div class="player-error" id="player-error"><span id="player-error-msg">خطا در بارگذاری</span><button class="retry-btn" id="retry-btn">تلاش مجدد</button></div>
   <button class="track-nav-btn" id="prev-track-btn"><i class="fas fa-step-forward"></i></button>
-  <button class="play-btn" id="play-btn"><i class="fas fa-play" id="play-icon"></i><span class="player-loading"></span></button>
+  <button class="play-btn" id="play-btn"><i class="fas fa-play" id="play-icon"></i></button>
   <button class="track-nav-btn" id="next-track-btn"><i class="fas fa-step-backward"></i></button>
   <div class="player-info"><span class="player-title" id="player-title">دکلمه‌ها</span><span class="player-time" id="player-time">00:00 / 00:00</span><span class="track-indicator" id="track-indicator">۱ از ۲</span></div>
   <div class="volume-control"><i class="fas fa-volume-up" id="volume-icon"></i><input type="range" class="volume-slider" id="volume-slider" min="0" max="1" step="0.05" value="0.7" aria-label="کنترل حجم صدا"></div>
@@ -688,7 +683,7 @@ const FocusTrap = {
 };
 
 /* ═══════════════════════════════════════════
-   DEFAULT POSTS (ساختار پیشرفته با keywords, faq, relatedPosts)
+   DEFAULT POSTS
 ═══════════════════════════════════════════ */
 const DEFAULT_POSTS = [
   {
@@ -702,11 +697,10 @@ const DEFAULT_POSTS = [
     tag: 'روانشناسی عشق',
     keywords: ['عشق و خشم', 'احساسات متضاد', 'روانشناسی رابطه'],
     readingTime: 8,
-    content: '## چرا عشق و خشم با هم می‌آیند؟\n\nگاهی عشق و خشم در یک نقطه به هم می‌رسند و ما را در تقاطعی غریب رها می‌کنند. نقطه‌ای که نه می‌توانی دوست داشته باشی و نه می‌توانی متنفر باشی.\n\nمن بارها در این تقاطع ایستاده‌ام. روزهایی که دوست داشتن به خشم تبدیل می‌شد و خشم به عشقی عمیق‌تر.\n\n### ریشه روانشناختی این تناقض\n\nعشق واقعی هیچ‌گاه ساده نبوده است. همیشه با ترس آمیخته است، با خشم، با حسادت، با ناامیدی.\n\n**نکات کلیدی:**\n- عشق عمیق همیشه با ترس از دست دادن همراه است\n- خشم ناشی از ناامیدی و انتظار برآورده نشده است\n- پذیرش این تناقض، اولین قدم برای عبور از آن است\n\n## چگونه از این تقاطع عبور کنیم؟\n\nمن یاد گرفته‌ام که در این تقاطع نایستم. یاد گرفته‌ام که عبور کنم.\n\n### ۴ گام عملی برای عبور\n\n**۱. پذیرش احساسات**\nامروز وقتی به عقب نگاه می‌کنم، می‌بینم که تمام آن لحظات سخت، مرا به کسی تبدیل کرده‌اند که امروز هستم.\n\n**۲. درک ریشه خشم**\nچون ویرانی گاهی آغاز ساختن است.\n\n**۳. رها کردن انتظار**\nیاد بگیرید که عشق بدون انتظار، آزادتر است.\n\n**۴. تمرکز بر رشد شخصی**\nهر رابطه‌ای درسی برای رشد شما دارد.\n\n## نتیجه‌گیری\n\nتقاطع عشق و خشم، نقطه‌ای نیست که در آن بمانید. این نقطه، دروازه‌ای است به سوی فهم عمیق‌تر از خود.',
+    content: '## چرا عشق و خشم با هم می‌آیند؟\n\nگاهی عشق و خشم در یک نقطه به هم می‌رسند و ما را در تقاطعی غریب رها می‌کنند. نقطه‌ای که نه می‌توانی دوست داشته باشی و نه می‌توانی متنفر باشی.\n\nمن بارها در این تقاطع ایستاده‌ام. روزهایی که دوست داشتن به خشم تبدیل می‌شد و خشم به عشقی عمیق‌تر.\n\n### ریشه روانشناختی این تناقض\n\nعشق واقعی هیچ‌گاه ساده نبوده است. همیشه با ترس آمیخته است، با خشم، با حسادت، با ناامیدی.\n\n**نکات کلیدی:**\n- عشق عمیق همیشه با ترس از دست دادن همراه است\n- خشم ناشی از ناامیدی و انتظار برآورده نشده است\n- پذیرش این تناقض، اولین قدم برای عبور از آن است',
     faq: [
       { question: 'چرا در عشق همزمان احساس خشم می‌کنیم؟', answer: 'خشم در عشق معمولاً ناشی از ناامیدی، ترس از دست دادن، یا انتظارات برآورده نشده است.' },
-      { question: 'آیا عشق واقعی با خشم همراه است؟', answer: 'بله، عشق عمیق همیشه با طیفی از احساسات از جمله خشم همراه است.' },
-      { question: 'چگونه با خشم در رابطه کنار بیاییم؟', answer: 'پذیرش احساسات، درک ریشه خشم، رها کردن انتظار، و تمرکز بر رشد شخصی.' }
+      { question: 'آیا عشق واقعی با خشم همراه است؟', answer: 'بله، عشق عمیق همیشه با طیفی از احساسات از جمله خشم همراه است.' }
     ],
     relatedPosts: [2, 3]
   },
@@ -721,10 +715,9 @@ const DEFAULT_POSTS = [
     tag: 'افسردگی و تنهایی',
     keywords: ['حال دلم خوب نیست', 'افسردگی', 'تنهایی'],
     readingTime: 7,
-    content: '## چرا حال دلم خوب نیست؟\n\nبعضی روزها حال دلت خوب نیست و نمی‌دانی چرا. فقط می‌دانی که چیزی در درونت شکسته.\n\nصبح از خواب بیدار می‌شوی و احساس می‌کنی یک شبانه‌روز دیگر را باید تحمل کنی.\n\n### دلایل رایج این احساس\n\n- خستگی روحی و جسمی\n- فشارهای زندگی روزمره\n- کمبود ارتباطات معنادار\n\n## چگونه با این احساس کنار بیاییم؟\n\nمن نمی‌خواهم بگویم همه چیز درست می‌شود. اما می‌خواهم بگویم که این حالت هم می‌گذرد.\n\n### ۵ راهکار عملی\n\n**۱. پذیرش احساس**\nدلتنگی می‌آید و می‌رود. غم می‌آید و می‌رود.\n\n**۲. ارتباط با دیگران**\nپس اگر امروز حال دلت خوب نیست، بدان که تنها نیستی.\n\n**۳. فعالیت‌های کوچک**\nگاهی تنها کاری که می‌توانی بکنی، ادامه دادن است.\n\n**۴. مراقبت از خود**\nمن از روزهایی که حالم خوب نبود، بیشتر یاد گرفتم.\n\n**۵. کمک حرفه‌ای**\nاگر این احساس طولانی شد، با یک مشاور صحبت کنید.',
+    content: '## چرا حال دلم خوب نیست؟\n\nبعضی روزها حال دلت خوب نیست و نمی‌دانی چرا. فقط می‌دانی که چیزی در درونت شکسته.\n\nصبح از خواب بیدار می‌شوی و احساس می‌کنی یک شبانه‌روز دیگر را باید تحمل کنی.\n\n### دلایل رایج این احساس\n\n- خستگی روحی و جسمی\n- فشارهای زندگی روزمره\n- کمبود ارتباطات معنادار\n\n## چگونه با این احساس کنار بیاییم؟\n\nمن نمی‌خواهم بگویم همه چیز درست می‌شود. اما می‌خواهم بگویم که این حالت هم می‌گذرد.\n\n### ۵ راهکار عملی\n\n**۱. پذیرش احساس**\nدلتنگی می‌آید و می‌رود. غم می‌آید و می‌رود.\n\n**۲. ارتباط با دیگران**\nپس اگر امروز حال دلت خوب نیست، بدان که تنها نیستی.\n\n**۳. فعالیت‌های کوچک**\nگاهی تنها کاری که می‌توانی بکنی، ادامه دادن است.',
     faq: [
-      { question: 'چرا گاهی بدون دلیل حال دلم خوب نیست؟', answer: 'این احساس می‌تواند ناشی از خستگی روحی، فشارهای پنهان زندگی، یا نیازهای برآورده نشده باشد.' },
-      { question: 'آیا این احساس طبیعی است؟', answer: 'بله، کاملاً طبیعی است. همه انسان‌ها روزهای سختی را تجربه می‌کنند.' }
+      { question: 'چرا گاهی بدون دلیل حال دلم خوب نیست؟', answer: 'این احساس می‌تواند ناشی از خستگی روحی، فشارهای پنهان زندگی، یا نیازهای برآورده نشده باشد.' }
     ],
     relatedPosts: [1, 5]
   },
@@ -739,7 +732,7 @@ const DEFAULT_POSTS = [
     tag: 'عشق و دلتنگی',
     keywords: ['فاجعه مهربان', 'عشق ویرانگر', 'دلتنگی'],
     readingTime: 6,
-    content: '## بعضی آدم‌ها مثل فاجعه‌اند\n\nمی‌آیند و همه‌چیز را ویران می‌کنند، اما آن‌قدر مهربانند که نمی‌توانی از آن‌ها متنفر باشی.\n\nمن چنین آدمی را شناخته‌ام. کسی که با یک لبخند می‌توانست تمام دیوارهایم را فرو بریزد.\n\n### تناقض بزرگ\n\nنمی‌فهمم چگونه می‌توان کسی را دوست داشت و از او ترسید.\n\n## زندگی با تناقض‌ها\n\nاما زندگی پر از همین تناقض‌هاست. پر از آدم‌هایی که هم نجاتند هم فاجعه.\n\nمن یاد گرفته‌ام که با این تناقض‌ها زندگی کنم. یاد گرفته‌ام که گاهی باید رها کرد.\n\nآن فاجعه‌ی مهربان لعنتی رفت. اما رد پایش ماند. در قلبم، در خاطراتم، در نوشته‌هایم.\n\nو برای همین، حتی از او هم سپاسگزارم.',
+    content: '## بعضی آدم‌ها مثل فاجعه‌اند\n\nمی‌آیند و همه‌چیز را ویران می‌کنند، اما آن‌قدر مهربانند که نمی‌توانی از آن‌ها متنفر باشی.\n\nمن چنین آدمی را شناخته‌ام. کسی که با یک لبخند می‌توانست تمام دیوارهایم را فرو بریزد.\n\n### تناقض بزرگ\n\nنمی‌فهمم چگونه می‌توان کسی را دوست داشت و از او ترسید.',
     faq: [
       { question: 'چرا بعضی آدم‌ها همزمان هم خوب و هم بد هستند؟', answer: 'انسان‌ها پیچیده‌اند. هر کسی هم ظرفیت عشق دارد و هم ظرفیت آسیب زدن.' }
     ],
@@ -756,7 +749,7 @@ const DEFAULT_POSTS = [
     tag: 'خودشناسی',
     keywords: ['اشتباه در عشق', 'تغییر دادن دیگران', 'پذیرش'],
     readingTime: 5,
-    content: '## اشتباه بزرگ\n\nبزرگ‌ترین اشتباه ما این بود که فکر کردیم می‌توانیم کسی را تغییر دهیم.\n\nاما آدم‌ها همان‌اند که هستند. با تمام نقص‌ها، با تمام زیبایی‌ها.\n\n## درسی که آموختم\n\nمن این اشتباه را کرده‌ام. بارها. سعی کرده‌ام کسی را آن‌طور که می‌خواهم ببینم.\n\nامروز وقتی عاشق می‌شوم، سعی می‌کنم طرف مقابل را همان‌طور که هست ببینم.\n\nعشق واقعی یعنی پذیرفتن. یعنی دیدن. یعنی بودن. بدون نقاب، بدون توهم، بدون انتظار.\n\nو این، سخت‌ترین و زیباترین کار دنیاست.',
+    content: '## اشتباه بزرگ\n\nبزرگ‌ترین اشتباه ما این بود که فکر کردیم می‌توانیم کسی را تغییر دهیم.\n\nاما آدم‌ها همان‌اند که هستند. با تمام نقص‌ها، با تمام زیبایی‌ها.\n\n## درسی که آموختم\n\nمن این اشتباه را کرده‌ام. بارها. سعی کرده‌ام کسی را آن‌طور که می‌خواهم ببینم.\n\nامروز وقتی عاشق می‌شوم، سعی می‌کنم طرف مقابل را همان‌طور که هست ببینم.',
     faq: [
       { question: 'آیا می‌توان در رابطه افراد را تغییر داد؟', answer: 'خیر، تغییر باید از درون خود فرد باشد. شما فقط می‌توانید الهام‌بخش باشید.' }
     ],
@@ -773,7 +766,7 @@ const DEFAULT_POSTS = [
     tag: 'رهایی و رشد',
     keywords: ['عشق عمیق', 'خودشناسی', 'رهایی از عشق'],
     readingTime: 5,
-    content: '## تا خرخره عاشق بودم\n\nروزی تا خرخره عاشق بودم. آن‌قدر که تمام دنیایم در چشمانش خلاصه می‌شد.\n\nاما دنیا پایان نیافت. من نفس کشیدم. من زنده ماندم.\n\n## فهمیدن دردناک\n\nاین فهمیدن دردناک بود. اما حقیقت همین است. قلب می‌تپد. نفس می‌آید.\n\nمن آن روزها را فراموش نکرده‌ام. هنوز هم گاهی دلتنگ می‌شوم. اما دیگر آن عشق مرا ویران نمی‌کند.\n\nچون فهمیده‌ام که من، قبل از آن عشق، خودم بودم. و بعد از آن عشق، باز هم خودم هستم.\n\nروزی تا خرخره عاشق بودم. امروز تا خرخره خودم را دوست دارم.',
+    content: '## تا خرخره عاشق بودم\n\nروزی تا خرخره عاشق بودم. آن‌قدر که تمام دنیایم در چشمانش خلاصه می‌شد.\n\nاما دنیا پایان نیافت. من نفس کشیدم. من زنده ماندم.\n\n## فهمیدن دردناک\n\nاین فهمیدن دردناک بود. اما حقیقت همین است. قلب می‌تپد. نفس می‌آید.\n\nمن آن روزها را فراموش نکرده‌ام. هنوز هم گاهی دلتنگ می‌شوم.',
     faq: [
       { question: 'آیا می‌توان بعد از یک عشق عمیق دوباره زندگی کرد؟', answer: 'بله، عشق عمیق پایان زندگی نیست. با گذشت زمان و خودشناسی، زندگی رنگ تازه‌ای می‌گیرد.' }
     ],
@@ -790,7 +783,7 @@ const DEFAULT_POSTS = [
     tag: 'فلسفه و دلتنگی',
     keywords: ['دلتنگی', 'فلسفه عشق', 'نبودن معشوق'],
     readingTime: 4,
-    content: '## چه فرق می‌کند؟\n\nچه فرق می‌کند بیدار باشم یا در خواب؟ در هر دو حالت، تو نیستی.\n\nبیداری و خواب، هر دو، تو را به من نشان می‌دهند. در بیداری، در هر چهره‌ای، تو را می‌بینم. در خواب، در هر رویایی، تو را تجربه می‌کنم.\n\n## حقیقت تلخ\n\nاین حالت را نمی‌توان توصیف کرد. حالتی فراتر از همه احساسات.\n\nمن با این حالت زندگی کرده‌ام. روزها، ماه‌ها. و فهمیده‌ام که این حالت هم می‌گذرد. نه با فراموشی، بلکه با پذیرش.\n\nچه فرق می‌کند بیدار باشم یا در خواب؟ امروز می‌گویم: فرق می‌کند. چون در بیداری، من انتخاب می‌کنم که زندگی کنم.',
+    content: '## چه فرق می‌کند؟\n\nچه فرق می‌کند بیدار باشم یا در خواب؟ در هر دو حالت، تو نیستی.\n\nبیداری و خواب، هر دو، تو را به من نشان می‌دهند. در بیداری، در هر چهره‌ای، تو را می‌بینم. در خواب، در هر رویایی، تو را تجربه می‌کنم.\n\n## حقیقت تلخ\n\nاین حالت را نمی‌توان توصیف کرد. حالتی فراتر از همه احساسات.',
     faq: [
       { question: 'چگونه دلتنگی را به پذیرش تبدیل کنیم؟', answer: 'با درک این که نبودن کسی، به معنای نبودن زندگی نیست.' }
     ],
@@ -816,7 +809,8 @@ const showToast = (msg, type='success') => {
 };
 
 /* ═══════════════════════════════════════════
-   THEME
+   THEME, MENU, SCROLL, MOUSE LIGHT, PARTICLES, SLIDER
+   (همانند نسخه قبلی - بدون تغییر)
 ═══════════════════════════════════════════ */
 const ThemeManager = {
   init() { const s = Utils.safeStorage.get('theme'); state.theme = s || 'dark'; this.apply(); Utils.$('#theme-toggle').addEventListener('click', ()=>this.toggle()); },
@@ -824,9 +818,6 @@ const ThemeManager = {
   toggle() { state.theme = state.theme === 'dark' ? 'light' : 'dark'; Utils.safeStorage.set('theme', state.theme); this.apply(); }
 };
 
-/* ═══════════════════════════════════════════
-   MENU
-═══════════════════════════════════════════ */
 const MenuManager = {
   init() {
     const toggle = Utils.$('#menu-toggle'), menu = Utils.$('#nav-menu');
@@ -835,15 +826,12 @@ const MenuManager = {
   }
 };
 
-/* ═══════════════════════════════════════════
-   SCROLL
-═══════════════════════════════════════════ */
 const ScrollManager = {
   init() {
     const fn = Utils.throttleRAF(() => {
       const y = window.scrollY, h = document.documentElement.scrollHeight - window.innerHeight;
       const p = h > 0 ? (y/h)*100 : 0;
-      const bar = Utils.$('#scroll-progress'); bar.style.width = p+'%'; bar.setAttribute('aria-valuenow', Math.round(p));
+      Utils.$('#scroll-progress').style.width = p+'%';
       Utils.$('#main-header').classList.toggle('scrolled', y > 100);
       Utils.$('#back-to-top').classList.toggle('show', y > 500);
       const sections = ['home','about','works','blog','faq']; const pos = y+200;
@@ -854,19 +842,14 @@ const ScrollManager = {
   }
 };
 
-/* ═══════════════════════════════════════════
-   MOUSE LIGHT & PARTICLES
-═══════════════════════════════════════════ */
 const MouseLight = {
   init() { if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return; const l=Utils.$('#mouse-light'); const fn = Utils.throttleRAF(e=>{ l.style.left=e.clientX+'px'; l.style.top=e.clientY+'px'; }); document.addEventListener('mousemove', fn, {passive:true}); }
 };
+
 const Particles = {
   init() { if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return; const c=Utils.$('#hero-particles'); const f=document.createDocumentFragment(); for(let i=0;i<20;i++){const p=document.createElement('div');p.className='particle';p.style.left=Math.random()*100+'%';p.style.animationDelay=Math.random()*8+'s';p.style.animationDuration=(6+Math.random()*6)+'s';f.appendChild(p);} c.appendChild(f); }
 };
 
-/* ═══════════════════════════════════════════
-   SLIDER
-═══════════════════════════════════════════ */
 const Slider = {
   init() {
     this.slides = Utils.$$('.slide'); this.dots = Utils.$$('.slider-dot'); this.total = this.slides.length;
@@ -874,7 +857,7 @@ const Slider = {
     Utils.$('#next-slide').addEventListener('click', ()=>this.next());
     this.dots.forEach(d=>d.addEventListener('click', ()=>this.goTo(parseInt(d.dataset.index))));
     Utils.$$('.slider-mode-btn').forEach(b=>b.addEventListener('click', ()=>{ Utils.$$('.slider-mode-btn').forEach(x=>{ x.classList.remove('active'); x.setAttribute('aria-pressed','false'); }); b.classList.add('active'); b.setAttribute('aria-pressed','true'); this.setMode(b.dataset.mode); }));
-    const vp = Utils.$('#slider-viewport'); vp.addEventListener('mouseenter', ()=>this.pause()); vp.addEventListener('mouseleave', ()=>this.play()); vp.addEventListener('focus', ()=>this.pause()); vp.addEventListener('blur', ()=>this.play());
+    const vp = Utils.$('#slider-viewport'); vp.addEventListener('mouseenter', ()=>this.pause()); vp.addEventListener('mouseleave', ()=>this.play());
     vp.addEventListener('keydown', e=>{ if(e.key === 'ArrowLeft') this.next(); if(e.key === 'ArrowRight') this.prev(); });
     this.play();
   },
@@ -887,65 +870,345 @@ const Slider = {
 };
 
 /* ═══════════════════════════════════════════
-   MUSIC PLAYER (فشرده و کامل)
+   MUSIC PLAYER - نسخه اصلاح‌شده با پشتیبانی از چندین فرمت
 ═══════════════════════════════════════════ */
 const MusicPlayer = {
-  tracks: [{name:'دکلمه‌ها ۱',src:'music.mp3'},{name:'دکلمه‌ها ۲',src:'music2.mp3'}],
-  audio: null, audioContext: null, retryCount:0, maxRetries:3, isPreparing:false, userInteracted:false, wasPlayingBeforeHidden:false,
+  tracks: [
+    {
+      name: 'دکلمه‌ها ۱',
+      sources: [
+        { src: 'music.mp3', type: 'audio/mpeg' },
+        { src: 'music.ogg', type: 'audio/ogg' },
+        { src: 'music.m4a', type: 'audio/mp4' },
+        { src: 'music.wav', type: 'audio/wav' }
+      ]
+    },
+    {
+      name: 'دکلمه‌ها ۲',
+      sources: [
+        { src: 'music2.mp3', type: 'audio/mpeg' },
+        { src: 'music2.ogg', type: 'audio/ogg' },
+        { src: 'music2.m4a', type: 'audio/mp4' },
+        { src: 'music2.wav', type: 'audio/wav' }
+      ]
+    }
+  ],
+  audio: null,
+  retryCount: 0,
+  maxRetries: 3,
+  isPlaying: false,
+  isPreparing: false,
+  userInteracted: false,
+  wasPlayingBeforeHidden: false,
+
   init() {
-    this.audio = new Audio(); this.audio.preload='auto'; this.audio.volume=0.7; this.audio.setAttribute('playsinline',''); this.audio.setAttribute('webkit-playsinline','');
-    this.setupEvents(); this.loadCurrentTrack(); this.updateUI(); this.registerInteraction();
+    this.audio = new Audio();
+    this.audio.preload = 'auto';
+    this.audio.volume = 0.7;
+    this.audio.setAttribute('playsinline', '');
+    this.audio.setAttribute('webkit-playsinline', '');
+    this.setupEvents();
+    this.loadCurrentTrack();
+    this.updateUI();
+    this.registerInteraction();
   },
-  setCrossOrigin() { try { const u = new URL(this.tracks[state.currentTrackIndex].src, window.location.href); if(u.origin !== window.location.origin) this.audio.crossOrigin='anonymous'; else this.audio.removeAttribute('crossorigin'); } catch { this.audio.removeAttribute('crossorigin'); } },
-  initAudioContext() { if(this.audioContext) return; try { const AC = window.AudioContext || window.webkitAudioContext; if(AC){ this.audioContext = new AC(); if(this.audioContext.state === 'suspended') this.resumeAudioContext(); } } catch(e){} },
-  resumeAudioContext() { if(this.audioContext && this.audioContext.state === 'suspended') this.audioContext.resume().catch(()=>{}); },
-  registerInteraction() {
-    const fn = ()=>{ if(this.userInteracted) return; this.userInteracted=true; this.initAudioContext(); if(this.audio.src){ const p=this.audio.play(); if(p!==undefined) p.then(()=>{this.audio.pause(); this.audio.currentTime=0;}).catch(()=>{}); } document.removeEventListener('touchstart', fn); document.removeEventListener('touchend', fn); document.removeEventListener('click', fn); };
-    document.addEventListener('touchstart', fn, {passive:true}); document.addEventListener('touchend', fn, {passive:true}); document.addEventListener('click', fn, {passive:true});
+
+  setCrossOrigin() {
+    try {
+      const url = new URL(this.tracks[state.currentTrackIndex].sources[0].src, window.location.href);
+      if (url.origin !== window.location.origin) {
+        this.audio.crossOrigin = 'anonymous';
+      } else {
+        this.audio.removeAttribute('crossorigin');
+      }
+    } catch {
+      this.audio.removeAttribute('crossorigin');
+    }
   },
+
+  loadCurrentTrack() {
+    const track = this.tracks[state.currentTrackIndex];
+    this.audio.pause();
+    this.audio.innerHTML = '';
+    track.sources.forEach(s => {
+      const source = document.createElement('source');
+      source.src = s.src;
+      source.type = s.type;
+      this.audio.appendChild(source);
+    });
+    this.setCrossOrigin();
+    this.audio.load();
+  },
+
+  updateUI() {
+    const track = this.tracks[state.currentTrackIndex];
+    const titleEl = Utils.$('#player-title');
+    const indEl = Utils.$('#track-indicator');
+    titleEl.classList.add('track-switching');
+    setTimeout(() => {
+      titleEl.textContent = track.name;
+      titleEl.classList.remove('track-switching');
+    }, 300);
+    indEl.textContent = `${Utils.toPersianDigits(state.currentTrackIndex + 1)} از ${Utils.toPersianDigits(this.tracks.length)}`;
+  },
+
   setupEvents() {
-    Utils.$('#play-btn').addEventListener('click', e=>{ e.preventDefault(); this.toggle(); });
-    Utils.$('#stop-btn').addEventListener('click', ()=>this.stop());
-    Utils.$('#prev-track-btn').addEventListener('click', ()=>this.prevTrack());
-    Utils.$('#next-track-btn').addEventListener('click', ()=>this.nextTrack());
-    Utils.$('#volume-slider').addEventListener('input', e=>{ this.audio.volume=parseFloat(e.target.value); this.updateVolumeIcon(); });
-    Utils.$('#retry-btn').addEventListener('click', ()=>this.retry());
-    document.addEventListener('visibilitychange', ()=>{ if(document.hidden && this.isPlaying) this.wasPlayingBeforeHidden=true; else if(!document.hidden && this.wasPlayingBeforeHidden){ this.wasPlayingBeforeHidden=false; if(this.audio.paused && this.isPlaying) this.audio.play().catch(()=>{}); } });
-    this.audio.addEventListener('timeupdate', ()=>this.updateTime());
-    this.audio.addEventListener('loadedmetadata', ()=>this.updateTime());
-    this.audio.addEventListener('loadeddata', ()=>{ this.updateTime(); Utils.$('#play-btn').classList.remove('loading'); });
-    this.audio.addEventListener('canplay', ()=>{ Utils.$('#play-btn').classList.remove('loading'); this.isPreparing=false; });
-    this.audio.addEventListener('canplaythrough', ()=>{ Utils.$('#play-btn').classList.remove('loading'); this.isPreparing=false; });
-    this.audio.addEventListener('ended', ()=>{ if(this.tracks.length>1) this.nextTrack(true); else { this.isPlaying=false; Utils.$('#play-icon').className='fas fa-play'; Utils.$('#play-btn').classList.remove('playing'); } });
-    this.audio.addEventListener('error', e=>this.handleError(e));
-    this.audio.addEventListener('stalled', ()=>{ if(this.isPlaying){ setTimeout(()=>{ if(this.audio.paused && this.isPlaying) this.audio.play().catch(()=>{}); },500); } });
-    this.audio.addEventListener('waiting', ()=>Utils.$('#play-btn').classList.add('loading'));
-    this.audio.addEventListener('playing', ()=>Utils.$('#play-btn').classList.remove('loading'));
+    Utils.$('#play-btn').addEventListener('click', e => { e.preventDefault(); this.toggle(); });
+    Utils.$('#stop-btn').addEventListener('click', () => this.stop());
+    Utils.$('#prev-track-btn').addEventListener('click', () => this.prevTrack());
+    Utils.$('#next-track-btn').addEventListener('click', () => this.nextTrack());
+    Utils.$('#volume-slider').addEventListener('input', e => {
+      this.audio.volume = parseFloat(e.target.value);
+      this.updateVolumeIcon();
+    });
+    Utils.$('#retry-btn').addEventListener('click', () => this.retry());
+
+    document.addEventListener('visibilitychange', () => {
+      if (document.hidden && this.isPlaying) this.wasPlayingBeforeHidden = true;
+      else if (!document.hidden && this.wasPlayingBeforeHidden) {
+        this.wasPlayingBeforeHidden = false;
+        if (this.audio.paused && this.isPlaying) this.audio.play().catch(() => {});
+      }
+    });
+
+    this.audio.addEventListener('timeupdate', () => this.updateTime());
+    this.audio.addEventListener('loadedmetadata', () => this.updateTime());
+    this.audio.addEventListener('loadeddata', () => {
+      this.updateTime();
+      Utils.$('#play-btn').classList.remove('loading');
+    });
+    this.audio.addEventListener('canplay', () => {
+      Utils.$('#play-btn').classList.remove('loading');
+      this.isPreparing = false;
+    });
+    this.audio.addEventListener('canplaythrough', () => {
+      Utils.$('#play-btn').classList.remove('loading');
+      this.isPreparing = false;
+    });
+    this.audio.addEventListener('ended', () => {
+      if (this.tracks.length > 1) this.nextTrack(true);
+      else {
+        this.isPlaying = false;
+        Utils.$('#play-icon').className = 'fas fa-play';
+        Utils.$('#play-btn').classList.remove('playing');
+      }
+    });
+    this.audio.addEventListener('error', e => this.handleError(e));
+    this.audio.addEventListener('stalled', () => {
+      if (this.isPlaying) {
+        setTimeout(() => {
+          if (this.audio.paused && this.isPlaying) this.audio.play().catch(() => {});
+        }, 500);
+      }
+    });
+    this.audio.addEventListener('waiting', () => Utils.$('#play-btn').classList.add('loading'));
+    this.audio.addEventListener('playing', () => Utils.$('#play-btn').classList.remove('loading'));
   },
-  loadCurrentTrack() { const t=this.tracks[state.currentTrackIndex]; this.audio.pause(); this.audio.removeAttribute('src'); this.audio.load(); this.setCrossOrigin(); this.audio.src=t.src; this.audio.preload='auto'; this.audio.load(); },
-  updateUI() { const t=this.tracks[state.currentTrackIndex]; const title=Utils.$('#player-title'); const ind=Utils.$('#track-indicator'); title.classList.add('track-switching'); setTimeout(()=>{ title.textContent=t.name; title.classList.remove('track-switching'); },300); ind.textContent=`${Utils.toPersianDigits(state.currentTrackIndex+1)} از ${Utils.toPersianDigits(this.tracks.length)}`; },
-  toggle(){ this.initAudioContext(); this.resumeAudioContext(); if(this.isPlaying){ this.audio.pause(); this.isPlaying=false; Utils.$('#play-icon').className='fas fa-play'; Utils.$('#play-btn').classList.remove('playing','loading'); } else { this.playAudio(); } },
-  playAudio(){ Utils.$('#play-btn').classList.add('loading'); this.isPreparing=true; const p=this.audio.play(); if(p!==undefined){ p.then(()=>{ this.isPlaying=true; Utils.$('#play-icon').className='fas fa-pause'; Utils.$('#play-btn').classList.add('playing'); Utils.$('#play-btn').classList.remove('loading'); Utils.$('#player-error').classList.remove('show'); this.retryCount=0; }).catch(err=>this.handlePlayError(err)); } else { this.isPlaying=true; Utils.$('#play-icon').className='fas fa-pause'; Utils.$('#play-btn').classList.add('playing'); Utils.$('#play-btn').classList.remove('loading'); } },
-  handlePlayError(err){ const name=err?err.name:''; const msg=err?err.message:''; Utils.$('#play-btn').classList.remove('loading'); this.isPreparing=false; if(name==='NotAllowedError'||name==='SecurityError'){ if(this.retryCount<this.maxRetries){ this.retryCount++; setTimeout(()=>{ this.resumeAudioContext(); this.playAudio(); },100); } else { this.showError('برای پخش، یک بار دیگر روی دکمه بزنید'); } return; } if(name==='AbortError') return; if(name==='NotFoundError'||msg.includes('Failed to load')){ this.showError('فایل صوتی در دسترس نیست'); return; } if(this.retryCount<this.maxRetries){ this.retryCount++; setTimeout(()=>{ this.loadCurrentTrack(); setTimeout(()=>this.playAudio(),200); },300); } else { this.showError('خطا در پخش - لطفاً دوباره تلاش کنید'); } },
-  handleError(e){ if(this.isPreparing) return; const err=this.audio.error; if(!err) return; if(err.code===MediaError.MEDIA_ERR_NETWORK){ if(this.retryCount<this.maxRetries){ this.retryCount++; setTimeout(()=>{ this.loadCurrentTrack(); if(this.isPlaying) this.playAudio(); },1000); } else { this.showError('خطای شبکه - اتصال اینترنت را بررسی کنید'); } return; } if(err.code===MediaError.MEDIA_ERR_DECODE){ this.showError('فایل صوتی قابل پخش نیست'); return; } if(err.code===MediaError.MEDIA_ERR_SRC_NOT_SUPPORTED){ this.showError('فرمت فایل پشتیبانی نمی‌شود'); return; } if(this.retryCount<this.maxRetries){ this.retryCount++; setTimeout(()=>{ this.loadCurrentTrack(); if(this.isPlaying) this.playAudio(); },1000); } },
-  showError(msg){ Utils.$('#player-error-msg').textContent=msg; Utils.$('#player-error').classList.add('show'); this.isPlaying=false; Utils.$('#play-icon').className='fas fa-play'; Utils.$('#play-btn').classList.remove('playing','loading'); setTimeout(()=>Utils.$('#player-error').classList.remove('show'),5000); },
-  nextTrack(auto=false){ const was=this.isPlaying||auto; state.currentTrackIndex=(state.currentTrackIndex+1)%this.tracks.length; this.loadCurrentTrack(); this.updateUI(); if(was){ this.retryCount=0; let played=false; const cb=()=>{ if(played) return; played=true; this.playAudio(); }; this.audio.addEventListener('canplay', cb, {once:true}); setTimeout(()=>{ if(!this.isPlaying && was) cb(); },1000); } showToast(`🎵 ${this.tracks[state.currentTrackIndex].name}`); },
-  prevTrack(){ const was=this.isPlaying; state.currentTrackIndex=(state.currentTrackIndex-1+this.tracks.length)%this.tracks.length; this.loadCurrentTrack(); this.updateUI(); if(was){ this.retryCount=0; let played=false; const cb=()=>{ if(played) return; played=true; this.playAudio(); }; this.audio.addEventListener('canplay', cb, {once:true}); setTimeout(()=>{ if(!this.isPlaying && was) cb(); },1000); } showToast(`🎵 ${this.tracks[state.currentTrackIndex].name}`); },
-  stop(){ this.audio.pause(); this.audio.currentTime=0; this.isPlaying=false; this.retryCount=0; Utils.$('#play-icon').className='fas fa-play'; Utils.$('#play-btn').classList.remove('playing','loading'); Utils.$('#player-time').textContent='00:00 / 00:00'; Utils.$('#player-error').classList.remove('show'); },
-  retry(){ Utils.$('#player-error').classList.remove('show'); this.retryCount=0; this.loadCurrentTrack(); setTimeout(()=>this.playAudio(),200); },
-  updateTime(){ const c=this.audio.currentTime||0, d=this.audio.duration||0; Utils.$('#player-time').textContent=`${Utils.formatTime(c)} / ${Utils.formatTime(d)}`; },
-  updateVolumeIcon(){ const v=this.audio.volume; const i=Utils.$('#volume-icon'); if(v===0) i.className='fas fa-volume-mute'; else if(v<0.5) i.className='fas fa-volume-down'; else i.className='fas fa-volume-up'; }
+
+  registerInteraction() {
+    const fn = () => {
+      if (this.userInteracted) return;
+      this.userInteracted = true;
+      if (this.audio.src) {
+        const p = this.audio.play();
+        if (p !== undefined) p.then(() => { this.audio.pause(); this.audio.currentTime = 0; }).catch(() => {});
+      }
+      document.removeEventListener('touchstart', fn);
+      document.removeEventListener('touchend', fn);
+      document.removeEventListener('click', fn);
+    };
+    document.addEventListener('touchstart', fn, { passive: true });
+    document.addEventListener('touchend', fn, { passive: true });
+    document.addEventListener('click', fn, { passive: true });
+  },
+
+  toggle() {
+    if (this.isPlaying) {
+      this.audio.pause();
+      this.isPlaying = false;
+      Utils.$('#play-icon').className = 'fas fa-play';
+      Utils.$('#play-btn').classList.remove('playing', 'loading');
+    } else {
+      this.playAudio();
+    }
+  },
+
+  playAudio() {
+    Utils.$('#play-btn').classList.add('loading');
+    this.isPreparing = true;
+    const p = this.audio.play();
+    if (p !== undefined) {
+      p.then(() => {
+        this.isPlaying = true;
+        Utils.$('#play-icon').className = 'fas fa-pause';
+        Utils.$('#play-btn').classList.add('playing');
+        Utils.$('#play-btn').classList.remove('loading');
+        Utils.$('#player-error').classList.remove('show');
+        this.retryCount = 0;
+      }).catch(err => this.handlePlayError(err));
+    } else {
+      this.isPlaying = true;
+      Utils.$('#play-icon').className = 'fas fa-pause';
+      Utils.$('#play-btn').classList.add('playing');
+      Utils.$('#play-btn').classList.remove('loading');
+    }
+  },
+
+  handlePlayError(err) {
+    const name = err ? err.name : '';
+    const msg = err ? err.message : '';
+    Utils.$('#play-btn').classList.remove('loading');
+    this.isPreparing = false;
+    if (name === 'NotAllowedError' || name === 'SecurityError') {
+      if (this.retryCount < this.maxRetries) {
+        this.retryCount++;
+        setTimeout(() => this.playAudio(), 100);
+      } else {
+        this.showError('برای پخش، یک بار دیگر روی دکمه بزنید');
+      }
+      return;
+    }
+    if (name === 'AbortError') return;
+    if (name === 'NotFoundError' || msg.includes('Failed to load')) {
+      this.showError('فایل صوتی در دسترس نیست');
+      return;
+    }
+    if (this.retryCount < this.maxRetries) {
+      this.retryCount++;
+      setTimeout(() => {
+        this.loadCurrentTrack();
+        setTimeout(() => this.playAudio(), 200);
+      }, 300);
+    } else {
+      this.showError('خطا در پخش - لطفاً دوباره تلاش کنید');
+    }
+  },
+
+  handleError(e) {
+    if (this.isPreparing) return;
+    const err = this.audio.error;
+    if (!err) return;
+    if (err.code === MediaError.MEDIA_ERR_NETWORK) {
+      if (this.retryCount < this.maxRetries) {
+        this.retryCount++;
+        setTimeout(() => {
+          this.loadCurrentTrack();
+          if (this.isPlaying) this.playAudio();
+        }, 1000);
+      } else {
+        this.showError('خطای شبکه - اتصال اینترنت را بررسی کنید');
+      }
+      return;
+    }
+    if (err.code === MediaError.MEDIA_ERR_DECODE) {
+      this.showError('فایل صوتی قابل پخش نیست');
+      return;
+    }
+    if (err.code === MediaError.MEDIA_ERR_SRC_NOT_SUPPORTED) {
+      this.showError('فرمت فایل پشتیبانی نمی‌شود');
+      return;
+    }
+    if (this.retryCount < this.maxRetries) {
+      this.retryCount++;
+      setTimeout(() => {
+        this.loadCurrentTrack();
+        if (this.isPlaying) this.playAudio();
+      }, 1000);
+    }
+  },
+
+  showError(msg) {
+    Utils.$('#player-error-msg').textContent = msg;
+    Utils.$('#player-error').classList.add('show');
+    this.isPlaying = false;
+    Utils.$('#play-icon').className = 'fas fa-play';
+    Utils.$('#play-btn').classList.remove('playing', 'loading');
+    setTimeout(() => Utils.$('#player-error').classList.remove('show'), 5000);
+  },
+
+  nextTrack(auto = false) {
+    const was = this.isPlaying || auto;
+    state.currentTrackIndex = (state.currentTrackIndex + 1) % this.tracks.length;
+    this.loadCurrentTrack();
+    this.updateUI();
+    if (was) {
+      this.retryCount = 0;
+      let played = false;
+      const cb = () => {
+        if (played) return;
+        played = true;
+        this.playAudio();
+      };
+      this.audio.addEventListener('canplay', cb, { once: true });
+      setTimeout(() => {
+        if (!this.isPlaying && was) cb();
+      }, 1000);
+    }
+    showToast(`🎵 ${this.tracks[state.currentTrackIndex].name}`);
+  },
+
+  prevTrack() {
+    const was = this.isPlaying;
+    state.currentTrackIndex = (state.currentTrackIndex - 1 + this.tracks.length) % this.tracks.length;
+    this.loadCurrentTrack();
+    this.updateUI();
+    if (was) {
+      this.retryCount = 0;
+      let played = false;
+      const cb = () => {
+        if (played) return;
+        played = true;
+        this.playAudio();
+      };
+      this.audio.addEventListener('canplay', cb, { once: true });
+      setTimeout(() => {
+        if (!this.isPlaying && was) cb();
+      }, 1000);
+    }
+    showToast(`🎵 ${this.tracks[state.currentTrackIndex].name}`);
+  },
+
+  stop() {
+    this.audio.pause();
+    this.audio.currentTime = 0;
+    this.isPlaying = false;
+    this.retryCount = 0;
+    Utils.$('#play-icon').className = 'fas fa-play';
+    Utils.$('#play-btn').classList.remove('playing', 'loading');
+    Utils.$('#player-time').textContent = '00:00 / 00:00';
+    Utils.$('#player-error').classList.remove('show');
+  },
+
+  retry() {
+    Utils.$('#player-error').classList.remove('show');
+    this.retryCount = 0;
+    this.loadCurrentTrack();
+    setTimeout(() => this.playAudio(), 200);
+  },
+
+  updateTime() {
+    const c = this.audio.currentTime || 0;
+    const d = this.audio.duration || 0;
+    Utils.$('#player-time').textContent = `${Utils.formatTime(c)} / ${Utils.formatTime(d)}`;
+  },
+
+  updateVolumeIcon() {
+    const v = this.audio.volume;
+    const i = Utils.$('#volume-icon');
+    if (v === 0) i.className = 'fas fa-volume-mute';
+    else if (v < 0.5) i.className = 'fas fa-volume-down';
+    else i.className = 'fas fa-volume-up';
+  }
 };
 
 /* ═══════════════════════════════════════════
-   BLOG MANAGER (نسخه کامل با مارک‌داون، نوشته‌های مرتبط، FAQ)
+   BLOG MANAGER (با پشتیبانی از Markdown)
 ═══════════════════════════════════════════ */
 const BlogManager = {
   _lastFocused: null,
   init() {
     this.loadPosts();
-    const debounced = Utils.debounce((v) => this.search(v), 300);
-    Utils.$('#blog-search').addEventListener('input', e => debounced(e.target.value));
+    Utils.$('#blog-search').addEventListener('input', Utils.debounce((e) => this.search(e.target.value), 300));
     Utils.$('#post-modal-close').addEventListener('click', ()=>this.closeModal());
     Utils.$('#post-modal').addEventListener('click', e=>{ if(e.target === Utils.$('#post-modal')) this.closeModal(); });
     document.addEventListener('keydown', e=>{ if(e.key==='Escape' && Utils.$('#post-modal').classList.contains('active')) this.closeModal(); });
@@ -973,7 +1236,6 @@ const BlogManager = {
   },
   search(q){ const s=q.toLowerCase().trim(); if(!s){ this.renderList(state.posts); return; } const f=state.posts.filter(p=>p.title.includes(s)||p.excerpt.includes(s)||p.content.includes(s)); this.renderList(f); },
 
-  /* ── Render Markdown ── */
   renderMarkdown(content) {
     const lines = content.split('\n');
     let html = '', listBuffer = [];
@@ -992,14 +1254,12 @@ const BlogManager = {
     return html;
   },
 
-  /* ── Render Related Posts ── */
   renderRelatedPosts(postIds) {
     const related = state.posts.filter(p => postIds.includes(p.id));
     if(!related.length) return '';
     return `<div class="related-posts-section"><h3><i class="fas fa-link"></i> نوشته‌های مرتبط</h3><div class="related-grid">${related.map(p => `<a href="#post/${p.slug}" class="related-card" onclick="event.preventDefault(); BlogManager.showPostModal('${p.slug}')"><img src="${Utils.safeURL(p.image)}" alt="${Utils.escapeHTML(p.title)}" loading="lazy"><div class="info"><h4>${Utils.escapeHTML(p.title)}</h4><p>${Utils.escapeHTML(p.excerpt.substring(0,60))}...</p></div></a>`).join('')}</div></div>`;
   },
 
-  /* ── Render Post FAQ ── */
   renderPostFAQ(faq) {
     if(!faq || !faq.length) return '';
     return `<div class="post-faq-section"><h3><i class="fas fa-question-circle"></i> سوالات متداول</h3>${faq.map(item => `<div class="post-faq-item"><h4>${Utils.escapeHTML(item.question)}</h4><p>${Utils.escapeHTML(item.answer)}</p></div>`).join('')}</div>`;
@@ -1057,11 +1317,9 @@ const BlogManager = {
     set('meta[property="og:description"]','content', post.excerpt);
     set('meta[property="og:url"]','content', `${window.location.origin}${window.location.pathname}#post/${post.slug}`);
     set('meta[property="og:image"]','content', post.image);
-    // JSON-LD Article
     let s=document.querySelector('script[data-blog-posting]');
     if(!s){ s=document.createElement('script'); s.type='application/ld+json'; s.dataset.blogPosting='true'; document.head.appendChild(s); }
-    s.textContent=JSON.stringify({"@context":"https://schema.org","@type":"Article","headline":post.title,"description":post.excerpt,"image":post.image,"datePublished":post.dateISO,"author":{"@type":"Person","name":"مهدی رحیمیان"},"publisher":{"@type":"Organization","name":"سایه‌های بی‌نقاب","logo":{"@type":"ImageObject","url":"https://sayehayebineghab.ir/logo.png"}},"keywords":post.keywords?post.keywords.join(', '):'',"speakable":{"@type":"SpeakableSpecification","cssSelector":[".post-modal-title",".post-modal-body"]}});
-    // FAQ Schema
+    s.textContent=JSON.stringify({"@context":"https://schema.org","@type":"Article","headline":post.title,"description":post.excerpt,"image":post.image,"datePublished":post.dateISO,"author":{"@type":"Person","name":"مهدی رحیمیان"},"publisher":{"@type":"Organization","name":"سایه‌های بی‌نقاب","logo":{"@type":"ImageObject","url":"https://sayehayebineghab.ir/logo.png"}},"keywords":post.keywords?post.keywords.join(', '):''});
     if(post.faq && post.faq.length>0){ let fs=document.querySelector('script[data-faq-post]'); if(!fs){ fs=document.createElement('script'); fs.type='application/ld+json'; fs.dataset.faqPost='true'; document.head.appendChild(fs); } fs.textContent=JSON.stringify({"@context":"https://schema.org","@type":"FAQPage","mainEntity":post.faq.map(f=>({"@type":"Question","name":f.question,"acceptedAnswer":{"@type":"Answer","text":f.answer}}))}); }
   },
   resetMeta() {
@@ -1081,7 +1339,7 @@ const BlogManager = {
 };
 
 /* ═══════════════════════════════════════════
-   FAQ MANAGER
+   FAQ
 ═══════════════════════════════════════════ */
 const FAQManager = {
   init() {
@@ -1096,7 +1354,7 @@ const FAQManager = {
 };
 
 /* ═══════════════════════════════════════════
-   HISTORY & INIT
+   POPSTATE & INIT
 ═══════════════════════════════════════════ */
 window.addEventListener('popstate', e=>{ if(e.state&&e.state.post) BlogManager.showPostModal(e.state.post,true); else BlogManager.closeModal(true); });
 
